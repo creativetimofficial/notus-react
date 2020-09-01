@@ -1,6 +1,6 @@
 {
   "name": "tailwind-webapp-react",
-  "homepage": "https://demos.creative-tim.com/tailwind-webapp-react"
+  "homepage": "https://demos.creative-tim.com/tailwind-webapp-react",
   "version": "1.0.0",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.14.0",
