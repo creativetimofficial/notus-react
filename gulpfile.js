@@ -9,10 +9,10 @@ gulp.task("licenses", async function () {
       gap.prependText(`/*!
 
 =========================================================
-* Tailwind React Webapp - v1.0.0
+* Tailwind Webapp React - v1.0.0
 =========================================================
 
-* Product Page: https://demos.creative-tim.com/tailwind-react-webapp/#/presentation
+* Product Page: https://demos.creative-tim.com/tailwind-webapp-react/#/presentation
 * Copyright 2020 Creative Tim (http://www.creative-tim.com)
 
 * Coded by Creative Tim
@@ -32,10 +32,10 @@ gulp.task("licenses", async function () {
       gap.prependText(`<!--
 
 =========================================================
-* Tailwind React Webapp - v1.0.0
+* Tailwind Webapp React - v1.0.0
 =========================================================
 
-* Product Page: https://demos.creative-tim.com/tailwind-react-webapp/#/presentation
+* Product Page: https://demos.creative-tim.com/tailwind-webapp-react/#/presentation
 * Copyright 2020 Creative Tim (http://www.creative-tim.com)
 
 * Coded by Creative Tim
@@ -55,10 +55,10 @@ gulp.task("licenses", async function () {
       gap.prependText(`/*!
 
 =========================================================
-* Tailwind React Webapp - v1.0.0
+* Tailwind Webapp React - v1.0.0
 =========================================================
 
-* Product Page: https://demos.creative-tim.com/tailwind-react-webapp/#/presentation
+* Product Page: https://demos.creative-tim.com/tailwind-webapp-react/#/presentation
 * Copyright 2020 Creative Tim (http://www.creative-tim.com)
 
 * Coded by Creative Tim
