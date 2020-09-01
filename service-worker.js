@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tailwind-webapp-react/precache-manifest.03fff905528247594c5c6c5f0ec76d36.js"
+  "/tailwind-webapp-react/precache-manifest.ccb7f61179eef0062a0689300b576911.js"
 );
 
 self.addEventListener('message', (event) => {
