@@ -7,6 +7,8 @@
     "@tailwindcss/custom-forms": "0.2.1",
     "chart.js": "2.9.3",
     "gh-pages": "3.1.0",
+    "gulp": "4.0.2",
+    "gulp-append-prepend": "1.0.8",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-google-maps": "9.4.5",
