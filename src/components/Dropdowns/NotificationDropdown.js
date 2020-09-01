@@ -1,14 +1,15 @@
 import React from "react";
 import Popper from "popper.js";
 
-const UserDropdown = () => {
+const NotificationDropdown = () => {
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
   const btnDropdownRef = React.createRef();
   const popoverDropdownRef = React.createRef();
   const openDropdownPopover = () => {
+    console.log("hey");
     new Popper(btnDropdownRef.current, popoverDropdownRef.current, {
-      placement: "bottom-end"
+      placement: "bottom-end",
     });
     setDropdownPopoverShow(true);
   };
@@ -18,23 +19,15 @@ const UserDropdown = () => {
   return (
     <>
       <a
-        className="text-gray-600 block"
+        className="text-gray-600 block py-1 px-3"
         href="#pablo"
         ref={btnDropdownRef}
-        onClick={e => {
+        onClick={(e) => {
           e.preventDefault();
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        <div className="items-center flex">
-          <span className="w-12 h-12 text-sm text-white bg-gray-300 inline-flex items-center justify-center rounded-full">
-            <img
-              alt="..."
-              className="w-full rounded-full align-middle border-none shadow-lg"
-              src={require("assets/img/team-1-800x800.jpg")}
-            />
-          </span>
-        </div>
+        <i className="fas fa-bell"></i>
       </a>
       <div
         ref={popoverDropdownRef}
@@ -49,7 +42,7 @@ const UserDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
           }
-          onClick={e => e.preventDefault()}
+          onClick={(e) => e.preventDefault()}
         >
           Action
         </a>
@@ -58,7 +51,7 @@ const UserDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
           }
-          onClick={e => e.preventDefault()}
+          onClick={(e) => e.preventDefault()}
         >
           Another action
         </a>
@@ -67,7 +60,7 @@ const UserDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
           }
-          onClick={e => e.preventDefault()}
+          onClick={(e) => e.preventDefault()}
         >
           Something else here
         </a>
@@ -77,7 +70,7 @@ const UserDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
           }
-          onClick={e => e.preventDefault()}
+          onClick={(e) => e.preventDefault()}
         >
           Seprated link
         </a>
@@ -86,4 +79,4 @@ const UserDropdown = () => {
   );
 };
 
-export default UserDropdown;
+export default NotificationDropdown;

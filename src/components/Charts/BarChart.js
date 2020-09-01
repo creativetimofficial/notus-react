@@ -13,7 +13,7 @@ export default function BarChart() {
           "April",
           "May",
           "June",
-          "July"
+          "July",
         ],
         datasets: [
           {
@@ -22,7 +22,7 @@ export default function BarChart() {
             borderColor: "#ed64a6",
             data: [30, 78, 56, 34, 100, 45, 13],
             fill: false,
-            barThickness: 8
+            barThickness: 8,
           },
           {
             label: new Date().getFullYear() - 1,
@@ -30,39 +30,39 @@ export default function BarChart() {
             backgroundColor: "#4c51bf",
             borderColor: "#4c51bf",
             data: [27, 68, 86, 74, 10, 4, 87],
-            barThickness: 8
-          }
-        ]
+            barThickness: 8,
+          },
+        ],
       },
       options: {
         maintainAspectRatio: false,
         responsive: true,
         title: {
           display: false,
-          text: "Orders Chart"
+          text: "Orders Chart",
         },
         tooltips: {
           mode: "index",
-          intersect: false
+          intersect: false,
         },
         hover: {
           mode: "nearest",
-          intersect: true
+          intersect: true,
         },
         legend: {
           labels: {
-            fontColor: "rgba(0,0,0,.4)"
+            fontColor: "rgba(0,0,0,.4)",
           },
           align: "end",
-          position: "bottom"
+          position: "bottom",
         },
         scales: {
           xAxes: [
             {
               display: false,
               scaleLabel: {
-              display: true,
-              labelString: "Month"
+                display: true,
+                labelString: "Month",
               },
               gridLines: {
                 borderDash: [2],
@@ -70,16 +70,16 @@ export default function BarChart() {
                 color: "rgba(33, 37, 41, 0.3)",
                 zeroLineColor: "rgba(33, 37, 41, 0.3)",
                 zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2]
-              }
-            }
+                zeroLineBorderDashOffset: [2],
+              },
+            },
           ],
           yAxes: [
             {
               display: true,
               scaleLabel: {
-              display: false,
-              labelString: "Value"
+                display: false,
+                labelString: "Value",
               },
               gridLines: {
                 borderDash: [2],
@@ -88,12 +88,12 @@ export default function BarChart() {
                 color: "rgba(33, 37, 41, 0.2)",
                 zeroLineColor: "rgba(33, 37, 41, 0.15)",
                 zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2]
-              }
-            }
-          ]
-        }
-      }
+                zeroLineBorderDashOffset: [2],
+              },
+            },
+          ],
+        },
+      },
     };
     let ctx = document.getElementById("bar-chart").getContext("2d");
     window.myBar = new Chart(ctx, config);
