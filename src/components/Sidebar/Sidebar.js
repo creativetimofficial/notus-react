@@ -23,7 +23,7 @@ export default function Sidebar() {
             className="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0"
             to="/"
           >
-            Tailwind Starter Kit
+            Tailwind React Webapp
           </Link>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
@@ -49,7 +49,7 @@ export default function Sidebar() {
                     className="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0"
                     to="/"
                   >
-                    Tailwind Starter Kit
+                    Tailwind React Webapp
                   </Link>
                 </div>
                 <div className="w-6/12 flex justify-end">
