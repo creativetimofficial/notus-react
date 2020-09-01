@@ -166,7 +166,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
-                  to="/"
+                  to="/landing"
                 >
                   <i className="fas fa-newspaper text-gray-500 mr-2 text-sm"></i>{" "}
                   Landing Page
@@ -176,7 +176,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
-                  to="/auth/profile"
+                  to="/profile"
                 >
                   <i className="fas fa-user-circle text-gray-500 mr-2 text-sm"></i>{" "}
                   Profile Page
