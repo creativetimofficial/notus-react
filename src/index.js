@@ -4,16 +4,26 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-import Dashboard from "views/Dashboard.js";
-import Login from "views/Login.js";
-import Register from "views/Register.js";
+// layouts
+
+import Admin from "layouts/Admin.js";
+import Auth from "layouts/Auth.js";
+
+// views without layouts
+
+import Landing from "views/Landing.js";
+import Profile from "views/Profile.js";
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/admin/dashboard" component={Dashboard} />
-      <Route path="/auth/login" component={Login} />
-      <Route path="/auth/register" component={Register} />
+      {/* add routes with layouts */}
+      <Route path="/admin" component={Admin} />
+      <Route path="/auth" component={Auth} />
+      {/* add routes without layouts */}
+      <Route path="/landing" component={Landing} />
+      <Route path="/profile" component={Profile} />
+      {/* add redirect for first page */}
       <Redirect from="/" to="/admin/dashboard" />
     </Switch>
   </BrowserRouter>,
