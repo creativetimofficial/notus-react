@@ -1289,6 +1289,12 @@ video {
   background-color: rgba(190, 227, 248, var(--bg-opacity));
 }
 
+.bg-blue-300 {
+  --bg-opacity: 1;
+  background-color: #90cdf4;
+  background-color: rgba(144, 205, 244, var(--bg-opacity));
+}
+
 .bg-blue-400 {
   --bg-opacity: 1;
   background-color: #63b3ed;
@@ -1337,28 +1343,10 @@ video {
   background-color: rgba(159, 122, 234, var(--bg-opacity));
 }
 
-.bg-pink-200 {
-  --bg-opacity: 1;
-  background-color: #fed7e2;
-  background-color: rgba(254, 215, 226, var(--bg-opacity));
-}
-
-.bg-pink-300 {
-  --bg-opacity: 1;
-  background-color: #fbb6ce;
-  background-color: rgba(251, 182, 206, var(--bg-opacity));
-}
-
 .bg-pink-500 {
   --bg-opacity: 1;
   background-color: #ed64a6;
   background-color: rgba(237, 100, 166, var(--bg-opacity));
-}
-
-.bg-pink-600 {
-  --bg-opacity: 1;
-  background-color: #d53f8c;
-  background-color: rgba(213, 63, 140, var(--bg-opacity));
 }
 
 .active\:bg-gray-100:active {
@@ -1383,12 +1371,6 @@ video {
   --bg-opacity: 1;
   background-color: #5a67d8;
   background-color: rgba(90, 103, 216, var(--bg-opacity));
-}
-
-.active\:bg-pink-600:active {
-  --bg-opacity: 1;
-  background-color: #d53f8c;
-  background-color: rgba(213, 63, 140, var(--bg-opacity));
 }
 
 .bg-center {
@@ -2298,6 +2280,12 @@ video {
   color: rgba(99, 179, 237, var(--text-opacity));
 }
 
+.text-blue-500 {
+  --text-opacity: 1;
+  color: #4299e1;
+  color: rgba(66, 153, 225, var(--text-opacity));
+}
+
 .text-blue-600 {
   --text-opacity: 1;
   color: #3182ce;
@@ -2308,18 +2296,6 @@ video {
   --text-opacity: 1;
   color: #f687b3;
   color: rgba(246, 135, 179, var(--text-opacity));
-}
-
-.text-pink-500 {
-  --text-opacity: 1;
-  color: #ed64a6;
-  color: rgba(237, 100, 166, var(--text-opacity));
-}
-
-.text-pink-600 {
-  --text-opacity: 1;
-  color: #d53f8c;
-  color: rgba(213, 63, 140, var(--text-opacity));
 }
 
 .hover\:text-gray-400:hover {
@@ -2346,10 +2322,10 @@ video {
   color: rgba(26, 32, 44, var(--text-opacity));
 }
 
-.hover\:text-pink-600:hover {
+.hover\:text-blue-600:hover {
   --text-opacity: 1;
-  color: #d53f8c;
-  color: rgba(213, 63, 140, var(--text-opacity));
+  color: #3182ce;
+  color: rgba(49, 130, 206, var(--text-opacity));
 }
 
 .uppercase {
