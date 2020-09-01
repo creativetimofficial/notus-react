@@ -85,7 +85,7 @@ export default function Sidebar() {
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link
-                  className="text-pink-500 hover:text-pink-600 text-xs uppercase py-3 font-bold block"
+                  className={"text-xs uppercase py-3 font-bold block " + (window.location.href.indexOf("/admin/dashboard") !== -1 ? "text-pink-500 hover:text-pink-600":"text-gray-800 hover:text-gray-600")}
                   to="/admin/dashboard"
                 >
                   <i className="fas fa-tv opacity-75 mr-2 text-sm"></i>{" "}
@@ -95,7 +95,7 @@ export default function Sidebar() {
 
               <li className="items-center">
                 <Link
-                  className="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
+                  className={"text-xs uppercase py-3 font-bold block " + (window.location.href.indexOf("/admin/settings") !== -1 ? "text-pink-500 hover:text-pink-600":"text-gray-800 hover:text-gray-600")}
                   to="/admin/settings"
                 >
                   <i className="fas fa-tools text-gray-400 mr-2 text-sm"></i>{" "}
@@ -105,7 +105,7 @@ export default function Sidebar() {
 
               <li className="items-center">
                 <Link
-                  className="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
+                  className={"text-xs uppercase py-3 font-bold block " + (window.location.href.indexOf("/admin/tables") !== -1 ? "text-pink-500 hover:text-pink-600":"text-gray-800 hover:text-gray-600")}
                   to="/admin/tables"
                 >
                   <i className="fas fa-table text-gray-400 mr-2 text-sm"></i>{" "}
@@ -115,7 +115,7 @@ export default function Sidebar() {
 
               <li className="items-center">
                 <Link
-                  className="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
+                  className={"text-xs uppercase py-3 font-bold block " + (window.location.href.indexOf("/admin/maps") !== -1 ? "text-pink-500 hover:text-pink-600":"text-gray-800 hover:text-gray-600")}
                   to="/admin/maps"
                 >
                   <i className="fas fa-map-marked text-gray-400 mr-2 text-sm"></i>{" "}
