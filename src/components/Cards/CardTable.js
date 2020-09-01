@@ -177,7 +177,8 @@ export default function CardTable({ color }) {
                   $1,800 USD
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  <i className="fas fa-circle text-green-500 mr-2"></i> completed
+                  <i className="fas fa-circle text-green-500 mr-2"></i>{" "}
+                  completed
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                   <div className="flex">
@@ -303,7 +304,8 @@ export default function CardTable({ color }) {
                   $4,400 USD
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  <i className="fas fa-circle text-teal-500 mr-2"></i> on schedule
+                  <i className="fas fa-circle text-teal-500 mr-2"></i> on
+                  schedule
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                   <div className="flex">
@@ -366,7 +368,8 @@ export default function CardTable({ color }) {
                   $2,200 USD
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  <i className="fas fa-circle text-green-500 mr-2"></i> completed
+                  <i className="fas fa-circle text-green-500 mr-2"></i>{" "}
+                  completed
                 </td>
                 <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                   <div className="flex">
