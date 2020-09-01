@@ -15,7 +15,7 @@ module.exports = {
       "./public/*.js",
     ],
     options: {
-      whitelist: ["border-blue-500"],
+      whitelist: [],
     },
   },
   variants: [
