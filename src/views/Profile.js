@@ -13,7 +13,7 @@ export default function Profile() {
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
               backgroundImage:
-                "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')"
+                "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')",
             }}
           >
             <span
@@ -120,7 +120,7 @@ export default function Profile() {
                       <a
                         href="#pablo"
                         className="font-normal text-pink-500"
-                        onClick={e => e.preventDefault()}
+                        onClick={(e) => e.preventDefault()}
                       >
                         Show more
                       </a>

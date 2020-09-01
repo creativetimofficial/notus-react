@@ -15,7 +15,7 @@ export default function Login() {
               backgroundImage:
                 "url(" + require("assets/img/register_bg_2.png") + ")",
               backgroundSize: "100%",
-              backgroundRepeat: "no-repeat"
+              backgroundRepeat: "no-repeat",
             }}
           ></div>
           <div className="container mx-auto px-4 h-full">
@@ -120,7 +120,7 @@ export default function Login() {
                   <div className="w-1/2">
                     <a
                       href="#pablo"
-                      onClick={e => e.preventDefault()}
+                      onClick={(e) => e.preventDefault()}
                       className="text-gray-300"
                     >
                       <small>Forgot password?</small>
@@ -129,7 +129,7 @@ export default function Login() {
                   <div className="w-1/2 text-right">
                     <a
                       href="#pablo"
-                      onClick={e => e.preventDefault()}
+                      onClick={(e) => e.preventDefault()}
                       className="text-gray-300"
                     >
                       <small>Create new account</small>

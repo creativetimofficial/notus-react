@@ -1,16 +1,16 @@
 import React from "react";
 
-import Navbar from "components/Navbar.js";
-import Sidebar from "components/Sidebar.js";
-import LineChart from "components/LineChart.js";
-import BarChart from "components/BarChart.js";
+import AdminNavbar from "components/Navbars/AdminNavbar.js";
+import Sidebar from "components/Sidebar/Sidebar.js";
+import LineChart from "components/Charts/LineChart.js";
+import BarChart from "components/Charts/BarChart.js";
 
 export default function Dashboard() {
   return (
     <>
       <Sidebar />
       <div className="relative md:ml-64 bg-gray-200">
-        <Navbar />
+        <AdminNavbar />
         {/* Header */}
         <div className="relative bg-pink-600 md:pt-32 pb-32 pt-12">
           <div className="px-4 md:px-10 mx-auto w-full">
@@ -35,7 +35,7 @@ export default function Dashboard() {
                           </div>
                         </div>
                       </div>
-                        <p className="text-sm text-gray-500 mt-4">
+                      <p className="text-sm text-gray-500 mt-4">
                         <span className="text-green-500 mr-2">
                           <i className="fas fa-arrow-up"></i> 3.48%
                         </span>
