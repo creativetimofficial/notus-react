@@ -1,7 +1,6 @@
 {
-  "name": "react-dashboard-page",
-  "version": "0.1.0",
-  "private": true,
+  "name": "tailwind-webapp-react",
+  "version": "1.0.0",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.14.0",
     "@popperjs/core": "2.4.4",
