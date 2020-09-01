@@ -78,7 +78,7 @@ export default function Sidebar() {
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-gray-600 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Admin Pages
+              Admin Layout Pages
             </h6>
             {/* Navigation */}
 
@@ -128,7 +128,38 @@ export default function Sidebar() {
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-gray-600 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Auth Pages
+              Auth Layout Pages
+            </h6>
+            {/* Navigation */}
+
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+
+              <li className="items-center">
+                <Link
+                  className="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
+                  to="/auth/login"
+                >
+                  <i className="fas fa-fingerprint text-gray-500 mr-2 text-sm"></i>{" "}
+                  Login
+                </Link>
+              </li>
+
+              <li className="items-center">
+                <Link
+                  className="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
+                  to="/auth/register"
+                >
+                  <i className="fas fa-clipboard-list text-gray-400 mr-2 text-sm"></i>{" "}
+                  Register
+                </Link>
+              </li>
+            </ul>
+
+            {/* Divider */}
+            <hr className="my-4 md:min-w-full" />
+            {/* Heading */}
+            <h6 className="md:min-w-full text-gray-600 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              No Layout Pages
             </h6>
             {/* Navigation */}
 
@@ -152,27 +183,8 @@ export default function Sidebar() {
                   Profile Page
                 </Link>
               </li>
-
-              <li className="items-center">
-                <Link
-                  className="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
-                  to="/auth/login"
-                >
-                  <i className="fas fa-fingerprint text-gray-500 mr-2 text-sm"></i>{" "}
-                  Login
-                </Link>
-              </li>
-
-              <li className="items-center">
-                <Link
-                  className="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
-                  to="/auth/register"
-                >
-                  <i className="fas fa-clipboard-list text-gray-400 mr-2 text-sm"></i>{" "}
-                  Register
-                </Link>
-              </li>
             </ul>
+
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
