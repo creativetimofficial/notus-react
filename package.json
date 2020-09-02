@@ -1,7 +1,9 @@
 {
   "name": "tailwind-webapp-react",
-  "homepage": "https://demos.creative-tim.com/tailwind-webapp-react",
   "version": "1.0.0",
+  "description": "Tailwind Webapp React - A free Tailwind and React webapp template by Creative Tim.",
+  "repository": "https://github.com/creativetimofficial/tailwind-webapp-react",
+  "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.14.0",
     "@popperjs/core": "2.4.4",
