@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a5a5ee57936cfac63af60340f6ed8297",
+    "revision": "efbf273ef89253eaf5964c19351721c8",
     "url": "/tailwind-webapp-react/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tailwind-webapp-react/static/css/2.66d5252b.chunk.css"
   },
   {
-    "revision": "66243a0b82a6b0550d9b",
+    "revision": "74ac3d08e871c93afbba",
     "url": "/tailwind-webapp-react/static/css/main.1ab589c8.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tailwind-webapp-react/static/js/2.bb702ec4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "66243a0b82a6b0550d9b",
-    "url": "/tailwind-webapp-react/static/js/main.a37880cb.chunk.js"
+    "revision": "74ac3d08e871c93afbba",
+    "url": "/tailwind-webapp-react/static/js/main.0cad8ee4.chunk.js"
   },
   {
     "revision": "8303ab6176752f46138d",
@@ -124,16 +124,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tailwind-webapp-react/static/media/google.87be59a1.svg"
   },
   {
-    "revision": "b8b154507877636368d6566fa5ccba92",
-    "url": "/tailwind-webapp-react/static/media/ill_header.b8b15450.png"
-  },
-  {
     "revision": "37b6ed3b5e885d97a5b58b78a85ddb16",
     "url": "/tailwind-webapp-react/static/media/landing.37b6ed3b.jpg"
   },
   {
     "revision": "a6f0905b44dd05314d7fd7761294120d",
     "url": "/tailwind-webapp-react/static/media/login.a6f0905b.jpg"
+  },
+  {
+    "revision": "452a8e48b2367ca3cdcd4cca39d066ee",
+    "url": "/tailwind-webapp-react/static/media/pattern_react.452a8e48.png"
   },
   {
     "revision": "056db5425a3e9e0b2ce6740dd8407e75",

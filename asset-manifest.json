@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/tailwind-webapp-react/static/css/main.1ab589c8.chunk.css",
-    "main.js": "/tailwind-webapp-react/static/js/main.a37880cb.chunk.js",
-    "main.js.map": "/tailwind-webapp-react/static/js/main.a37880cb.chunk.js.map",
+    "main.js": "/tailwind-webapp-react/static/js/main.0cad8ee4.chunk.js",
+    "main.js.map": "/tailwind-webapp-react/static/js/main.0cad8ee4.chunk.js.map",
     "runtime-main.js": "/tailwind-webapp-react/static/js/runtime-main.1daac6d3.js",
     "runtime-main.js.map": "/tailwind-webapp-react/static/js/runtime-main.1daac6d3.js.map",
     "static/css/2.66d5252b.chunk.css": "/tailwind-webapp-react/static/css/2.66d5252b.chunk.css",
     "static/js/2.bb702ec4.chunk.js": "/tailwind-webapp-react/static/js/2.bb702ec4.chunk.js",
     "static/js/2.bb702ec4.chunk.js.map": "/tailwind-webapp-react/static/js/2.bb702ec4.chunk.js.map",
     "index.html": "/tailwind-webapp-react/index.html",
-    "precache-manifest.6ac51c9931de3b6581f55fd2a7c232df.js": "/tailwind-webapp-react/precache-manifest.6ac51c9931de3b6581f55fd2a7c232df.js",
+    "precache-manifest.30f1a3bb5c7b3e43100c119598ca91b3.js": "/tailwind-webapp-react/precache-manifest.30f1a3bb5c7b3e43100c119598ca91b3.js",
     "service-worker.js": "/tailwind-webapp-react/service-worker.js",
     "static/css/2.66d5252b.chunk.css.map": "/tailwind-webapp-react/static/css/2.66d5252b.chunk.css.map",
     "static/css/main.1ab589c8.chunk.css.map": "/tailwind-webapp-react/static/css/main.1ab589c8.chunk.css.map",
@@ -24,9 +24,9 @@
     "static/media/all.min.css": "/tailwind-webapp-react/static/media/fa-solid-900.ee09ad75.woff",
     "static/media/github.svg": "/tailwind-webapp-react/static/media/github.4ffd4fe7.svg",
     "static/media/google.svg": "/tailwind-webapp-react/static/media/google.87be59a1.svg",
-    "static/media/ill_header.png": "/tailwind-webapp-react/static/media/ill_header.b8b15450.png",
     "static/media/landing.jpg": "/tailwind-webapp-react/static/media/landing.37b6ed3b.jpg",
     "static/media/login.jpg": "/tailwind-webapp-react/static/media/login.a6f0905b.jpg",
+    "static/media/pattern_react.png": "/tailwind-webapp-react/static/media/pattern_react.452a8e48.png",
     "static/media/profile.jpg": "/tailwind-webapp-react/static/media/profile.056db542.jpg",
     "static/media/react.jpg": "/tailwind-webapp-react/static/media/react.c4eb3d0b.jpg",
     "static/media/register_bg_2.png": "/tailwind-webapp-react/static/media/register_bg_2.2fee0b50.png",
@@ -42,6 +42,6 @@
     "static/css/2.66d5252b.chunk.css",
     "static/js/2.bb702ec4.chunk.js",
     "static/css/main.1ab589c8.chunk.css",
-    "static/js/main.a37880cb.chunk.js"
+    "static/js/main.0cad8ee4.chunk.js"
   ]
 }
