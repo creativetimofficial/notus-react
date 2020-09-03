@@ -20,7 +20,7 @@ export default function Index() {
                 A beautiful extension for TailwindCSS.
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                Tailwind Webapp NextJS is Free and Open Source. It does not
+                Tailwind Webapp React is Free and Open Source. It does not
                 change or add any CSS to the already one from{" "}
                 <a
                   href="https://tailwindcss.com/?ref=creativetim"
@@ -34,7 +34,7 @@ export default function Index() {
               </p>
               <div className="mt-12">
                 <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/overview/webapp-nextjs"
+                  href="https://www.creative-tim.com/learning-lab/tailwind/overview/webapp-react"
                   target="_blank"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blue-500 active:bg-blue-600 uppercase text-sm shadow hover:shadow-lg"
                   style={{ transition: "all .15s ease" }}
@@ -42,7 +42,7 @@ export default function Index() {
                   Get started
                 </a>
                 <a
-                  href="https://github.com/creativetimofficial/tailwind-webapp-nextjs"
+                  href="https://github.com/creativetimofficial/tailwind-webapp-react"
                   className="github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-gray-800 active:bg-gray-700 uppercase text-sm shadow hover:shadow-lg"
                   target="_blank"
                 >
@@ -55,7 +55,7 @@ export default function Index() {
 
         <img
           className="absolute top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12"
-          src={require("assets/img/ill_header.png")}
+          src={require("assets/img/pattern_react.png")}
           alt="..."
           style={{ maxHeight: "860px" }}
         />
@@ -225,7 +225,7 @@ export default function Index() {
                 </span>
               </div>
               <a
-                href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-nextjs"
+                href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-react"
                 target="_blank"
                 className="font-bold text-gray-800 hover:text-gray-600"
                 style={{ transition: "all .15s ease" }}
@@ -434,7 +434,7 @@ export default function Index() {
                 </span>
               </div>
               <a
-                href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-nextjs"
+                href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-react"
                 target="_blank"
                 className="font-bold text-gray-800 hover:text-gray-600"
                 style={{ transition: "all .15s ease" }}
@@ -527,7 +527,7 @@ export default function Index() {
           <div className="w-full md:w-6/12 px-12 md:px-4">
             <h2 className="font-semibold text-4xl">Beautiful Example Pages</h2>
             <p className="text-lg leading-relaxed mt-4 mb-4 text-gray-600">
-              Tailwind Webapp NextJS is a completly new product built using our
+              Tailwind Webapp React is a completly new product built using our
               past experience in web templates. Take the examples we made for
               you and start playing with them.
             </p>
@@ -627,7 +627,7 @@ export default function Index() {
                 Star!
               </p>
               <a
-                href="https://github.com/creativetimofficial/tailwind-webapp-nextjs"
+                href="https://github.com/creativetimofficial/tailwind-webapp-react"
                 target="_blank"
                 className="github-star mt-4 inline-block text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-gray-800 active:bg-gray-700 uppercase text-sm shadow hover:shadow-lg"
               >
@@ -691,7 +691,7 @@ export default function Index() {
               </p>
               <div className="sm:block flex flex-col mt-10">
                 <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/overflow/webapp-nextjs"
+                  href="https://www.creative-tim.com/learning-lab/tailwind/overflow/webapp-react"
                   target="_blank"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-2 bg-blue-500 active:bg-blue-600 uppercase text-sm shadow hover:shadow-lg"
                   style={{ transition: "all .15s ease" }}
@@ -699,7 +699,7 @@ export default function Index() {
                   Get started
                 </a>
                 <a
-                  href="https://github.com/creativetimofficial/tailwind-webapp-nextjs"
+                  href="https://github.com/creativetimofficial/tailwind-webapp-react"
                   target="_blank"
                   className="github-star sm:ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-gray-800 active:bg-gray-700 uppercase text-sm shadow hover:shadow-lg"
                 >
