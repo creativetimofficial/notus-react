@@ -16,7 +16,7 @@ export default function Navbar(props) {
                 className="text-gray-800 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase"
                 href="#pablo"
               >
-                Tailwind Webapp NextJS
+                Tailwind Webapp React
               </a>
             </Link>
             <button
@@ -38,7 +38,7 @@ export default function Navbar(props) {
               <li className="flex items-center">
                 <a
                   className="hover:text-gray-600 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="https://www.creative-tim.com/learning-lab/tailwind/overview/webapp-nextjs"
+                  href="https://www.creative-tim.com/learning-lab/tailwind/overview/webapp-react"
                 >
                   <i className="text-gray-500 far fa-file-alt text-lg leading-lg mr-2" />{" "}
                   Docs
