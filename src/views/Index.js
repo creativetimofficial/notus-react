@@ -55,7 +55,7 @@ export default function Index() {
 
         <img
           className="absolute top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12"
-          src={require("assets/img/ill_header_3.png")}
+          src={require("assets/img/ill_header.png")}
           alt="..."
           style={{ maxHeight: "860px" }}
         />
