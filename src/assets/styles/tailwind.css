@@ -1387,6 +1387,10 @@ video {
   background-repeat: no-repeat;
 }
 
+.bg-cover {
+  background-size: cover;
+}
+
 .bg-full {
   background-size: 100$;
 }
@@ -1603,16 +1607,72 @@ video {
   font-weight: 700;
 }
 
+.h-0 {
+  height: 0;
+}
+
+.h-2 {
+  height: 0.5rem;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
+}
+
+.h-95-px {
+  height: 95px;
+}
+
+.h-70-px {
+  height: 70px;
+}
+
 .h-350-px {
   height: 350px;
+}
+
+.h-500-px {
+  height: 500px;
 }
 
 .h-600-px {
   height: 600px;
 }
 
-.h-95-px {
-  height: 95px;
+.text-55 {
+  font-size: 55rem;
 }
 
 .text-xs {
@@ -1896,6 +1956,10 @@ video {
   max-height: 860px;
 }
 
+.max-w-full {
+  max-width: 100%;
+}
+
 .max-w-100-px {
   max-width: 100px;
 }
@@ -1920,6 +1984,14 @@ video {
   max-width: 580px;
 }
 
+.min-h-screen-75 {
+  min-height: 75vh;
+}
+
+.min-w-0 {
+  min-width: 0;
+}
+
 .min-w-48 {
   min-width: 12rem;
 }
@@ -1934,6 +2006,10 @@ video {
 
 .opacity-75 {
   opacity: 0.75;
+}
+
+.opacity-80 {
+  opacity: .8;
 }
 
 .outline-none {
@@ -2204,12 +2280,48 @@ video {
   position: relative;
 }
 
+.top-0 {
+  top: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.top-auto {
+  top: auto;
+}
+
+.bottom-auto {
+  bottom: auto;
+}
+
+.left-auto {
+  left: auto;
+}
+
+.-right-100 {
+  right: -100%;
+}
+
 .-top-225-px {
   top: -225px;
 }
 
 .-top-160-px {
   top: -160px;
+}
+
+.-top-150-px {
+  top: -150px;
 }
 
 .-top-94-px {
@@ -2527,6 +2639,18 @@ video {
 
 .z-3 {
   z-index: 3;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-40 {
+  z-index: 40;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .transform {
@@ -3381,6 +3505,10 @@ video {
     min-height: 100%;
   }
 
+  .md\:min-w-full {
+    min-width: 100%;
+  }
+
   .md\:opacity-100 {
     opacity: 1;
   }
@@ -3425,6 +3553,18 @@ video {
 
   .md\:relative {
     position: relative;
+  }
+
+  .md\:top-0 {
+    top: 0;
+  }
+
+  .md\:bottom-0 {
+    bottom: 0;
+  }
+
+  .md\:left-0 {
+    left: 0;
   }
 
   .md\:shadow-none {
