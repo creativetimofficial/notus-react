@@ -284,8 +284,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-1-800x800.jpg")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Ryan Tompson</h5>
@@ -320,8 +319,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-2-800x800.jpg")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Romina Hadid</h5>
@@ -350,8 +348,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-3-800x800.jpg")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Alexa Smith</h5>
@@ -386,8 +383,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-4-470x470.png")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Jenna Kardi</h5>

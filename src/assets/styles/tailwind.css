@@ -1387,8 +1387,8 @@ video {
   background-repeat: no-repeat;
 }
 
-.bg-cover {
-  background-size: cover;
+.bg-full {
+  background-size: 100$;
 }
 
 .border-collapse {
@@ -1603,48 +1603,16 @@ video {
   font-weight: 700;
 }
 
-.h-0 {
-  height: 0;
+.h-350-px {
+  height: 350px;
 }
 
-.h-2 {
-  height: 0.5rem;
+.h-600-px {
+  height: 600px;
 }
 
-.h-5 {
-  height: 1.25rem;
-}
-
-.h-8 {
-  height: 2rem;
-}
-
-.h-10 {
-  height: 2.5rem;
-}
-
-.h-12 {
-  height: 3rem;
-}
-
-.h-16 {
-  height: 4rem;
-}
-
-.h-20 {
-  height: 5rem;
-}
-
-.h-auto {
-  height: auto;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-screen {
-  height: 100vh;
+.h-95-px {
+  height: 95px;
 }
 
 .text-xs {
@@ -1924,12 +1892,40 @@ video {
   margin-top: -1rem;
 }
 
-.max-w-full {
-  max-width: 100%;
+.max-h-860-px {
+  max-height: 860px;
 }
 
-.min-w-0 {
-  min-width: 0;
+.max-w-100-px {
+  max-width: 100px;
+}
+
+.max-w-120-px {
+  max-width: 120px;
+}
+
+.max-w-150-px {
+  max-width: 150px;
+}
+
+.max-w-180-px {
+  max-width: 180px;
+}
+
+.max-w-200-px {
+  max-width: 200px;
+}
+
+.max-w-580-px {
+  max-width: 580px;
+}
+
+.min-w-48 {
+  min-width: 12rem;
+}
+
+.min-w-140-px {
+  min-width: 140px;
 }
 
 .opacity-50 {
@@ -2208,28 +2204,56 @@ video {
   position: relative;
 }
 
-.top-0 {
-  top: 0;
+.-top-225-px {
+  top: -225px;
 }
 
-.right-0 {
-  right: 0;
+.-top-160-px {
+  top: -160px;
 }
 
-.bottom-0 {
-  bottom: 0;
+.-top-94-px {
+  top: -94px;
 }
 
-.left-0 {
-  left: 0;
+.-left-50-px {
+  left: -50px;
 }
 
-.top-auto {
-  top: auto;
+.-top-29-px {
+  top: -29px;
 }
 
-.bottom-auto {
-  bottom: auto;
+.-left-20-px {
+  left: -20px;
+}
+
+.top-25-px {
+  top: 25px;
+}
+
+.left-40-px {
+  left: 40px;
+}
+
+.top-95-px {
+  top: 95px;
+}
+
+.left-145-px {
+  left: 145px;
+}
+
+.left-195-px {
+  left: 195px;
+}
+
+.top-210-px {
+  top: 210px;
+}
+
+.left-260-px {
+  left: 260px;
 }
 
 .shadow {
@@ -2497,16 +2521,12 @@ video {
   width: 100%;
 }
 
-.z-10 {
-  z-index: 10;
+.z-2 {
+  z-index: 2;
 }
 
-.z-40 {
-  z-index: 40;
-}
-
-.z-50 {
-  z-index: 50;
+.z-3 {
+  z-index: 3;
 }
 
 .transform {
@@ -3361,10 +3381,6 @@ video {
     min-height: 100%;
   }
 
-  .md\:min-w-full {
-    min-width: 100%;
-  }
-
   .md\:opacity-100 {
     opacity: 1;
   }
@@ -3409,18 +3425,6 @@ video {
 
   .md\:relative {
     position: relative;
-  }
-
-  .md\:top-0 {
-    top: 0;
-  }
-
-  .md\:bottom-0 {
-    bottom: 0;
-  }
-
-  .md\:left-0 {
-    left: 0;
   }
 
   .md\:shadow-none {
