@@ -1980,6 +1980,10 @@ video {
   max-width: 200px;
 }
 
+.max-w-210-px {
+  max-width: 210px;
+}
+
 .max-w-580-px {
   max-width: 580px;
 }

@@ -235,7 +235,7 @@ export default function Index() {
                 <img
                   alt="..."
                   src={require("assets/img/component-profile-card.png")}
-                  className="w-full align-middle rounded-lg absolute shadow-lg -top-160-px left-260-px max-w-210"
+                  className="w-full align-middle rounded-lg absolute shadow-lg -top-160-px left-260-px max-w-210-px"
                 />
                 <img
                   alt="..."
