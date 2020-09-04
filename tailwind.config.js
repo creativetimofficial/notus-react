@@ -19,13 +19,24 @@ module.exports = {
     },
   },
   theme: {
+    minHeight: {
+      "screen-75": "75vh",
+    },
+    fontSize: {
+      "55": "55rem",
+    },
+    opacity: {
+      "80": ".8",
+    },
     zIndex: {
       "2": 2,
       "3": 3,
     },
     inset: {
+      "-100": "-100%",
       "-225-px": "-225px",
       "-160-px": "-160px",
+      "-150-px": "-150px",
       "-94-px": "-94px",
       "-50-px": "-50px",
       "-29-px": "-29px",
@@ -39,12 +50,13 @@ module.exports = {
       "260-px": "260px",
     },
     height: {
+      "95-px": "95px",
       "350-px": "350px",
+      "500-px": "500px",
       "600-px": "600px",
-      "95-px": "95px"
     },
     maxHeight: {
-      "860-px": "860px"
+      "860-px": "860px",
     },
     maxWidth: {
       "100-px": "100px",
@@ -57,11 +69,11 @@ module.exports = {
     },
     minWidth: {
       "140-px": "140px",
-      "48": "12rem"
+      "48": "12rem",
     },
     backgroundSize: {
-      "full": "100$"
-    }
+      full: "100$",
+    },
   },
   variants: [
     "responsive",

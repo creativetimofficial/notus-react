@@ -11,12 +11,7 @@ export default function Landing() {
     <>
       <Navbar transparent />
       <main>
-        <div
-          className="relative pt-16 pb-32 flex content-center items-center justify-center"
-          style={{
-            minHeight: "75vh",
-          }}
-        >
+        <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
@@ -151,11 +146,7 @@ export default function Landing() {
                       preserveAspectRatio="none"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 583 95"
-                      className="absolute left-0 w-full block"
-                      style={{
-                        height: "95px",
-                        top: "-94px",
-                      }}
+                      className="absolute left-0 w-full block h-95-px -top-94-px"
                     >
                       <polygon
                         points="-30,95 583,95 583,65"

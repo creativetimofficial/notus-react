@@ -14,13 +14,9 @@ export default function Maps() {
               googleMapURL="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"
               loadingElement={<div className="h-full" />}
               containerElement={
-                <div
-                  className="relative w-full rounded h-600-px"
-                />
+                <div className="relative w-full rounded h-600-px" />
               }
-              mapElement={
-                <div className="rounded h-full" />
-              }
+              mapElement={<div className="rounded h-full" />}
             />
           </div>
         </div>
