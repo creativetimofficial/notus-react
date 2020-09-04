@@ -9,10 +9,7 @@ export default function Index() {
   return (
     <>
       <IndexNavbar fixed />
-      <section
-        className="header relative pt-16 items-center flex h-screen"
-        style={{ maxHeight: "860px" }}
-      >
+      <section className="header relative pt-16 items-center flex h-screen max-h-860-px">
         <div className="container mx-auto items-center flex flex-wrap">
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             <div className="pt-32 sm:pt-0">
@@ -53,10 +50,9 @@ export default function Index() {
         </div>
 
         <img
-          className="absolute top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12"
+          className="absolute top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12 max-h-860px"
           src={require("assets/img/pattern_react.png")}
           alt="..."
-          style={{ maxHeight: "860px" }}
         />
       </section>
 
@@ -94,11 +90,7 @@ export default function Index() {
                     preserveAspectRatio="none"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 583 95"
-                    className="absolute left-0 w-full block"
-                    style={{
-                      height: "95px",
-                      top: "-94px",
-                    }}
+                    className="absolute left-0 w-full block h-95-px -top-94-px"
                   >
                     <polygon
                       points="-30,95 583,95 583,65"
@@ -238,48 +230,32 @@ export default function Index() {
                 <img
                   alt="..."
                   src={require("assets/img/component-btn.png")}
-                  className="w-full align-middle rounded absolute shadow-lg"
-                  style={{
-                    maxWidth: "100px",
-                    left: "145px",
-                    top: "-29px",
-                    zIndex: "3",
-                  }}
+                  className="w-full align-middle rounded absolute shadow-lg max-w-100-px z-3 left-145-px -top-29-px"
                 />
                 <img
                   alt="..."
                   src={require("assets/img/component-profile-card.png")}
-                  className="w-full align-middle rounded-lg absolute shadow-lg"
-                  style={{ maxWidth: "210px", left: "260px", top: "-160px" }}
+                  className="w-full align-middle rounded-lg absolute shadow-lg -top-160-px left-260-px max-w-210"
                 />
                 <img
                   alt="..."
                   src={require("assets/img/component-info-card.png")}
-                  className="w-full align-middle rounded-lg absolute shadow-lg"
-                  style={{
-                    maxWidth: "180px",
-                    left: "40px",
-                    top: "-225px",
-                    zIndex: "2",
-                  }}
+                  className="w-full align-middle rounded-lg absolute shadow-lg max-w-180-px -top-225-px left-40-px z-2"
                 />
                 <img
                   alt="..."
                   src={require("assets/img/component-info-2.png")}
-                  className="w-full align-middle rounded-lg absolute shadow-2xl"
-                  style={{ maxWidth: "200px", left: "-50px", top: "25px" }}
+                  className="w-full align-middle rounded-lg absolute shadow-2xl max-w-200-px -left-50-px top-25-px"
                 />
                 <img
                   alt="..."
                   src={require("assets/img/component-menu.png")}
-                  className="w-full align-middle rounded absolute shadow-lg"
-                  style={{ maxWidth: "580px", left: "-20px", top: "210px" }}
+                  className="w-full align-middle rounded absolute shadow-lg max-w-580-px -left-20-px top-210-px"
                 />
                 <img
                   alt="..."
                   src={require("assets/img/component-btn-pink.png")}
-                  className="w-full align-middle rounded absolute shadow-xl"
-                  style={{ maxWidth: "120px", left: "195px", top: "95px" }}
+                  className="w-full align-middle rounded absolute shadow-xl max-w-120-px left-195-px top-95-px"
                 />
               </div>
             </div>
@@ -542,9 +518,7 @@ export default function Index() {
                     Login Page
                   </h5>
                   <Link to="/auth/login">
-                    <div
-                      className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
-                    >
+                    <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
                       <img
                         alt="..."
                         className="align-middle border-none max-w-full h-auto rounded-lg"
@@ -559,9 +533,7 @@ export default function Index() {
                     Profile Page
                   </h5>
                   <Link to="/profile">
-                    <div
-                      className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
-                    >
+                    <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
                       <img
                         alt="..."
                         className="align-middle border-none max-w-full h-auto rounded-lg"
@@ -576,9 +548,7 @@ export default function Index() {
                     Landing Page
                   </h5>
                   <Link to="/landing">
-                    <div
-                      className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150"
-                    >
+                    <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
                       <img
                         alt="..."
                         className="align-middle border-none max-w-full h-auto rounded-lg"
@@ -630,16 +600,7 @@ export default function Index() {
             </div>
 
             <div className="w-full md:w-4/12 px-4 mr-auto ml-auto mt-32 relative">
-              <i
-                className="fab fa-github text-gray-800 absolute"
-                style={{
-                  fontSize: "55em",
-                  top: "-150px",
-                  right: "-100%",
-                  left: "auto",
-                  opacity: ".8",
-                }}
-              ></i>
+              <i className="fab fa-github text-gray-800 absolute -top-150-px -right-100 left-auto opacity-80 text-55"></i>
             </div>
           </div>
         </div>

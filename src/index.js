@@ -23,11 +23,11 @@ ReactDOM.render(
       <Route path="/admin" component={Admin} />
       <Route path="/auth" component={Auth} />
       {/* add routes without layouts */}
-      <Route path="/" component={Index} />
+      <Route path="/index" component={Index} />
       <Route path="/landing" component={Landing} />
       <Route path="/profile" component={Profile} />
       {/* add redirect for first page */}
-      <Redirect from="*" to="/" />
+      <Redirect from="*" to="/index" />
     </Switch>
   </HashRouter>,
   document.getElementById("root")

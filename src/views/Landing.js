@@ -11,12 +11,7 @@ export default function Landing() {
     <>
       <Navbar transparent />
       <main>
-        <div
-          className="relative pt-16 pb-32 flex content-center items-center justify-center"
-          style={{
-            minHeight: "75vh",
-          }}
-        >
+        <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
@@ -46,7 +41,7 @@ export default function Landing() {
             </div>
           </div>
           <div
-            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-16"
+            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
             style={{ transform: "translateZ(0)" }}
           >
             <svg
@@ -151,11 +146,7 @@ export default function Landing() {
                       preserveAspectRatio="none"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 583 95"
-                      className="absolute left-0 w-full block"
-                      style={{
-                        height: "95px",
-                        top: "-94px",
-                      }}
+                      className="absolute left-0 w-full block h-95-px -top-94-px"
                     >
                       <polygon
                         points="-30,95 583,95 583,65"
@@ -284,8 +275,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-1-800x800.jpg")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Ryan Tompson</h5>
@@ -320,8 +310,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-2-800x800.jpg")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Romina Hadid</h5>
@@ -350,8 +339,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-3-800x800.jpg")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Alexa Smith</h5>
@@ -386,8 +374,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-4-470x470.png")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Jenna Kardi</h5>

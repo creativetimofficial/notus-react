@@ -8,7 +8,7 @@ export default function Profile() {
     <>
       <Navbar transparent />
       <main className="profile-page">
-        <section className="relative block" style={{ height: "500px" }}>
+        <section className="relative block h-500-px">
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
@@ -22,7 +22,7 @@ export default function Profile() {
             ></span>
           </div>
           <div
-            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-16"
+            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
             style={{ transform: "translateZ(0)" }}
           >
             <svg
@@ -51,8 +51,7 @@ export default function Profile() {
                       <img
                         alt="..."
                         src={require("assets/img/team-2-800x800.jpg")}
-                        className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16"
-                        style={{ maxWidth: "150px" }}
+                        className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
                       />
                     </div>
                   </div>
