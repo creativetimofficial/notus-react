@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "903ebdfa1b01447e3ec145634cacb84f",
+    "revision": "8b41a4f23442bd16924ff4a8d2a139ae",
     "url": "/tailwind-webapp-react/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tailwind-webapp-react/static/css/2.66d5252b.chunk.css"
   },
   {
-    "revision": "67e71ef74c20e06810af",
-    "url": "/tailwind-webapp-react/static/css/main.a8a66a70.chunk.css"
+    "revision": "270c43fe7ea8004e4821",
+    "url": "/tailwind-webapp-react/static/css/main.bce5616b.chunk.css"
   },
   {
     "revision": "6258a252f71d960d82ff",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/tailwind-webapp-react/static/js/2.bb702ec4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "67e71ef74c20e06810af",
-    "url": "/tailwind-webapp-react/static/js/main.6a0abea6.chunk.js"
+    "revision": "270c43fe7ea8004e4821",
+    "url": "/tailwind-webapp-react/static/js/main.9eda9020.chunk.js"
   },
   {
     "revision": "8303ab6176752f46138d",
