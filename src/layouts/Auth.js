@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 // components
 
@@ -16,7 +16,7 @@ export default function Auth() {
     <>
       <Navbar transparent />
       <main>
-        <section className="absolute w-full h-full">
+        <section class="relative w-full h-full py-40">
           <div
             className="absolute top-0 w-full h-full bg-gray-900 bg-no-repeat bg-full"
             style={{
@@ -25,8 +25,9 @@ export default function Auth() {
             }}
           ></div>
           <Switch>
-            <Route path="/auth/login" component={Login} />
-            <Route path="/auth/register" component={Register} />
+            <Route path="/auth/login" exact component={Login} />
+            <Route path="/auth/register" exact component={Register} />
+            <Redirect from="/auth" to="/auth/login" />
           </Switch>
           <FooterSmall absolute />
         </section>
