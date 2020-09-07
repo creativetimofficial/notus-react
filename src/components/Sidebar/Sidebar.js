@@ -93,7 +93,9 @@ export default function Sidebar() {
                   }
                   to="/admin/dashboard"
                 >
-                  <i className="fas fa-tv opacity-75 mr-2 text-sm"></i>{" "}
+                  <i className={"fas fa-tv mr-2 text-sm " + (window.location.href.indexOf("/admin/dashboard") !== -1
+                    ? "opacity-75"
+                    : "text-gray-400") }></i>{" "}
                   Dashboard
                 </Link>
               </li>
@@ -108,7 +110,9 @@ export default function Sidebar() {
                   }
                   to="/admin/settings"
                 >
-                  <i className="fas fa-tools text-gray-400 mr-2 text-sm"></i>{" "}
+                  <i className={"fas fa-tools mr-2 text-sm " + (window.location.href.indexOf("/admin/settings") !== -1
+                    ? "opacity-75"
+                    : "text-gray-400") }></i>{" "}
                   Settings
                 </Link>
               </li>
@@ -123,7 +127,9 @@ export default function Sidebar() {
                   }
                   to="/admin/tables"
                 >
-                  <i className="fas fa-table text-gray-400 mr-2 text-sm"></i>{" "}
+                  <i className={"fas fa-table mr-2 text-sm " + (window.location.href.indexOf("/admin/tables") !== -1
+                    ? "opacity-75"
+                    : "text-gray-400") }></i>{" "}
                   Tables
                 </Link>
               </li>
@@ -138,7 +144,9 @@ export default function Sidebar() {
                   }
                   to="/admin/maps"
                 >
-                  <i className="fas fa-map-marked text-gray-400 mr-2 text-sm"></i>{" "}
+                  <i className={"fas fa-map-marked mr-2 text-sm " + (window.location.href.indexOf("/admin/maps") !== -1
+                    ? "opacity-75"
+                    : "text-gray-400") }></i>{" "}
                   Maps
                 </Link>
               </li>
