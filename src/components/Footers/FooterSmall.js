@@ -17,7 +17,7 @@ export default function FooterSmall(props) {
               <div class="text-sm text-gray-600 font-semibold py-1 text-center md:text-left">
                 Copyright © {new Date().getFullYear()}{" "}
                 <a
-                  href="https://www.creative-tim.com"
+                  href="https://www.creative-tim.com?ref=twr-footer-small"
                   className="text-white hover:text-gray-400 text-sm font-semibold py-1"
                 >
                   Creative Tim
@@ -28,7 +28,7 @@ export default function FooterSmall(props) {
               <ul className="flex flex-wrap list-none md:justify-end  justify-center">
                 <li>
                   <a
-                    href="https://www.creative-tim.com"
+                    href="https://www.creative-tim.com?ref=twr-footer-small"
                     className="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
                   >
                     Creative Tim
@@ -36,7 +36,7 @@ export default function FooterSmall(props) {
                 </li>
                 <li>
                   <a
-                    href="https://www.creative-tim.com/presentation"
+                    href="https://www.creative-tim.com/presentation?ref=twr-footer-small"
                     className="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
                   >
                     About Us
@@ -44,7 +44,7 @@ export default function FooterSmall(props) {
                 </li>
                 <li>
                   <a
-                    href="http://blog.creative-tim.com"
+                    href="http://blog.creative-tim.com?ref=twr-footer-small"
                     className="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
                   >
                     Blog
@@ -52,7 +52,7 @@ export default function FooterSmall(props) {
                 </li>
                 <li>
                   <a
-                    href="https://github.com/creativetimofficial/tailwind-webapp-react/blob/master/LICENSE.md"
+                    href="https://github.com/creativetimofficial/tailwind-webapp-react/blob/master/LICENSE.md?ref=twr-footer-small"
                     className="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
                   >
                     MIT License

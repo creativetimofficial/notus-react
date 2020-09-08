@@ -67,7 +67,7 @@ export default function Footer() {
                     <li>
                       <a
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/presentation"
+                        href="https://www.creative-tim.com/presentation?ref=twr-footer"
                       >
                         About Us
                       </a>
@@ -75,7 +75,7 @@ export default function Footer() {
                     <li>
                       <a
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://blog.creative-tim.com"
+                        href="https://blog.creative-tim.com?ref=twr-footer"
                       >
                         Blog
                       </a>
@@ -83,7 +83,7 @@ export default function Footer() {
                     <li>
                       <a
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://www.github.com/creativetimofficial"
+                        href="https://www.github.com/creativetimofficial?ref=twr-footer"
                       >
                         Github
                       </a>
@@ -91,7 +91,7 @@ export default function Footer() {
                     <li>
                       <a
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://www.creative-tim.com/bootstrap-themes/free"
+                        href="https://www.creative-tim.com/bootstrap-themes/free?ref=twr-footer"
                       >
                         Free Products
                       </a>
@@ -106,7 +106,7 @@ export default function Footer() {
                     <li>
                       <a
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://github.com/creativetimofficial/tailwind-webapp-react/blob/master/LICENSE.md"
+                        href="https://github.com/creativetimofficial/tailwind-webapp-react/blob/master/LICENSE.md?ref=twr-footer"
                       >
                         MIT License
                       </a>
@@ -114,7 +114,7 @@ export default function Footer() {
                     <li>
                       <a
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/terms"
+                        href="https://creative-tim.com/terms?ref=twr-footer"
                       >
                         Terms & Conditions
                       </a>
@@ -122,7 +122,7 @@ export default function Footer() {
                     <li>
                       <a
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/privacy"
+                        href="https://creative-tim.com/privacy?ref=twr-footer"
                       >
                         Privacy Policy
                       </a>
@@ -130,7 +130,7 @@ export default function Footer() {
                     <li>
                       <a
                         className="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                        href="https://creative-tim.com/contact-us"
+                        href="https://creative-tim.com/contact-us?ref=twr-footer"
                       >
                         Contact Us
                       </a>
@@ -146,7 +146,7 @@ export default function Footer() {
               <div className="text-sm text-gray-600 font-semibold py-1">
                 Copyright © {new Date().getFullYear()} Tailwind Webapp React by{" "}
                 <a
-                  href="https://www.creative-tim.com"
+                  href="https://www.creative-tim.com?ref=twr-footer"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Creative Tim
