@@ -272,6 +272,16 @@ export default function Sidebar() {
 
               <li className="inline-flex">
                 <Link
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
+                  to="/"
+                >
+                  <i className="fas fa-link mr-2 text-gray-500 text-base"></i>{" "}
+                  Svelte
+                </Link>
+              </li>
+
+              <li className="inline-flex">
+                <Link
                   className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
                   to="/"
                 >
