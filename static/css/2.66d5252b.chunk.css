@@ -1,7 +1,7 @@
 /*!
 
 =========================================================
-* Tailwind Webapp React - v1.0.0
+* Tailwind WebApp React - v1.0.0
 =========================================================
 
 * Product Page: https://demos.creative-tim.com/tailwind-webapp-react/#/
