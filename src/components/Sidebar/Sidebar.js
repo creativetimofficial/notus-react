@@ -23,7 +23,7 @@ export default function Sidebar() {
             className="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0"
             to="/"
           >
-            Tailwind Webapp React
+            Tailwind WebApp React
           </Link>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
@@ -49,7 +49,7 @@ export default function Sidebar() {
                     className="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0"
                     to="/"
                   >
-                    Tailwind Webapp React
+                    Tailwind WebApp React
                   </Link>
                 </div>
                 <div className="w-6/12 flex justify-end">
@@ -272,11 +272,31 @@ export default function Sidebar() {
 
               <li className="inline-flex">
                 <Link
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
+                  to="/"
+                >
+                  <i className="fas fa-link mr-2 text-gray-500 text-base"></i>{" "}
+                  Svelte
+                </Link>
+              </li>
+
+              <li className="inline-flex">
+                <Link
                   className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
                   to="/"
                 >
                   <i className="fab fa-react mr-2 text-gray-500 text-base"></i>{" "}
                   React
+                </Link>
+              </li>
+
+              <li className="inline-flex">
+                <Link
+                  className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
+                  to="/"
+                >
+                  <i className="fab fa-react mr-2 text-gray-500 text-base"></i>{" "}
+                  NextJS
                 </Link>
               </li>
 
