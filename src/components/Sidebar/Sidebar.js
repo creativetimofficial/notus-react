@@ -295,6 +295,16 @@ export default function Sidebar() {
                   className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
                   to="/"
                 >
+                  <i className="fab fa-react mr-2 text-gray-500 text-base"></i>{" "}
+                  NextJS
+                </Link>
+              </li>
+
+              <li className="inline-flex">
+                <Link
+                  className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
+                  to="/"
+                >
                   <i className="fab fa-angular mr-2 text-gray-500 text-base"></i>{" "}
                   Angular
                 </Link>
