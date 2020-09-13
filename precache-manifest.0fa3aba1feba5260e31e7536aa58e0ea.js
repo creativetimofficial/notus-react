@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0388437aeb6ac7255515ad68bb4d2dd4",
+    "revision": "fa65c34126f99820d83c1500e32f21e0",
     "url": "/tailwind-webapp-react/index.html"
   },
   {
-    "revision": "6258a252f71d960d82ff",
+    "revision": "c39074f7e4074ac053d9",
     "url": "/tailwind-webapp-react/static/css/2.66d5252b.chunk.css"
   },
   {
-    "revision": "00f41dc326ba02bc6bbe",
-    "url": "/tailwind-webapp-react/static/css/main.3410d899.chunk.css"
+    "revision": "625047894b9381542209",
+    "url": "/tailwind-webapp-react/static/css/main.6a054baf.chunk.css"
   },
   {
-    "revision": "6258a252f71d960d82ff",
-    "url": "/tailwind-webapp-react/static/js/2.bb702ec4.chunk.js"
+    "revision": "c39074f7e4074ac053d9",
+    "url": "/tailwind-webapp-react/static/js/2.a468cfd0.chunk.js"
   },
   {
     "revision": "edf358918d0041c12a191abeb1ed6a7a",
-    "url": "/tailwind-webapp-react/static/js/2.bb702ec4.chunk.js.LICENSE.txt"
+    "url": "/tailwind-webapp-react/static/js/2.a468cfd0.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "00f41dc326ba02bc6bbe",
-    "url": "/tailwind-webapp-react/static/js/main.364874c8.chunk.js"
+    "revision": "625047894b9381542209",
+    "url": "/tailwind-webapp-react/static/js/main.efb43244.chunk.js"
   },
   {
     "revision": "8303ab6176752f46138d",
