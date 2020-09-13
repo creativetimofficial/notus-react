@@ -9,11 +9,14 @@ gulp.task("licenses", async function () {
       gap.prependText(`/*!
 
 =========================================================
-* Tailwind WebApp React - v1.0.0
+* Tailwind WebApp React - v1.0.0 based on Tailwind Starter Kit by Creative Tim
 =========================================================
 
-* Product Page: https://demos.creative-tim.com/tailwind-webapp-react/#/
-* Copyright 2020 Creative Tim (http://www.creative-tim.com)
+* Product Page: https://www.creative-tim.com/product/tailwind-webapp-react
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/tailwind-webapp-react/blob/master/LICENSE.md)
+
+* Tailwind Starter Kit Page: https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
 
 * Coded by Creative Tim
 
@@ -32,11 +35,14 @@ gulp.task("licenses", async function () {
       gap.prependText(`<!--
 
 =========================================================
-* Tailwind WebApp React - v1.0.0
+* Tailwind WebApp React - v1.0.0 based on Tailwind Starter Kit by Creative Tim
 =========================================================
 
-* Product Page: https://demos.creative-tim.com/tailwind-webapp-react/#/
-* Copyright 2020 Creative Tim (http://www.creative-tim.com)
+* Product Page: https://www.creative-tim.com/product/tailwind-webapp-react
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/tailwind-webapp-react/blob/master/LICENSE.md)
+
+* Tailwind Starter Kit Page: https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
 
 * Coded by Creative Tim
 
@@ -55,11 +61,14 @@ gulp.task("licenses", async function () {
       gap.prependText(`/*!
 
 =========================================================
-* Tailwind WebApp React - v1.0.0
+* Tailwind WebApp React - v1.0.0 based on Tailwind Starter Kit by Creative Tim
 =========================================================
 
-* Product Page: https://demos.creative-tim.com/tailwind-webapp-react/#/
-* Copyright 2020 Creative Tim (http://www.creative-tim.com)
+* Product Page: https://www.creative-tim.com/product/tailwind-webapp-react
+* Copyright 2020 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://github.com/creativetimofficial/tailwind-webapp-react/blob/master/LICENSE.md)
+
+* Tailwind Starter Kit Page: https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation
 
 * Coded by Creative Tim
 
