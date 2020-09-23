@@ -1,7 +1,7 @@
 {
   "name": "tailwind-webapp-react",
   "version": "1.0.0",
-  "description": "Tailwind WebApp React - A free Tailwind and React webapp template by Creative Tim.",
+  "description": "Tailwind WebApp React - A free Tailwind CSS and React WebApp template by Creative Tim.",
   "repository": "https://github.com/creativetimofficial/tailwind-webapp-react",
   "license": "MIT",
   "dependencies": {
