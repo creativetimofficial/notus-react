@@ -327,7 +327,6 @@ export default function Sidebar() {
                   VueJS
                 </a>
               </li>
-
             </ul>
           </div>
         </div>
