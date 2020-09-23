@@ -241,84 +241,93 @@ export default function Sidebar() {
             {/* Navigation */}
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="inline-flex">
-                <Link
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/react/colors/webapp"
+                  target="_blank"
                   className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-                  to="/"
                 >
-                  <i className="fas fa-paint-brush mr-2 text-gray-500 text-base"></i>{" "}
+                  <i className="fas fa-paint-brush mr-2 text-gray-400 text-base"></i>
                   Styles
-                </Link>
+                </a>
               </li>
 
               <li className="inline-flex">
-                <Link
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/webapp"
+                  target="_blank"
                   className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-                  to="/"
                 >
-                  <i className="fab fa-css3-alt mr-2 text-gray-500 text-base"></i>{" "}
+                  <i className="fab fa-css3-alt mr-2 text-gray-400 text-base"></i>
                   CSS Components
-                </Link>
+                </a>
               </li>
 
               <li className="inline-flex">
-                <Link
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/webapp"
+                  target="_blank"
                   className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-                  to="/"
                 >
-                  <i className="fab fa-vuejs mr-2 text-gray-500 text-base"></i>{" "}
-                  VueJS
-                </Link>
-              </li>
-
-              <li className="inline-flex">
-                <Link
-                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-                  to="/"
-                >
-                  <i className="fas fa-link mr-2 text-gray-500 text-base"></i>{" "}
-                  Svelte
-                </Link>
-              </li>
-
-              <li className="inline-flex">
-                <Link
-                  className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
-                  to="/"
-                >
-                  <i className="fab fa-react mr-2 text-gray-500 text-base"></i>{" "}
-                  React
-                </Link>
-              </li>
-
-              <li className="inline-flex">
-                <Link
-                  className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
-                  to="/"
-                >
-                  <i className="fab fa-react mr-2 text-gray-500 text-base"></i>{" "}
-                  NextJS
-                </Link>
-              </li>
-
-              <li className="inline-flex">
-                <Link
-                  className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
-                  to="/"
-                >
-                  <i className="fab fa-angular mr-2 text-gray-500 text-base"></i>{" "}
+                  <i className="fab fa-angular mr-2 text-gray-400 text-base"></i>
                   Angular
-                </Link>
+                </a>
               </li>
 
               <li className="inline-flex">
-                <Link
-                  className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
-                  to="/"
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/js/overview/webapp"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
                 >
-                  <i className="fab fa-js-square mr-2 text-gray-500 text-base"></i>{" "}
+                  <i className="fab fa-js-square mr-2 text-gray-400 text-base"></i>
                   Javascript
-                </Link>
+                </a>
               </li>
+
+              <li className="inline-flex">
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/webapp"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
+                >
+                  <i className="fab fa-react mr-2 text-gray-400 text-base"></i>
+                  NextJS
+                </a>
+              </li>
+
+              <li className="inline-flex">
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/webapp"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
+                >
+                  <i className="fab fa-react mr-2 text-gray-400 text-base"></i>
+                  React
+                </a>
+              </li>
+
+              <li className="inline-flex">
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/webapp"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
+                >
+                  <i className="fas fa-link mr-2 text-gray-400 text-base"></i>
+                  Svelte
+                </a>
+              </li>
+
+              <li className="inline-flex">
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/vue/overview/webapp"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
+                >
+                  <i className="fab fa-vuejs mr-2 text-gray-400 text-base"></i>
+                  VueJS
+                </a>
+              </li>
+
             </ul>
           </div>
         </div>
