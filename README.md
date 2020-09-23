@@ -38,16 +38,16 @@ to quickly set up the basic structure for your web project.
 Here are all the page from the project:
 - [Presentation](https://demos.creative-tim.com/tailwind-webapp-react/?ref=twr-github-readme)
 - Admin Samples
-  - [Dashboard](https://demos.creative-tim.com/tailwind-webapp-react/pages/admin/dashboard.html?ref=twr-github-readme)
-  - [Settings](https://demos.creative-tim.com/tailwind-webapp-react/pages/admin/settings.html?ref=twr-github-readme)
-  - [Tables](https://demos.creative-tim.com/tailwind-webapp-react/pages/admin/tables.html?ref=twr-github-readme)
-  - [Maps](https://demos.creative-tim.com/tailwind-webapp-react/pages/admin/maps.html?ref=twr-github-readme)
+  - [Dashboard](https://demos.creative-tim.com/tailwind-webapp-react/admin/dashboard?ref=twr-github-readme)
+  - [Settings](https://demos.creative-tim.com/tailwind-webapp-react/admin/settings?ref=twr-github-readme)
+  - [Tables](https://demos.creative-tim.com/tailwind-webapp-react/admin/tables?ref=twr-github-readme)
+  - [Maps](https://demos.creative-tim.com/tailwind-webapp-react/admin/maps?ref=twr-github-readme)
 - Authentication Samples
-  - [Login](https://demos.creative-tim.com/tailwind-webapp-react/pages/auth/login.html?ref=twr-github-readme)
-  - [Register](https://demos.creative-tim.com/tailwind-webapp-react/pages/auth/register.html?ref=twr-github-readme)
+  - [Login](https://demos.creative-tim.com/tailwind-webapp-react/auth/login?ref=twr-github-readme)
+  - [Register](https://demos.creative-tim.com/tailwind-webapp-react/auth/register?ref=twr-github-readme)
 - Presentation Samples
-  - [Landing](https://demos.creative-tim.com/tailwind-webapp-react/pages/landing.html?ref=twr-github-readme)
-  - [Profile](https://demos.creative-tim.com/tailwind-webapp-react/pages/profile.html?ref=twr-github-readme)
+  - [Landing](https://demos.creative-tim.com/tailwind-webapp-react/landing?ref=twr-github-readme)
+  - [Profile](https://demos.creative-tim.com/tailwind-webapp-react/profile?ref=twr-github-readme)
 
 
 ### Fully Coded Components
