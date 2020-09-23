@@ -43,45 +43,29 @@ const IndexDropdown = () => {
         >
           Admin Layout
         </span>
-        <Link to="/admin/dashboard">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Dashboard
-          </a>
+        <Link
+          to="/admin/dashboard"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Dashboard
         </Link>
-        <Link to="/admin/settings">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Settings
-          </a>
+        <Link
+          to="/admin/settings"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Settings
         </Link>
-        <Link to="/admin/tables">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Tables
-          </a>
+        <Link
+          to="/admin/tables"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Tables
         </Link>
-        <Link to="/admin/maps">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Maps
-          </a>
+        <Link
+          to="/admin/maps"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Maps
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-gray-200" />
         <span
@@ -91,25 +75,17 @@ const IndexDropdown = () => {
         >
           Auth Layout
         </span>
-        <Link to="/auth/login">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Login
-          </a>
+        <Link
+          to="/auth/login"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Login
         </Link>
-        <Link to="/auth/register">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Register
-          </a>
+        <Link
+          to="/auth/register"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Register
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-gray-200" />
         <span
@@ -119,25 +95,17 @@ const IndexDropdown = () => {
         >
           No Layout
         </span>
-        <Link to="/landing">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Lading
-          </a>
+        <Link
+          to="/landing"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Lading
         </Link>
-        <Link to="/profile">
-          <a
-            href="#pablo"
-            className={
-              "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-            }
-          >
-            Profile
-          </a>
+        <Link
+          to="/profile"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Profile
         </Link>
       </div>
     </>

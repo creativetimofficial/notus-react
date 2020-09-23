@@ -1,19 +1,19 @@
-# Tailwind WebApp React <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Ftailwind-webapp-react%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwindcss%20and%20React%20Admin%20and%20Presentation%20Starter%20Kit%20Template.%20Let%20Tailwind%20Webapp%20React%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level." target="_blank">![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)</a>
+# Tailwind WebApp React <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Ftailwind-webapp-react%2F%23%2F&text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20React%20UI%20Kit%20and%20Admin.%20Let%20Tailwind%20Webapp%20React%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level.%20" target="_blank">![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)</a>
 
 ![version](https://img.shields.io/badge/version-1.0.0-blue.svg) ![license](https://img.shields.io/badge/license-MIT-blue.svg) <a href="https://github.com/creativetimofficial/tailwind-webapp-react/issues?q=is%3Aopen+is%3Aissue" target="_blank">![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/tailwind-webapp-react.svg)</a> <a href="https://github.com/creativetimofficial/tailwind-webapp-react/issues?q=is%3Aissue+is%3Aclosed" target="_blank">![GitHub issues closed](https://img.shields.io/github/issues-closed-raw/creativetimofficial/tailwind-webapp-react.svg)</a> <a href="https://gitter.im/creative-tim-general/Lobby" target="_blank">![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)</a> <a href="https://discord.gg/E4aHAQy" target="_blank">![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)</a>
 
 ![Tailwind WebApp React](https://github.com/creativetimofficial/public-assets/blob/master/tailwind-webapp-react/tailwind-webapp-react.jpg?raw=true)
 
-### A beautiful Starter Admin and Presentation Template for TailwindCSS and React.
+### A beautiful UI Kit and Admin for Tailwind CSS and React.
 
-Start your development with a Free Tailwindcss and React Admin and Presentation Starter Kit Template. Let Tailwind WebApp React amaze you with its cool features and build tools and get your project to a whole new level.
+Start your development with a Free Tailwind CSS and React UI Kit and Admin. Let Tailwind Webapp React amaze you with its cool features and build tools and get your project to a whole new level.
 
 Tailwind WebApp React is Free and Open Source. It features multiple HTML and React elements and it comes with dynamic components for React.
 
 It is based on [Tailwind Starter Kit](https://www.creative-tim.com/learning-lab/tailwind-starter-kit/presentation?ref=twr-github-readme) by Creative Tim, and it is build with both presentation pages, and pages for an admin dashboard.
 
 Speed up your web development with a beautiful product made by <a href="https://creative-tim.com/" target="_blank">Creative Tim </a>.
-If you like bright and fresh colors, you will love this Free Tailwindcss Template! It features a huge number of components that can help you create amazing websites.
+If you like bright and fresh colors, you will love this Free Tailwind CSS Template! It features a huge number of components that can help you create amazing websites.
 
 ### Get Started
 
@@ -27,7 +27,7 @@ If you like bright and fresh colors, you will love this Free Tailwindcss Templat
 - (If not) Run in terminal `npm run build:tailwind` (each time you add a new class, a class that does not exist in `src/assets/styles/tailwind.css`, you will need to run this command)
 - (If not) Run in terminal `npm start`
 - Navigate to https://localhost:3000
-- Check more about [tailwindcss](https://tailwindcss.com/?ref=creativetim)
+- Check more about [Tailwind CSS](https://tailwindcss.com/?ref=creativetim)
 
 ### Pages
 
@@ -38,60 +38,45 @@ to quickly set up the basic structure for your web project.
 Here are all the page from the project:
 - [Presentation](https://demos.creative-tim.com/tailwind-webapp-react/?ref=twr-github-readme)
 - Admin Samples
-  - [Dashboard](https://demos.creative-tim.com/tailwind-webapp-react/pages/admin/dashboard.html?ref=twr-github-readme)
-  - [Settings](https://demos.creative-tim.com/tailwind-webapp-react/pages/admin/settings.html?ref=twr-github-readme)
-  - [Tables](https://demos.creative-tim.com/tailwind-webapp-react/pages/admin/tables.html?ref=twr-github-readme)
-  - [Maps](https://demos.creative-tim.com/tailwind-webapp-react/pages/admin/maps.html?ref=twr-github-readme)
+  - [Dashboard](https://demos.creative-tim.com/tailwind-webapp-react/admin/dashboard?ref=twr-github-readme)
+  - [Settings](https://demos.creative-tim.com/tailwind-webapp-react/admin/settings?ref=twr-github-readme)
+  - [Tables](https://demos.creative-tim.com/tailwind-webapp-react/admin/tables?ref=twr-github-readme)
+  - [Maps](https://demos.creative-tim.com/tailwind-webapp-react/admin/maps?ref=twr-github-readme)
 - Authentication Samples
-  - [Login](https://demos.creative-tim.com/tailwind-webapp-react/pages/auth/login.html?ref=twr-github-readme)
-  - [Register](https://demos.creative-tim.com/tailwind-webapp-react/pages/auth/register.html?ref=twr-github-readme)
+  - [Login](https://demos.creative-tim.com/tailwind-webapp-react/auth/login?ref=twr-github-readme)
+  - [Register](https://demos.creative-tim.com/tailwind-webapp-react/auth/register?ref=twr-github-readme)
 - Presentation Samples
-  - [Landing](https://demos.creative-tim.com/tailwind-webapp-react/pages/landing.html?ref=twr-github-readme)
-  - [Profile](https://demos.creative-tim.com/tailwind-webapp-react/pages/profile.html?ref=twr-github-readme)
+  - [Landing](https://demos.creative-tim.com/tailwind-webapp-react/landing?ref=twr-github-readme)
+  - [Profile](https://demos.creative-tim.com/tailwind-webapp-react/profile?ref=twr-github-readme)
 
 
 ### Fully Coded Components
 
-Tailwind WebApp React is built with over frontend 120 components, giving you the freedom of choosing and combining. All components can take variations in colors, that you can easily modify using Tailwindcss classes (NOTE: each time you add a new class, a class that does not exist in `src/assets/styles/tailwind.css`, you will need to compile again tailwind).
+Tailwind WebApp React is built with over frontend 120 components, giving you the freedom of choosing and combining. All components can take variations in colors, that you can easily modify using Tailwind CSS classes (NOTE: each time you add a new class, a class that does not exist in `src/assets/styles/tailwind.css`, you will need to compile again tailwind).
 
 You will save a lot of time going from prototyping to full-functional code, because all elements are implemented.
-This Free Tailwindcss Template is coming with prebuilt examples, so the development process is seamless, switching from our pages to the real website is very easy to be done.
+This Free Tailwind CSS Template is coming with prebuilt examples, so the development process is seamless, switching from our pages to the real website is very easy to be done.
 
 Every element has multiple states for colors, styles, hover, focus, that you can easily access and use.
 
 
 ### CSS Components
 
-Tailwind WebApp React comes with 120 Fully Coded CSS elements, such as [Alerts](https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-react?ref=twr-github-readme), [Buttons](https://www.creative-tim.com/learning-lab/tailwind/buttons/webapp-react?ref=twr-github-readme), [Inputs](https://www.creative-tim.com/learning-lab/tailwind/inputs/webapp-react?ref=twr-github-readme) and many more.
+Tailwind WebApp React comes with 120 Fully Coded CSS elements, such as [Alerts](https://www.creative-tim.com/learning-lab/tailwind/alerts/react/webapp?ref=twr-github-readme), [Buttons](https://www.creative-tim.com/learning-lab/tailwind/react/buttons/webapp?ref=twr-github-readme), [Inputs](https://www.creative-tim.com/learning-lab/tailwind/react/inputs/webapp?ref=twr-github-readme) and many more.
 
-Please [check all of them here](https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-js?ref=twr-github-readme).
+Please [check all of them here](https://www.creative-tim.com/learning-lab/tailwind/react/alerts/webapp?ref=twr-github-readme).
 
 ### React Components
 
 We also feature the following 18 dynamic components:
-- [Alerts](https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-react?ref=twr-github-readme)
-- Popper for Menus
-  - [Dropdown](https://www.creative-tim.com/learning-lab/tailwind/dropdown/webapp-react?ref=twr-github-readme)
-  - [Dropup](https://www.creative-tim.com/learning-lab/tailwind/dropup/webapp-react?ref=twr-github-readme)
-- [Menus](https://www.creative-tim.com/learning-lab/tailwind/menu/webapp-react?ref=twr-github-readme)
-- Modals
-  - [Small](https://www.creative-tim.com/learning-lab/tailwind/small-modal/webapp-react?ref=twr-github-readme)
-  - [Regular](https://www.creative-tim.com/learning-lab/tailwind/modal/webapp-react?ref=twr-github-readme)
-  - [Large](https://www.creative-tim.com/learning-lab/tailwind/large-modal/webapp-react?ref=twr-github-readme)
-- [Navbars](https://www.creative-tim.com/learning-lab/tailwind/navbar/webapp-react?ref=twr-github-readme)
-- Popper for popover content
-  - [Left](https://www.creative-tim.com/learning-lab/tailwind/left-popover/webapp-react?ref=twr-github-readme)
-  - [Top](https://www.creative-tim.com/learning-lab/tailwind/top-popover/webapp-react?ref=twr-github-readme)
-  - [Right](https://www.creative-tim.com/learning-lab/tailwind/right-popover/webapp-react?ref=twr-github-readme)
-  - [Bottom](https://www.creative-tim.com/learning-lab/tailwind/bottom-popover/webapp-react?ref=twr-github-readme)
-- Tabs
-  - [With Text](https://www.creative-tim.com/learning-lab/tailwind/text-tab/webapp-react?ref=twr-github-readme)
-  - [With Icons](https://www.creative-tim.com/learning-lab/tailwind/icon-tab/webapp-react?ref=twr-github-readme)
-- Popper for tooltips content
-  - [Left](https://www.creative-tim.com/learning-lab/tailwind/left-tooltip/webapp-react?ref=twr-github-readme)
-  - [Top](https://www.creative-tim.com/learning-lab/tailwind/top-tooltip/webapp-react?ref=twr-github-readme)
-  - [Right](https://www.creative-tim.com/learning-lab/tailwind/right-tooltip/webapp-react?ref=twr-github-readme)
-  - [Bottom](https://www.creative-tim.com/learning-lab/tailwind/bottom-tooltip/webapp-react?ref=twr-github-readme)
+- [Alerts](https://www.creative-tim.com/learning-lab/tailwind/react/alerts/webapp?ref=twr-github-readme)
+- [Popper for Menus](https://www.creative-tim.com/learning-lab/tailwind/react/dropdowns/webapp?ref=twr-github-readme)
+- [Menus](https://www.creative-tim.com/learning-lab/tailwind/react/menus/webapp?ref=twr-github-readme)
+- [Modals](https://www.creative-tim.com/learning-lab/tailwind/react/modals/webapp?ref=twr-github-readme)
+- [Navbars](https://www.creative-tim.com/learning-lab/tailwind/react/navbar/webapp?ref=twr-github-readme)
+- [Popper for popover content](https://www.creative-tim.com/learning-lab/tailwind/react/popovers/webapp?ref=twr-github-readme)
+- [Tabs](https://www.creative-tim.com/learning-lab/tailwind/react/tabs/webapp?ref=twr-github-readme)
+- [Popper for tooltips content](https://www.creative-tim.com/learning-lab/tailwind/react/tooltips/webapp?ref=twr-github-readme)
 
 
 ## Table of Contents
@@ -116,7 +101,7 @@ We also feature the following 18 dynamic components:
 | [![Tailwind WebApp Angular](https://github.com/creativetimofficial/public-assets/blob/master/tailwind-webapp-angular/tailwind-webapp-angular.jpg?raw=true)](https://www.creative-tim.com/product/tailwind-webapp-angular?ref=twr-github-readme)  | [![Tailwind WebApp](https://github.com/creativetimofficial/public-assets/blob/master/tailwind-webapp-js/tailwind-webapp-js.jpg?raw=true)](https://www.creative-tim.com/product/tailwind-webapp-js?ref=twr-github-readme)  | [![Tailwind WebApp NextJS](https://github.com/creativetimofficial/public-assets/blob/master/tailwind-webapp-nextjs/tailwind-webapp-nextjs.jpg?raw=true)](https://www.creative-tim.com/product/tailwind-webapp-nextjs?ref=twr-github-readme)  | [![Tailwind WebApp React](https://github.com/creativetimofficial/public-assets/blob/master/tailwind-webapp-react/tailwind-webapp-react.jpg?raw=true)](https://www.creative-tim.com/product/tailwind-webapp-react?ref=twr-github-readme)  | [![Tailwind WebApp Svelte](https://github.com/creativetimofficial/public-assets/blob/master/tailwind-webapp-svelte/tailwind-webapp-svelte.jpg?raw=true)](https://www.creative-tim.com/product/tailwind-webapp-svelte?ref=twr-github-readme)  | [![Vue Tailwind WebApp](https://github.com/creativetimofficial/public-assets/blob/master/vue-tailwind-webapp/vue-tailwind-webapp.jpg?raw=true)](https://www.creative-tim.com/product/vue-tailwind-webapp?ref=twr-github-readme)
 
 ## Documentation
-The documentation for the Tailwind WebApp React is hosted at our <a href="https://www.creative-tim.com/learning-lab/tailwind/overview/webapp-react?ref=twr-readme" target="_blank">website</a>.
+The documentation for the Tailwind WebApp React is hosted at our <a href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/webapp?ref=twr-readme" target="_blank">website</a>.
 
 ## Quick start
 
@@ -249,7 +234,7 @@ Instagram: <a href="https://www.instagram.com/creativetimofficial/" target="_bla
 ## Resources
 - Demo: <a href="https://demos.creative-tim.com/tailwind-webapp-react/?ref=twr-readme" target="_blank">https://demos.creative-tim.com/tailwind-webapp-react/?ref=twr-readme</a>
 - Download Page: <a href="https://www.creative-tim.com/product/tailwind-webapp-react?ref=twr-github-readme" target="_blank">https://www.creative-tim.com/product/tailwind-webapp-react</a>
-- Documentation: <a href="https://www.creative-tim.com/learning-lab/tailwind/overview/webapp-react?ref=twr-readme" target="_blank">https://www.creative-tim.com/learning-lab/tailwind/overview/webapp-react?ref=twr-readme</a>
+- Documentation: <a href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/webapp?ref=twr-readme" target="_blank">https://www.creative-tim.com/learning-lab/tailwind/react/overview/webapp?ref=twr-readme</a>
 - License Agreement: <a href="https://www.creative-tim.com/license?ref=twr-readme" target="_blank">https://www.creative-tim.com/license?ref=twr-readme</a>
 - Support: <a href="https://www.creative-tim.com/contact-us?ref=twr-readme" target="_blank">https://www.creative-tim.com/contact-us?ref=twr-readme</a>
 - Issues: <a href="https://github.com/creativetimofficial/tailwind-webapp-react/issues" target="_blank">Github Issues Page</a>

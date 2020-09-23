@@ -14,7 +14,7 @@ export default function Index() {
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             <div className="pt-32 sm:pt-0">
               <h2 className="font-semibold text-4xl text-gray-700">
-                A beautiful extension for TailwindCSS.
+                A beautiful extension for Tailwind CSS.
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-gray-600">
                 Tailwind WebApp React is Free and Open Source. It does not
@@ -24,14 +24,14 @@ export default function Index() {
                   className="text-gray-700"
                   target="_blank"
                 >
-                  TailwindCSS
+                  Tailwind CSS
                 </a>
                 . It features multiple HTML elements and it comes with dynamic
                 components for ReactJS, Vue and Angular.
               </p>
               <div className="mt-12">
                 <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/overview/webapp-react?ref=twr-index"
+                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/webapp?ref=twr-index"
                   target="_blank"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blue-500 active:bg-blue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                 >
@@ -216,7 +216,7 @@ export default function Index() {
                 </span>
               </div>
               <a
-                href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-react?ref=twr-index"
+                href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/webapp?ref=twr-index"
                 target="_blank"
                 className="font-bold text-gray-800 hover:text-gray-600 ease-linear transition-all duration-150"
               >
@@ -266,12 +266,10 @@ export default function Index() {
               <div className="justify-center flex flex-wrap relative">
                 <div className="my-4 w-full lg:w-6/12 px-4">
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-svelte?ref=vtw-index"
+                    href="https://www.creative-tim.com/learning-lab/tailwind/svelte/alerts/webapp?ref=vtw-index"
                     target="_blank"
                   >
-                    <div
-                      className="bg-red-600 shadow-lg rounded-lg text-center p-8"
-                    >
+                    <div className="bg-red-600 shadow-lg rounded-lg text-center p-8">
                       <img
                         alt="..."
                         className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
@@ -283,7 +281,7 @@ export default function Index() {
                     </div>
                   </a>
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-react?ref=vtw-index"
+                    href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/webapp?ref=vtw-index"
                     target="_blank"
                   >
                     <div className="bg-blue-500 shadow-lg rounded-lg text-center p-8 mt-8">
@@ -298,12 +296,10 @@ export default function Index() {
                     </div>
                   </a>
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-nextjs?ref=vtw-index"
+                    href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/alerts/webapp?ref=vtw-index"
                     target="_blank"
                   >
-                    <div
-                      className="bg-gray-800 shadow-lg rounded-lg text-center p-8 mt-8"
-                    >
+                    <div className="bg-gray-800 shadow-lg rounded-lg text-center p-8 mt-8">
                       <img
                         alt="..."
                         className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
@@ -317,7 +313,7 @@ export default function Index() {
                 </div>
                 <div className="my-4 w-full lg:w-6/12 px-4 lg:mt-16">
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-js?ref=vtw-index"
+                    href="https://www.creative-tim.com/learning-lab/tailwind/js/alerts/webapp?ref=vtw-index"
                     target="_blank"
                   >
                     <div className="bg-yellow-500 shadow-lg rounded-lg text-center p-8">
@@ -332,7 +328,7 @@ export default function Index() {
                     </div>
                   </a>
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-angular?ref=vtw-index"
+                    href="https://www.creative-tim.com/learning-lab/tailwind/angular/alerts/webapp?ref=vtw-index"
                     target="_blank"
                   >
                     <div className="bg-red-700 shadow-lg rounded-lg text-center p-8 mt-8">
@@ -347,12 +343,10 @@ export default function Index() {
                     </div>
                   </a>
                   <a
-                    href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-vuejs?ref=vtw-index"
+                    href="https://www.creative-tim.com/learning-lab/tailwind/vuejs/alerts/webapp?ref=vtw-index"
                     target="_blank"
                   >
-                    <div
-                      className="bg-green-500 shadow-lg rounded-lg text-center p-8 mt-8"
-                    >
+                    <div className="bg-green-500 shadow-lg rounded-lg text-center p-8 mt-8">
                       <img
                         alt="..."
                         className="shadow-md rounded-full max-w-full w-16 mx-auto p-2 bg-white"
@@ -410,7 +404,7 @@ export default function Index() {
                 </span>
               </div>
               <a
-                href="https://www.creative-tim.com/learning-lab/tailwind/alerts/webapp-react?ref=twr-index"
+                href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/webapp?ref=twr-index"
                 target="_blank"
                 className="font-bold text-gray-800 hover:text-gray-600 ease-linear transition-all duration-150"
               >
@@ -582,7 +576,7 @@ export default function Index() {
                   className="text-gray-400"
                   target="_blank"
                 >
-                  TailwindCSS
+                  Tailwind CSS
                 </a>{" "}
                 is an open source project we wanted to continue this movement
                 too. You can give this version a try to feel the design and also
@@ -647,7 +641,7 @@ export default function Index() {
               </p>
               <div className="sm:block flex flex-col mt-10">
                 <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind/overflow/webapp-react?ref=twr-index"
+                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/webapp?ref=twr-index"
                   target="_blank"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-2 bg-blue-500 active:bg-blue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                 >
