@@ -43,17 +43,29 @@ const IndexDropdown = () => {
         >
           Admin Layout
         </span>
-        <Link to="/admin/dashboard" className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
-            Dashboard
+        <Link
+          to="/admin/dashboard"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Dashboard
         </Link>
-        <Link to="/admin/settings" className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
-            Settings
+        <Link
+          to="/admin/settings"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Settings
         </Link>
-        <Link to="/admin/tables" className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
-            Tables
+        <Link
+          to="/admin/tables"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Tables
         </Link>
-        <Link to="/admin/maps" className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
-            Maps
+        <Link
+          to="/admin/maps"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Maps
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-gray-200" />
         <span
@@ -63,11 +75,17 @@ const IndexDropdown = () => {
         >
           Auth Layout
         </span>
-        <Link to="/auth/login" className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
-            Login
+        <Link
+          to="/auth/login"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Login
         </Link>
-        <Link to="/auth/register" className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
-            Register
+        <Link
+          to="/auth/register"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Register
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-gray-200" />
         <span
@@ -77,11 +95,17 @@ const IndexDropdown = () => {
         >
           No Layout
         </span>
-        <Link to="/landing" className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
-            Lading
+        <Link
+          to="/landing"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Lading
         </Link>
-        <Link to="/profile" className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800">
-            Profile
+        <Link
+          to="/profile"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        >
+          Profile
         </Link>
       </div>
     </>
