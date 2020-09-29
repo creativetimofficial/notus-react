@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+// components
 
 import Navbar from "components/Navbars/AuthNavbar.js";
 import Footer from "components/Footers/Footer.js";
@@ -8,12 +11,7 @@ export default function Landing() {
     <>
       <Navbar transparent />
       <main>
-        <div
-          className="relative pt-16 pb-32 flex content-center items-center justify-center"
-          style={{
-            minHeight: "75vh",
-          }}
-        >
+        <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
@@ -35,16 +33,16 @@ export default function Landing() {
                   </h1>
                   <p className="mt-4 text-lg text-gray-300">
                     This is a simple example of a Landing Page you can build
-                    using Tailwind React Webapp. It features multiple CSS
-                    components based on the Tailwindcss design system.
+                    using Tailwind WebApp React. It features multiple CSS
+                    components based on the Tailwind CSS design system.
                   </p>
                 </div>
               </div>
             </div>
           </div>
           <div
-            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
-            style={{ height: "70px", transform: "translateZ(0)" }}
+            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
+            style={{ transform: "translateZ(0)" }}
           >
             <svg
               className="absolute bottom-0 overflow-hidden"
@@ -131,12 +129,9 @@ export default function Landing() {
                   good to go. Just make sure you enable them first via
                   JavaScript.
                 </p>
-                <a
-                  href="https://www.creative-tim.com/learning-lab/tailwind-starter-kit#/presentation"
-                  className="font-bold text-gray-800 mt-8"
-                >
-                  Check Tailwind React Webapp!
-                </a>
+                <Link to="/" className="font-bold text-gray-800 mt-8">
+                  Check Tailwind WebApp React!
+                </Link>
               </div>
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
@@ -151,11 +146,7 @@ export default function Landing() {
                       preserveAspectRatio="none"
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 583 95"
-                      className="absolute left-0 w-full block"
-                      style={{
-                        height: "95px",
-                        top: "-94px",
-                      }}
+                      className="absolute left-0 w-full block h-95-px -top-94-px"
                     >
                       <polygon
                         points="-30,95 583,95 583,65"
@@ -179,8 +170,8 @@ export default function Landing() {
 
         <section className="relative py-20">
           <div
-            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
-            style={{ height: "80px", transform: "translateZ(0)" }}
+            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
+            style={{ transform: "translateZ(0)" }}
           >
             <svg
               className="absolute bottom-0 overflow-hidden"
@@ -284,8 +275,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-1-800x800.jpg")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Ryan Tompson</h5>
@@ -320,8 +310,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-2-800x800.jpg")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Romina Hadid</h5>
@@ -350,8 +339,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-3-800x800.jpg")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Alexa Smith</h5>
@@ -386,8 +374,7 @@ export default function Landing() {
                   <img
                     alt="..."
                     src={require("assets/img/team-4-470x470.png")}
-                    className="shadow-lg rounded-full max-w-full mx-auto"
-                    style={{ maxWidth: "120px" }}
+                    className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
                     <h5 className="text-xl font-bold">Jenna Kardi</h5>
@@ -429,8 +416,8 @@ export default function Landing() {
 
         <section className="pb-20 relative block bg-gray-900">
           <div
-            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
-            style={{ height: "80px", transform: "translateZ(0)" }}
+            className="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20 h-20"
+            style={{ transform: "translateZ(0)" }}
           >
             <svg
               className="absolute bottom-0 overflow-hidden"
@@ -523,9 +510,8 @@ export default function Landing() {
                       </label>
                       <input
                         type="text"
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                        className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                         placeholder="Full Name"
-                        style={{ transition: "all .15s ease" }}
                       />
                     </div>
 
@@ -538,9 +524,8 @@ export default function Landing() {
                       </label>
                       <input
                         type="email"
-                        className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                        className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
                         placeholder="Email"
-                        style={{ transition: "all .15s ease" }}
                       />
                     </div>
 
@@ -560,9 +545,8 @@ export default function Landing() {
                     </div>
                     <div className="text-center mt-6">
                       <button
-                        className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                        className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         type="button"
-                        style={{ transition: "all .15s ease" }}
                       >
                         Send Message
                       </button>

@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -23,7 +24,7 @@ export default function Sidebar() {
             className="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0"
             to="/"
           >
-            Tailwind React Webapp
+            Tailwind WebApp React
           </Link>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
@@ -49,7 +50,7 @@ export default function Sidebar() {
                     className="md:block text-left md:pb-2 text-gray-700 mr-0 inline-block whitespace-no-wrap text-sm uppercase font-bold p-4 px-0"
                     to="/"
                   >
-                    Tailwind React Webapp
+                    Tailwind WebApp React
                   </Link>
                 </div>
                 <div className="w-6/12 flex justify-end">
@@ -93,7 +94,14 @@ export default function Sidebar() {
                   }
                   to="/admin/dashboard"
                 >
-                  <i className="fas fa-tv opacity-75 mr-2 text-sm"></i>{" "}
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/dashboard") !== -1
+                        ? "opacity-75"
+                        : "text-gray-400")
+                    }
+                  ></i>{" "}
                   Dashboard
                 </Link>
               </li>
@@ -108,7 +116,14 @@ export default function Sidebar() {
                   }
                   to="/admin/settings"
                 >
-                  <i className="fas fa-tools text-gray-400 mr-2 text-sm"></i>{" "}
+                  <i
+                    className={
+                      "fas fa-tools mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/settings") !== -1
+                        ? "opacity-75"
+                        : "text-gray-400")
+                    }
+                  ></i>{" "}
                   Settings
                 </Link>
               </li>
@@ -123,7 +138,14 @@ export default function Sidebar() {
                   }
                   to="/admin/tables"
                 >
-                  <i className="fas fa-table text-gray-400 mr-2 text-sm"></i>{" "}
+                  <i
+                    className={
+                      "fas fa-table mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/tables") !== -1
+                        ? "opacity-75"
+                        : "text-gray-400")
+                    }
+                  ></i>{" "}
                   Tables
                 </Link>
               </li>
@@ -138,7 +160,14 @@ export default function Sidebar() {
                   }
                   to="/admin/maps"
                 >
-                  <i className="fas fa-map-marked text-gray-400 mr-2 text-sm"></i>{" "}
+                  <i
+                    className={
+                      "fas fa-map-marked mr-2 text-sm " +
+                      (window.location.href.indexOf("/admin/maps") !== -1
+                        ? "opacity-75"
+                        : "text-gray-400")
+                    }
+                  ></i>{" "}
                   Maps
                 </Link>
               </li>
@@ -213,63 +242,91 @@ export default function Sidebar() {
             {/* Navigation */}
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="inline-flex">
-                <Link
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/react/colors/webapp"
+                  target="_blank"
                   className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-                  to="/"
                 >
-                  <i className="fas fa-paint-brush mr-2 text-gray-500 text-base"></i>{" "}
+                  <i className="fas fa-paint-brush mr-2 text-gray-400 text-base"></i>
                   Styles
-                </Link>
+                </a>
               </li>
 
               <li className="inline-flex">
-                <Link
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/webapp"
+                  target="_blank"
                   className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-                  to="/"
                 >
-                  <i className="fab fa-css3-alt mr-2 text-gray-500 text-base"></i>{" "}
+                  <i className="fab fa-css3-alt mr-2 text-gray-400 text-base"></i>
                   CSS Components
-                </Link>
+                </a>
               </li>
 
               <li className="inline-flex">
-                <Link
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/webapp"
+                  target="_blank"
                   className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-                  to="/"
                 >
-                  <i className="fab fa-vuejs mr-2 text-gray-500 text-base"></i>{" "}
-                  VueJS
-                </Link>
-              </li>
-
-              <li className="inline-flex">
-                <Link
-                  className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
-                  to="/"
-                >
-                  <i className="fab fa-react mr-2 text-gray-500 text-base"></i>{" "}
-                  React
-                </Link>
-              </li>
-
-              <li className="inline-flex">
-                <Link
-                  className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
-                  to="/"
-                >
-                  <i className="fab fa-angular mr-2 text-gray-500 text-base"></i>{" "}
+                  <i className="fab fa-angular mr-2 text-gray-400 text-base"></i>
                   Angular
-                </Link>
+                </a>
               </li>
 
               <li className="inline-flex">
-                <Link
-                  className="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
-                  to="/"
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/js/overview/webapp"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
                 >
-                  <i className="fab fa-js-square mr-2 text-gray-500 text-base"></i>{" "}
+                  <i className="fab fa-js-square mr-2 text-gray-400 text-base"></i>
                   Javascript
-                </Link>
+                </a>
+              </li>
+
+              <li className="inline-flex">
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/webapp"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
+                >
+                  <i className="fab fa-react mr-2 text-gray-400 text-base"></i>
+                  NextJS
+                </a>
+              </li>
+
+              <li className="inline-flex">
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/webapp"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
+                >
+                  <i className="fab fa-react mr-2 text-gray-400 text-base"></i>
+                  React
+                </a>
+              </li>
+
+              <li className="inline-flex">
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/webapp"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
+                >
+                  <i className="fas fa-link mr-2 text-gray-400 text-base"></i>
+                  Svelte
+                </a>
+              </li>
+
+              <li className="inline-flex">
+                <a
+                  href="https://www.creative-tim.com/learning-lab/tailwind/vue/overview/webapp"
+                  target="_blank"
+                  className="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
+                >
+                  <i className="fab fa-vuejs mr-2 text-gray-400 text-base"></i>
+                  VueJS
+                </a>
               </li>
             </ul>
           </div>
