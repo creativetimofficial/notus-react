@@ -33,8 +33,8 @@ export default function Landing() {
                   </h1>
                   <p className="mt-4 text-lg text-gray-300">
                     This is a simple example of a Landing Page you can build
-                    using Tailwind WebApp React. It features multiple CSS
-                    components based on the Tailwind CSS design system.
+                    using Notus React. It features multiple CSS components based
+                    on the Tailwind CSS design system.
                   </p>
                 </div>
               </div>
@@ -130,7 +130,7 @@ export default function Landing() {
                   JavaScript.
                 </p>
                 <Link to="/" className="font-bold text-gray-800 mt-8">
-                  Check Tailwind WebApp React!
+                  Check Notus React!
                 </Link>
               </div>
 

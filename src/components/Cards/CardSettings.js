@@ -173,8 +173,7 @@ export default function CardSettings() {
                     defaultValue="A beautiful Dashboard for React & Tailwind CSS. It is Free
                     and Open Source."
                     rows="4"
-                  >
-                  </textarea>
+                  ></textarea>
                 </div>
               </div>
             </div>
