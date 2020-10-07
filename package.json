@@ -1,8 +1,8 @@
 {
-  "name": "tailwind-webapp-react",
+  "name": "notus-react",
   "version": "1.0.0",
-  "description": "Tailwind WebApp React - A free Tailwind CSS and React WebApp template by Creative Tim.",
-  "repository": "https://github.com/creativetimofficial/tailwind-webapp-react",
+  "description": "Notus React - A free Tailwind CSS and React UI Kit and Admin by Creative Tim.",
+  "repository": "https://github.com/creativetimofficial/notus-react",
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.14.0",
