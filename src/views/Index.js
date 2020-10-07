@@ -17,8 +17,8 @@ export default function Index() {
                 A beautiful extension for Tailwind CSS.
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                Notus React is Free and Open Source. It does not
-                change or add any CSS to the already one from{" "}
+                Notus React is Free and Open Source. It does not change or add
+                any CSS to the already one from{" "}
                 <a
                   href="https://tailwindcss.com/?ref=creativetim"
                   className="text-gray-700"
@@ -122,8 +122,8 @@ export default function Index() {
                         CSS Components
                       </h6>
                       <p className="mb-4 text-gray-600">
-                        Notus React comes with a huge number of Fully Coded
-                        CSS components.
+                        Notus React comes with a huge number of Fully Coded CSS
+                        components.
                       </p>
                     </div>
                   </div>
@@ -496,9 +496,9 @@ export default function Index() {
           <div className="w-full md:w-6/12 px-12 md:px-4">
             <h2 className="font-semibold text-4xl">Beautiful Example Pages</h2>
             <p className="text-lg leading-relaxed mt-4 mb-4 text-gray-600">
-              Notus React is a completly new product built using our
-              past experience in web templates. Take the examples we made for
-              you and start playing with them.
+              Notus React is a completly new product built using our past
+              experience in web templates. Take the examples we made for you and
+              start playing with them.
             </p>
           </div>
         </div>
