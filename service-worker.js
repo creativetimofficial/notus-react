@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/notus-react/precache-manifest.dd0e9cc6e8de6c68acb7a39db02d5777.js"
+  "/notus-react/precache-manifest.fcf0caa7fe1b4959dd5392f9b990c6d9.js"
 );
 
 self.addEventListener('message', (event) => {

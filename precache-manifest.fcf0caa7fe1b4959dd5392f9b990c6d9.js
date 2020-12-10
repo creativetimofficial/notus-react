@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "556b3c304cc2dc43e9f02055920c29fe",
+    "revision": "f411a05126078ade4c6257cd5132b16f",
     "url": "/notus-react/index.html"
   },
   {
-    "revision": "831478bf2995c8ad61f1",
+    "revision": "9ad25dc48e8c5c3fb116",
     "url": "/notus-react/static/css/2.a122c4df.chunk.css"
   },
   {
-    "revision": "fce9d9115b9af04a405d",
+    "revision": "51514b42dadf1f9e8061",
     "url": "/notus-react/static/css/main.7cc8beca.chunk.css"
   },
   {
-    "revision": "831478bf2995c8ad61f1",
-    "url": "/notus-react/static/js/2.76ab25c3.chunk.js"
+    "revision": "9ad25dc48e8c5c3fb116",
+    "url": "/notus-react/static/js/2.a433f31c.chunk.js"
   },
   {
     "revision": "edf358918d0041c12a191abeb1ed6a7a",
-    "url": "/notus-react/static/js/2.76ab25c3.chunk.js.LICENSE.txt"
+    "url": "/notus-react/static/js/2.a433f31c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fce9d9115b9af04a405d",
-    "url": "/notus-react/static/js/main.84b85602.chunk.js"
+    "revision": "51514b42dadf1f9e8061",
+    "url": "/notus-react/static/js/main.a447d857.chunk.js"
   },
   {
     "revision": "7c53562383323ccc5558",
