@@ -14,13 +14,18 @@ export default function CardLineChart() {
           "May",
           "June",
           "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
         ],
         datasets: [
           {
             label: new Date().getFullYear(),
             backgroundColor: "#4c51bf",
             borderColor: "#4c51bf",
-            data: [65, 78, 66, 44, 56, 67, 75],
+            data: [4.5, 5, 4, 3.5, 4, 4.5, 4, 4.5, 5, 4, 3.5, 4],
             fill: false,
           },
           {
@@ -28,7 +33,7 @@ export default function CardLineChart() {
             fill: false,
             backgroundColor: "#fff",
             borderColor: "#fff",
-            data: [40, 68, 86, 74, 56, 60, 87],
+            data: [4, 3.5, 3, 3.5, 4, 4, 4.5, 3.5, 4, 4.5, 4, 4.5],
           },
         ],
       },
@@ -80,10 +85,13 @@ export default function CardLineChart() {
           ],
           yAxes: [
             {
+              display: true,
               ticks: {
                 fontColor: "rgba(255,255,255,.7)",
+                max: 5,
+                stepsize: 0.5,
+                beginAtZero: true
               },
-              display: true,
               scaleLabel: {
                 display: false,
                 labelString: "Value",
@@ -115,7 +123,7 @@ export default function CardLineChart() {
               <h6 className="uppercase text-gray-200 mb-1 text-xs font-semibold">
                 Overview
               </h6>
-              <h2 className="text-white text-xl font-semibold">Sales value</h2>
+              <h2 className="text-white text-xl font-semibold">Overall Score Over Time</h2>
             </div>
           </div>
         </div>
