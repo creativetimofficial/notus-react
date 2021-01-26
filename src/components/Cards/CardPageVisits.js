@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 
 // components
 
 export default function CardPageVisits() {
+
+  const [state, setState] = useState([]);
+
+  useEffect(() => {
+    // add website to .env file
+      fetch("http://localhost:4000/api/v1/measures")
+        .then(response => response.json())
+        .then(res => {
+          setState(res)
+      })
+  }, [])
+
+  const setIcon = (rating) => {
+    let icon = "fas fa-exclamation-triangle text-red-500 mr-4";
+    if (rating > 2 && rating < 4) {
+      icon = "fas fa-thumbs-down text-orange-500 mr-4"
+    } else if (rating >= 4){
+      icon = "fas fa-thumbs-up text-green-500 mr-4"
+    }
+    return icon;
+  }
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
@@ -43,66 +66,24 @@ export default function CardPageVisits() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
-                  HbA1C - Less than 8%
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  40,569
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  57,955
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  <i className="fas fa-thumbs-down text-orange-500 mr-4"></i>
-                  3.5
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
-                  HbA1C - Less than 7%
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  45,518
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  51,257
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  <i className="fas fa-thumbs-up text-green-500 mr-4"></i>
-                  4
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
-                  Diabetes - Blood Pressure
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  16,985
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  45,692
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  <i className="fas fa-exclamation-triangle text-red-500 mr-4"></i>
-                  2
-                </td>
-              </tr>
-              <tr>
-                <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
-                  Childhood Immunizations
-                </th>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  90,823 
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  94,478
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                  <i className="fas fa-thumbs-up text-green-500 mr-4"></i>
-                  5
-                </td>
-              </tr>
+              {state.length ? state.map(measure => {
+                const ratingIcon = setIcon(measure.rating) 
+                return (<tr key={measure.id}>
+                  <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
+                    {measure.name}
+                  </th>
+                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                    {measure.included}
+                  </td>
+                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                    {measure.eligblePopulation}
+                  </td>
+                  <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                    <i className={ratingIcon}></i>
+                    {measure.rating}
+                  </td>
+                </tr>)
+              }): null}
             </tbody>
           </table>
         </div>
