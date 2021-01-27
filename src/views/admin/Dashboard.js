@@ -10,12 +10,11 @@ export default function Dashboard() {
   const [measures, setMeasures] = useState([]);
 
   useEffect(() => {
-    // add website to .env file
-      fetch("http://localhost:4000/api/v1/measures")
-        .then(response => response.json())
-        .then(res => {
-          setMeasures(res)
-      })
+    fetch(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures`)
+      .then(response => response.json())
+      .then(res => {
+        setMeasures(res)
+    })
   }, [])
 
   return (
