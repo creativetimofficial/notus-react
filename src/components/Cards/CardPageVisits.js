@@ -1,21 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 
 // components
 
-export default function CardPageVisits() {
-
-  const [state, setState] = useState([]);
-
-  useEffect(() => {
-    // add website to .env file
-      fetch("http://localhost:4000/api/v1/measures")
-        .then(response => response.json())
-        .then(res => {
-          setState(res)
-      })
-  }, [])
-
+export default function CardPageVisits({ measures }) {
   const setIcon = (rating) => {
     let icon = "fas fa-exclamation-triangle text-red-500 mr-4";
     if (rating > 2 && rating < 4) {
@@ -66,17 +54,17 @@ export default function CardPageVisits() {
               </tr>
             </thead>
             <tbody>
-              {state.length ? state.map(measure => {
-                const ratingIcon = setIcon(measure.rating) 
+              {measures ? measures.map(measure => {
+                const ratingIcon = setIcon(measure.rating);
                 return (<tr key={measure.id}>
                   <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
                     {measure.name}
                   </th>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                    {measure.included}
+                    {measure.included.toLocaleString()}
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                    {measure.eligblePopulation}
+                    {measure.eligblePopulation.toLocaleString()}
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                     <i className={ratingIcon}></i>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 
@@ -7,11 +7,22 @@ import CardTable from "components/Cards/CardTable.js";
 import CardPageVisits from "components/Cards/CardPageVisits.js";
 
 export default function Dashboard() {
+  const [measures, setMeasures] = useState([]);
+
+  useEffect(() => {
+    // add website to .env file
+      fetch("http://localhost:4000/api/v1/measures")
+        .then(response => response.json())
+        .then(res => {
+          setMeasures(res)
+      })
+  }, [])
+
   return (
     <>
       <div className="flex flex-wrap mt-4">
         <div className="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
-          <CardTable />
+          <CardTable measures={measures} />
         </div>
       </div>
       <div className="flex flex-wrap mt-4">
@@ -21,7 +32,7 @@ export default function Dashboard() {
       </div>
       <div className="flex flex-wrap">
         <div className="w-full xl:w-12/12 mb-12 xl:mb-0 px-4">
-          <CardPageVisits />
+          <CardPageVisits measures={measures} />
         </div>
       </div>
     </>
