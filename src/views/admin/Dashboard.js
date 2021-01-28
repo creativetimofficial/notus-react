@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 // components
 
@@ -6,20 +6,8 @@ import CardLineChart from "components/Cards/CardLineChart.js";
 import CardTable from "components/Cards/CardTable.js";
 import CardPageVisits from "components/Cards/CardPageVisits.js";
 
-export default function Dashboard() {
-  const [measures, setMeasures] = useState([]);
-
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures`)
-      .then(response => response.json())
-      .then(res => {
-        const specialName = "Composite Score";
-        const first = res.find(a => a.name === specialName);
-        const theRestSorted = res.filter(a => a.name !== specialName).sort((a, b) => a.name.localeCompare(b.name));
-        setMeasures([first, ...theRestSorted])
-    })
-  }, [])
-
+export default function Dashboard({ measures }) {
+  console.log("measures", measures)
   return (
     <>
       <div className="flex flex-wrap mt-4">

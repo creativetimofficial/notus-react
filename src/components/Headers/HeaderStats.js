@@ -1,25 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 // components
 
 import CardStats from "components/Cards/CardStats.js";
 
-export default function HeaderStats() {
-  const [measures, setMeasures] = useState([]);
-
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures`)
-      .then(response => response.json())
-      .then(res => {
-        const specialName = "Composite Score";
-        const first = res.find(a => a.name === specialName);
-        const theRestSorted = res.filter(a => a.name !== specialName).sort((a, b) => a.name.localeCompare(b.name));
-        const sorted = [first, ...theRestSorted];
-        sorted.length = 4;
-        setMeasures(sorted)
-    })
-  }, [])
-
+export default function HeaderStats({ measures }) {
+  const topFourMeasures = measures.slice(0, 4);
   const setDetails = (rating) => {
     let face = "frown";
     let color = "red";
@@ -41,7 +27,7 @@ export default function HeaderStats() {
           <div>
             {/* Card stats */}
             <div className="flex flex-wrap">
-              { measures.map(measure => {
+              { topFourMeasures.map(measure => {
                 const [face, color] = setDetails(measure.rating);
                 return (
                   <div className="w-full lg:w-6/12 xl:w-3/12 px-4" key={measure.id}>
