@@ -13,7 +13,10 @@ export default function Dashboard() {
     fetch(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures`)
       .then(response => response.json())
       .then(res => {
-        setMeasures(res)
+        const specialName = "Composite Score";
+        const first = res.find(a => a.name === specialName);
+        const theRestSorted = res.filter(a => a.name !== specialName).sort((a, b) => a.name.localeCompare(b.name));
+        setMeasures([first, ...theRestSorted])
     })
   }, [])
 
