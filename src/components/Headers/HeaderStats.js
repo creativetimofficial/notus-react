@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // components
 
 import CardStats from "components/Cards/CardStats.js";
 
 export default function HeaderStats() {
+  const [measures, setMeasures] = useState([]);
+
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures`)
+      .then(response => response.json())
+      .then(res => {
+        const specialName = "Composite Score";
+        const first = res.find(a => a.name === specialName);
+        const theRestSorted = res.filter(a => a.name !== specialName).sort((a, b) => a.name.localeCompare(b.name));
+        const sorted = [first, ...theRestSorted];
+        sorted.length = 4;
+        setMeasures(sorted)
+    })
+  }, [])
+
+  const setDetails = (rating) => {
+    let face = "frown";
+    let color = "red";
+    if (rating > 2 && rating < 4) {
+      face = "meh";
+      color = "orange";
+    } else if (rating >= 4){
+      face = "smile";
+      color = "green";
+    }
+    return [face, color];
+  }
+
   return (
     <>
       {/* Header */}
@@ -13,54 +41,23 @@ export default function HeaderStats() {
           <div>
             {/* Card stats */}
             <div className="flex flex-wrap">
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
-                  statSubtitle="Overall Score"
-                  statTitle="4.5"
-                  statArrow="up"
-                  statPercent="12"
-                  statPercentColor="text-green-500"
-                  statDescripiron="Since last year"
-                  statIconName="fas fa-smile"
-                  statIconColor="bg-green-500"
-                />
-              </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
-                  statSubtitle="HbA1c - Less than 8%"
-                  statTitle="3.5"
-                  statArrow="up"
-                  statPercent="3.48"
-                  statPercentColor="text-green-500"
-                  statDescripiron="since last year"
-                  statIconName="fas fa-meh"
-                  statIconColor="bg-orange-500"
-                />
-              </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
-                  statSubtitle="Diabetes - Blood Pressure"
-                  statTitle="2.5"
-                  statArrow="down"
-                  statPercent="3.48"
-                  statPercentColor="text-red-500"
-                  statDescripiron="since last year"
-                  statIconName="fas fa-frown"
-                  statIconColor="bg-red-500"
-                />
-              </div>
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
-                <CardStats
-                  statSubtitle="Childhood Immunizations"
-                  statTitle="5"
-                  statArrow="down"
-                  statPercent="1.10"
-                  statPercentColor="text-orange-500"
-                  statDescripiron="since last year"
-                  statIconName="fas fa-smile"
-                  statIconColor="bg-green-500"
-                />
-              </div>
+              { measures.map(measure => {
+                const [face, color] = setDetails(measure.rating);
+                return (
+                  <div className="w-full lg:w-6/12 xl:w-3/12 px-4" key={measure.id}>
+                    <CardStats
+                      statSubtitle={measure.name}
+                      statTitle={measure.rating.toString()}
+                      statArrow="up"
+                      statPercent="12"
+                      statPercentColor="text-green-500"
+                      statDescripiron="Since last year"
+                      statIconName={`fas fa-${face}`}
+                      statIconColor={`bg-${color}-500`}
+                    />
+                  </div>
+              )
+              })}
             </div>
           </div>
         </div>
