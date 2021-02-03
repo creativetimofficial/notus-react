@@ -7,7 +7,6 @@ import CardTable from "components/Cards/CardTable.js";
 import CardPageVisits from "components/Cards/CardPageVisits.js";
 
 export default function Dashboard({ measures }) {
-  console.log("measures", measures)
   return (
     <>
       <div className="flex flex-wrap mt-4">

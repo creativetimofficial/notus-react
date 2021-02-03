@@ -5,7 +5,7 @@ import React from "react";
 import CardStats from "components/Cards/CardStats.js";
 
 export default function HeaderStats({ measures }) {
-  const topFourMeasures = measures.slice(0, 4);
+  const topFourMeasures = measures[0] ? measures.slice(0, 4) : null;
   const setDetails = (rating) => {
     let face = "frown";
     let color = "red";
@@ -27,12 +27,12 @@ export default function HeaderStats({ measures }) {
           <div>
             {/* Card stats */}
             <div className="flex flex-wrap">
-              { topFourMeasures.map(measure => {
+              { topFourMeasures ? topFourMeasures.map(measure => {
                 const [face, color] = setDetails(measure.rating);
                 return (
                   <div className="w-full lg:w-6/12 xl:w-3/12 px-4" key={measure.id}>
                     <CardStats
-                      statSubtitle={measure.name}
+                      statSubtitle={measure.displayName}
                       statTitle={measure.rating.toString()}
                       statArrow="up"
                       statPercent="12"
@@ -43,7 +43,7 @@ export default function HeaderStats({ measures }) {
                     />
                   </div>
               )
-              })}
+              }) : null}
             </div>
           </div>
         </div>

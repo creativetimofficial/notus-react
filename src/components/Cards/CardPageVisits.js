@@ -54,11 +54,11 @@ export default function CardPageVisits({ measures }) {
               </tr>
             </thead>
             <tbody>
-              {measures ? measures.map(measure => {
+              {measures[0] ? measures.map(measure => {
                 const ratingIcon = setIcon(measure.rating);
                 return (<tr key={measure.id}>
                   <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left">
-                    {measure.name}
+                    {measure.displayName}
                   </th>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                     {measure.included.toLocaleString()}

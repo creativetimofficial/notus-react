@@ -104,7 +104,7 @@ export default function CardTable({ color, measures }) {
               </tr>
             </thead>
             <tbody>
-            {measures ? measures.map(measure => {
+            {measures[0] ? measures.map(measure => {
               const color = setColor(measure.rating);
               const percentage = +(measure.included/measure.eligiblePopulation * 100).toFixed(2);
                 return (
@@ -121,7 +121,7 @@ export default function CardTable({ color, measures }) {
                           +(color === "light" ? "text-gray-700" : "text-white")
                         }
                       >
-                        {measure.name}
+                        {measure.displayName}
                       </span>
                     </th>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
