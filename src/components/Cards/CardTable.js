@@ -106,7 +106,7 @@ export default function CardTable({ color, measures }) {
             <tbody>
             {measures ? measures.map(measure => {
               const color = setColor(measure.rating);
-              const percentage = +(measure.included/measure.eligblePopulation * 100).toFixed(2);
+              const percentage = +(measure.included/measure.eligiblePopulation * 100).toFixed(2);
                 return (
                   <tr key={measure.id}>
                     <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left flex items-center">
@@ -128,7 +128,7 @@ export default function CardTable({ color, measures }) {
                       {measure.included.toLocaleString()}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                      {measure.eligblePopulation.toLocaleString()}
+                      {measure.eligiblePopulation.toLocaleString()}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                       <i className={`fas fa-circle text-${color}-500 mr-2`}></i> 

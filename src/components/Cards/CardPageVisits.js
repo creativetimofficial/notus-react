@@ -64,7 +64,7 @@ export default function CardPageVisits({ measures }) {
                     {measure.included.toLocaleString()}
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
-                    {measure.eligblePopulation.toLocaleString()}
+                    {measure.eligiblePopulation.toLocaleString()}
                   </td>
                   <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
                     <i className={ratingIcon}></i>
