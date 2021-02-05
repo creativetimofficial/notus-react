@@ -2,7 +2,7 @@
 The purpose of this API is to ingest HEDIS data from pyspark, save it, and then use it to populate the [Sarawati Dashboard](https://github.com/amida-tech/saraswati-dashboard).
 
 ## Set up
-1. Copy the contents of the `.env.example.env` file to a `.env` file 
+1. Run `cp .env.example .env`
 2. Stand up the dashboard 
   - If you are on a linux based terminal 
     - Simply run `yarn run install:clean`
