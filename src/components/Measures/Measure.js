@@ -21,7 +21,7 @@ export default function Measure({ location }) {
             </div>
           </div>
         </div>
-        <div> 
+        <div>
           <div className="flex flex-wrap">
             <div className="w-full xl:w-4/12 mb-12 xl:mb-0 px-4 relative">
               <Circle number={measure.rating} />
