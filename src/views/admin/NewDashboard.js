@@ -92,25 +92,25 @@ export default function NewDashboard({ measures }) {
                 </thead>
                 <tbody>
                   <tr>
-                    <tr className="border-t-0 align-left border-l-0 border-r-0 text-md whitespace-no-wrap text-left">
+                    <td className="border-t-0 align-left border-l-0 border-r-0 text-md whitespace-no-wrap text-left">
                       % Denominator Non-Compliant
-                    </tr>
+                    </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-no-wrap p-4">
                       33%
                     </td>
                   </tr>
                   <tr>
-                    <tr className="border-t-0 align-left border-l-0 border-r-0 text-md whitespace-no-wrap text-left">
+                    <td className="border-t-0 align-left border-l-0 border-r-0 text-md whitespace-no-wrap text-left">
                       % Numerator Non-Compliant
-                    </tr>
+                    </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-no-wrap p-4">
                       53%
                     </td>
                   </tr>
                   <tr>
-                    <tr className="border-t-0 align-left border-l-0 border-r-0 text-md whitespace-no-wrap text-left">
+                    <td className="border-t-0 align-left border-l-0 border-r-0 text-md whitespace-no-wrap text-left">
                       % Issues w/ [Encounter]
-                    </tr>
+                    </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-no-wrap p-4">
                       33%
                     </td>
