@@ -10,6 +10,10 @@ export default function Circle({ number}){
     designation = "circle-good";
   }
   return (
-    <div className={"inline-block text-center circle " + designation}>{number}</div>
+    <div className={number ? 'fade-in' : 'pre-fade'}>
+      <div className={"inline-block text-center circle " + designation}>
+        {number}
+      </div>
+    </div>
   )
 }
