@@ -9,7 +9,7 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 import Measure from "components/Measures/Measure.js";
 
 // views
-import NewDashboard from "views/admin/NewDashboard.js";
+import MeasureDashboard from "views/admin/MeasureDashboard.js";
 import Dashboard from "views/admin/Dashboard.js";
 import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
@@ -52,11 +52,15 @@ export default function Admin() {
             {/*<Redirect from="/admin" to="/admin/dashboard" />*/}
             {/*<Redirect from="/" to="/admin/dashboard" />*/}
             {/* temp fix - figure out later*/}
-            <Route path="/admin/measure/:measureName" component={Measure} />
-            <Route 
-              path="/admin/newdash"
+            <Route
+              path="/admin/measures/:measureName" 
               render={(props) => (
-                <NewDashboard {...props} measures={measures} />
+                <Measure {...props} measures={measures} />
+              )}/>
+            <Route
+              path="/admin/measures"
+              render={(props) => (
+                <MeasureDashboard {...props} measures={measures} />
               )}
               />
           </Switch>

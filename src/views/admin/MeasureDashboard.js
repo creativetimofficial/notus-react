@@ -6,7 +6,7 @@ import CardBarChart from "../../components/Cards/CardBarChart.js";
 import Circle from "../../components/Misc/Circle.js";
 
 
-export default function NewDashboard({ measures }) {
+export default function MeasureDashboard({ measures }) {
   let comp = {displayName: "Composite Score", rating: ""}
   comp = measures && measures.length ? measures[0] : comp;
   const compName = "composite";
@@ -61,7 +61,7 @@ export default function NewDashboard({ measures }) {
                     <tr key={measure.name}>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-no-wrap p-4 text-left ">
                       <Link to={{
-                        pathname: `/admin/measure/${measure.name}`,
+                        pathname: `/admin/measures/${measure.name}`,
                         state: {
                           measure
                         }

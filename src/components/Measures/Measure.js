@@ -1,14 +1,18 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 // components
 import CardBarChart from "../Cards/CardBarChart.js";
 import Circle from "../Misc/Circle.js";
 
-export default function Measure({ location }) {
-  const { measure } = location.state;
-  const labels = Object.keys(measure.expressions).map((attribute, i) => `E${i}`);
-  const expressionData = Object.values(measure.expressions);
-  const improvementData = Object.values(measure.improvements);
+
+export default function Measure({ measures }) {
+  let { measureName } = useParams();
+  const measure = measures.filter(measure => measure.name === measureName)[0];
+
+  const labels = measures.length ? Object.keys(measure.expressions).map((attribute, i) => `E${i}`) : [];
+  const expressionData = measures.length ? Object.values(measure.expressions) :[];
+  const improvementData = measures.length ? Object.values(measure.improvements) :[];
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
@@ -16,7 +20,7 @@ export default function Measure({ location }) {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3 className="font-semibold text-3xl text-gray-800">
-                {measure.displayName}
+                {measure ? measure.displayName : undefined}
               </h3>
             </div>
           </div>
@@ -24,7 +28,7 @@ export default function Measure({ location }) {
         <div>
           <div className="flex flex-wrap">
             <div className="w-full xl:w-4/12 mb-12 xl:mb-0 px-4 relative">
-              <Circle number={measure.rating} />
+              <Circle number={measure ? measure.rating : undefined} />
             </div>
             <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
               <CardBarChart title="Expressions" labels={labels} data={expressionData} yAxis="No. of Instances" xAxis="Expression" />
@@ -45,7 +49,7 @@ export default function Measure({ location }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {Object.keys(measure.expressions).map((attribute, i) => (
+                  {measure ? Object.keys(measure.expressions).map((attribute, i) => (
                     <tr key={measure.name + `-${i}`}>
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left flex items-center">
                         {/* <td className="text-sm text-gray-800"></td> */}
@@ -54,7 +58,7 @@ export default function Measure({ location }) {
                       </td>
                       <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">{attribute}</td>
                     </tr>
-                  ))}
+                  )) : undefined}
                   </tbody>
               </table>
             </div>

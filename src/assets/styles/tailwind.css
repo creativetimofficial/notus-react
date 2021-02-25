@@ -2585,10 +2585,6 @@ video {
     padding-right: 3rem;
   }
 
-  .md\:pt-32 {
-    padding-top: 8rem;
-  }
-
   .md\:fixed {
     position: fixed;
   }
