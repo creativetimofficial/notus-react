@@ -22,7 +22,7 @@ export default function HeaderStats({ measures }) {
   return (
     <>
       {/* Header */}
-      <div className="relative bg-blue-600 md:pt-32 pb-32 pt-12">
+      <div className="relative bg-blue-600 sm:pt-32 pb-32 pt-12">
         <div className="px-4 md:px-10 mx-auto w-full">
           <div>
             {/* Card stats */}
@@ -30,7 +30,8 @@ export default function HeaderStats({ measures }) {
               { topFourMeasures ? topFourMeasures.map(measure => {
                 const [face, color] = setDetails(measure.rating);
                 return (
-                  <div className="w-full lg:w-6/12 xl:w-3/12 px-4" key={measure.id}>
+                  // clean this hack up
+                  <div className={measures.length === 1 ? "w-full lg:w-12/12 xl:w-12/12 px-4" :"w-full lg:w-6/12 xl:w-3/12 px-4"} key={measure.id}>
                     <CardStats
                       statSubtitle={measure.displayName}
                       statTitle={measure.rating.toString()}

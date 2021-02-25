@@ -3,3 +3,35 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.circle {
+  height: 18rem;
+  width: 18rem;
+  border-radius: 50%;
+  line-height: 15.75rem;
+  font-size: 7rem;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+}
+
+.circle-good {
+  background-color: #c6f6d5;
+  border: 1.25rem solid #68d391;
+}
+
+.circle-okay {
+  background-color: #feebc8;
+  border: 1.25rem solid #ed8936;
+}
+
+.circle-bad {
+  background-color: #fed7d7;
+  border: 1.25rem solid #fc8181;
+}
+
+.min-h-circle {
+  min-height: 18rem;
+}
+

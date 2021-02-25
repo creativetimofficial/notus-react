@@ -6,6 +6,8 @@ import CardLineChart from "components/Cards/CardLineChart.js";
 import CardTable from "components/Cards/CardTable.js";
 import CardPageVisits from "components/Cards/CardPageVisits.js";
 
+//import HeaderStats from "components/Headers/HeaderStats";
+
 export default function Dashboard({ measures }) {
   return (
     <>
