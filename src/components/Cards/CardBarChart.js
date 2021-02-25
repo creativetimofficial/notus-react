@@ -14,7 +14,7 @@ export default function CardBarChart({ labels, data, title, xAxis, yAxis, hedisR
             backgroundColor: "#4c51bf",
             borderColor: "#4c51bf",
             data: data, 
-            barThickness: 70,
+            barThickness: 30,
           },
         ],
       },
