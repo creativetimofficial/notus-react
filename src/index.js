@@ -26,7 +26,7 @@ ReactDOM.render(
       <Route path="/profile" exact component={Profile} />
       {/* <Route path="/" exact component={Admin} /> */}
       {/* add redirect for first page */}
-      <Redirect from="*" to="/admin" />
+      <Redirect from="*" to="/admin/measures" />
       {/* <Redirect from="/" to="/admin" /> */}
     </Switch>
   </BrowserRouter>,
