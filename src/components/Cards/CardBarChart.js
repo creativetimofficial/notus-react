@@ -3,6 +3,8 @@ import Chart from "chart.js";
 
 export default function CardBarChart({ labels, data, title, xAxis, yAxis, measures, history }) {
   // eslint-disable-next-line
+  // linter complains about needing this in a useCallback hook
+  // but page never re-renders currently
   const goToClickedMeasure = (event, array) => {
     if(array.length && measures){
       const name = measures[array[0]._index].name;
