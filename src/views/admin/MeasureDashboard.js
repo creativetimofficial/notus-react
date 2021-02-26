@@ -6,14 +6,21 @@ import CardBarChart from "../../components/Cards/CardBarChart.js";
 import Circle from "../../components/Misc/Circle.js";
 
 
-export default function MeasureDashboard({ measures }) {
+export default function MeasureDashboard({ measures, history }) {
   let comp = {displayName: "Composite Score", rating: ""}
   comp = measures && measures.length ? measures[0] : comp;
   const compName = "composite";
-  const measureNoComp = measures.filter(measure => measure.name !== compName);
+  const measureNoComp = measures
+    .filter(measure => measure.name !== compName)
+    .sort((a, b) => a.displayName.toLowerCase().localeCompare(b.displayName.toLowerCase()));
 
-  const labels = measures.length ? Object.keys(comp.impact): [];
-  const data = measures.length ? Object.values(comp.impact): [];
+  const sortedImpact = measures.length 
+    ? Object.entries(comp.impact)
+      .sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase())) 
+    : undefined;
+  
+  const labels = measures.length ? sortedImpact.map(el => el[0]) : [];
+  const data = measures.length ? sortedImpact.map(el => el[1]) : [];
 
   return (
     <>
@@ -39,6 +46,8 @@ export default function MeasureDashboard({ measures }) {
                 title="Measures"
                 yAxis="% Impact on HEDIS Score"
                 xAxis="Measure"
+                measures={measureNoComp}
+                history={history}
               />
             </div>
           </div>

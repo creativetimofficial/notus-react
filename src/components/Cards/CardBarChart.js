@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Chart from "chart.js";
 
-export default function CardBarChart({ labels, data, title, xAxis, yAxis, hedisRange }) {
-  React.useEffect(() => {
+export default function CardBarChart({ labels, data, title, xAxis, yAxis, measures, history }) {
+  // eslint-disable-next-line
+  const goToClickedMeasure = (event, array) => {
+    if(array.length && measures){
+      const name = measures[array[0]._index].name;
+      history.push(`/admin/measures/${name}`)
+    }
+  }
+
+  useEffect(() => {
     let config = {
       type: "bar",
       data: {
@@ -25,6 +33,7 @@ export default function CardBarChart({ labels, data, title, xAxis, yAxis, hedisR
           display: false,
           text: "Orders Chart",
         },
+        onClick: goToClickedMeasure,
         tooltips: {
           mode: "index",
           intersect: false,
@@ -67,7 +76,8 @@ export default function CardBarChart({ labels, data, title, xAxis, yAxis, hedisR
     };
     let ctx = document.getElementById(`bar-chart-${title}`).getContext("2d");
     window.myBar = new Chart(ctx, config);
-  }, [labels, data, xAxis, yAxis, title]);
+  }, [labels, data, xAxis, yAxis, title, goToClickedMeasure]);
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
