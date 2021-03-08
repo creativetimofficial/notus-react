@@ -466,10 +466,6 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
   color: #a0aec0;
 }
 
-input::-ms-input-placeholder, textarea::-ms-input-placeholder {
-  color: #a0aec0;
-}
-
 input::placeholder,
 textarea::placeholder {
   color: #a0aec0;
@@ -996,12 +992,6 @@ video {
   background-color: rgba(254, 235, 200, var(--bg-opacity));
 }
 
-.bg-orange-500 {
-  --bg-opacity: 1;
-  background-color: #ed8936;
-  background-color: rgba(237, 137, 54, var(--bg-opacity));
-}
-
 .bg-yellow-500 {
   --bg-opacity: 1;
   background-color: #ecc94b;
@@ -1024,18 +1014,6 @@ video {
   --bg-opacity: 1;
   background-color: #48bb78;
   background-color: rgba(72, 187, 120, var(--bg-opacity));
-}
-
-.bg-teal-200 {
-  --bg-opacity: 1;
-  background-color: #b2f5ea;
-  background-color: rgba(178, 245, 234, var(--bg-opacity));
-}
-
-.bg-teal-500 {
-  --bg-opacity: 1;
-  background-color: #38b2ac;
-  background-color: rgba(56, 178, 172, var(--bg-opacity));
 }
 
 .bg-blue-200 {
@@ -1152,12 +1130,6 @@ video {
   border-color: transparent;
 }
 
-.border-gray-100 {
-  --border-opacity: 1;
-  border-color: #f7fafc;
-  border-color: rgba(247, 250, 252, var(--border-opacity));
-}
-
 .border-gray-200 {
   --border-opacity: 1;
   border-color: #edf2f7;
@@ -1226,10 +1198,6 @@ video {
 
 .border-0 {
   border-width: 0;
-}
-
-.border-2 {
-  border-width: 2px;
 }
 
 .border {
@@ -1661,10 +1629,6 @@ video {
   margin-left: auto;
 }
 
-.-ml-4 {
-  margin-left: -1rem;
-}
-
 .-mt-20 {
   margin-top: -5rem;
 }
@@ -2010,12 +1974,6 @@ video {
   color: rgba(203, 213, 224, var(--placeholder-opacity));
 }
 
-.placeholder-gray-400::-ms-input-placeholder {
-  --placeholder-opacity: 1;
-  color: #cbd5e0;
-  color: rgba(203, 213, 224, var(--placeholder-opacity));
-}
-
 .placeholder-gray-400::placeholder {
   --placeholder-opacity: 1;
   color: #cbd5e0;
@@ -2256,12 +2214,6 @@ video {
   color: rgba(72, 187, 120, var(--text-opacity));
 }
 
-.text-teal-500 {
-  --text-opacity: 1;
-  color: #38b2ac;
-  color: rgba(56, 178, 172, var(--text-opacity));
-}
-
 .text-blue-300 {
   --text-opacity: 1;
   color: #90cdf4;
@@ -2434,22 +2386,9 @@ video {
   transition-duration: 150ms;
 }
 
-@-webkit-keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes spin {
   to {
     transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes ping {
-  75%, 100% {
-    transform: scale(2);
-    opacity: 0;
   }
 }
 
@@ -2460,44 +2399,63 @@ video {
   }
 }
 
-@-webkit-keyframes pulse {
-  50% {
-    opacity: .5;
-  }
-}
-
 @keyframes pulse {
   50% {
     opacity: .5;
   }
 }
 
-@-webkit-keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
-            animation-timing-function: cubic-bezier(0.8,0,1,1);
-  }
-
-  50% {
-    transform: none;
-    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
-            animation-timing-function: cubic-bezier(0,0,0.2,1);
-  }
-}
-
 @keyframes bounce {
   0%, 100% {
     transform: translateY(-25%);
-    -webkit-animation-timing-function: cubic-bezier(0.8,0,1,1);
-            animation-timing-function: cubic-bezier(0.8,0,1,1);
+    animation-timing-function: cubic-bezier(0.8,0,1,1);
   }
 
   50% {
     transform: none;
-    -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
-            animation-timing-function: cubic-bezier(0,0,0.2,1);
+    animation-timing-function: cubic-bezier(0,0,0.2,1);
   }
+}
+
+.circle {
+  height: 18rem;
+  width: 18rem;
+  border-radius: 50%;
+  line-height: 15.75rem;
+  font-size: 7rem;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+}
+
+.circle-good {
+  background-color: #c6f6d5;
+  border: 1.25rem solid #68d391;
+}
+
+.circle-okay {
+  background-color: #feebc8;
+  border: 1.25rem solid #ed8936;
+}
+
+.circle-bad {
+  background-color: #fed7d7;
+  border: 1.25rem solid #fc8181;
+}
+
+.min-h-circle {
+  min-height: 18rem;
+}
+
+.pre-fade{
+  opacity:0;
+  transition: opacity 0.5s;
+}
+
+.fade-in{
+  opacity:1;
+  transition: opacity 0.5s;
 }
 
 @media (min-width: 640px) {
@@ -2519,6 +2477,10 @@ video {
 
   .sm\:pt-0 {
     padding-top: 0;
+  }
+
+  .sm\:pt-32 {
+    padding-top: 8rem;
   }
 
   .sm\:w-6\/12 {
@@ -2631,10 +2593,6 @@ video {
 
   .md\:pr-12 {
     padding-right: 3rem;
-  }
-
-  .md\:pt-32 {
-    padding-top: 8rem;
   }
 
   .md\:fixed {
@@ -2873,3 +2831,4 @@ video {
     width: 66.666667%;
   }
 }
+
