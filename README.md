@@ -203,7 +203,7 @@ We use GitHub Issues as the official bug tracker for the Notus React. Here are s
 
 - Copyright 2021 <a href="https://www.creative-tim.com/?ref=nr-readme" target="_blank">Creative Tim</a>
 
-- Licensed under <a href="https://github.com/creativetimofficial/notus-react/blob/master/LICENSE.md" target="_blank">MIT</a>
+- Licensed under <a href="https://github.com/creativetimofficial/notus-react/blob/main/LICENSE.md" target="_blank">MIT</a>
 
 ## Useful Links
 
