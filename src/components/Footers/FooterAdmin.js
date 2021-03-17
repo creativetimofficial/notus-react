@@ -46,7 +46,7 @@ export default function FooterAdmin() {
                 </li>
                 <li>
                   <a
-                    href="https://github.com/creativetimofficial/notus-react/blob/master/LICENSE.md?ref=nr-footer-admin"
+                    href="https://github.com/creativetimofficial/notus-react/blob/main/LICENSE.md?ref=nr-footer-admin"
                     className="text-gray-700 hover:text-gray-900 text-sm font-semibold block py-1 px-3"
                   >
                     MIT License
