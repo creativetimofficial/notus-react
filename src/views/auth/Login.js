@@ -22,7 +22,7 @@ export default function Login() {
                     <img
                       alt="..."
                       className="w-5 mr-1"
-                      src={require("assets/img/github.svg")}
+                      src={require("assets/img/github.svg").default}
                     />
                     Github
                   </button>
@@ -33,7 +33,7 @@ export default function Login() {
                     <img
                       alt="..."
                       className="w-5 mr-1"
-                      src={require("assets/img/google.svg")}
+                      src={require("assets/img/google.svg").default}
                     />
                     Google
                   </button>
