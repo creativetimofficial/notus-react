@@ -82,7 +82,7 @@ export default function Landing() {
               <div className="w-full md:w-4/12 px-4 text-center">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
                   <div className="px-4 py-5 flex-auto">
-                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
+                    <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
                       <i className="fas fa-retweet"></i>
                     </div>
                     <h6 className="text-xl font-semibold">Free Revisions</h6>
@@ -135,7 +135,7 @@ export default function Landing() {
               </div>
 
               <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-blue-600">
+                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-lightBlue-500">
                   <img
                     alt="..."
                     src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1051&q=80"
@@ -150,7 +150,7 @@ export default function Landing() {
                     >
                       <polygon
                         points="-30,95 583,95 583,65"
-                        className="text-blue-600 fill-current"
+                        className="text-lightBlue-500 fill-current"
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
@@ -200,7 +200,7 @@ export default function Landing() {
               </div>
               <div className="w-full md:w-5/12 ml-auto mr-auto px-4">
                 <div className="md:pr-12">
-                  <div className="text-blue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-blue-300">
+                  <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
                     <i className="fas fa-rocket text-xl"></i>
                   </div>
                   <h3 className="text-3xl font-semibold">A growing company</h3>
@@ -213,7 +213,7 @@ export default function Landing() {
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
                             <i className="fas fa-fingerprint"></i>
                           </span>
                         </div>
@@ -227,7 +227,7 @@ export default function Landing() {
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
                             <i className="fab fa-html5"></i>
                           </span>
                         </div>
@@ -241,7 +241,7 @@ export default function Landing() {
                     <li className="py-2">
                       <div className="flex items-center">
                         <div>
-                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-600 bg-blue-200 mr-3">
+                          <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
                             <i className="far fa-paper-plane"></i>
                           </span>
                         </div>
@@ -286,13 +286,13 @@ export default function Landing() {
                     </p>
                     <div className="mt-6">
                       <button
-                        className="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
                         type="button"
                       >
                         <i className="fab fa-twitter"></i>
                       </button>
                       <button
-                        className="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
                         type="button"
                       >
                         <i className="fab fa-facebook-f"></i>
@@ -327,7 +327,7 @@ export default function Landing() {
                         <i className="fab fa-google"></i>
                       </button>
                       <button
-                        className="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        className="bg-lightBlue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
                         type="button"
                       >
                         <i className="fab fa-facebook-f"></i>
@@ -356,7 +356,7 @@ export default function Landing() {
                         <i className="fab fa-google"></i>
                       </button>
                       <button
-                        className="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
                         type="button"
                       >
                         <i className="fab fa-twitter"></i>
@@ -397,7 +397,7 @@ export default function Landing() {
                         <i className="fab fa-google"></i>
                       </button>
                       <button
-                        className="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                        className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
                         type="button"
                       >
                         <i className="fab fa-twitter"></i>
