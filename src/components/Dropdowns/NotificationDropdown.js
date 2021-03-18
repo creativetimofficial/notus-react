@@ -19,7 +19,7 @@ const NotificationDropdown = () => {
   return (
     <>
       <a
-        className="text-gray-600 block py-1 px-3"
+        className="text-coolGray-500 block py-1 px-3"
         href="#pablo"
         ref={btnDropdownRef}
         onClick={(e) => {
@@ -39,7 +39,7 @@ const NotificationDropdown = () => {
         <a
           href="#pablo"
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-coolGray-700"
           }
           onClick={(e) => e.preventDefault()}
         >
@@ -48,7 +48,7 @@ const NotificationDropdown = () => {
         <a
           href="#pablo"
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-coolGray-700"
           }
           onClick={(e) => e.preventDefault()}
         >
@@ -57,17 +57,17 @@ const NotificationDropdown = () => {
         <a
           href="#pablo"
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-coolGray-700"
           }
           onClick={(e) => e.preventDefault()}
         >
           Something else here
         </a>
-        <div className="h-0 my-2 border border-solid border-gray-200" />
+        <div className="h-0 my-2 border border-solid border-coolGray-100" />
         <a
           href="#pablo"
           className={
-            "text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+            "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-coolGray-700"
           }
           onClick={(e) => e.preventDefault()}
         >

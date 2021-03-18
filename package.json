@@ -1,25 +1,26 @@
 {
   "name": "notus-react",
   "homepage": "https://demos.creative-tim.com/notus-react/",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Notus React - A free Tailwind CSS and React UI Kit and Admin by Creative Tim.",
   "repository": "https://github.com/creativetimofficial/notus-react",
   "license": "MIT",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "5.14.0",
-    "@popperjs/core": "2.5.1",
-    "@tailwindcss/custom-forms": "0.2.1",
-    "chart.js": "2.9.3",
+    "@fortawesome/fontawesome-free": "5.15.3",
+    "@popperjs/core": "2.9.1",
+    "@tailwindcss/forms": "0.2.1",
+    "autoprefixer": "10.2.5",
+    "chart.js": "2.9.4",
     "gh-pages": "3.1.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-google-maps": "9.4.5",
+    "postcss": "8.2.8",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
-    "react-scripts": "3.4.3",
-    "tailwindcss": "1.8.10"
+    "react-scripts": "4.0.3",
+    "tailwindcss": "2.0.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,9 +47,6 @@
     ]
   },
   "optionalDependencies": {
-    "@types/googlemaps": "3.39.13",
-    "@types/markerclustererplus": "2.1.33",
-    "@types/react": "16.9.49",
-    "typescript": "4.0.3"
+    "typescript": "4.2.3"
   }
 }
