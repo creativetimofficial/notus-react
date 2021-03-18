@@ -52,10 +52,7 @@ function MapExample() {
         {
           featureType: "water",
           elementType: "all",
-          stylers: [
-            { color: "#4299e1" },
-            { visibility: "on" },
-          ],
+          stylers: [{ color: "#4299e1" }, { visibility: "on" }],
         },
       ],
     };
