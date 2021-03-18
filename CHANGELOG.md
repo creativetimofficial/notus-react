@@ -16,12 +16,24 @@
     - Then, you search in your whole project for `coolGray-800` and replace it with `coolGray-700`
     - Then, you search in your whole project for `coolGray-900` and replace it with `coolGray-800`
 - `lg:bg-transparent` is not working anymore, so we've changed it with `lg:bg-opacity-0`
+- https://github.com/creativetimofficial/notus-angular/issues/4
+- https://github.com/creativetimofficial/notus-js/issues/4
+- https://github.com/creativetimofficial/notus-js/pull/5
+- https://github.com/creativetimofficial/notus-js/pull/6
+- https://github.com/creativetimofficial/notus-nextjs/issues/6
+- https://github.com/creativetimofficial/notus-nextjs/issues/7
+- https://github.com/creativetimofficial/notus-nextjs/issues/8
+- https://github.com/creativetimofficial/notus-react/issues/3
+- https://github.com/creativetimofficial/notus-svelte/issues/3
+- https://github.com/creativetimofficial/notus-svelte/issues/6
+- https://github.com/creativetimofficial/vue-notus/pull/4/
 ### Major style changes
-
+- The upgrade of Tailwind CSS from version 1 to version 2, will cause multiple style changes, check them out on the official Tailwind CSS websites:
+  - https://blog.tailwindcss.com/tailwindcss-v2
+  - https://tailwindcss.com/
+  - https://tailwindcss.com/docs/upgrading-to-v2
 ### Deleted components
-
 ### Added components
-
 ### Deleted dependencies
 - `@tailwindcss/custom-forms`
 - `react-google-maps` (replaced by simple Google Maps API)
