@@ -37,7 +37,7 @@ export default function CardTable({ color }) {
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
                     (color === "light"
-                      ? "bg-coolGray-new text-coolGray-500 border-coolGray-100"
+                      ? "bg-coolGray-50 text-coolGray-500 border-coolGray-100"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 >
@@ -47,7 +47,7 @@ export default function CardTable({ color }) {
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
                     (color === "light"
-                      ? "bg-coolGray-new text-coolGray-500 border-coolGray-100"
+                      ? "bg-coolGray-50 text-coolGray-500 border-coolGray-100"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 >
@@ -57,7 +57,7 @@ export default function CardTable({ color }) {
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
                     (color === "light"
-                      ? "bg-coolGray-new text-coolGray-500 border-coolGray-100"
+                      ? "bg-coolGray-50 text-coolGray-500 border-coolGray-100"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 >
@@ -67,7 +67,7 @@ export default function CardTable({ color }) {
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
                     (color === "light"
-                      ? "bg-coolGray-new text-coolGray-500 border-coolGray-100"
+                      ? "bg-coolGray-50 text-coolGray-500 border-coolGray-100"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 >
@@ -77,7 +77,7 @@ export default function CardTable({ color }) {
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
                     (color === "light"
-                      ? "bg-coolGray-new text-coolGray-500 border-coolGray-100"
+                      ? "bg-coolGray-50 text-coolGray-500 border-coolGray-100"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 >
@@ -87,7 +87,7 @@ export default function CardTable({ color }) {
                   className={
                     "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
                     (color === "light"
-                      ? "bg-coolGray-new text-coolGray-500 border-coolGray-100"
+                      ? "bg-coolGray-50 text-coolGray-500 border-coolGray-100"
                       : "bg-blue-800 text-blue-300 border-blue-700")
                   }
                 ></th>
@@ -121,22 +121,22 @@ export default function CardTable({ color }) {
                     <img
                       src={require("assets/img/team-1-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow"
                     ></img>
                     <img
                       src={require("assets/img/team-2-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                     <img
                       src={require("assets/img/team-3-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                     <img
                       src={require("assets/img/team-4-470x470.png").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                   </div>
                 </td>
@@ -185,22 +185,22 @@ export default function CardTable({ color }) {
                     <img
                       src={require("assets/img/team-1-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow"
                     ></img>
                     <img
                       src={require("assets/img/team-2-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                     <img
                       src={require("assets/img/team-3-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                     <img
                       src={require("assets/img/team-4-470x470.png").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                   </div>
                 </td>
@@ -248,22 +248,22 @@ export default function CardTable({ color }) {
                     <img
                       src={require("assets/img/team-1-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow"
                     ></img>
                     <img
                       src={require("assets/img/team-2-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                     <img
                       src={require("assets/img/team-3-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                     <img
                       src={require("assets/img/team-4-470x470.png").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                   </div>
                 </td>
@@ -312,22 +312,22 @@ export default function CardTable({ color }) {
                     <img
                       src={require("assets/img/team-1-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow"
                     ></img>
                     <img
                       src={require("assets/img/team-2-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                     <img
                       src={require("assets/img/team-3-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                     <img
                       src={require("assets/img/team-4-470x470.png").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                   </div>
                 </td>
@@ -376,22 +376,22 @@ export default function CardTable({ color }) {
                     <img
                       src={require("assets/img/team-1-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow"
                     ></img>
                     <img
                       src={require("assets/img/team-2-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                     <img
                       src={require("assets/img/team-3-800x800.jpg").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                     <img
                       src={require("assets/img/team-4-470x470.png").default}
                       alt="..."
-                      className="w-10 h-10 rounded-full border-2 border-coolGray-new shadow -ml-4"
+                      className="w-10 h-10 rounded-full border-2 border-coolGray-50 shadow -ml-4"
                     ></img>
                   </div>
                 </td>
