@@ -15,6 +15,7 @@
     - Then, you search in your whole project for `coolGray-700` and replace it with `coolGray-600`
     - Then, you search in your whole project for `coolGray-800` and replace it with `coolGray-700`
     - Then, you search in your whole project for `coolGray-900` and replace it with `coolGray-800`
+  - For the colors, the only change that we made, is the fact that we've added all Tailwind CSS colors to our `tailwind.config.js` files, and inside our product, all `{type}-blue-{number}` classes were renamed to `{type}-lightBlue-{number}`
 - `lg:bg-transparent` is not working anymore, so we've changed it with `lg:bg-opacity-0`
 - https://github.com/creativetimofficial/notus-angular/issues/4
 - https://github.com/creativetimofficial/notus-js/issues/4
