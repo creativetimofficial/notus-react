@@ -7,8 +7,20 @@ import Circle from "../../components/Misc/Circle.js";
 
 
 export default function MeasureDashboard({ measures, history }) {
-  const labels = measures.length ? measures.map(measure => measure.displayName) : [];
-  const data = measures.length ? measures.map(measure => measure.rating) : [];
+  let comp = {displayName: "Composite Score", rating: ""}
+  comp = measures && measures.length ? measures[0] : comp;
+  const compName = "Composite";
+  const measureNoComp = measures
+    .filter(measure => measure.name !== compName)
+    .sort((a, b) => a.displayName.toLowerCase().localeCompare(b.displayName.toLowerCase()));
+
+  const sortedImpact = measures.length 
+    ? Object.entries(comp.impact)
+      .sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase())) 
+    : undefined;
+
+  const labels = measures.length ? sortedImpact.map(el => el[0]) : [];
+  const data = measures.length ? sortedImpact.map(el => el[1]) : [];
 
   return (
     <>
@@ -24,17 +36,17 @@ export default function MeasureDashboard({ measures, history }) {
         </div>
         <div>
           <div className="flex flex-wrap">
-            {/* <div className="w-full xl:w-4/12 mb-12 xl:mb-0 px-4 relative min-h-circle">
-              <Circle number={3} />
-            </div> */}
-            <div className="w-full mb-12 xl:mb-0 px-4">
+            <div className="w-full xl:w-4/12 mb-12 xl:mb-0 px-4 relative min-h-circle">
+              <Circle number={comp.rating} />
+            </div>
+            <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
               <CardBarChart
                 labels={labels}
                 data={data}
                 title="Measures"
                 yAxis="% Impact on HEDIS Score"
                 xAxis="Measure"
-                measures={measures}
+                measures={measureNoComp}
                 history={history}
               />
             </div>
@@ -54,7 +66,7 @@ export default function MeasureDashboard({ measures, history }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {measures.map((measure) => (
+                  {measureNoComp.map((measure) => (
                     <tr key={measure.name}>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-no-wrap p-4 text-left ">
                       <Link to={{
