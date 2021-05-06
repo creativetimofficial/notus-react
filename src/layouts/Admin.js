@@ -28,8 +28,8 @@ export default function Admin() {
 
   return (
     <>
-      <Sidebar />
-      <div className="relative md:ml-64 bg-gray-200">
+      {/* <Sidebar /> */}
+      {/* <div className="relative md:ml-64 bg-gray-200"> */}
         <AdminNavbar />
         {/* Header */}
         <div className="bg-blue-600 pb-32 pt-12">
@@ -37,25 +37,25 @@ export default function Admin() {
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
           <Switch>
             <Route
-              path='/admin/dashboard'
+              path='/dashboard'
               render={(props) => (
                 <Dashboard {...props} measures={measures} />
               )}
             />
-            <Route path="/admin/dashboard" exact component={Dashboard} />
-            <Route path="/admin/maps" exact component={Maps} />
-            <Route path="/admin/settings" exact component={Settings} />
-            <Route path="/admin/tables" exact component={Tables} />
+            <Route path="/dashboard" exact component={Dashboard} />
+            <Route path="/maps" exact component={Maps} />
+            <Route path="/settings" exact component={Settings} />
+            <Route path="/tables" exact component={Tables} />
             {/*<Redirect from="/admin" to="/admin/dashboard" />*/}
             {/*<Redirect from="/" to="/admin/dashboard" />*/}
             {/* temp fix - figure out later*/}
             <Route
-              path="/admin/measures/:measureName" 
+              path="/measures/:measureName" 
               render={(props) => (
                 <Measure {...props} measures={measures} />
               )}/>
             <Route
-              path="/admin/measures"
+              path="/"
               render={(props) => (
                 <MeasureDashboard {...props} measures={measures} />
               )}
@@ -63,7 +63,7 @@ export default function Admin() {
           </Switch>
           <FooterAdmin />
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 }

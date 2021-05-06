@@ -58,7 +58,7 @@ export default function MeasureDashboard({ measures, history }) {
                     <tr key={measure.name}>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-no-wrap p-4 text-left ">
                       <Link to={{
-                        pathname: `/admin/measures/${measure.name}`,
+                        pathname: `/measures/${measure.name}`,
                         state: {
                           measure
                         }
