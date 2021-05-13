@@ -8,7 +8,7 @@ export default function CardBarChart({ labels, data, title, xAxis, yAxis, measur
   const goToClickedMeasure = (event, array) => {
     if(array.length && measures){
       const name = measures[array[0]._index].name;
-      history.push(`/admin/measures/${name}`)
+      history.push(`/measures/${name}`)
     }
   }
 

@@ -44,25 +44,25 @@ const IndexDropdown = () => {
           Admin Layout
         </span>
         <Link
-          to="/admin/dashboard"
+          to="/dashboard"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
         >
           Dashboard
         </Link>
         <Link
-          to="/admin/settings"
+          to="/settings"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
         >
           Settings
         </Link>
         <Link
-          to="/admin/tables"
+          to="/tables"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
         >
           Tables
         </Link>
         <Link
-          to="/admin/maps"
+          to="/maps"
           className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
         >
           Maps
