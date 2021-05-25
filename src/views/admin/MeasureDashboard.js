@@ -9,7 +9,7 @@ import Circle from "../../components/Misc/Circle.js";
 export default function MeasureDashboard({ measures, history }) {
   let comp = {displayName: "Composite Score", rating: ""}
   comp = measures && measures.length ? measures[0] : comp;
-  const compName = "composite";
+  const compName = "Composite";
   const measureNoComp = measures
     .filter(measure => measure.name !== compName)
     .sort((a, b) => a.displayName.toLowerCase().localeCompare(b.displayName.toLowerCase()));
@@ -18,7 +18,7 @@ export default function MeasureDashboard({ measures, history }) {
     ? Object.entries(comp.impact)
       .sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase())) 
     : undefined;
-  
+
   const labels = measures.length ? sortedImpact.map(el => el[0]) : [];
   const data = measures.length ? sortedImpact.map(el => el[1]) : [];
 
@@ -70,7 +70,7 @@ export default function MeasureDashboard({ measures, history }) {
                     <tr key={measure.name}>
                         <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-no-wrap p-4 text-left ">
                       <Link to={{
-                        pathname: `/admin/measures/${measure.name}`,
+                        pathname: `/measures/${measure.name}`,
                         state: {
                           measure
                         }
