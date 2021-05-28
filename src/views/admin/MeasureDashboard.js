@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // components
 import CardBarChart from "../../components/Cards/CardBarChart.js";
 import Circle from "../../components/Misc/Circle.js";
+import StarRatings from "react-star-ratings";
 
 
 export default function MeasureDashboard({ measures, history }) {
@@ -29,7 +30,7 @@ export default function MeasureDashboard({ measures, history }) {
           <div className="flex flex-wrap items-center">
             <div className="relative w-full px-4 max-w-full flex-grow flex-1">
               <h3 className="font-semibold text-3xl text-gray-800">
-                HEDIS Score
+                {comp.rating} Star Rating
               </h3>
             </div>
           </div>
@@ -37,7 +38,17 @@ export default function MeasureDashboard({ measures, history }) {
         <div>
           <div className="flex flex-wrap">
             <div className="w-full xl:w-4/12 mb-12 xl:mb-0 px-4 relative min-h-circle">
-              <Circle number={comp.rating} />
+              {/* <Circle number={comp.rating} /> */}
+              <div className="inline-block text-center stars">
+                <StarRatings
+                  rating={Number(comp.rating)}
+                  starRatedColor="#ffd700"
+                  numberOfStars={5}
+                  starDimension="70px"
+                  starSpacing="2px"
+                  name="rating"
+                />
+              </div>
             </div>
             <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
               <CardBarChart

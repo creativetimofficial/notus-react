@@ -4,16 +4,21 @@ import { useParams } from "react-router-dom";
 // components
 import CardBarChart from "../Cards/CardBarChart.js";
 import Circle from "../Misc/Circle.js";
-import Rating from '@material-ui/lab/Rating';
-
+import StarRatings from "react-star-ratings";
 
 export default function Measure({ measures }) {
   let { measureName } = useParams();
-  const measure = measures.filter(measure => measure.name === measureName)[0];
+  const measure = measures.filter((measure) => measure.name === measureName)[0];
 
-  const labels = measures.length ? Object.keys(measure.expressions).map((attribute, i) => `E${i}`) : [];
-  const expressionData = measures.length ? Object.values(measure.expressions) :[];
-  const improvementData = measures.length ? Object.values(measure.improvements) :[];
+  const labels = measures.length
+    ? Object.keys(measure.expressions).map((attribute, i) => `E${i}`)
+    : [];
+  const expressionData = measures.length
+    ? Object.values(measure.expressions)
+    : [];
+  const improvementData = measures.length
+    ? Object.values(measure.improvements)
+    : [];
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
@@ -28,19 +33,34 @@ export default function Measure({ measures }) {
         </div>
         <div>
           <div className="flex flex-wrap">
-            <div className="w-full xl:w-4/12 mb-12 xl:mb-0 px-4 relative">
-              {/* <Circle number={measure ? measure.rating : undefined} /> */}
-              <div className="text-center circle ">
-                <Rating value={measure ? measure.rating : 0} precision={0.5} readOnly size="large"/>
+            <div className="w-full xl:w-4/12 mb-12 xl:mb-0 px-4 relative min-h-circle">
+              {/* <Circle number={comp.rating} /> */}
+              <div className="inline-block text-center stars">
+                <StarRatings
+                  rating={measure ? measure.rating : 0}
+                  starRatedColor="#ffd700"
+                  numberOfStars={5}
+                  starDimension="70px"
+                  starSpacing="2px"
+                  name="rating"
+                />
               </div>
             </div>
             <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
-              <CardBarChart title="Expressions" labels={labels} data={expressionData} yAxis="No. of Instances" xAxis="Expression" />
+              <CardBarChart
+                title="Expressions"
+                labels={labels}
+                data={expressionData}
+                yAxis="No. of Instances"
+                xAxis="Expression"
+              />
             </div>
           </div>
           <div className="flex flex-wrap mt-4">
             <div className="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
-              <h3 className="font-semibold text-xl text-gray-800">Explanation</h3>
+              <h3 className="font-semibold text-xl text-gray-800">
+                Explanation
+              </h3>
               <table className="items-center w-full bg-transparent border-collapse">
                 <thead>
                   <tr>
@@ -53,21 +73,31 @@ export default function Measure({ measures }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {measure ? Object.keys(measure.expressions).map((attribute, i) => (
-                    <tr key={measure.name + `-${i}`}>
-                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left flex items-center">
-                        {/* <td className="text-sm text-gray-800"></td> */}
-                        E{i}
-                        {/* <td className="text-sm text-gray-800"></td> */}
-                      </td>
-                      <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">{attribute}</td>
-                    </tr>
-                  )) : undefined}
-                  </tbody>
+                  {measure
+                    ? Object.keys(measure.expressions).map((attribute, i) => (
+                        <tr key={measure.name + `-${i}`}>
+                          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4 text-left flex items-center">
+                            {/* <td className="text-sm text-gray-800"></td> */}E
+                            {i}
+                            {/* <td className="text-sm text-gray-800"></td> */}
+                          </td>
+                          <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-no-wrap p-4">
+                            {attribute}
+                          </td>
+                        </tr>
+                      ))
+                    : undefined}
+                </tbody>
               </table>
             </div>
             <div className="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
-              <CardBarChart title="Easy Fixes" labels={labels} data={improvementData} yAxis="Esimated HEDIS Growth" xAxis="Expression" />
+              <CardBarChart
+                title="Easy Fixes"
+                labels={labels}
+                data={improvementData}
+                yAxis="Esimated HEDIS Growth"
+                xAxis="Expression"
+              />
             </div>
           </div>
         </div>
