@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 // components
 import CardBarChart from "../Cards/CardBarChart.js";
 import Circle from "../Misc/Circle.js";
+import Rating from '@material-ui/lab/Rating';
 
 
 export default function Measure({ measures }) {
@@ -28,7 +29,10 @@ export default function Measure({ measures }) {
         <div>
           <div className="flex flex-wrap">
             <div className="w-full xl:w-4/12 mb-12 xl:mb-0 px-4 relative">
-              <Circle number={measure ? measure.rating : undefined} />
+              {/* <Circle number={measure ? measure.rating : undefined} /> */}
+              <div className="text-center circle ">
+                <Rating value={measure ? measure.rating : 0} precision={0.5} readOnly size="large"/>
+              </div>
             </div>
             <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
               <CardBarChart title="Expressions" labels={labels} data={expressionData} yAxis="No. of Instances" xAxis="Expression" />
