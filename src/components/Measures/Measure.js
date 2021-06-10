@@ -92,7 +92,7 @@ export default function Measure({ measures }) {
             </div>
             <div className="w-full xl:w-6/12 mb-12 xl:mb-0 px-4">
               <CardBarChart
-                title="Easy Fixes"
+                title="Areas of Improvement"
                 labels={labels}
                 data={improvementData}
                 yAxis="Esimated HEDIS Growth"
