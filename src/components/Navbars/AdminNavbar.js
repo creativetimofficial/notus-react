@@ -13,7 +13,7 @@ export default function Navbar() {
             to={{
             pathname: `/measures/`,
           }}>
-            Saraswati
+            HEDIS Measures Rating Scores
           </Link>
           {/* Form */}
           {/* <form className="md:flex hidden flex-row flex-wrap items-center lg:ml-auto mr-3">

@@ -2458,6 +2458,18 @@ video {
   transition: opacity 0.5s;
 }
 
+.stars {
+  height: 18rem;
+  width: 26rem;
+  border-radius: 50%;
+  line-height: 15.75rem;
+  font-size: 7rem;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+  position: absolute;
+}
+
 @media (min-width: 640px) {
   .sm\:block {
     display: block;
