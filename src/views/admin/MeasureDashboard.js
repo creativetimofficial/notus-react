@@ -113,26 +113,26 @@ export default function MeasureDashboard({ measures, history }) {
                 <tbody>
                   <tr>
                     <td className="border-t-0 align-left border-l-0 border-r-0 text-md whitespace-no-wrap text-left">
-                      % Denominator Non-Compliant
+                    {measures.length ? "% Denominator Non-Compliant" : ""}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-no-wrap p-4">
-                      33%
+                      {measures.length ? "33%" : ""}
                     </td>
                   </tr>
                   <tr>
                     <td className="border-t-0 align-left border-l-0 border-r-0 text-md whitespace-no-wrap text-left">
-                      % Numerator Non-Compliant
+                    {measures.length ? "% Numerator Non-Compliant" : ""}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-no-wrap p-4">
-                      53%
+                    {measures.length ? "53%" : ""}
                     </td>
                   </tr>
                   <tr>
                     <td className="border-t-0 align-left border-l-0 border-r-0 text-md whitespace-no-wrap text-left">
-                      % Issues w/ [Encounter]
+                    {measures.length ? "% Issues w/ [Encounter]" : ""}
                     </td>
                     <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-md whitespace-no-wrap p-4">
-                      33%
+                    {measures.length ? "33%" : ""}
                     </td>
                   </tr>
                 </tbody>
