@@ -7,12 +7,10 @@ import "assets/styles/tailwind.css";
 // layouts
 
 import Admin from "layouts/Admin";
-import Auth from "layouts/Auth";
+import Document from "layouts/Document"
 
 // views without layouts
 
-import Landing from "views/Landing";
-import Profile from "views/Profile";
 import Index from "views/Index";
 
 declare global {
@@ -28,10 +26,8 @@ ReactDOM.render(
     <Switch>
       {/* add routes with layouts */}
       <Route path="/admin" component={Admin} />
-      <Route path="/auth" component={Auth} />
+      <Route path="/doc" component={Document} />
       {/* add routes without layouts */}
-      <Route path="/landing" exact component={Landing} />
-      <Route path="/profile" exact component={Profile} />
       <Route path="/" exact component={Index} />
       {/* add redirect for first page */}
       <Redirect from="*" to="/" />
