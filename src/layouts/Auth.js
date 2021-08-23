@@ -3,13 +3,13 @@ import { Switch, Route, Redirect } from "react-router-dom";
 
 // components
 
-import Navbar from "components/Navbars/AuthNavbar.js";
-import FooterSmall from "components/Footers/FooterSmall.js";
+import Navbar from "components/Navbars/AuthNavbar";
+import FooterSmall from "components/Footers/FooterSmall";
 
 // views
 
-import Login from "views/auth/Login.js";
-import Register from "views/auth/Register.js";
+import Login from "views/auth/Login";
+import Register from "views/auth/Register";
 
 export default function Auth() {
   return (

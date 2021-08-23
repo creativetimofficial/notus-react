@@ -1,10 +1,9 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 // components
 
-import Navbar from "components/Navbars/AuthNavbar.js";
-import Footer from "components/Footers/Footer.js";
+import Navbar from "components/Navbars/AuthNavbar";
+import Footer from "components/Footers/Footer";
 
 export default function Landing() {
   return (
@@ -539,8 +538,8 @@ export default function Landing() {
                         Message
                       </label>
                       <textarea
-                        rows="4"
-                        cols="80"
+                        rows={4}
+                        cols={80}
                         className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
                         placeholder="Type a message..."
                       />
