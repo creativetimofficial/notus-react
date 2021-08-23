@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 import IndexDropdown from "components/Dropdowns/IndexDropdown";
 
-export default function Navbar(props) {
+export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
