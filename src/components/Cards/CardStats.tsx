@@ -1,5 +1,15 @@
-import React from "react";
 import PropTypes from "prop-types";
+
+interface AppProps {
+  statSubtitle: any
+  statTitle: any
+  statArrow: any
+  statPercent: any
+  statPercentColor: any
+  statDescripiron: any
+  statIconName: any
+  statIconColor: any
+}
 
 export default function CardStats({
   statSubtitle,
@@ -10,7 +20,7 @@ export default function CardStats({
   statDescripiron,
   statIconName,
   statIconColor,
-}) {
+}: AppProps) {
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words bg-white rounded mb-6 xl:mb-0 shadow-lg">

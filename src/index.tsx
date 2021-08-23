@@ -15,6 +15,13 @@ import Landing from "views/Landing";
 import Profile from "views/Profile";
 import Index from "views/Index";
 
+declare global {
+  interface Window {
+      myBar: any;
+      myLine: any;
+  }
+}
+
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
