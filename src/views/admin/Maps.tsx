@@ -1,8 +1,6 @@
-import React from "react";
-
 // components
 
-import MapExample from "components/Maps/MapExample.js";
+import MapExample from "components/Maps/MapExample";
 
 export default function Maps() {
   return (
