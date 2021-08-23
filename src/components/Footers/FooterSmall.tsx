@@ -1,5 +1,5 @@
 interface AppProps {
-  absolute: string
+  absolute: boolean
 }
 
 export default function FooterSmall(props: AppProps) {
