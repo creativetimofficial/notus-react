@@ -1,13 +1,14 @@
-import React from "react";
+import React, { RefObject } from "react";
 import { Link } from "react-router-dom";
 import { createPopper } from "@popperjs/core";
 
 const IndexDropdown = () => {
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);
-  const btnDropdownRef = React.createRef();
-  const popoverDropdownRef = React.createRef();
+  const btnDropdownRef = React.createRef() as RefObject<HTMLAnchorElement>;
+  const popoverDropdownRef = React.createRef() as RefObject<HTMLDivElement>;
   const openDropdownPopover = () => {
+    if (btnDropdownRef.current && popoverDropdownRef.current)
     createPopper(btnDropdownRef.current, popoverDropdownRef.current, {
       placement: "bottom-start",
     });
