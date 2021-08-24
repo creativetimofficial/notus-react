@@ -2789,6 +2789,11 @@ select {
     padding-right: 3rem;
   }
 
+
+  .md\:pt-16 {
+    padding-top: 4rem;
+  }
+
   .md\:pt-32 {
     padding-top: 8rem;
   }
