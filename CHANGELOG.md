@@ -1,5 +1,30 @@
 # Change Log
 
+## [1.2.0] 2022-01-11
+Upgraded Tailwind CSS from version 2 to version 3
+Followed https://tailwindcss.com/docs/upgrade-guide#renamed-gray-scales to update color names
+- All `{type}-lightBlue-{number}` classes were renamed to `{type}-sky-{number}`
+- All `{type}-blueGray-{number}` classes were renamed to `{type}-slate-{number}`
+- Removed conflicting bg-white and bg-sky-500 class
+- Moved tailwindcss, postcss and autoprefixer to `devDependencies` section in `package.json`
+- Added `postcss.config.js`
+### Major style changes
+- The upgrade of Tailwind CSS from version 2 to version 3, will cause multiple style changes, check them out on the official Tailwind CSS websites:
+  - https://tailwindcss.com/blog/tailwindcss-v3
+  - https://tailwindcss.com/docs/upgrade-guide
+### Deleted dependencies
+- `@tailwindcss/forms` (Official repository says @tailwindcss/forms is designed for Tailwind CSS v2.0)
+### Updated dependencies
+```
+@fortawesome/fontawesome-free    5.15.3   →   5.15.4
+@popperjs/core                    2.5.1   →    2.9.1
+react                            17.0.1   →   17.0.2
+react-dom                        17.0.1   →   17.0.2
+tailwindcss                       2.0.4   →   3.0.11
+typescript                        4.0.3   →    4.5.4
+postcss                           8.2.8   →    8.4.5
+```
+
 ## [1.1.0] 2021-03-19
 ### Bug fixing
 - Rename `master` branch to `main`
