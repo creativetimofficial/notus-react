@@ -1,8 +1,6 @@
 import D3Chart from "components/D3Container/D3Chart.js";
-import D3Container from "components/D3Container/D3Container.js";
 import React, { createContext, useState } from "react";
 import { Link } from "react-router-dom";
-import StarRatings from "react-star-ratings";
 // components
 import CardBarChart from "../../components/Cards/CardBarChart.js";
 
@@ -55,8 +53,7 @@ export default function MeasureDashboard({ measures, history }) {
                 </div>
                 <div>
                   I work
-                  <D3Container/>
-                  <D3Chart/>
+                  <D3Chart />
                 </div>
               </div>
               <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
