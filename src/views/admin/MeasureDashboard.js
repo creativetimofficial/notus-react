@@ -53,11 +53,7 @@ export default function MeasureDashboard({ measures, history }) {
                   /> */}
                 </div>
                 <div>
-                  I work
                   <D3Chart />
-                  Over
-                  {/* <D3Display/> */}
-                  Under
                 </div>
               </div>
               <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
