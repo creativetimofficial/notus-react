@@ -1,4 +1,5 @@
 import D3Chart from "components/D3Container/D3Chart.js";
+import D3Display from "components/D3Container/D3Display.js";
 import React, { createContext, useState } from "react";
 import { Link } from "react-router-dom";
 // components
@@ -54,6 +55,9 @@ export default function MeasureDashboard({ measures, history }) {
                 <div>
                   I work
                   <D3Chart />
+                  Over
+                  {/* <D3Display/> */}
+                  Under
                 </div>
               </div>
               <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
