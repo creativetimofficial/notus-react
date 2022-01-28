@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import { dataList } from './DemoData';
 
 function D3Chart() {
-
+    //Binder for react to apply changes to the svg
     const D3LineChart = useRef();
 
     useEffect(() => {
@@ -86,38 +86,7 @@ function D3Chart() {
 
         d3.selectAll(".axis-grid line").style("stroke", "lightgray")
 
-        // );
-        // Generates the actual line
-        const line = d3.line()
-            .curve(d3.curveCardinal)
-            .x(d => x(parseDate(d.date)))
-            .y(d => y(d.value));
-
-
-        var div = d3.select(D3LineChart.current).append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
-
-        //Iterates through an array variation.
-        nameList.forEach((name) => {
-            svg.append('path')
-                .datum(dateDemoData.filter((item) => item.name === name))
-                .attr('fill', 'none')
-                .attr('stroke', 'lightgray')
-                .attr('stroke-width', 2)
-                .attr('d', line)
-                .on("mouseover", (event) => {
-                    console.log(this)
-                    console.log(event.currentTarget)
-                    console.log(this === event.currentTarget);
-                    d3.select(this).attr("stroke", "darkblue");
-                })
-                .on("mouseout", (event) => {
-                    console.log(this === event.currentTarget);
-                    d3.select(this).attr("stroke", "lightgray");
-                });
-        });
-        //Graph Title. Literally has to be placed on the graph using X and Y values
+        // Graph Title. Literally has to be placed on the graph using X and Y values
         svg.append('text')
             //X position
             .attr('x', (width / 2))
@@ -130,8 +99,30 @@ function D3Chart() {
             //Text
             .text('demoData Graph (D3)')
 
-        //Experimental
+        // Generates the actual line
+        const line = d3.line()
+            .curve(d3.curveCardinal)
+            .x(d => x(parseDate(d.date)))
+            .y(d => y(d.value));
 
+        //Iterates through an array variation.
+        nameList.forEach((name) => {
+            svg.append('path')
+                .datum(dateDemoData.filter((item) => item.name === name))
+                .attr('fill', 'none')
+                .attr('stroke', 'black')
+                .attr('opacity', '.33')
+                .attr('stroke-width', 2)
+                .attr('d', line)
+                .on("mouseover", (event) => {
+                    console.log(event.currentTarget)
+                    d3.select(event.currentTarget).attr("opacity", "1");
+                }
+                )
+                .on("mouseout", (event) => {
+                    d3.select(event.currentTarget).attr("opacity", ".33");
+                });
+        });
     });
 
     return (

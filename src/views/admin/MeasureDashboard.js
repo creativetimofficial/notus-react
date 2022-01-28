@@ -1,5 +1,4 @@
 import D3Chart from "components/D3Container/D3Chart.js";
-import D3Display from "components/D3Container/D3Display.js";
 import React, { createContext, useState } from "react";
 import { Link } from "react-router-dom";
 // components
