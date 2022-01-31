@@ -1,8 +1,10 @@
 import D3Chart from "components/D3Container/D3Chart.js";
+import { ThemeProvider } from '@emotion/react';
 import React, { createContext, useState } from "react";
 import { Link } from "react-router-dom";
 // components
 import CardBarChart from "../../components/Cards/CardBarChart.js";
+import { theme } from "assets/styles/AppTheme.js";
 
 
 export const datastoreContext = createContext("");
@@ -26,6 +28,7 @@ export default function MeasureDashboard({ measures, history }) {
 
   return (
     <>
+    <ThemeProvider theme={theme} >
       <datastoreContext.Provider value={{ datastore, setDatastore }}>
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
           <div className="rounded-t mb-0 px-4 py-3 border-0">
@@ -147,6 +150,7 @@ export default function MeasureDashboard({ measures, history }) {
           </div>
         </div>
       </datastoreContext.Provider>
+      </ThemeProvider>
     </>
   );
 }
