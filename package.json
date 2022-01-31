@@ -14,7 +14,7 @@
     "d3": "^7.3.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
-    "react": "16.13.1",
+    "react": "^17.0.2",
     "react-dom": "16.13.1",
     "react-google-maps": "9.4.5",
     "react-router": "5.2.0",
