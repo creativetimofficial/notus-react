@@ -1,13 +1,15 @@
 {
-  "name": "notus-react",
-  "version": "1.0.0",
-  "description": "Notus React - A free Tailwind CSS and React UI Kit and Admin by Creative Tim.",
-  "repository": "https://github.com/creativetimofficial/notus-react",
+  "name": "saraswati-dashboard",
+  "version": "0.1.0",
+  "description": "A HEDIS reporting application utilizing D3 and Material UI.",
+  "repository": "https://github.com/amidatech/nsaraswati-dashboard",
   "license": "MIT",
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@fortawesome/fontawesome-free": "5.14.0",
+    "@mui/material": "^5.3.1",
     "@popperjs/core": "2.5.1",
-    "@tailwindcss/custom-forms": "0.2.1",
     "chart.js": "2.9.3",
     "d3": "^7.3.0",
     "gulp": "4.0.2",
@@ -18,16 +20,14 @@
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "3.4.0",
-    "react-star-ratings": "^2.3.0",
-    "tailwindcss": "1.8.10"
+    "react-star-ratings": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && gulp licenses",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm start",
-    "build:tailwind": "tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
