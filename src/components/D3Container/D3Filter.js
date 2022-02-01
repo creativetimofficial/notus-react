@@ -9,7 +9,7 @@ function D3Filter(props) {
     const onChange = props.changeFunction;
 
     return (
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={2} sx={{width:'75%'}}>
             <FormGroup sx={{ ml: "8px", mt: '55px' }}>
                 <FormControlLabel labelPlacement="end" control={
                     <Switch size="large" sx={{ width: '50px', pr: '10px', mx: '10px' }} icon={<CircleOutlinedIcon />} onChange={onChange} color="success" checkedIcon={<CircleIcon />} />

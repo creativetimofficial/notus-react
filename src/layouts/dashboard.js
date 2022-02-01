@@ -61,7 +61,7 @@ export default function Admin() {
   const data = measures.length ? sortedImpact.map(el => el[1]) : [];
 
   return (
-    <>
+    <Box sx={{mb:'100px'}}>
       <ThemeProvider theme={theme} >
         <datastoreContext.Provider value={{ datastore, setDatastore }}>
           <DashboardNavbar />
@@ -97,6 +97,6 @@ export default function Admin() {
           <FooterAdmin />
         </datastoreContext.Provider>
       </ThemeProvider>
-    </>
+    </Box>
   );
 }

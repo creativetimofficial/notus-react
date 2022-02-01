@@ -22,12 +22,12 @@ function D3Container() {
         const filterArray = [...currentFilters];
         //Will need to be adjusted once model data is available.
         const active = filterArray.find((item) => item.name === filter);
-        
-        if(active !== null){
-            const newFilterArray = filterArray.filter((item)=> item.name !== filter);
+
+        if (active !== null) {
+            const newFilterArray = filterArray.filter((item) => item.name !== filter);
             setCurrentFilters(newFilterArray);
         }
-        else{
+        else {
             filterArray.push(filter);
             setCurrentFilters(filterArray);
         }
@@ -37,13 +37,18 @@ function D3Container() {
         <div>
             <currentFilterContext.Provider value={{ currentFilters, setCurrentFilters }}>
                 <D3Chart />
-                <Paper>
-                    <Grid container>
-                        {filterList.map((filter) => {
-                            return (<D3Filter filter={filter} changeFunction={()=> changeFunction(filter)}/>)
-                        })}
-                    </Grid>
-                </Paper>
+                <Grid container direction="vertical" spacing={1}>
+                    {filterList.map((filter) => {
+                        return (
+                            <Grid item sx={{width:'75%'}}>
+                                <Typography color={"black"}>
+                                    Yes, this is dog
+                                </Typography>
+                                <D3Filter filter={filter} changeFunction={() => changeFunction(filter)} />
+                            </Grid>
+                        )
+                    })}
+                </Grid>
             </currentFilterContext.Provider>
         </div>
     )
