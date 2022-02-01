@@ -14,8 +14,9 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 import D3Chart from "../components/D3Container/D3Chart.js";
 import Welcome from "../components/Cards/CardWelcome.js";
 import Stars from "../components/Cards/CardStars.js";
+import D3Container from "components/D3Container/D3Container.js";
 
-export const datastoreContext = createContext("");
+export const datastoreContext = createContext({});
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -64,17 +65,17 @@ export default function Admin() {
       <ThemeProvider theme={theme} >
         <datastoreContext.Provider value={{ datastore, setDatastore }}>
           <DashboardNavbar />
-            <Paper sx={{ padding: 4, height: '90vh', background: theme.palette.background.main }}>
+          <Paper sx={{ padding: 4, height: '90vh', background: theme.palette.background.main }}>
             <Box sx={{ flexGrow: 2 }}>
               <Grid container spacing={4}>
                 <Grid item sm={3} xs={6}>
                   <Item>
-                    <Welcome/>
+                    <Welcome />
                   </Item>
                 </Grid>
                 <Grid item sm={3} xs={6}>
                   <Item>
-                    <Stars/>
+                    <Stars />
                   </Item>
                 </Grid>
                 <Grid item sm={6} xs={12}>
@@ -84,7 +85,7 @@ export default function Admin() {
                 </Grid>
                 <Grid item xs={12}>
                   <Item>
-                    <D3Chart />
+                    <D3Container />
                   </Item>
                 </Grid>
                 <Grid item xs={12}>
@@ -92,9 +93,9 @@ export default function Admin() {
                 </Grid>
               </Grid>
             </Box>
-            </Paper>
-            <FooterAdmin />
-          </datastoreContext.Provider>
+          </Paper>
+          <FooterAdmin />
+        </datastoreContext.Provider>
       </ThemeProvider>
     </>
   );

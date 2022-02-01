@@ -1,10 +1,10 @@
-import D3Chart from "components/D3Container/D3Chart.js";
 import { ThemeProvider } from '@emotion/react';
+import { theme } from "assets/styles/AppTheme.js";
+import D3Container from "components/D3Container/D3Container.js";
 import React, { createContext, useState } from "react";
 import { Link } from "react-router-dom";
 // components
 import CardBarChart from "../../components/Cards/CardBarChart.js";
-import { theme } from "assets/styles/AppTheme.js";
 
 
 export const datastoreContext = createContext("");
@@ -55,7 +55,7 @@ export default function MeasureDashboard({ measures, history }) {
                   /> */}
                 </div>
                 <div>
-                  <D3Chart />
+                  <D3Container/>
                 </div>
               </div>
               <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">

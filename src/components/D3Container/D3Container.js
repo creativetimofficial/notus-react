@@ -1,0 +1,53 @@
+import React, { createContext, useContext, useState } from 'react';
+import D3Chart from "./D3Chart";
+import { Button, Grid, Paper, Typography } from '@mui/material';
+import { datastoreContext } from '../../layouts/dashboard.js';
+
+import { dataList } from './DemoData';
+import D3Filter from './D3Filter';
+
+const currentFilterContext = createContext([])
+
+function D3Container() {
+
+    const { datastore, setDatastore } = useContext(datastoreContext)
+    const [displayData, setDisplayData] = useState();
+    const [currentFilters, setCurrentFilters] = useState([]);
+
+    const workingList = [];
+    dataList.forEach((item) => workingList.push(item.name));
+    const filterList = [...new Set(workingList)];
+
+    const changeFunction = (filter) => {
+        const filterArray = [...currentFilters];
+        //Will need to be adjusted once model data is available.
+        const active = filterArray.find((item) => item.name === filter);
+        
+        if(active !== null){
+            const newFilterArray = filterArray.filter((item)=> item.name !== filter);
+            setCurrentFilters(newFilterArray);
+        }
+        else{
+            filterArray.push(filter);
+            setCurrentFilters(filterArray);
+        }
+    }
+
+    return (
+        <div>
+            <currentFilterContext.Provider value={{ currentFilters, setCurrentFilters }}>
+                <D3Chart />
+                <Paper>
+                    <Grid container>
+                        {filterList.map((filter) => {
+                            return (<D3Filter filter={filter} changeFunction={()=> changeFunction(filter)}/>)
+                        })}
+                    </Grid>
+                </Paper>
+            </currentFilterContext.Provider>
+        </div>
+    )
+
+}
+
+export default D3Container;
