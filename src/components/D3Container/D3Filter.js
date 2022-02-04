@@ -1,4 +1,4 @@
-import { FormControlLabel, FormGroup, Stack, Switch } from '@mui/material';
+import { FormControlLabel, FormGroup, Grid, Paper, Stack, Switch, Typography } from '@mui/material';
 import React from 'react';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import CircleIcon from '@mui/icons-material/Circle';
@@ -9,13 +9,20 @@ function D3Filter(props) {
     const onChange = props.changeFunction;
 
     return (
-        <Stack direction="row" spacing={2} sx={{width:'75%'}}>
-            <FormGroup sx={{ ml: "8px", mt: '55px' }}>
-                <FormControlLabel labelPlacement="end" control={
-                    <Switch size="large" sx={{ width: '50px', pr: '10px', mx: '10px' }} icon={<CircleOutlinedIcon />} onChange={onChange} color="success" checkedIcon={<CircleIcon />} />
-                } label={filter} />
-            </FormGroup>
-        </Stack>
+        <Grid container justifyContent='space-between' direction="row" alignItems="stretch" spacing={2} sx={{ width: '100%', border: 1, borderColor: 'primary.main', p: '3px', m:'2px' }}>
+                <Grid item>
+                    <Typography>
+                        {filter}
+                    </Typography>
+                </Grid>
+                <Grid item>
+                    <FormGroup sx={{ ml: "8px" }}>
+                        <FormControlLabel labelPlacement="start" color="secondary" control={
+                            <Switch size="large" icon={<CircleOutlinedIcon />} onChange={onChange} color="success" checkedIcon={<CircleIcon />} />
+                        } label={"Enable"} />
+                    </FormGroup>
+                </Grid>
+        </Grid >
     )
 }
 

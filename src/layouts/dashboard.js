@@ -15,6 +15,7 @@ import D3Chart from "../components/D3Container/D3Chart.js";
 import Welcome from "../components/Cards/CardWelcome.js";
 import Stars from "../components/Cards/CardStars.js";
 import D3Container from "components/D3Container/D3Container.js";
+import { dataList } from "components/D3Container/DemoData.js";
 
 export const datastoreContext = createContext({});
 
@@ -44,7 +45,8 @@ export default function Admin() {
       });
   }, []);
 
-  const [datastore, setDatastore] = useState("");
+  const [datastore, setDatastore] = useState(dataList);
+
   let comp = { displayName: "Composite Score", rating: "" }
   comp = measures && measures.length ? measures[0] : comp;
   const compName = "Composite";
@@ -61,7 +63,7 @@ export default function Admin() {
   const data = measures.length ? sortedImpact.map(el => el[1]) : [];
 
   return (
-    <Box sx={{mb:'100px'}}>
+    <Box sx={{mb:'50px'}}>
       <ThemeProvider theme={theme} >
         <datastoreContext.Provider value={{ datastore, setDatastore }}>
           <DashboardNavbar />
