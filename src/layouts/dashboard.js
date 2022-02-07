@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { useState, createContext } from "react";
 import { ThemeProvider } from '@emotion/react';
 import { styled } from '@mui/material/styles';
 import { theme } from "assets/styles/AppTheme.js";
@@ -26,38 +26,8 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Admin() {
-  const [measures, setMeasures] = useState([]);
-
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures`)
-      .then((response) => response.json())
-      .then((res) => {
-        if (res && res.length > 0) {
-          const specialName = "Composite";
-          const first = res.find((a) => a.name === specialName);
-          const theRestSorted = res
-            .filter((a) => a.name !== specialName)
-            .sort((a, b) => a.name.localeCompare(b.name));
-          setMeasures([first, ...theRestSorted]);
-        }
-      });
-  }, []);
 
   const [datastore, setDatastore] = useState("");
-  let comp = { displayName: "Composite Score", rating: "" }
-  comp = measures && measures.length ? measures[0] : comp;
-  const compName = "Composite";
-  const measureNoComp = measures
-    .filter(measure => measure.name !== compName)
-    .sort((a, b) => a.displayName.toLowerCase().localeCompare(b.displayName.toLowerCase()));
-
-  const sortedImpact = measures.length
-    ? Object.entries(comp.impact)
-      .sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase()))
-    : undefined;
-
-  const labels = measures.length ? sortedImpact.map(el => el[0]) : [];
-  const data = measures.length ? sortedImpact.map(el => el[1]) : [];
 
   return (
     <>
