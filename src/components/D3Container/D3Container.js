@@ -26,34 +26,29 @@ function D3Container() {
         if (active !== undefined) {
             const newFilterArray = filterArray.filter((item) => item !== filter);
             setCurrentFilters(newFilterArray);
-            const newDisplayData = refineDisplayData();
-            setDisplayData(newDisplayData);
+            setDisplayData(refineDisplayData([...datastore], newFilterArray));
         }
         else {
             filterArray.push(filter);
             setCurrentFilters(filterArray);
-            const newDisplayData = refineDisplayData();
-            setDisplayData(newDisplayData);
+            setDisplayData(refineDisplayData([...datastore], filterArray));
         }
     }
 
-    const refineDisplayData = () => {
-        const initialData = [...datastore];
+    const refineDisplayData = (data, filters) => {
+        const initialData = data;
         let workingData = [];
-        const filterArray = [...currentFilters];
+        const filterArray = filters;
         if (filterArray.length === 0) {
-            console.log('empty')
             workingData = initialData;
         }
         else {
-            console.log('fired')
             filterArray.forEach((filterItem) => {
                 initialData.forEach((item) => {
                     if (item.measure !== filterItem) { workingData.push(item) }
                 });
             })
         }
-        console.log(workingData);
         return workingData;
     }
 
