@@ -59,38 +59,50 @@ function D3Container() {
                     <D3Chart />
                     <Grid container direction="vertical" spacing={0.25}>
                         <Grid container item justifyContent='space-evenly' direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
-                            <Grid item xs={2}>
+                            <Grid item xs={1}>
                                 <Typography>
-                                    Filter Name
+                                    Measure
                                 </Typography>
                             </Grid>
                             <Grid item xs={2}>
                                 <Typography>
-                                    Average
+                                    Icluded
                                 </Typography>
                             </Grid>
                             <Grid item xs={2}>
                                 <Typography>
-                                    Display 1
+                                    Eligible Population
                                 </Typography>
                             </Grid>
                             <Grid item xs={2}>
                                 <Typography>
-                                    Display 2
+                                    Numerator
                                 </Typography>
                             </Grid>
                             <Grid item xs={2}>
                                 <Typography>
-                                    View Line
+                                    Denominator
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <Typography>
+                                    Exclusions
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={1}>
+                                <Typography>
+                                    View
                                 </Typography>
                             </Grid>
                         </Grid>
                         {measureList.map((item) => {
                             const filter = {
                                 name: item,
-                                average: Math.round(Math.random() * 10),
-                                display1: "display 1",
-                                display2: "display 2",
+                                included: Math.round(Math.random() * 10),
+                                eligible: Math.round(Math.random() * 10),
+                                numerator: Math.round(Math.random() * 10),
+                                denominator: Math.round(Math.random() * 10),
+                                exclusions: Math.round(Math.random() * 10),
                             }
                             return (
                                 <Grid item sx={{ width: '100%' }}>
@@ -98,6 +110,7 @@ function D3Container() {
                                 </Grid>
                             )
                         })}
+                                    <Divider color='black'/>
                     </Grid>
                 </currentFilterContext.Provider>
             </displayDataContext.Provider>
