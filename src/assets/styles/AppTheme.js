@@ -31,6 +31,11 @@ export const theme = createTheme({
         main: '#ffffff',
         light: '#ffffff',
         dark: '#ffffff',
+      },
+      black: {
+        main: '#000000',
+        light: '#000000',
+        dark: '#000000',
       }
     },
     typography: {
