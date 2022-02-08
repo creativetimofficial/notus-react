@@ -3,7 +3,7 @@ import React from "react";
 
 export default function FooterAdmin() {
   return (
-    <Box sx={{position:"fixed", width:'100%'}}>
+    <Box sx={{position:"fixed", width:'100%', mb: '-20px'}}>
       <footer className="block pb-4 footer w-full bg-light-grey">
         <div className="container mx-auto px-4">
           <hr className="mb-4 border-b-1 border-gray-300" />

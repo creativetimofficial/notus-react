@@ -98,11 +98,11 @@ function D3Container() {
                         {measureList.map((item) => {
                             const filter = {
                                 name: item,
-                                included: Math.round(Math.random() * 10),
-                                eligible: Math.round(Math.random() * 10),
-                                numerator: Math.round(Math.random() * 10),
-                                denominator: Math.round(Math.random() * 10),
-                                exclusions: Math.round(Math.random() * 10),
+                                included: Math.round(Math.random() * 10000),
+                                eligible: Math.round(Math.random() * 10000),
+                                numerator: Math.round(Math.random() * 10000),
+                                denominator: Math.round(Math.random() * 10000),
+                                exclusions: Math.round(Math.random() * 10000),
                             }
                             return (
                                 <Grid item sx={{ width: '100%' }}>
@@ -110,7 +110,7 @@ function D3Container() {
                                 </Grid>
                             )
                         })}
-                                    <Divider color='black'/>
+                        <Divider color='black' />
                     </Grid>
                 </currentFilterContext.Provider>
             </displayDataContext.Provider>
