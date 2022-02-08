@@ -47,7 +47,7 @@ function D3Chart() {
         //Basic Styling consts to be used later
         const margin = { top: 50, right: 30, bottom: 75, left: 30 };
         const width = parseInt(d3.select('#d3-line-chart').style('width'));
-        const height = parseInt(d3.select('#d3-line-chart').style('height'));
+        const height = 200;
 
         //Clear previous SVG
         d3.select(D3LineChart.current).selectAll("*").remove();
@@ -57,17 +57,7 @@ function D3Chart() {
         //SVG constrol and also styling
         const svg = d3.select(D3LineChart.current)
             .attr('width', width)
-            .attr('height',
-                () => {
-                    if (firstRender) {
-                        setFirstRender(false);
-                        return (height + margin.top)
-                    }
-                    else {
-                        console.log(firstRender)
-                        return (height)
-                    }
-                })
+            .attr('height', height)
             .style('background-color', 'white')
             .append('g')
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
