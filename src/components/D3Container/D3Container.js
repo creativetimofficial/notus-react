@@ -22,14 +22,14 @@ function D3Container() {
     const changeFunction = (filter) => {
         const filterArray = [...currentFilters];
         //Will need to be adjusted once model data is available.
-        const active = filterArray.find((item) => item === filter);
+        const active = filterArray.find((item) => item === filter.name);
         if (active !== undefined) {
-            const newFilterArray = filterArray.filter((item) => item !== filter);
+            const newFilterArray = filterArray.filter((item) => item !== filter.name);
             setCurrentFilters(newFilterArray);
             setDisplayData(refineDisplayData([...datastore], newFilterArray));
         }
         else {
-            filterArray.push(filter);
+            filterArray.push(filter.name);
             setCurrentFilters(filterArray);
             setDisplayData(refineDisplayData([...datastore], filterArray));
         }
@@ -57,8 +57,41 @@ function D3Container() {
             <displayDataContext.Provider value={{ displayData, setDisplayData }}>
                 <currentFilterContext.Provider value={{ currentFilters, setCurrentFilters }}>
                     <D3Chart />
-                    <Grid container direction="vertical" spacing={1}>
-                        {measureList.map((filter) => {
+                    <Grid container direction="vertical" spacing={0.25}>
+                        <Grid container item justifyContent='space-evenly' direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
+                            <Grid item xs={2}>
+                                <Typography>
+                                    Filter Name
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <Typography>
+                                    Average
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <Typography>
+                                    Display 1
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <Typography>
+                                    Display 2
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={2}>
+                                <Typography>
+                                    View Line
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                        {measureList.map((item) => {
+                            const filter = {
+                                name: item,
+                                average: Math.round(Math.random() * 10),
+                                display1: "display 1",
+                                display2: "display 2",
+                            }
                             return (
                                 <Grid item sx={{ width: '100%' }}>
                                     <D3Filter filter={filter} changeFunction={() => changeFunction(filter)} />
