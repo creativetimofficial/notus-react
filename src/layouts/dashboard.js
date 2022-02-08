@@ -63,11 +63,11 @@ export default function Admin() {
   const data = measures.length ? sortedImpact.map(el => el[1]) : [];
 
   return (
-    <Box sx={{mb:'50px'}}>
+    <Box>
       <ThemeProvider theme={theme} >
         <datastoreContext.Provider value={{ datastore, setDatastore }}>
           <DashboardNavbar />
-          <Paper sx={{ padding: 4, height: '90vh', background: theme.palette.background.main }}>
+          <Paper sx={{ padding: 4, height: '90vh', background: theme.palette.background.main, mb:'20px' }}>
             <Box sx={{ flexGrow: 2 }}>
               <Grid container spacing={4}>
                 <Grid item sm={3} xs={6}>
@@ -96,7 +96,7 @@ export default function Admin() {
               </Grid>
             </Box>
           </Paper>
-          <FooterAdmin />
+          <FooterAdmin sx={{mt: '20px'}}/>
         </datastoreContext.Provider>
       </ThemeProvider>
     </Box>

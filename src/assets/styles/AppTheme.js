@@ -36,6 +36,11 @@ export const theme = createTheme({
         main: '#000000',
         light: '#000000',
         dark: '#000000',
+      },
+      blue: {
+        main: '#4269f5',
+        light: '#162f8a',
+        dark: '#5e7ae0',
       }
     },
     typography: {

@@ -45,7 +45,7 @@ function D3Filter(props) {
                 </Grid>
                 <Grid item xs={1}>
                     <FormGroup sx={{ ml: "8px" }}>
-                        <Checkbox defaultChecked size="large" color="success" onChange={() => onChange(filter)} />
+                        <Checkbox defaultChecked size="medium" color="blue" onChange={() => onChange(filter)} />
                     </FormGroup>
                 </Grid>
             </Grid >
