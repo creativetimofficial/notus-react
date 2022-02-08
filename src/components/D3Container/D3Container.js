@@ -3,7 +3,6 @@ import D3Chart from "./D3Chart";
 import { Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import { datastoreContext } from '../../layouts/dashboard.js';
 
-import { dataList } from './DemoData';
 import D3Filter from './D3Filter';
 
 export const currentFilterContext = createContext([])
@@ -16,7 +15,7 @@ function D3Container() {
     const [currentFilters, setCurrentFilters] = useState([]);
 
     const workingList = [];
-    dataList.forEach((item) => workingList.push(item.measure));
+    datastore.forEach((item) => workingList.push(item.measure));
     const measureList = [...new Set(workingList)];
 
     const changeFunction = (filter) => {

@@ -3,14 +3,39 @@ import * as d3 from 'd3';
 import { dataList } from './DemoData';
 import { currentFilterContext, displayDataContext } from './D3Container';
 
+const axios = require('axios').default;
+
 function D3Chart() {
     //Binder for react to apply changes to the svg
     const D3LineChart = useRef();
+
     const { currentFilters, setCurrentFilters } = useContext(currentFilterContext);
     const { displayData, setDisplayData } = useContext(displayDataContext)
     const [firstRender, setFirstRender] = useState(true);
+    const [data, setData] = useState([]);
+    const [memberId, setMemberId] = useState('');
+    const [measurementType, setMeasurementType] = useState('drre');
+
+    const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/search`);
 
     useEffect(() => {
+        if (memberId) {
+            searchUrl.searchParams.append("memberId", memberId);
+        }
+        if (measurementType) {
+            searchUrl.searchParams.append("measurementType", measurementType);
+        }
+
+        axios.get(searchUrl.href)
+            .then(res => {
+                setData(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        //engage data here
+
         //Date Parser
         const parseDate = d3.timeParse('%Y-%m-%d')
 
@@ -135,7 +160,7 @@ function D3Chart() {
                     d3.select(event.currentTarget).attr("opacity", ".33");
                 });
         });
-    });
+    }, [measurementType, memberId]);
 
     return (
         <div id='d3-line-chart'>
