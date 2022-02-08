@@ -52,8 +52,6 @@ function D3Chart() {
         //Clear previous SVG
         d3.select(D3LineChart.current).selectAll("*").remove();
 
-        console.log(firstRender)
-
         //SVG constrol and also styling
         const svg = d3.select(D3LineChart.current)
             .attr('width', width)
