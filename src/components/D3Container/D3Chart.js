@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import * as d3 from 'd3';
 import { dataList } from './DemoData';
-import { currentFilterContext, displayDataContext } from './D3Container';
+import { currentFilterContext, displayDataContext, firstRenderContext } from './D3Container';
 
 const axios = require('axios').default;
 
@@ -11,7 +11,7 @@ function D3Chart() {
 
     const { currentFilters, setCurrentFilters } = useContext(currentFilterContext);
     const { displayData, setDisplayData } = useContext(displayDataContext)
-    const [firstRender, setFirstRender] = useState(true);
+    const {firstRender, setFirstRender} = useContext(firstRenderContext);
     const [data, setData] = useState([]);
     const [memberId, setMemberId] = useState('');
     const [measurementType, setMeasurementType] = useState('drre');
@@ -52,6 +52,8 @@ function D3Chart() {
         //Clear previous SVG
         d3.select(D3LineChart.current).selectAll("*").remove();
 
+        console.log(firstRender)
+
         //SVG constrol and also styling
         const svg = d3.select(D3LineChart.current)
             .attr('width', width)
@@ -59,9 +61,10 @@ function D3Chart() {
                 () => {
                     if (firstRender) {
                         setFirstRender(false);
-                        return (height + margin.bottom + margin.top)
+                        return (height + margin.top)
                     }
                     else {
+                        console.log(firstRender)
                         return (height)
                     }
                 })
@@ -144,23 +147,25 @@ function D3Chart() {
             .y(d => y(d.value));
 
         //Iterates through an array variation.
-        measureList.forEach((measure) => {
-            svg.append('path')
-                .datum(displayData.filter((item) => item.measure === measure))
-                .attr('fill', 'none')
-                .attr('stroke', 'black')
-                .attr('opacity', '.33')
-                .attr('stroke-width', 2)
-                .attr('d', line)
-                .on("mouseover", (event) => {
-                    d3.select(event.currentTarget).attr("opacity", "1");
-                }
-                )
-                .on("mouseout", (event) => {
-                    d3.select(event.currentTarget).attr("opacity", ".33");
-                });
-        });
-    }, [measurementType, memberId]);
+        if (measureList.length > 0) {
+            measureList.forEach((measure) => {
+                svg.append('path')
+                    .datum(displayData.filter((item) => item.measure === measure))
+                    .attr('fill', 'none')
+                    .attr('stroke', 'black')
+                    .attr('opacity', '.33')
+                    .attr('stroke-width', 2)
+                    .attr('d', line)
+                    .on("mouseover", (event) => {
+                        d3.select(event.currentTarget).attr("opacity", "1");
+                    }
+                    )
+                    .on("mouseout", (event) => {
+                        d3.select(event.currentTarget).attr("opacity", ".33");
+                    });
+            });
+        }
+    }, [measurementType, memberId, displayData]);
 
     return (
         <div id='d3-line-chart'>
