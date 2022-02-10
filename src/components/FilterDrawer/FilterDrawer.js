@@ -82,12 +82,8 @@ function FilterDrawer() {
                                     <HelpIcon size='small' sx={{ p: '4px' }} color='gray' />
                                 </Grid>
                             </Grid>
-                            <Grid container item spacing={1}>
-                                <Grid item>
-                                    <CheckBox color='blue.dark' />
-                                </Grid>
-                                <Grid item>
-                                    <Box sx={{ minwidth: '150px' }}>
+                            <Grid item>
+                                    <Box sx={{ minwidth: '150px', ml: '10px' }}>
                                         <Slider
                                             getAriaLabel={() => 'Temperature range'}
                                             value={percentSliderValue}
@@ -97,7 +93,6 @@ function FilterDrawer() {
                                             sx={{ color: "blue.dark", width: '80%' }}
                                         />
                                     </Box>
-                                </Grid>
                             </Grid>
                         </Grid>
                         {filterDrawerItemArray.map((drawerItem) => {
