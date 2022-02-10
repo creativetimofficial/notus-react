@@ -4,6 +4,7 @@ import { Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import { datastoreContext } from '../../layouts/dashboard.js';
 
 import D3Filter from './D3Filter';
+import ChartBar from './ChartBar';
 
 export const currentFilterContext = createContext([])
 export const displayDataContext = createContext([])
@@ -43,7 +44,7 @@ function D3Container() {
         if (filterArray.length === 0) {
             workingData = initialData;
         }
-        else if (filterArray.length === measureList.length){
+        else if (filterArray.length === measureList.length) {
             workingData = [];
         }
         else {
@@ -61,8 +62,16 @@ function D3Container() {
             <displayDataContext.Provider value={{ displayData, setDisplayData }}>
                 <currentFilterContext.Provider value={{ currentFilters, setCurrentFilters }}>
                     <firstRenderContext.Provider value={{ firstRender, setFirstRender }}>
-                        <D3Chart />
-                        <Grid container direction="vertical" spacing={0.25}>
+
+                        <Grid container justifyContent='space-evenly' direction="column">
+                            <Grid sx={{mb:'-30px'}}item>
+                                <ChartBar />
+                            </Grid>
+                            <Grid item>
+                                <D3Chart />
+                            </Grid>
+                        </Grid>
+                        <Grid container direction="column" spacing={0.25}>
                             <Grid container item justifyContent='space-evenly' direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
                                 <Grid item xs={1}>
                                     <Typography>
@@ -71,7 +80,7 @@ function D3Container() {
                                 </Grid>
                                 <Grid item xs={2}>
                                     <Typography>
-                                        Icluded
+                                        Included
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={2}>

@@ -61,7 +61,6 @@ function D3Chart() {
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
         //Generates labels and context for x axis
-
         const x = d3.scaleTime()
             //What data we're measuring
             .domain(d3.extent(displayData, (d) => parseDate(d.date)))
@@ -116,17 +115,17 @@ function D3Chart() {
         d3.selectAll(".axis-grid line").style("stroke", "lightgray")
 
         // Graph Title. Literally has to be placed on the graph using X and Y values
-        svg.append('text')
-            //X position
-            .attr('x', (width / 2))
-            //Y position
-            .attr('y', (-30))
-            //Styling
-            .attr('text-anchor', 'middle')
-            .attr('fint-size', '10px')
-            .attr('fill', 'black')
-            //Text
-            .text('demoData Graph (D3)')
+        // svg.append('text')
+        //     //X position
+        //     .attr('x', (width / 2))
+        //     //Y position
+        //     .attr('y', (-30))
+        //     //Styling
+        //     .attr('text-anchor', 'middle')
+        //     .attr('fint-size', '10px')
+        //     .attr('fill', 'black')
+        //     //Text
+        //     .text('demoData Graph (D3)')
 
         // Generates the actual line
         const line = d3.line()
