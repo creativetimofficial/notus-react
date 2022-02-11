@@ -1,119 +1,119 @@
 const date1 = {
-    name: 'josh',
+    measure: 'COL',
     date: "2022-12-14",
     value: 4.2,
 };
 
 const date2 = {
-    name: 'josh',
+    measure: 'COL',
     date: "2022-12-15",
     value: 4.8,
 };
 
 const date3 = {
-    name: 'josh',
+    measure: 'COL',
     date: "2022-12-16",
     value: 4.1,
 };
 
 const date4 = {
-    name: 'josh',
+    measure: 'COL',
     date: "2022-12-17",
     value: 3.7,
 };
 
 const date5 = {
-    name: 'josh',
+    measure: 'COL',
     date: "2022-12-18",
     value: 4.6,
 };
 
 const date6 = {
-    name: 'josh',
+    measure: 'COL',
     date: "2022-12-19",
     value: 4.2,
 };
 
 const date7 = {
-    name: 'josh',
+    measure: 'COL',
     date: "2022-12-20",
     value: 2.9,
 };
 
 const date8 = {
-    name: 'josh',
+    measure: 'COL',
     date: "2022-12-21",
     value: 3.2,
 };
 
 const date9 = {
-    name: 'josh',
+    measure: 'COL',
     date: "2022-12-22",
     value: 3.6,
 };
 
 const date10 = {
-    name: 'josh',
+    measure: 'COL',
     date: "2022-12-23",
     value: 4.4,
 };
 
 const date11 = {
-    name: 'matt',
+    measure: 'ACP',
     date: "2022-12-14",
     value: 3.7,
 };
 
 const date12 = {
-    name: 'matt',
+    measure: 'ACP',
     date: "2022-12-15",
     value: 4.1,
 };
 
 const date13 = {
-    name: 'matt',
+    measure: 'ACP',
     date: "2022-12-16",
     value: 4.9,
 };
 
 const date14 = {
-    name: 'matt',
+    measure: 'ACP',
     date: "2022-12-17",
     value: 4.1,
 };
 
 const date15 = {
-    name: 'matt',
+    measure: 'ACP',
     date: "2022-12-18",
     value: 4.3,
 };
 
 const date16 = {
-    name: 'matt',
+    measure: 'ACP',
     date: "2022-12-19",
     value: 3.8,
 };
 
 const date17 = {
-    name: 'matt',
+    measure: 'ACP',
     date: "2022-12-20",
     value: 4.1,
 };
 
 const date18 = {
-    name: 'matt',
+    measure: 'ACP',
     date: "2022-12-21",
     value: 4.6,
 };
 
 const date19 = {
-    name: 'matt',
+    measure: 'ACP',
     date: "2022-12-22",
     value: 4.2,
 };
 
 const date20 = {
-    name: 'matt',
+    measure: 'ACP',
     date: "2022-12-23",
     value: 5.0,
 };

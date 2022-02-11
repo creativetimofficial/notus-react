@@ -1,16 +1,21 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import * as d3 from 'd3';
 import { dataList } from './DemoData';
+import { currentFilterContext, displayDataContext, firstRenderContext } from './D3Container';
 
 const axios = require('axios').default;
 
 function D3Chart() {
     //Binder for react to apply changes to the svg
     const D3LineChart = useRef();
+
+    const { currentFilters, setCurrentFilters } = useContext(currentFilterContext);
+    const { displayData, setDisplayData } = useContext(displayDataContext)
+    const {firstRender, setFirstRender} = useContext(firstRenderContext);
     const [data, setData] = useState([]);
     const [memberId, setMemberId] = useState('');
     const [measurementType, setMeasurementType] = useState('drre');
-    
+
     const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/search`);
 
     useEffect(() => {
@@ -22,33 +27,35 @@ function D3Chart() {
         }
 
         axios.get(searchUrl.href)
-        .then(res => {
-            setData(res.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-        
+            .then(res => {
+                setData(res.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
         //engage data here
-        const dateDemoData = dataList;
 
         //Date Parser
         const parseDate = d3.timeParse('%Y-%m-%d')
 
         //Data manipulation
         let workingList = [];
-        dateDemoData.forEach((item) => workingList.push(item.name));
-        const nameList = [...new Set(workingList)];
+        displayData.forEach((item) => workingList.push(item.measure));
+        const measureList = [...new Set(workingList)];
 
         //Basic Styling consts to be used later
-        const margin = { top: 50, right: 30, bottom: 50, left: 30 };
+        const margin = { top: 50, right: 30, bottom: 75, left: 30 };
         const width = parseInt(d3.select('#d3-line-chart').style('width'));
-        const height = parseInt(d3.select('#d3-line-chart').style('height'));
+        const height = 200;
+
+        //Clear previous SVG
+        d3.select(D3LineChart.current).selectAll("*").remove();
 
         //SVG constrol and also styling
         const svg = d3.select(D3LineChart.current)
             .attr('width', width)
-            .attr('height', height + margin.bottom + margin.top)
+            .attr('height', height)
             .style('background-color', 'white')
             .append('g')
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
@@ -57,21 +64,21 @@ function D3Chart() {
 
         const x = d3.scaleTime()
             //What data we're measuring
-            .domain(d3.extent(dateDemoData, (d) => parseDate(d.date)))
+            .domain(d3.extent(displayData, (d) => parseDate(d.date)))
             //The 'width' of the data
-            .range([0, width]);
+            .range([0, width + margin.left]);
 
         //X Axis labels and context
         svg.append('g')
-            .attr('transform', 'translate(0,' + height + ')')
+            .attr('transform', 'translate(0,' + (height - margin.bottom) + ')')
             .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%d-%b-%Y")));
 
         //Generates Label and context for y axis
-        const max = d3.max(dateDemoData, (d) => d.value);
+        const max = d3.max(displayData, (d) => d.value);
 
         const y = d3.scaleLinear()
-            .domain([0, max])
-            .range([height, 0]);
+            .domain([0, 5])
+            .range([height - margin.bottom, 0]);
 
         svg.append('g')
             .call(d3.axisLeft(y));
@@ -92,9 +99,9 @@ function D3Chart() {
         // add the X gridlines
         svg.append("g")
             .attr("class", "axis-grid")
-            .attr("transform", "translate(0," + height + ")")
+            .attr("transform", "translate(0," + (height) + ")")
             .call(make_x_gridlines()
-                .tickSize(-height)
+                .tickSize(-(height))
                 .tickFormat("")
             )
 
@@ -128,24 +135,25 @@ function D3Chart() {
             .y(d => y(d.value));
 
         //Iterates through an array variation.
-        nameList.forEach((name) => {
-            svg.append('path')
-                .datum(dateDemoData.filter((item) => item.name === name))
-                .attr('fill', 'none')
-                .attr('stroke', 'black')
-                .attr('opacity', '.33')
-                .attr('stroke-width', 2)
-                .attr('d', line)
-                .on("mouseover", (event) => {
-                    console.log(event.currentTarget)
-                    d3.select(event.currentTarget).attr("opacity", "1");
-                }
-                )
-                .on("mouseout", (event) => {
-                    d3.select(event.currentTarget).attr("opacity", ".33");
-                });
-        });
-    }, [measurementType, memberId]);
+        if (measureList.length > 0) {
+            measureList.forEach((measure) => {
+                svg.append('path')
+                    .datum(displayData.filter((item) => item.measure === measure))
+                    .attr('fill', 'none')
+                    .attr('stroke', 'black')
+                    .attr('opacity', '.33')
+                    .attr('stroke-width', 2)
+                    .attr('d', line)
+                    .on("mouseover", (event) => {
+                        d3.select(event.currentTarget).attr("opacity", "1");
+                    }
+                    )
+                    .on("mouseout", (event) => {
+                        d3.select(event.currentTarget).attr("opacity", ".33");
+                    });
+            });
+        }
+    }, [measurementType, memberId, displayData]);
 
     return (
         <div id='d3-line-chart'>
