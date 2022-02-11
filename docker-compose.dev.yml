@@ -1,0 +1,11 @@
+version: '3.9'
+services: 
+    dev-saraswati-dashboard:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        networks: 
+            - cpc_default
+networks: 
+    cpc_default:
+        name: cp-all-in-one-community_default
