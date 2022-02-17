@@ -25,7 +25,6 @@ function ChartBar() {
         else {
             setFilterMenuOpen(true);
         }
-        console.log(filterMenuOpen);
     }
 
     return (
