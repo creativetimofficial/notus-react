@@ -62,10 +62,16 @@ function FilterDrawer() {
                                 <Typography color='black.dark' variant="caption">No filters selected</Typography>
                                 :
                                 currentFilters.map((filter) => {
-                                    console.log(filter)
                                     return (
                                         <Button sx={{ borderRadius: '10px', m: '5px' }} color="blue" variant="contained">
-                                            {filter}
+                                            <Grid container direction="column" spacing={0} justifyContent="center" align="center">
+                                                <Grid item>
+                                                    <Typography variant="caption" sx={{fontSize:'0.5rem'}}>{filter.type}:</Typography>
+                                                </Grid>
+                                                <Grid item>
+                                                    <Typography variant="button" sx={{fontSize:'0.75rem'}}>{filter.value}</Typography>
+                                                </Grid>
+                                            </Grid>
                                         </Button>)
                                 })
                             }
@@ -83,16 +89,16 @@ function FilterDrawer() {
                                 </Grid>
                             </Grid>
                             <Grid item>
-                                    <Box sx={{ minwidth: '150px', ml: '10px' }}>
-                                        <Slider
-                                            getAriaLabel={() => 'Temperature range'}
-                                            value={percentSliderValue}
-                                            onChange={handleSliderChange}
-                                            valueLabelDisplay="auto"
-                                            getAriaValueText={sliderValuetext}
-                                            sx={{ color: "blue.dark", width: '80%' }}
-                                        />
-                                    </Box>
+                                <Box sx={{ minwidth: '150px', ml: '10px' }}>
+                                    <Slider
+                                        getAriaLabel={() => 'Temperature range'}
+                                        value={percentSliderValue}
+                                        onChange={handleSliderChange}
+                                        valueLabelDisplay="auto"
+                                        getAriaValueText={sliderValuetext}
+                                        sx={{ color: "blue.dark", width: '80%' }}
+                                    />
+                                </Box>
                             </Grid>
                         </Grid>
                         {filterDrawerItemArray.map((drawerItem) => {
@@ -100,6 +106,14 @@ function FilterDrawer() {
                                 <FilterDrawerItem filterItem={drawerItem} />
                             )
                         })}
+                    </Grid>
+                    <Grid sx={{ my: '50px' }} container justifyContent="space-evenly" alignItems='center' direction="row">
+                        <Grid item>
+                            <Button sx={{ borderRadius: '5px' }} onClick={toggleDrawer(false)} color="blue" variant="outlined">Cancel</Button>
+                        </Grid>
+                        <Grid item>
+                            <Button sx={{ borderRadius: '5px' }} color="blue" variant="contained">Apply Filters</Button>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Box >

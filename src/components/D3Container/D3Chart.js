@@ -8,8 +8,7 @@ const axios = require('axios').default;
 function D3Chart() {
     //Binder for react to apply changes to the svg
     const D3LineChart = useRef();
-
-    const { currentFilters, setCurrentFilters } = useContext(currentFilterContext);
+    
     const { displayData, setDisplayData } = useContext(displayDataContext)
     const {firstRender, setFirstRender} = useContext(firstRenderContext);
     const [data, setData] = useState([]);
@@ -17,6 +16,7 @@ function D3Chart() {
     const [measurementType, setMeasurementType] = useState('drre');
 
     const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/search`);
+    
 
     useEffect(() => {
         if (memberId) {

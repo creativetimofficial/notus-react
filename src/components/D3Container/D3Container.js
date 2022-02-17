@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import D3Chart from "./D3Chart";
+import D3Chart from './D3Chart';
 import { Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import { datastoreContext } from '../../layouts/dashboard.js';
 
@@ -24,14 +24,18 @@ function D3Container() {
     const changeFunction = (filter) => {
         const filterArray = [...currentFilters];
         //Will need to be adjusted once model data is available.
-        const active = filterArray.find((item) => item === filter.name);
+        const active = filterArray.find((item) => item.type === 'measure' && item.value === filter.value);
         if (active !== undefined) {
-            const newFilterArray = filterArray.filter((item) => item !== filter.name);
+            const newFilterArray = filterArray.filter((item) => item.value !== filter.value);
             setCurrentFilters(newFilterArray);
             setDisplayData(refineDisplayData([...datastore], newFilterArray));
         }
         else {
-            filterArray.push(filter.name);
+            const newFilter = {
+                value: filter.value,
+                type: 'measure'
+            }
+            filterArray.push(newFilter);
             setCurrentFilters(filterArray);
             setDisplayData(refineDisplayData([...datastore], filterArray));
         }
@@ -49,9 +53,13 @@ function D3Container() {
         }
         else {
             filterArray.forEach((filterItem) => {
-                initialData.forEach((item) => {
-                    if (item.measure !== filterItem) { workingData.push(item) }
-                });
+                //Handles Filtering by measure
+                if (filterItem.type === 'measure') {
+                    initialData.forEach((item) => {
+                        if (item.measure !== filterItem.value) { workingData.push(item) }
+                    });
+                }
+                //TODO: Add logic in here for various filter types
             })
         }
         return workingData;
@@ -64,7 +72,7 @@ function D3Container() {
                     <firstRenderContext.Provider value={{ firstRender, setFirstRender }}>
 
                         <Grid container justifyContent='space-evenly' direction="column">
-                            <Grid sx={{mb:'-30px'}}item>
+                            <Grid sx={{ mb: '-30px' }} item>
                                 <ChartBar />
                             </Grid>
                             <Grid item>
@@ -111,7 +119,8 @@ function D3Container() {
                             </Grid>
                             {measureList.map((item) => {
                                 const filter = {
-                                    name: item,
+                                    value: item,
+                                    type:"measure",
                                     included: Math.round(Math.random() * 10000),
                                     eligible: Math.round(Math.random() * 10000),
                                     numerator: Math.round(Math.random() * 10000),

@@ -1,8 +1,6 @@
-import { Checkbox, Divider, FormControlLabel, FormGroup, Grid, Paper, Stack, Switch, Typography } from '@mui/material';
+import { Checkbox, Divider, FormGroup, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
-import CircleIcon from '@mui/icons-material/Circle';
 
 function D3Filter(props) {
 
@@ -45,7 +43,7 @@ function D3Filter(props) {
                 </Grid>
                 <Grid item xs={1}>
                     <FormGroup sx={{ ml: "8px" }}>
-                        <Checkbox defaultChecked size="medium" color="blue" onChange={() => onChange(filter)} />
+                        <Checkbox disableRipple defaultChecked size="medium" color="blue" onChange={() => onChange(filter)} />
                     </FormGroup>
                 </Grid>
             </Grid >
