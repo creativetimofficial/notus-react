@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
 import * as d3 from 'd3';
-import { dataList } from './DemoData';
-import { currentFilterContext, displayDataContext, firstRenderContext } from './D3Container';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { displayDataContext, firstRenderContext } from './D3Container';
 
 const axios = require('axios').default;
 
 function D3Chart() {
     //Binder for react to apply changes to the svg
     const D3LineChart = useRef();
-    
+
     const { displayData, setDisplayData } = useContext(displayDataContext)
     const {firstRender, setFirstRender} = useContext(firstRenderContext);
     const [data, setData] = useState([]);

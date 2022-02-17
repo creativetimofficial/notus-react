@@ -1,6 +1,6 @@
+import HelpIcon from '@mui/icons-material/Help';
 import { Checkbox, FormControlLabel, FormGroup, Grid, Tooltip, Typography } from '@mui/material';
 import React from 'react';
-import HelpIcon from '@mui/icons-material/Help';
 
 function FilterDrawerItem(props) {
     const filterItemName = props.filterItem.name;

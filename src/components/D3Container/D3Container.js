@@ -1,10 +1,10 @@
+import { Divider, Grid, Typography } from '@mui/material';
 import React, { createContext, useContext, useState } from 'react';
-import D3Chart from './D3Chart';
-import { Button, Divider, Grid, Paper, Typography } from '@mui/material';
 import { datastoreContext } from '../../layouts/dashboard.js';
-
-import D3Filter from './D3Filter';
 import ChartBar from './ChartBar';
+import D3Chart from './D3Chart';
+import D3Filter from './D3Filter';
+
 
 export const currentFilterContext = createContext([])
 export const displayDataContext = createContext([])

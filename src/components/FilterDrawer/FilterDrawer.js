@@ -1,14 +1,13 @@
 import { ThemeProvider } from '@emotion/react';
-import { Box, Button, Checkbox, Divider, Drawer, FormControlLabel, Grid, Slider, Typography } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import HelpIcon from '@mui/icons-material/Help';
+import { Box, Button, Divider, Drawer, Grid, Slider, Typography } from '@mui/material';
 import { theme } from 'assets/styles/AppTheme';
 import React, { useContext, useState } from 'react';
 import { filterMenuOpenContext } from '../D3Container/ChartBar';
 import { currentFilterContext, displayDataContext, firstRenderContext } from '../D3Container/D3Container';
-import filterDrawerItemArray from './FilterDrawerItemData';
-import CloseIcon from '@mui/icons-material/Close';
-import HelpIcon from '@mui/icons-material/Help';
 import FilterDrawerItem from './FilterDrawerItem';
-import { CheckBox } from '@mui/icons-material';
+import filterDrawerItemArray from './FilterDrawerItemData';
 
 
 function FilterDrawer() {
