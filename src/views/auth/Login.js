@@ -29,6 +29,7 @@ export default function Login() {
                   <button
                     className="bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
                     type="button"
+                    onClick={() => oauthSignIn()}
                   >
                     <img
                       alt="..."
@@ -117,4 +118,40 @@ export default function Login() {
       </div>
     </>
   );
+}
+
+/*
+ * Create form to request access token from Google's OAuth 2.0 server.
+ */
+function oauthSignIn() {
+  // Google's OAuth 2.0 endpoint for requesting an access token
+  var oauth2Endpoint = process.env.REACT_APP_GOOGLE_OAUTH_URL;
+  var clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
+  var dashboardUrl = process.env.REACT_APP_DASHBOARD_URL;
+
+  // Create <form> element to submit parameters to OAuth 2.0 endpoint.
+  var form = document.createElement('form');
+  form.setAttribute('method', 'GET'); // Send as a GET request.
+  form.setAttribute('action', oauth2Endpoint);
+
+  // Parameters to pass to OAuth 2.0 endpoint.
+  var params = {'client_id': clientId,
+                'redirect_uri': dashboardUrl,
+                'response_type': 'token',
+                'scope': 'openid profile email',
+                'include_granted_scopes': 'true',
+                'state': 'pass-through-value'};
+
+  // Add form parameters as hidden input values.
+  for (var p in params) {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'hidden');
+    input.setAttribute('name', p);
+    input.setAttribute('value', params[p]);
+    form.appendChild(input);
+  }
+
+  // Add form to page and submit it to open the OAuth 2.0 endpoint.
+  document.body.appendChild(form);
+  form.submit();
 }
