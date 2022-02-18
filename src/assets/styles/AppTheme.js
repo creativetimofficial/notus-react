@@ -33,9 +33,9 @@ export const theme = createTheme({
         dark: '#ffffff',
       },
       black: {
-        main: '#000000',
-        light: '#000000',
-        dark: '#000000',
+        main: '#808080',
+        light: '#808080',
+        dark: '#808080',
       },
       gray: {
         main: '#616161',
@@ -54,7 +54,7 @@ export const theme = createTheme({
       }
     },
     typography: {
-        color:'#000000'
+        color:'#808080'
     },
     shape: {
       borderRadius: {

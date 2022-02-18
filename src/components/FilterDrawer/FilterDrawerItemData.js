@@ -15,7 +15,7 @@ const starRating = {
     function: '',
 }
 
-const ncquaBonus = {
+const ncqaBonus = {
     name: "NCQA Accreditation Bonus",
     text: "Sample Text Re: NCQA",
     options: ["Accredited/Provisional", "Interim", "In-Process", "Scheduled", "None"],
