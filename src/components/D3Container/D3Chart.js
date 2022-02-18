@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
 import * as d3 from 'd3';
-import { dataList } from './DemoData';
-import { currentFilterContext, displayDataContext, firstRenderContext } from './D3Container';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { displayDataContext, firstRenderContext } from './D3Container';
 
 const axios = require('axios').default;
 
@@ -9,7 +8,6 @@ function D3Chart() {
     //Binder for react to apply changes to the svg
     const D3LineChart = useRef();
 
-    const { currentFilters, setCurrentFilters } = useContext(currentFilterContext);
     const { displayData, setDisplayData } = useContext(displayDataContext)
     const {firstRender, setFirstRender} = useContext(firstRenderContext);
     const [data, setData] = useState([]);
@@ -17,6 +15,7 @@ function D3Chart() {
     const [measurementType, setMeasurementType] = useState('drre');
 
     const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/search`);
+    
 
     useEffect(() => {
         if (memberId) {
@@ -61,7 +60,6 @@ function D3Chart() {
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
         //Generates labels and context for x axis
-
         const x = d3.scaleTime()
             //What data we're measuring
             .domain(d3.extent(displayData, (d) => parseDate(d.date)))
@@ -116,17 +114,17 @@ function D3Chart() {
         d3.selectAll(".axis-grid line").style("stroke", "lightgray")
 
         // Graph Title. Literally has to be placed on the graph using X and Y values
-        svg.append('text')
-            //X position
-            .attr('x', (width / 2))
-            //Y position
-            .attr('y', (-30))
-            //Styling
-            .attr('text-anchor', 'middle')
-            .attr('fint-size', '10px')
-            .attr('fill', 'black')
-            //Text
-            .text('demoData Graph (D3)')
+        // svg.append('text')
+        //     //X position
+        //     .attr('x', (width / 2))
+        //     //Y position
+        //     .attr('y', (-30))
+        //     //Styling
+        //     .attr('text-anchor', 'middle')
+        //     .attr('fint-size', '10px')
+        //     .attr('fill', 'black')
+        //     //Text
+        //     .text('demoData Graph (D3)')
 
         // Generates the actual line
         const line = d3.line()
