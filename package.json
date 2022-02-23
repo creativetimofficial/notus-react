@@ -23,7 +23,8 @@
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "4.0.3",
-    "react-star-ratings": "^2.3.0"
+    "react-star-ratings": "^2.3.0",
+    "sass": "^1.49.8"
   },
   "scripts": {
     "start": "react-scripts start",
