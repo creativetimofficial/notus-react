@@ -112,7 +112,8 @@ function ChartContainer() {
                   </Typography>
                 </Grid>
               </Grid>
-              {measureList.map((item) => {
+              {measureList.map((item, index) => {
+                const craftedKey = `chart-container-grid-measure-${index}`;
                 const filter = {
                   value: item,
                   type: 'measure',
@@ -123,7 +124,11 @@ function ChartContainer() {
                   exclusions: Math.round(Math.random() * 10000),
                 }
                 return (
-                  <Grid item sx={{ width: '100%' }}>
+                  <Grid
+                    item
+                    sx={{ width: '100%' }}
+                    key={craftedKey}
+                  >
                     <D3Filter filter={filter} changeFunction={() => changeFunction(filter)} />
                   </Grid>
                 )

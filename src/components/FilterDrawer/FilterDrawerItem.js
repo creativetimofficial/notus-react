@@ -3,12 +3,13 @@ import {
   Checkbox, FormControlLabel, FormGroup, Grid, Tooltip, Typography,
 } from '@mui/material';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function FilterDrawerItem(props) {
-  const filterItemName = props.filterItem.name;
-  const filterItemText = props.filterItem.text;
-  const filterDrawerOptions = props.filterItem.options;
-  const { filterFunction } = props.filterItem;
+function FilterDrawerItem({ filterItem }) {
+  const filterItemName = filterItem.name;
+  const filterItemText = filterItem.text;
+  const filterDrawerOptions = filterItem.options;
+  // const { filterFunction } = filterItem.filterFunction;
 
   return (
     <Grid container item direction="column" sx={{ mt: '10px' }}>
@@ -31,6 +32,24 @@ function FilterDrawerItem(props) {
       </FormGroup>
     </Grid>
   )
+}
+
+FilterDrawerItem.propTypes = {
+  filterItem: PropTypes.shape({
+    name: PropTypes.string,
+    text: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.string),
+    // filterFunction: PropTypes.func,
+  }),
+}
+
+FilterDrawerItem.defaultProps = {
+  filterItem: {
+    name: '',
+    text: '',
+    options: [],
+    // filterFunction: {},
+  },
 }
 
 export default FilterDrawerItem;
