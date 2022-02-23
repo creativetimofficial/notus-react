@@ -1117,10 +1117,6 @@ video {
   background-size: cover;
 }
 
-.bg-full {
-  background-size: 100$;
-}
-
 .border-collapse {
   border-collapse: collapse;
 }
@@ -2344,6 +2340,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.z-0 {
+  z-index: 0;
 }
 
 .z-2 {

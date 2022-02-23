@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   return (
@@ -9,10 +9,12 @@ export default function Navbar() {
         {/* Left side */}
         <div className="width-75 mx-autp items-center flex justify-between md:flex-no-wrap flex-wrap md:px-10 px-4">
           {/* Brand */}
-          <Link className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
+          <Link
+            className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
             to={{
-            pathname: `/measures/`,
-          }}>
+              pathname: '/measures/',
+            }}
+          >
             Saraswati
           </Link>
         </div>
@@ -20,21 +22,27 @@ export default function Navbar() {
         <div className="mx-autp items-center flex justify-between md:flex-no-wrap flex-wrap md:px-10 px-4">
           {/* Brand */}
           <div className="mx-4">
-            <Link className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-              to={{pathname: `/measures/`,}}>
+            <Link
+              className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
+              to={{ pathname: '/measures/' }}
+            >
               Dashboard
             </Link>
           </div>
           <div className="mx-4">
-            <Link className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-              to={{pathname: `/measures/`,}}>
+            <Link
+              className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
+              to={{ pathname: '/measures/' }}
+            >
               Reports
             </Link>
           </div>
           <div className="mx-4">
-            <Link className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
-              to={{pathname: `/measures/`,}}>
-            Account
+            <Link
+              className="text-white text-sm uppercase hidden lg:inline-block font-semibold"
+              to={{ pathname: '/measures/' }}
+            >
+              Account
             </Link>
           </div>
         </div>

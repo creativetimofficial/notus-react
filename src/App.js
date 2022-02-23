@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 import {
   BrowserRouter,
   Switch,
   Route,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 
 // layouts
 
-import Admin from "layouts/dashboard.js";
-import Auth from "layouts/Auth.js";
-import NotFound from "notFound.js";
-import axios from "axios";
+import axios from 'axios';
+import Admin from './layouts/dashboard';
+import Auth from './layouts/Auth';
+import NotFound from './notFound';
 
 export default function AuthExample() {
   let accessToken = localStorage.getItem('token');
@@ -20,20 +20,18 @@ export default function AuthExample() {
     const loggedIn = validateAccessToken(accessToken);
     return returnValue(loggedIn);
   }
-  else {
-    const hash = window.location.hash;
-    const urlParams = new URLSearchParams(hash);
-    accessToken = urlParams.get('access_token');
 
-    if (accessToken) {
-      localStorage.setItem('token', accessToken);
-      window.history.replaceState({}, document.title, '/');
-      return returnValue(true);
-    }
-    else {
-      return returnValue(false);
-    }
+  const { hash } = window.location;
+  const urlParams = new URLSearchParams(hash);
+  accessToken = urlParams.get('access_token');
+
+  if (accessToken) {
+    localStorage.setItem('token', accessToken);
+    window.history.replaceState({}, document.title, '/');
+    return returnValue(true);
   }
+
+  return returnValue(false);
 }
 
 const returnValue = (loggedIn) => (
@@ -45,19 +43,19 @@ const returnValue = (loggedIn) => (
       <Route exact path="/">
         {loggedIn ? <Admin /> : <Redirect to="/auth" />}
       </Route>
-      <Route path="*" >
+      <Route path="*">
         <NotFound />
       </Route>
     </Switch>
   </BrowserRouter>
 );
 
-const validateAccessToken = async(accessToken) => {
+const validateAccessToken = async (accessToken) => {
   try {
-    await axios.get(process.env.REACT_APP_TOKENINFO + '?access_token=' + accessToken);
+    await axios.get(`${process.env.REACT_APP_TOKENINFO}?access_token=${accessToken}`);
   } catch (error) {
     localStorage.removeItem('token');
-    window.location.replace(process.env.REACT_APP_DASHBOARD_URL + '/auth');
+    window.location.replace(`${process.env.REACT_APP_DASHBOARD_URL}/auth`);
   }
   return true;
 }

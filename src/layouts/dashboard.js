@@ -1,7 +1,6 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { styled } from '@mui/material/styles';
-import { theme } from "assets/styles/AppTheme.js";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -9,13 +8,14 @@ import Typography from '@mui/material/Typography';
 
 // components
 
-import DashboardNavbar from "../components/Navbars/DashboardNavbar.js";
-import FooterAdmin from "components/Footers/FooterAdmin.js";
-import D3Chart from "../components/D3Container/D3Chart.js";
-import Welcome from "../components/Cards/CardWelcome.js";
-import Stars from "../components/Cards/CardStars.js";
-import D3Container from "components/D3Container/D3Container.js";
-import { dataList } from "components/D3Container/DemoData.js";
+import FooterAdmin from '../components/Footers/FooterAdmin';
+import D3Container from '../components/D3Container/ChartContainer';
+import dataList from '../components/D3Container/DemoData';
+import theme from '../assets/styles/AppTheme';
+import DashboardNavbar from '../components/Navbars/DashboardNavbar';
+import D3Chart from '../components/D3Container/D3Chart';
+import Welcome from '../components/Cards/CardWelcome';
+import Stars from '../components/Cards/CardStars';
 
 export const datastoreContext = createContext({});
 
@@ -28,14 +28,16 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Admin() {
-
   const [datastore, setDatastore] = useState(dataList);
   return (
     <Box>
-      <ThemeProvider theme={theme} >
+      <ThemeProvider theme={theme}>
         <datastoreContext.Provider value={{ datastore, setDatastore }}>
           <DashboardNavbar />
-          <Paper sx={{ padding: 4, height: '90vh', background: theme.palette.background.main, mb: '20px' }}>
+          <Paper sx={{
+            padding: 4, height: '90vh', background: theme.palette.background.main, mb: '20px',
+          }}
+          >
             <Box sx={{ flexGrow: 2 }}>
               <Grid container spacing={4}>
                 <Grid item sm={3} xs={6}>
@@ -50,7 +52,7 @@ export default function Admin() {
                 </Grid>
                 <Grid item sm={6} xs={12}>
                   <Item>
-                    <Typography variant='subtitle1' align='center'>Impacts and Trends</Typography>
+                    <Typography variant="subtitle1" align="center">Impacts and Trends</Typography>
                   </Item>
                 </Grid>
                 <Grid item xs={12}>

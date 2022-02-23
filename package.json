@@ -10,17 +10,19 @@
     "@fortawesome/fontawesome-free": "5.14.0",
     "@mui/icons-material": "^5.3.1",
     "@mui/material": "^5.3.1",
+    "@mui/system": "^5.4.3",
     "@popperjs/core": "2.5.1",
     "axios": "^0.25.0",
     "chart.js": "2.9.3",
     "d3": "^7.3.0",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.8",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-dom": "17.0.2",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
-    "react-scripts": "3.4.0",
+    "react-scripts": "4.0.3",
     "react-star-ratings": "^2.3.0"
   },
   "scripts": {
@@ -52,5 +54,11 @@
     "@types/markerclustererplus": "2.1.33",
     "@types/react": "16.9.49",
     "typescript": "4.0.3"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0"
   }
 }
