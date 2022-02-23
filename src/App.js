@@ -8,10 +8,10 @@ import {
 
 // layouts
 
-import Admin from 'layouts/dashboard';
-import Auth from 'layouts/Auth';
-import NotFound from 'notFound';
 import axios from 'axios';
+import Admin from './layouts/dashboard';
+import Auth from './layouts/Auth';
+import NotFound from './notFound';
 
 export default function AuthExample() {
   let accessToken = localStorage.getItem('token');

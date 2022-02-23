@@ -10,7 +10,7 @@ import Typography from '@mui/material/Typography';
 
 import FooterAdmin from '../components/Footers/FooterAdmin';
 import D3Container from '../components/D3Container/ChartContainer';
-import { dataList } from '../components/D3Container/DemoData';
+import dataList from '../components/D3Container/DemoData';
 import theme from '../assets/styles/AppTheme';
 import DashboardNavbar from '../components/Navbars/DashboardNavbar';
 import D3Chart from '../components/D3Container/D3Chart';
