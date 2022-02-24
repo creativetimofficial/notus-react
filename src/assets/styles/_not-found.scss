@@ -1,0 +1,8 @@
+$block-class: 'not-found';
+
+@at-root {
+    .#{$block-class} {
+        text-align: center;
+        font-size: 14rem;
+    }
+}
