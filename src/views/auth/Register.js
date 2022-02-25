@@ -41,49 +41,55 @@ export default function Register() {
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
+                    htmlFor="registerNameInput"
                   >
                     Name
+                    <input
+                      id="registerNameInput"
+                      type="text"
+                      className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+                      placeholder="Name"
+                    />
                   </label>
-                  <input
-                    type="email"
-                    className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                    placeholder="Name"
-                  />
                 </div>
 
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
+                    htmlFor="registerEmailInput"
                   >
                     Email
+                    <input
+                      id="registerEmailInput"
+                      type="email"
+                      className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+                      placeholder="Email"
+                    />
                   </label>
-                  <input
-                    type="email"
-                    className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                    placeholder="Email"
-                  />
                 </div>
 
                 <div className="relative w-full mb-3">
                   <label
                     className="block uppercase text-gray-700 text-xs font-bold mb-2"
-                    htmlFor="grid-password"
+                    htmlFor="registerPasswordInput"
                   >
                     Password
+                    <input
+                      id="registerPasswordInput"
+                      type="password"
+                      className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
+                      placeholder="Password"
+                    />
                   </label>
-                  <input
-                    type="password"
-                    className="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full ease-linear transition-all duration-150"
-                    placeholder="Password"
-                  />
                 </div>
 
                 <div>
-                  <label className="inline-flex items-center cursor-pointer">
+                  <label
+                    className="inline-flex items-center cursor-pointer"
+                    htmlFor="registerAgreementCheckbox"
+                  >
                     <input
-                      id="customCheckLogin"
+                      id="registerAgreementCheckbox"
                       type="checkbox"
                       className="form-checkbox text-gray-800 ml-1 w-5 h-5 ease-linear transition-all duration-150"
                     />
