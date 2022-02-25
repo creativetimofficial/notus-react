@@ -75,6 +75,8 @@
   
   a {
     background-color: transparent;
+    color:#2b6cb0;
+    text-decoration: inherit;
   }
   
   /**
@@ -488,16 +490,6 @@
   h6 {
     font-size: inherit;
     font-weight: inherit;
-  }
-  
-  /**
-   * Reset links to optimize for opt-in styling instead of
-   * opt-out.
-   */
-  
-  a {
-    color: inherit;
-    text-decoration: inherit;
   }
   
   /**
