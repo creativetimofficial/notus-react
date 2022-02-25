@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -17,6 +17,8 @@ import D3Chart from '../components/D3Container/D3Chart';
 import Welcome from '../components/Cards/CardWelcome';
 import Stars from '../components/Cards/CardStars';
 
+const axios = require('axios').default;
+
 export const datastoreContext = createContext({});
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -27,8 +29,21 @@ const Item = styled(Paper)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius.xl,
 }));
 
+const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/search`);
+
 export default function Admin() {
-  const [datastore, setDatastore] = useState(dataList);
+  const [datastore, setDatastore] = useState([]);
+
+  useEffect(() => {
+    axios.get(searchUrl.href)
+      .then((res) => {
+        setDatastore(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <Box>
       <ThemeProvider theme={theme}>
