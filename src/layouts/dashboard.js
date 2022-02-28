@@ -13,7 +13,6 @@ import D3Container from '../components/D3Container/ChartContainer';
 import dataList from '../components/D3Container/DemoData';
 import theme from '../assets/styles/AppTheme';
 import DashboardNavbar from '../components/Navbars/DashboardNavbar';
-import D3Chart from '../components/D3Container/D3Chart';
 import Welcome from '../components/Cards/CardWelcome';
 import Stars from '../components/Cards/CardStars';
 
@@ -30,18 +29,23 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/search`);
+const devData = `${process.env.REACT_APP_DEV_DATA}`;
 
 export default function Admin() {
   const [datastore, setDatastore] = useState([]);
 
   useEffect(() => {
-    axios.get(searchUrl.href)
-      .then((res) => {
-        setDatastore(res.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (devData) {
+      setDatastore(dataList);
+    } else {
+      axios.get(searchUrl.href)
+        .then((res) => {
+          setDatastore(res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   }, []);
 
   return (
