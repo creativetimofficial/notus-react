@@ -9,7 +9,7 @@ export default function CardTrends() {
   const [trendData, setTrendData] = useState([]);
 
   useEffect(() => {
-    setTrendData(datastore[1]);
+    setTrendData(datastore.trends);
   }, [datastore]);
 
   const percentChange = trendData[0] ? trendData[0].changePercent : 0;

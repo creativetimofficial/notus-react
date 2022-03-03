@@ -18,11 +18,11 @@ function ChartContainer() {
   const [firstRender, setFirstRender] = useState(true);
 
   const workingList = [];
-  datastore[0].forEach((item) => workingList.push(item.measure));
+  datastore.results.forEach((item) => workingList.push(item.measure));
   const measureList = Array.from(new Set(workingList));
 
   useEffect(() => {
-    setDisplayData(datastore[0]);
+    setDisplayData(datastore.results);
   }, [datastore]);
 
   const changeFunction = (filter) => {
@@ -32,7 +32,7 @@ function ChartContainer() {
     if (active !== undefined) {
       const newFilterArray = filterArray.filter((item) => item.value !== filter.value);
       setCurrentFilters(newFilterArray);
-      setDisplayData(refineDisplayData([...datastore], newFilterArray));
+      setDisplayData(refineDisplayData([...datastore.results], newFilterArray));
     } else {
       const newFilter = {
         value: filter.value,
@@ -40,7 +40,7 @@ function ChartContainer() {
       }
       filterArray.push(newFilter);
       setCurrentFilters(filterArray);
-      setDisplayData(refineDisplayData([...datastore], filterArray));
+      setDisplayData(refineDisplayData([...datastore.results], filterArray));
     }
   }
 
@@ -53,11 +53,14 @@ function ChartContainer() {
     } else if (filterArray.length === measureList.length) {
       workingData = [];
     } else {
+      workingData = initialData;
       filterArray.forEach((filterItem) => {
         // Handles Filtering by measure
         if (filterItem.type === 'measure') {
-          initialData.forEach((item) => {
-            if (item.measure !== filterItem.value) { workingData.push(item) }
+          workingData.forEach((item, index, object) => {
+            if (item.measure === filterItem.value) {
+              object.splice(index, 1);
+            }
           });
         }
         // TODO: Add logic in here for various filter types
