@@ -32,7 +32,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Admin() {
   const [datastore, setDatastore] = useState(dataList);
-
+  const [showRatings, setShowRatings] = useState(true);
+  const [updateDate, setUpdateDate] = useState("Mar 1 2022");
+  const [updateTime, setUpdateTime] = useState("9:05 AM");
   return (
     <Box>
       <ThemeProvider theme={theme}>
@@ -50,8 +52,15 @@ export default function Admin() {
               <Grid container spacing={4}>
                 <Grid item sm={12} sx={{ bgColor: grey }}>
                   <Item>
-                    <Banner />
-                    <RatingsTrends />
+                    <Banner updateDate={updateDate} updateTime={updateTime} />
+                    {showRatings ? (
+                      <RatingsTrends
+                        starRating={5}
+                        AIS={"10"}
+                        DDR={"-5"}
+                        ProjectedBonus={"40"}
+                      />
+                    ) : null}
                   </Item>
                 </Grid>
                 <Grid item xs={12}>
@@ -65,7 +74,7 @@ export default function Admin() {
               </Grid>
             </Box>
           </Paper>
-          <FooterAdmin sx={{ mt: "20px" }} />
+          {/* <FooterAdmin sx={{ mt: "20px" }} /> */}
         </datastoreContext.Provider>
       </ThemeProvider>
     </Box>

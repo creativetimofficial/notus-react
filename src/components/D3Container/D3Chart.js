@@ -6,7 +6,7 @@ import {
   displayDataContext,
   firstRenderContext,
 } from "./D3Container";
-
+import "./D3Chart.css";
 const axios = require("axios").default;
 
 function D3Chart() {
@@ -20,7 +20,10 @@ function D3Chart() {
   const [data, setData] = useState([]);
   const [memberId, setMemberId] = useState("");
   const [measurementType, setMeasurementType] = useState("drre");
-
+  const [xCord, setXCord] = useState("");
+  const [yCord, setYCord] = useState("");
+  const [lineName, setLineName] = useState("");
+  console.log(lineName);
   const searchUrl = new URL(
     `${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/search`
   );
@@ -52,19 +55,18 @@ function D3Chart() {
     const measureList = [...new Set(workingList)];
 
     //Basic Styling consts to be used later
-    const margin = { top: 50, right: 30, bottom: 75, left: 30 };
+    const margin = { top: "50", right: 30, bottom: "75", left: 50 };
     const width = parseInt(d3.select("#d3-line-chart").style("width"));
-    const height = 200;
+    const height = 800;
 
     //Clear previous SVG
     d3.select(D3LineChart.current).selectAll("*").remove();
 
-    //SVG constrol and also styling
+    //SVG control and also styling
     const svg = d3
       .select(D3LineChart.current)
       .attr("width", width)
       .attr("height", height)
-      .style("background-color", "white")
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -81,6 +83,8 @@ function D3Chart() {
     svg
       .append("g")
       .attr("transform", "translate(0," + (height - margin.bottom) + ")")
+      .attr("class", "baseLineXAxis")
+
       .call(d3.axisBottom(x).tickFormat(d3.timeFormat("%d-%b-%Y")));
 
     //Generates Label and context for y axis
@@ -91,7 +95,7 @@ function D3Chart() {
       .domain([0, 5])
       .range([height - margin.bottom, 0]);
 
-    svg.append("g").call(d3.axisLeft(y));
+    svg.append("g").call(d3.axisLeft(y)).attr("class", "baseLineYAxis");
 
     //Grid
     // gridlines in x axis function
@@ -110,17 +114,20 @@ function D3Chart() {
       .attr("class", "axis-grid")
       .attr("transform", "translate(0," + height + ")")
       .attr("class", "tomatoeBlue")
+
       .call(make_x_gridlines().tickSize(-height).tickFormat(""));
 
     // add the Y gridlines
     svg
       .append("g")
       .attr("class", "axis-grid")
-      .call(make_y_gridlines().tickSize(-width).tickFormat(""));
+      .call(make_y_gridlines().tickSize(-width).tickFormat(""))
+      .attr("display", "none");
 
     d3.selectAll(".axis-grid line").style("stroke", "lightgray");
 
     // Graph Title. Literally has to be placed on the graph using X and Y values
+
     svg
       .append("text")
       //X position
@@ -129,10 +136,10 @@ function D3Chart() {
       .attr("y", -30)
       //Styling
       .attr("text-anchor", "middle")
-      .attr("fint-size", "10px")
+      .attr("font-size", "1.3rem")
       .attr("fill", "black")
       //Text
-      .text("demoData Graph (D3)");
+      .text("Demo Data Graph (D3)");
 
     // Generates the actual line
     const line = d3
@@ -141,14 +148,7 @@ function D3Chart() {
       .x((d) => x(parseDate(d.date)))
       .y((d) => y(d.value));
     // Tool Tips
-    var tooltip = d3
-      .select("body")
-      .append("div")
-      .style("position", "absolute")
-      .style("z-index", "10")
-      .style("visibility", "hidden")
-      .style("background", "#000");
-    // .text("a simple tooltip");
+    var tooltip = d3.select("body").append("div").attr("class", "tooltip");
 
     //Iterates through an array variation.
     if (measureList.length > 0) {
@@ -156,10 +156,7 @@ function D3Chart() {
         svg
           .append("path")
           .datum(displayData.filter((item) => item.measure === measure))
-          .attr("fill", "none")
-          .attr("stroke", "black")
-          .attr("opacity", ".33")
-          .attr("stroke-width", 2)
+          .attr("class", "lineOnChart")
           .attr("d", line)
           .style("width", function (d) {
             return x(d) + "px";
@@ -167,7 +164,6 @@ function D3Chart() {
 
           .on("mouseover", (d) => {
             JSON.stringify(d);
-            tooltip.text(d.target.__data__[0].measure);
             console.log(d);
             return tooltip
               .style("visibility", "visible")
@@ -175,20 +171,27 @@ function D3Chart() {
               .style("left", d.pageX + 10 + "px");
           })
           .on("mousemove", (event) => {
+            // console.log(event.x);
+            // let XCord = event.x;
+            // let YCord = event.y;
+            // if (XCord >= 70 && XCord <= 300) {
+            //   console.log("first section");
+            // } else if (XCord >= 301 && XCord <= 531) {
+            //   console.log("second section");
+            // } else if (XCord >= 532 && XCord <= 762) {
+            //   console.log("third section");
+            // }
             return tooltip
               .html(event)
+              .text(
+                `${event.target.__data__[0].measure} Value: "${event.target.__data__[0].value}" Date: "${event.target.__data__[0].date}"`
+              )
               .style("top", event.pageY - 10 + "px")
               .style("left", event.pageX + 10 + "px");
           })
           .on("mouseout", (event) => {
             return tooltip.style("visibility", "hidden");
           });
-        // .on("mouseover", (event) => {
-        //   d3.select(event.currentTarget).attr("opacity", "1");
-        // })
-        // .on("mouseout", (event) => {
-        //   d3.select(event.currentTarget).attr("opacity", ".33");
-        // });
       });
     }
   }, [measurementType, memberId, displayData]);
