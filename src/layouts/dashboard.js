@@ -33,16 +33,16 @@ const trendUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures
 const devData = `${process.env.REACT_APP_DEV_DATA}`;
 
 export default function Admin() {
-  const [datastore, setDatastore] = useState([[], []]);
+  const [datastore, setDatastore] = useState({ results: [], trends: [] });
 
   useEffect(() => {
     if (devData === 'true') {
-      setDatastore([dataList, { }]);
+      setDatastore({ results: dataList, trends: [] });
     } else {
       const searchPromise = axios.get(searchUrl);
       const trendPromise = axios.get(trendUrl);
       Promise.all([searchPromise, trendPromise]).then((values) => {
-        setDatastore([values[0].data, values[1].data]);
+        setDatastore({ results: values[0].data, trends: values[1].data });
       });
     }
   }, []);
