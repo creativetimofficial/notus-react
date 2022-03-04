@@ -14,6 +14,10 @@ import Auth from './layouts/Auth';
 import NotFound from './notFound';
 
 export default function AuthExample() {
+  if (`${process.env.REACT_APP_AUTH}` === 'false') {
+    return returnValue(true);
+  }
+
   let accessToken = localStorage.getItem('token');
 
   if (accessToken) {

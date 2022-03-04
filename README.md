@@ -13,5 +13,11 @@ The purpose of this API is to ingest HEDIS data from pyspark, save it, and then 
 3. Navigate to https://localhost:3000.
 
 
-## Notus React Documentation
-The library we forked from is called Notus React - the documentation for the Notus React is hosted at Creative Tim's <a href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus?ref=nr-readme" target="_blank">website</a>.
+## Env Variables
+`REACT_APP_HEDIS_MEASURE_API_URL` - URL To access HeRA
+`REACT_APP_GOOGLE_OAUTH_URL` - URL For Google OAuth
+`REACT_APP_GOOGLE_CLIENT_ID` - Client ID setup for Saraswati authentication
+`REACT_APP_DASHBOARD_URL` - URL for Saraswati Dashboard
+`REACT_APP_TOKENINFO` - URL for Google access token
+`REACT_APP_DEV_DATA` - `true` to use data from local file, `false` to fetch data from mongodb
+`REACT_APP_AUTH` - `true` to force authorization before accessing dashboard, `false` to bypass authorization

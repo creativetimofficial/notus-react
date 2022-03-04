@@ -4,7 +4,6 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 
 // components
 
@@ -15,6 +14,7 @@ import theme from '../assets/styles/AppTheme';
 import DashboardNavbar from '../components/Navbars/DashboardNavbar';
 import Welcome from '../components/Cards/CardWelcome';
 import Stars from '../components/Cards/CardStars';
+import Trends from '../components/Cards/CardTrends';
 
 const axios = require('axios').default;
 
@@ -28,23 +28,22 @@ const Item = styled(Paper)(({ theme }) => ({
   borderRadius: theme.shape.borderRadius.xl,
 }));
 
-const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/search`);
+const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/searchResults`);
+const trendUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/trends`);
 const devData = `${process.env.REACT_APP_DEV_DATA}`;
 
 export default function Admin() {
-  const [datastore, setDatastore] = useState([]);
+  const [datastore, setDatastore] = useState([[], []]);
 
   useEffect(() => {
-    if (devData) {
-      setDatastore(dataList);
+    if (devData === 'true') {
+      setDatastore([dataList, { }]);
     } else {
-      axios.get(searchUrl.href)
-        .then((res) => {
-          setDatastore(res.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      const searchPromise = axios.get(searchUrl);
+      const trendPromise = axios.get(trendUrl);
+      Promise.all([searchPromise, trendPromise]).then((values) => {
+        setDatastore([values[0].data, values[1].data]);
+      });
     }
   }, []);
 
@@ -71,7 +70,7 @@ export default function Admin() {
                 </Grid>
                 <Grid item sm={6} xs={12}>
                   <Item>
-                    <Typography variant="subtitle1" align="center">Impacts and Trends</Typography>
+                    <Trends />
                   </Item>
                 </Grid>
                 <Grid item xs={12}>

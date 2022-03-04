@@ -12,17 +12,17 @@ export const displayDataContext = createContext([])
 export const firstRenderContext = createContext(true)
 
 function ChartContainer() {
-  const { datastore, setDatastore } = useContext(datastoreContext)
-  const [displayData, setDisplayData] = useState(datastore);
+  const { datastore, setDatastore } = useContext(datastoreContext);
+  const [displayData, setDisplayData] = useState([]);
   const [currentFilters, setCurrentFilters] = useState([]);
   const [firstRender, setFirstRender] = useState(true);
 
   const workingList = [];
-  datastore.forEach((item) => workingList.push(item.measure));
+  datastore[0].forEach((item) => workingList.push(item.measure));
   const measureList = Array.from(new Set(workingList));
 
   useEffect(() => {
-    setDisplayData(datastore);
+    setDisplayData(datastore[0]);
   }, [datastore]);
 
   const changeFunction = (filter) => {
