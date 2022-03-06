@@ -49,7 +49,7 @@ function D3Chart({ displayData }) {
     .call(d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%d-%b-%Y')));
 
   // Generates Label and context for y axis
-  const max = d3.max(displayData, (d) => d.value);
+  // const max = d3.max(displayData, (d) => d.value);
 
   const y = d3.scaleLinear()
     .domain([0, 5])

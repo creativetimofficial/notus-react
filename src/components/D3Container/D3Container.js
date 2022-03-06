@@ -143,7 +143,10 @@ function D3Container({ dashboardState, dashboardActions }) {
               sx={{ width: '100%' }}
               key={craftedKey}
             >
-              <D3Filter filter={filter} changeFunction={() => changeFunction(filter)} />
+              <D3Filter
+                filter={filter}
+                onChangeFilter={() => changeFunction(filter)}
+              />
             </Grid>
           )
         })}

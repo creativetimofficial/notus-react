@@ -10,7 +10,12 @@ import theme from '../../assets/styles/AppTheme';
 import FilterDrawerItem from './FilterDrawerItem';
 import filterDrawerItemArray from './FilterDrawerItemData';
 
-function FilterDrawer({ currentFilters, setCurrentFilters, filterMenuOpen, toggleFilterMenu }) {
+function FilterDrawer({
+  currentFilters,
+  setCurrentFilters,
+  filterMenuOpen,
+  toggleFilterMenu,
+}) {
   const [percentSliderValue, setPercentSliderValue] = useState([25, 75])
 
   const toggleDrawer = (open) => (event) => {
@@ -27,8 +32,7 @@ function FilterDrawer({ currentFilters, setCurrentFilters, filterMenuOpen, toggl
   const sliderValuetext = (value) => `${value}%`;
 
   // Gotta figure something in here to deal with the filter application
-
-  const list = (anchor) => (
+  const list = () => ( // anchor was here
     <ThemeProvider theme={theme}>
       <Box
         sx={{ px: '50px' }}
@@ -121,19 +125,27 @@ function FilterDrawer({ currentFilters, setCurrentFilters, filterMenuOpen, toggl
       open={filterMenuOpen}
       onClose={toggleDrawer(false)}
     >
-      {list('right')}
+      {list()}
     </Drawer>
   );
 }
 
 FilterDrawer.propTypes = {
   filterMenuOpen: PropTypes.bool,
+  currentFilters: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+    }),
+  ),
   toggleFilterMenu: PropTypes.func,
+  setCurrentFilters: PropTypes.func,
 };
 
 FilterDrawer.defaultProps = {
   filterMenuOpen: false,
+  currentFilters: [],
   toggleFilterMenu: () => undefined,
+  setCurrentFilters: () => undefined,
 }
 
 export default FilterDrawer;

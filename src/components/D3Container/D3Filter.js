@@ -2,12 +2,10 @@ import {
   Checkbox, Divider, FormGroup, Grid, Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-function D3Filter(props) {
-  const { filter } = props;
-  const onChange = props.changeFunction;
-
+function D3Filter({ filter, onChangeFilter }) {
   return (
     <Box>
       <Divider color="black" />
@@ -44,12 +42,36 @@ function D3Filter(props) {
         </Grid>
         <Grid item xs={1}>
           <FormGroup sx={{ ml: '8px' }}>
-            <Checkbox disableRipple defaultChecked size="medium" color="blue" onChange={() => onChange(filter)} />
+            <Checkbox
+              disableRipple
+              defaultChecked
+              size="medium"
+              color="blue"
+              onChange={() => onChangeFilter(filter)}
+            />
           </FormGroup>
         </Grid>
       </Grid>
     </Box>
   )
+}
+
+D3Filter.propTypes = {
+  filter: PropTypes.shape({
+    value: PropTypes.string,
+    type: PropTypes.string,
+    included: PropTypes.number,
+    eligible: PropTypes.number,
+    numerator: PropTypes.number,
+    denominator: PropTypes.number,
+    exclusions: PropTypes.number,
+  }),
+  onChangeFilter: PropTypes.func,
+}
+
+D3Filter.defaultProps = {
+  filter: {},
+  onChangeFilter: () => undefined,
 }
 
 export default D3Filter;
