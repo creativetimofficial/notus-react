@@ -3,6 +3,7 @@ import React, {
   createContext,
   useEffect,
   useMemo,
+  useState,
 } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { styled } from '@mui/material/styles';
@@ -46,6 +47,20 @@ export default function Dashboard() {
     setTrends: (trends) => dispatch({ type: 'SET_TRENDS', payload: trends }),
   }), [dispatch]);
 
+  const reducerValue = useMemo(() => ({
+    datastore, dispatchActions,
+  }), [datastore, dispatchActions]);
+
+  const [filterMenuOpen, toggleFilterMenu] = useState(false);
+
+  const dashboardState = {
+    filterMenuOpen,
+  }
+
+  const dashboardActions = {
+    toggleFilterMenu,
+  };
+
   useEffect(() => {
     if (devData === 'true') {
       dispatchActions.setResults(dataList);
@@ -58,10 +73,6 @@ export default function Dashboard() {
       });
     }
   }, [dispatchActions]);
-
-  const reducerValue = useMemo(() => ({
-    datastore, dispatchActions,
-  }), [datastore, dispatchActions]);
 
   return (
     <Box>
@@ -88,12 +99,17 @@ export default function Dashboard() {
                 </Grid>
                 <Grid item sm={6} xs={12}>
                   <Item>
-                    <Trends />
+                    <Trends
+                      trends={datastore.trends}
+                    />
                   </Item>
                 </Grid>
                 <Grid item xs={12}>
                   <Item>
-                    <D3Container />
+                    <D3Container
+                      dashboardState={dashboardState}
+                      dashboardActions={dashboardActions}
+                    />
                   </Item>
                 </Grid>
                 <Grid item xs={12}>

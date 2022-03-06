@@ -4,24 +4,20 @@ import HelpIcon from '@mui/icons-material/Help';
 import {
   Box, Button, Divider, Drawer, Grid, Slider, Typography,
 } from '@mui/material';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import theme from '../../assets/styles/AppTheme';
-import { filterMenuOpenContext } from '../D3Container/ChartBar';
-import { currentFilterContext, firstRenderContext } from '../D3Container/D3Container';
 import FilterDrawerItem from './FilterDrawerItem';
 import filterDrawerItemArray from './FilterDrawerItemData';
 
-function FilterDrawer() {
-  const { currentFilters, setCurrentFilters } = useContext(currentFilterContext);
-  const { firstRender, setFirstRender } = useContext(firstRenderContext);
-  const { filterMenuOpen, setFilterMenuOpen } = useContext(filterMenuOpenContext);
+function FilterDrawer({ currentFilters, setCurrentFilters, filterMenuOpen, toggleFilterMenu }) {
   const [percentSliderValue, setPercentSliderValue] = useState([25, 75])
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-    setFilterMenuOpen(open);
+    toggleFilterMenu(open);
   };
 
   const handleSliderChange = (event, newValue) => {
@@ -128,6 +124,16 @@ function FilterDrawer() {
       {list('right')}
     </Drawer>
   );
+}
+
+FilterDrawer.propTypes = {
+  filterMenuOpen: PropTypes.bool,
+  toggleFilterMenu: PropTypes.func,
+};
+
+FilterDrawer.defaultProps = {
+  filterMenuOpen: false,
+  toggleFilterMenu: () => undefined,
 }
 
 export default FilterDrawer;
