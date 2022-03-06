@@ -2,7 +2,7 @@ import { Divider, Grid, Typography } from '@mui/material';
 import React, {
   createContext, useContext, useState, useEffect,
 } from 'react';
-import { datastoreContext } from '../../layouts/dashboard';
+import { DatastoreContext } from '../../layouts/Dashboard';
 import ChartBar from './ChartBar';
 import D3Chart from './D3Chart';
 import D3Filter from './D3Filter';
@@ -12,7 +12,7 @@ export const displayDataContext = createContext([])
 export const firstRenderContext = createContext(true)
 
 function ChartContainer() {
-  const { datastore, setDatastore } = useContext(datastoreContext);
+  const { datastore, setDatastore } = useContext(DatastoreContext);
   const [displayData, setDisplayData] = useState([]);
   const [currentFilters, setCurrentFilters] = useState([]);
   const [firstRender, setFirstRender] = useState(true);

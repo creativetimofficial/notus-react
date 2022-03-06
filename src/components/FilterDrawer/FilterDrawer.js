@@ -29,9 +29,7 @@ function FilterDrawer() {
     setPercentSliderValue(newValue);
   };
 
-  function sliderValuetext(value) {
-    return `${value}` + '%';
-  }
+  const sliderValuetext = (value) => `${value}%`;
 
   // Gotta figure something in here to deal with the filter application
 
@@ -101,7 +99,7 @@ function FilterDrawer() {
               </Grid>
             </Grid>
             {filterDrawerItemArray.map((drawerItem) => (
-              <FilterDrawerItem filterItem={drawerItem} />
+              <FilterDrawerItem key={`filter-draw-item-${drawerItem.name}`} filterItem={drawerItem} />
             ))}
           </Grid>
           <Grid sx={{ my: '50px' }} container justifyContent="space-evenly" alignItems="center" direction="row">

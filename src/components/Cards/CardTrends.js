@@ -2,10 +2,10 @@ import React, {
   useContext, useState, useEffect,
 } from 'react';
 import Typography from '@mui/material/Typography';
-import { datastoreContext } from '../../layouts/dashboard';
+import { DatastoreContext } from '../../layouts/Dashboard';
 
 export default function CardTrends() {
-  const { datastore, setDatastore } = useContext(datastoreContext);
+  const { datastore, setDatastore } = useContext(DatastoreContext);
   const [trendData, setTrendData] = useState([]);
 
   useEffect(() => {

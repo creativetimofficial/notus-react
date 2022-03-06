@@ -9,7 +9,7 @@ import {
 // layouts
 
 import axios from 'axios';
-import Admin from './layouts/dashboard';
+import Dashboard from './layouts/Dashboard';
 import Auth from './layouts/Auth';
 import NotFound from './notFound';
 
@@ -45,7 +45,7 @@ const returnValue = (loggedIn) => (
         <Auth />
       </Route>
       <Route exact path="/">
-        {loggedIn ? <Admin /> : <Redirect to="/auth" />}
+        {loggedIn ? <Dashboard /> : <Redirect to="/auth" />}
       </Route>
       <Route path="*">
         <NotFound />

@@ -1,4 +1,9 @@
-import React, { useState, createContext, useEffect } from 'react';
+import React, {
+  useReducer,
+  createContext,
+  useEffect,
+  useMemo,
+} from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -7,7 +12,7 @@ import Paper from '@mui/material/Paper';
 
 // components
 
-import FooterAdmin from '../components/Footers/FooterAdmin';
+import Footer from '../components/Footers/Footer';
 import D3Container from '../components/D3Container/ChartContainer';
 import dataList from '../components/D3Container/DemoData';
 import theme from '../assets/styles/AppTheme';
@@ -15,12 +20,13 @@ import DashboardNavbar from '../components/Navbars/DashboardNavbar';
 import Welcome from '../components/Cards/CardWelcome';
 import Stars from '../components/Cards/CardStars';
 import Trends from '../components/Cards/CardTrends';
+import DashboardReducer from '../context/DashboardReducer';
 
 const axios = require('axios').default;
 
-export const datastoreContext = createContext({});
+export const DatastoreContext = createContext({});
 
-const Item = styled(Paper)(({ theme }) => ({
+const Item = styled(Paper)(() => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
@@ -32,29 +38,46 @@ const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measure
 const trendUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/trends`);
 const devData = `${process.env.REACT_APP_DEV_DATA}`;
 
-export default function Admin() {
-  const [datastore, setDatastore] = useState({ results: [], trends: [] });
+const initialState = {
+  results: [],
+  trends: [],
+};
+
+export default function Dashboard() {
+  const [datastore, dispatch] = useReducer(DashboardReducer, initialState);
+
+  const dispatchActions = useMemo(() => ({
+    setResults: (results) => dispatch({ type: 'SET_RESULTS', payload: results }),
+    setTrends: (trends) => dispatch({ type: 'SET_TRENDS', payload: trends }),
+  }), [dispatch]);
 
   useEffect(() => {
     if (devData === 'true') {
-      setDatastore({ results: dataList, trends: [] });
+      dispatchActions.setResults(dataList);
     } else {
       const searchPromise = axios.get(searchUrl);
       const trendPromise = axios.get(trendUrl);
       Promise.all([searchPromise, trendPromise]).then((values) => {
-        setDatastore({ results: values[0].data, trends: values[1].data });
+        dispatchActions.setResults(values[0].data)
+        dispatchActions.setTrends(values[1].data);
       });
     }
-  }, []);
+  }, [dispatchActions]);
+
+  const reducerValue = useMemo(() => ({
+    datastore, dispatchActions,
+  }), [datastore, dispatchActions]);
 
   return (
     <Box>
       <ThemeProvider theme={theme}>
-        <datastoreContext.Provider value={{ datastore, setDatastore }}>
+        <DatastoreContext.Provider value={reducerValue}>
           <DashboardNavbar />
-          <Paper sx={{
-            padding: 4, height: '90vh', background: theme.palette.background.main, mb: '20px',
-          }}
+          <Paper
+            className="dashboard__paper"
+            sx={{
+              padding: 4, height: '90vh', background: theme.palette.background.main, mb: '20px',
+            }}
           >
             <Box sx={{ flexGrow: 2 }}>
               <Grid container spacing={4}>
@@ -84,8 +107,8 @@ export default function Admin() {
               </Grid>
             </Box>
           </Paper>
-          <FooterAdmin sx={{ mt: '20px' }} />
-        </datastoreContext.Provider>
+          <Footer sx={{ mt: '20px' }} />
+        </DatastoreContext.Provider>
       </ThemeProvider>
     </Box>
   );
