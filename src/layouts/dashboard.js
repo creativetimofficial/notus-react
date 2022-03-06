@@ -13,14 +13,14 @@ import Paper from '@mui/material/Paper';
 // components
 
 import Footer from '../components/Footers/Footer';
-import D3Container from '../components/D3Container/ChartContainer';
+import D3Container from '../components/D3Container';
 import dataList from '../components/D3Container/DemoData';
 import theme from '../assets/styles/AppTheme';
 import DashboardNavbar from '../components/Navbars/DashboardNavbar';
 import Welcome from '../components/Cards/CardWelcome';
 import Stars from '../components/Cards/CardStars';
 import Trends from '../components/Cards/CardTrends';
-import DashboardReducer from '../context/DashboardReducer';
+import { DashboardReducer, initialState } from '../context/DashboardReducer';
 
 const axios = require('axios').default;
 
@@ -37,11 +37,6 @@ const Item = styled(Paper)(() => ({
 const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/searchResults`);
 const trendUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/trends`);
 const devData = `${process.env.REACT_APP_DEV_DATA}`;
-
-const initialState = {
-  results: [],
-  trends: [],
-};
 
 export default function Dashboard() {
   const [datastore, dispatch] = useReducer(DashboardReducer, initialState);

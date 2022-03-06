@@ -1,15 +1,11 @@
 import * as d3 from 'd3';
-import React, {
-  useContext, useRef,
-} from 'react';
-import { displayDataContext, firstRenderContext } from './ChartContainer';
+import React, { useRef } from 'react';
 
-function D3Chart() {
+import { measureScores, initialMeasureScores } from '../../context/DataValidation';
+
+function D3Chart({ displayData }) {
   // Binder for react to apply changes to the svg
   const D3LineChart = useRef();
-
-  const { displayData, setDisplayData } = useContext(displayDataContext)
-  const { firstRender, setFirstRender } = useContext(firstRenderContext);
 
   // engage data here
 
@@ -135,6 +131,14 @@ function D3Chart() {
       <svg ref={D3LineChart} />
     </div>
   )
+}
+
+D3Chart.propTypes = {
+  displayData: measureScores,
+}
+
+D3Chart.defaultProps = {
+  displayData: initialMeasureScores,
 }
 
 export default D3Chart;

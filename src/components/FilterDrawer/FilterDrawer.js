@@ -7,13 +7,12 @@ import {
 import React, { useContext, useState } from 'react';
 import theme from '../../assets/styles/AppTheme';
 import { filterMenuOpenContext } from '../D3Container/ChartBar';
-import { currentFilterContext, displayDataContext, firstRenderContext } from '../D3Container/ChartContainer';
+import { currentFilterContext, firstRenderContext } from '../D3Container/D3Container';
 import FilterDrawerItem from './FilterDrawerItem';
 import filterDrawerItemArray from './FilterDrawerItemData';
 
 function FilterDrawer() {
   const { currentFilters, setCurrentFilters } = useContext(currentFilterContext);
-  const { displayData, setDisplayData } = useContext(displayDataContext)
   const { firstRender, setFirstRender } = useContext(firstRenderContext);
   const { filterMenuOpen, setFilterMenuOpen } = useContext(filterMenuOpenContext);
   const [percentSliderValue, setPercentSliderValue] = useState([25, 75])
@@ -58,7 +57,12 @@ function FilterDrawer() {
               {currentFilters.length === 0
                 ? <Typography color="black.dark" variant="caption">No filters selected</Typography>
                 : currentFilters.map((filter) => (
-                  <Button sx={{ borderRadius: '10px', m: '5px' }} color="blue" variant="contained">
+                  <Button
+                    key={`filter-drawer-button-${filter.value}`}
+                    sx={{ borderRadius: '10px', m: '5px' }}
+                    color="blue"
+                    variant="contained"
+                  >
                     <Grid container direction="column" spacing={0} justifyContent="center" align="center">
                       <Grid item>
                         <Typography variant="caption" sx={{ fontSize: '0.5rem' }}>
