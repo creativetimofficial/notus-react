@@ -16,9 +16,14 @@ function D3Container({ dashboardState, dashboardActions }) {
   const [displayData, setDisplayData] = useState(datastore.results);
   const [currentFilters, setCurrentFilters] = useState([]);
 
-  const workingList = [];
-  datastore.results.forEach((item) => workingList.push(item.measure));
-  const measureList = Array.from(new Set(workingList));
+  const workingList = {};
+  datastore.results.forEach((item) => {
+    if (workingList[item.measure] === undefined
+      || item.date > workingList[item.measure].date) {
+      workingList[item.measure] = item;
+    }
+  });
+  const measureList = Object.values(workingList);
 
   useEffect(() => {
     setDisplayData(datastore.results);
@@ -125,22 +130,21 @@ function D3Container({ dashboardState, dashboardActions }) {
             </Typography>
           </Grid>
         </Grid>
-        {measureList.map((item, index) => {
-          const craftedKey = `chart-container-grid-measure-${index}`;
+        {measureList.map((item) => {
           const filter = {
-            value: item,
+            value: item.measure,
             type: 'measure',
-            included: Math.round(Math.random() * 10000),
-            eligible: Math.round(Math.random() * 10000),
-            numerator: Math.round(Math.random() * 10000),
-            denominator: Math.round(Math.random() * 10000),
-            exclusions: Math.round(Math.random() * 10000),
+            included: -1,
+            eligible: item.initialPopulation,
+            numerator: item.numerator,
+            denominator: item.denominator,
+            exclusions: item.exclusions,
           }
           return (
             <Grid
               item
               sx={{ width: '100%' }}
-              key={craftedKey}
+              key={`chart-container-grid-measure-${item.measure}`}
             >
               <D3Filter
                 filter={filter}

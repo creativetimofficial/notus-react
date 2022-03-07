@@ -5,7 +5,7 @@ import React, {
   useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
-import dataList from '../components/D3Container/DemoData';
+import dataList from '../test/data/DemoData';
 import { DatastoreReducer, initialState } from './DatastoreReducer';
 
 const axios = require('axios').default;

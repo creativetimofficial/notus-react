@@ -11,7 +11,7 @@ import Paper from '@mui/material/Paper';
 // components
 
 import Footer from '../components/Footers/Footer';
-import D3Container from '../components/D3Container';
+import D3Container from '../components/ChartContainer';
 import theme from '../assets/styles/AppTheme';
 import DashboardNavbar from '../components/Navbars/DashboardNavbar';
 import Welcome from '../components/Cards/CardWelcome';
