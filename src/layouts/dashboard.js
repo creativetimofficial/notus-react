@@ -30,16 +30,13 @@ const Item = styled(Paper)(() => ({
 export default function Dashboard() {
   const { datastore } = useContext(DatastoreContext);
   const [filterMenuOpen, toggleFilterMenu] = useState(false);
-  const [resultsDisplay, setResultsDisplay] = useState(datastore.results);
 
   const dashboardState = {
     filterMenuOpen,
-    resultsDisplay,
   }
 
   const dashboardActions = {
     toggleFilterMenu,
-    setResultsDisplay,
   };
 
   return (

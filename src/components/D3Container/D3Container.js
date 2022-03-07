@@ -7,14 +7,14 @@ import { DatastoreContext } from '../../context/DatastoreProvider';
 import ChartBar from './ChartBar';
 import D3Chart from './D3Chart';
 import D3Filter from './D3Filter';
-import { initialMeasureScores, measureScores } from '../../context/DataValidation';
+import { measureScores } from '../../context/DataValidation';
 import FilterDrawer from '../FilterDrawer/FilterDrawer';
 
 export const firstRenderContext = createContext(true)
 
 function D3Container({ dashboardState, dashboardActions }) {
   const { datastore } = useContext(DatastoreContext);
-  const [displayData, setDisplayData] = useState(initialMeasureScores);
+  const [displayData, setDisplayData] = useState([]);
   const [currentFilters, setCurrentFilters] = useState([]);
 
   const workingList = [];
@@ -159,18 +159,15 @@ function D3Container({ dashboardState, dashboardActions }) {
 D3Container.propTypes = {
   dashboardState: PropTypes.shape({
     filterMenuOpen: PropTypes.bool,
-    resultsDisplay: measureScores,
   }),
   dashboardActions: PropTypes.shape({
     toggleFilterMenu: PropTypes.func,
-    setResultsDisplay: PropTypes.func,
   }),
 };
 
 D3Container.defaultProps = {
   dashboardState: {
     filterMenuOpen: false,
-    resultsDisplay: [],
   },
   dashboardActions: {},
 }
