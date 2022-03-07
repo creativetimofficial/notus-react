@@ -2,32 +2,27 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import TuneIcon from '@mui/icons-material/Tune';
+import PropTypes from 'prop-types';
 import { Button, Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React, { createContext, useState } from 'react';
-import FilterDrawer from '../FilterDrawer/FilterDrawer';
+import React, { createContext } from 'react';
 
 export const filterMenuOpenContext = createContext(false);
 
-function ChartBar() {
-  const [filterMenuOpen, setFilterMenuOpen] = useState(false);
-
+function ChartBar({ filterMenuOpen, toggleFilterMenu }) {
   const buttonStyling = {
   }
 
-  const onclickFilter = () => {
+  const onClickFilter = () => {
     if (filterMenuOpen) {
-      setFilterMenuOpen(false);
+      toggleFilterMenu(false);
     } else {
-      setFilterMenuOpen(true);
+      toggleFilterMenu(true);
     }
   }
 
   return (
     <Box>
-      <filterMenuOpenContext.Provider value={{ filterMenuOpen, setFilterMenuOpen }}>
-        <FilterDrawer />
-      </filterMenuOpenContext.Provider>
       <Grid container direction="row" justifyContent="flex-end" spacing={0.1}>
         <Grid item sx={buttonStyling}>
           <Button disabled key="d3-YTD" color="black" variant="text" startIcon={<DateRangeIcon />}>
@@ -53,7 +48,7 @@ function ChartBar() {
           </Button>
         </Grid>
         <Grid item sx={buttonStyling}>
-          <Button key="d3-graph-filters" color="black" variant="text" onClick={onclickFilter} startIcon={<FilterAltIcon />}>
+          <Button key="d3-graph-filters" color="black" variant="text" onClick={onClickFilter} startIcon={<FilterAltIcon />}>
             <Typography variant="caption">
               Filter
             </Typography>
@@ -62,6 +57,16 @@ function ChartBar() {
       </Grid>
     </Box>
   )
+}
+
+ChartBar.propTypes = {
+  filterMenuOpen: PropTypes.bool,
+  toggleFilterMenu: PropTypes.func,
+};
+
+ChartBar.defaultProps = {
+  filterMenuOpen: false,
+  toggleFilterMenu: () => undefined,
 }
 
 export default ChartBar;

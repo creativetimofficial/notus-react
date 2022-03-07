@@ -9,9 +9,10 @@ import {
 // layouts
 
 import axios from 'axios';
-import Admin from './layouts/dashboard';
+import Dashboard from './layouts/Dashboard';
 import Auth from './layouts/Auth';
 import NotFound from './notFound';
+import DatastoreProvider from './context/DatastoreProvider';
 
 export default function AuthExample() {
   if (`${process.env.REACT_APP_AUTH}` === 'false') {
@@ -45,7 +46,13 @@ const returnValue = (loggedIn) => (
         <Auth />
       </Route>
       <Route exact path="/">
-        {loggedIn ? <Admin /> : <Redirect to="/auth" />}
+        {loggedIn
+          ? (
+            <DatastoreProvider>
+              <Dashboard />
+            </DatastoreProvider>
+          )
+          : <Redirect to="/auth" />}
       </Route>
       <Route path="*">
         <NotFound />

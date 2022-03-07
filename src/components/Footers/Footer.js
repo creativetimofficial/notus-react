@@ -1,7 +1,7 @@
 import { Box } from '@mui/system';
 import React from 'react';
 
-export default function FooterAdmin() {
+export default function Footer() {
   return (
     <Box sx={{ position: 'fixed', width: '100%', mb: '-20px' }}>
       <footer className="block pb-4 footer w-full bg-light-grey">

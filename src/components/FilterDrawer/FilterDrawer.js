@@ -4,38 +4,35 @@ import HelpIcon from '@mui/icons-material/Help';
 import {
   Box, Button, Divider, Drawer, Grid, Slider, Typography,
 } from '@mui/material';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import theme from '../../assets/styles/AppTheme';
-import { filterMenuOpenContext } from '../D3Container/ChartBar';
-import { currentFilterContext, displayDataContext, firstRenderContext } from '../D3Container/ChartContainer';
 import FilterDrawerItem from './FilterDrawerItem';
 import filterDrawerItemArray from './FilterDrawerItemData';
 
-function FilterDrawer() {
-  const { currentFilters, setCurrentFilters } = useContext(currentFilterContext);
-  const { displayData, setDisplayData } = useContext(displayDataContext)
-  const { firstRender, setFirstRender } = useContext(firstRenderContext);
-  const { filterMenuOpen, setFilterMenuOpen } = useContext(filterMenuOpenContext);
+function FilterDrawer({
+  currentFilters,
+  setCurrentFilters,
+  filterMenuOpen,
+  toggleFilterMenu,
+}) {
   const [percentSliderValue, setPercentSliderValue] = useState([25, 75])
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-    setFilterMenuOpen(open);
+    toggleFilterMenu(open);
   };
 
   const handleSliderChange = (event, newValue) => {
     setPercentSliderValue(newValue);
   };
 
-  function sliderValuetext(value) {
-    return `${value}` + '%';
-  }
+  const sliderValuetext = (value) => `${value}%`;
 
   // Gotta figure something in here to deal with the filter application
-
-  const list = (anchor) => (
+  const list = () => ( // anchor was here
     <ThemeProvider theme={theme}>
       <Box
         sx={{ px: '50px' }}
@@ -60,7 +57,12 @@ function FilterDrawer() {
               {currentFilters.length === 0
                 ? <Typography color="black.dark" variant="caption">No filters selected</Typography>
                 : currentFilters.map((filter) => (
-                  <Button sx={{ borderRadius: '10px', m: '5px' }} color="blue" variant="contained">
+                  <Button
+                    key={`filter-drawer-button-${filter.value}`}
+                    sx={{ borderRadius: '10px', m: '5px' }}
+                    color="blue"
+                    variant="contained"
+                  >
                     <Grid container direction="column" spacing={0} justifyContent="center" align="center">
                       <Grid item>
                         <Typography variant="caption" sx={{ fontSize: '0.5rem' }}>
@@ -101,7 +103,7 @@ function FilterDrawer() {
               </Grid>
             </Grid>
             {filterDrawerItemArray.map((drawerItem) => (
-              <FilterDrawerItem filterItem={drawerItem} />
+              <FilterDrawerItem key={`filter-draw-item-${drawerItem.name}`} filterItem={drawerItem} />
             ))}
           </Grid>
           <Grid sx={{ my: '50px' }} container justifyContent="space-evenly" alignItems="center" direction="row">
@@ -123,9 +125,27 @@ function FilterDrawer() {
       open={filterMenuOpen}
       onClose={toggleDrawer(false)}
     >
-      {list('right')}
+      {list()}
     </Drawer>
   );
+}
+
+FilterDrawer.propTypes = {
+  filterMenuOpen: PropTypes.bool,
+  currentFilters: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+    }),
+  ),
+  toggleFilterMenu: PropTypes.func,
+  setCurrentFilters: PropTypes.func,
+};
+
+FilterDrawer.defaultProps = {
+  filterMenuOpen: false,
+  currentFilters: [],
+  toggleFilterMenu: () => undefined,
+  setCurrentFilters: () => undefined,
 }
 
 export default FilterDrawer;

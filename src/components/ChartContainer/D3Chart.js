@@ -1,15 +1,10 @@
 import * as d3 from 'd3';
-import React, {
-  useContext, useRef,
-} from 'react';
-import { displayDataContext, firstRenderContext } from './ChartContainer';
+import PropTypes from 'prop-types';
+import React, { useRef } from 'react';
 
-function D3Chart() {
+function D3Chart({ displayData }) {
   // Binder for react to apply changes to the svg
   const D3LineChart = useRef();
-
-  const { displayData, setDisplayData } = useContext(displayDataContext)
-  const { firstRender, setFirstRender } = useContext(firstRenderContext);
 
   // engage data here
 
@@ -53,7 +48,7 @@ function D3Chart() {
     .call(d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%d-%b-%Y')));
 
   // Generates Label and context for y axis
-  const max = d3.max(displayData, (d) => d.value);
+  // const max = d3.max(displayData, (d) => d.value);
 
   const y = d3.scaleLinear()
     .domain([0, 5])
@@ -135,6 +130,19 @@ function D3Chart() {
       <svg ref={D3LineChart} />
     </div>
   )
+}
+
+D3Chart.propTypes = {
+  displayData: PropTypes.arrayOf(
+    PropTypes.shape({
+      measure: PropTypes.string,
+      date: PropTypes.string,
+    }),
+  ),
+}
+
+D3Chart.defaultProps = {
+  displayData: [],
 }
 
 export default D3Chart;

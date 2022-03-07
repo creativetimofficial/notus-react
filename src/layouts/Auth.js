@@ -4,7 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 // components
 
 import Navbar from '../components/Navbars/DashboardNavbar';
-import FooterAdmin from '../components/Footers/FooterAdmin';
+import Footer from '../components/Footers/Footer';
 
 // views
 
@@ -31,7 +31,7 @@ export default function Auth() {
             <Route path="/auth/register" component={Register} />
             <Redirect from="/auth" to="/auth/login" />
           </Switch>
-          <FooterAdmin absolute />
+          <Footer absolute />
         </section>
       </main>
     </>

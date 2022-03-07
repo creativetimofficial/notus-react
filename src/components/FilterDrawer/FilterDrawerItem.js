@@ -28,7 +28,16 @@ function FilterDrawerItem({ filterItem }) {
         </Grid>
       </Grid>
       <FormGroup sx={{ ml: '10px' }}>
-        {filterDrawerOptions.map((option) => (<FormControlLabel componentsProps={{ typography: { color: 'black.dark', variant: 'caption' } }} control={<Checkbox size="small" color="blue" />} label={option} />))}
+        {filterDrawerOptions.map((option) => (
+          <FormControlLabel
+            key={`filter-drawer-item-option-${option}`}
+            componentsProps={{ typography: { color: 'black.dark', variant: 'caption' } }}
+            control={
+              <Checkbox size="small" color="blue" />
+            }
+            label={option}
+          />
+        ))}
       </FormGroup>
     </Grid>
   )
