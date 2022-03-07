@@ -17,17 +17,3 @@ export const measureScore = PropTypes.shape({
 });
 
 export const measureScores = PropTypes.arrayOf(measureScore);
-
-export const initialMeasureScores = [
-  {
-    date: 'T',
-    denominator: 0,
-    exclusions: 0,
-    initialPopulation: 0,
-    measure: 'xxx',
-    numerator: 0,
-    value: 0,
-    subScores: [],
-    _id: 'X',
-  },
-];

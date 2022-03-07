@@ -1,7 +1,6 @@
 import * as d3 from 'd3';
+import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
-
-import { measureScores } from '../../context/DataValidation';
 
 function D3Chart({ displayData }) {
   // Binder for react to apply changes to the svg
@@ -134,11 +133,16 @@ function D3Chart({ displayData }) {
 }
 
 D3Chart.propTypes = {
-  displayData: measureScores,
+  displayData: PropTypes.arrayOf(
+    PropTypes.shape({
+      measure: PropTypes.string,
+      date: PropTypes.string,
+    }),
+  ),
 }
 
 D3Chart.defaultProps = {
-  displayData: [{}],
+  displayData: [],
 }
 
 export default D3Chart;

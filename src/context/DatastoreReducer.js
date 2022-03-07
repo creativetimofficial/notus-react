@@ -1,7 +1,5 @@
-import { initialMeasureScores } from './DataValidation';
-
 export const initialState = {
-  results: initialMeasureScores,
+  results: [],
   trends: [],
 };
 

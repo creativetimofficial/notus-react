@@ -7,14 +7,13 @@ import { DatastoreContext } from '../../context/DatastoreProvider';
 import ChartBar from './ChartBar';
 import D3Chart from './D3Chart';
 import D3Filter from './D3Filter';
-import { measureScores } from '../../context/DataValidation';
 import FilterDrawer from '../FilterDrawer/FilterDrawer';
 
 export const firstRenderContext = createContext(true)
 
 function D3Container({ dashboardState, dashboardActions }) {
   const { datastore } = useContext(DatastoreContext);
-  const [displayData, setDisplayData] = useState([]);
+  const [displayData, setDisplayData] = useState(datastore.results);
   const [currentFilters, setCurrentFilters] = useState([]);
 
   const workingList = [];
