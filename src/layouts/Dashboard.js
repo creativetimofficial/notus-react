@@ -31,6 +31,8 @@ export default function Dashboard() {
   const { datastore } = useContext(DatastoreContext);
   const [filterMenuOpen, toggleFilterMenu] = useState(false);
 
+  // If control needs to be shared across multiple components,
+  // add them through useState above and append them to these.
   const dashboardState = {
     filterMenuOpen,
   }
