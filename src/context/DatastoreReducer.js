@@ -5,7 +5,7 @@ export const initialState = {
   trends: [],
 };
 
-export const DashboardReducer = (state, action) => {
+export const DatastoreReducer = (state, action) => {
   switch (action.type) {
     case 'SET_RESULTS':
       return {

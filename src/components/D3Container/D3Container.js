@@ -3,11 +3,11 @@ import React, {
   createContext, useContext, useState, useEffect,
 } from 'react';
 import PropTypes from 'prop-types';
-import { DatastoreContext } from '../../layouts/Dashboard';
+import { DatastoreContext } from '../../context/DatastoreProvider';
 import ChartBar from './ChartBar';
 import D3Chart from './D3Chart';
 import D3Filter from './D3Filter';
-import { initialMeasureScores } from '../../context/DataValidation';
+import { initialMeasureScores, measureScores } from '../../context/DataValidation';
 import FilterDrawer from '../FilterDrawer/FilterDrawer';
 
 export const firstRenderContext = createContext(true)
@@ -25,7 +25,7 @@ function D3Container({ dashboardState, dashboardActions }) {
     setDisplayData(datastore.results);
   }, [datastore]);
 
-  const changeFunction = (filter) => {
+  const changeFilter = (filter) => {
     const filterArray = [...currentFilters];
     // Will need to be adjusted once model data is available.
     const active = filterArray.find((item) => item.type === 'measure' && item.value === filter.value);
@@ -145,7 +145,7 @@ function D3Container({ dashboardState, dashboardActions }) {
             >
               <D3Filter
                 filter={filter}
-                onChangeFilter={() => changeFunction(filter)}
+                onChangeFilter={() => changeFilter(filter)}
               />
             </Grid>
           )
@@ -159,15 +159,18 @@ function D3Container({ dashboardState, dashboardActions }) {
 D3Container.propTypes = {
   dashboardState: PropTypes.shape({
     filterMenuOpen: PropTypes.bool,
+    resultsDisplay: measureScores,
   }),
   dashboardActions: PropTypes.shape({
     toggleFilterMenu: PropTypes.func,
+    setResultsDisplay: PropTypes.func,
   }),
 };
 
 D3Container.defaultProps = {
   dashboardState: {
     filterMenuOpen: false,
+    resultsDisplay: [],
   },
   dashboardActions: {},
 }
