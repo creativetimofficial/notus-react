@@ -13,8 +13,8 @@ import filterDrawerItemArray from './FilterDrawerItemData';
 function FilterDrawer({
   currentFilters,
   setCurrentFilters,
-  filterMenuOpen,
-  toggleFilterMenu,
+  filterDrawerOpen,
+  toggleFilterDrawer,
 }) {
   const [percentSliderValue, setPercentSliderValue] = useState([25, 75])
 
@@ -22,7 +22,7 @@ function FilterDrawer({
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-    toggleFilterMenu(open);
+    toggleFilterDrawer(open);
   };
 
   const handleSliderChange = (event, newValue) => {
@@ -122,7 +122,7 @@ function FilterDrawer({
   return (
     <Drawer
       anchor="right"
-      open={filterMenuOpen}
+      open={filterDrawerOpen}
       onClose={toggleDrawer(false)}
     >
       {list()}
@@ -131,20 +131,20 @@ function FilterDrawer({
 }
 
 FilterDrawer.propTypes = {
-  filterMenuOpen: PropTypes.bool,
+  filterDrawerOpen: PropTypes.bool,
   currentFilters: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
     }),
   ),
-  toggleFilterMenu: PropTypes.func,
+  toggleFilterDrawer: PropTypes.func,
   setCurrentFilters: PropTypes.func,
 };
 
 FilterDrawer.defaultProps = {
-  filterMenuOpen: false,
+  filterDrawerOpen: false,
   currentFilters: [],
-  toggleFilterMenu: () => undefined,
+  toggleFilterDrawer: () => undefined,
   setCurrentFilters: () => undefined,
 }
 

@@ -11,7 +11,8 @@ import D3Chart from './D3Chart';
 // import D3IndicatorByLineChart from './D3IndicatorByLintChart';
 import TabPanel from '../Common/TabPanel';
 import FilterDrawer from '../FilterDrawer/FilterDrawer';
-import FilterSelect from '../FilterSelection/FilterSelect'
+import MeasureResultsTable from '../MeasureResults/MeasureResultsTable';
+import { generateMeasureList } from './ChartContainerUtil';
 
 export const firstRenderContext = createContext(true)
 
@@ -33,68 +34,33 @@ function D3Container({ dashboardState, dashboardActions }) {
     setByLineDisplayData(filteredDisplayData);
   }
 
-  const workingList = {};
-  datastore.results.forEach((item) => {
-    if (workingList[item.measure] === undefined
-      || item.date > workingList[item.measure].date) {
-      workingList[item.measure] = item;
-    }
-  });
-  const measureList = Object.values(workingList);
+  const measureList = generateMeasureList(datastore);
 
   useEffect(() => {
     setDisplayData(datastore.results);
   }, [datastore]);
 
-  const changeFilter = (filter) => {
-    const filterArray = [...currentFilters];
-    // Will need to be adjusted once model data is available.
-    const active = filterArray.find((item) => item.type === 'measure' && item.value === filter.value);
-    if (active !== undefined) {
-      const newFilterArray = filterArray.filter((item) => item.value !== filter.value);
-      setCurrentFilters(newFilterArray);
-      setDisplayData(refineDisplayData([...datastore.results], newFilterArray));
-    } else {
-      const newFilter = {
-        value: filter.value,
-        type: 'measure',
-      }
-      filterArray.push(newFilter);
-      setCurrentFilters(filterArray);
-      setDisplayData(refineDisplayData([...datastore.results], filterArray));
-    }
-  }
+  // const handleChange = (event, newValue) => {
+  //   const newDisplayData = [...datastore];
 
-  const refineDisplayData = (data, filters) => {
-    const initialData = data;
-    let workingData = [];
-    const filterArray = filters;
-    if (filterArray.length === 0) {
-      workingData = initialData;
-    } else if (filterArray.length === measureList.length) {
-      workingData = [];
-    } else {
-      workingData = initialData;
-      filterArray.forEach((filterItem) => {
-        // Handles Filtering by measure
-        if (filterItem.type === 'measure') {
-          workingData.forEach((item, index, object) => {
-            if (item.measure === filterItem.value) {
-              object.splice(index, 1);
-            }
-          });
-        }
-        // TODO: Add logic in here for various filter types
-      })
-    }
-    return workingData;
-  }
+  //   if (newValue === 0) {
+  //     setDatastore(newDisplayData);
+  //     setByLineDisplayData('')
+  //   }
+  //   else if (newValue === 1) {
+  //     setByLineDisplayData('')
+  //   }
+  //   else {
+  //     setByLineDisplayData(newDisplayData[0])
+  //   }
+  //   setTabValue(newValue);
+  // };
 
   return (
     <div>
       <FilterDrawer
-        filterMenuOpen={dashboardState.filterMenuOpen}
-        toggleFilterMenu={dashboardActions.toggleFilterMenu}
+        filterDrawerOpen={dashboardState.filterDrawerOpen}
+        toggleFilterDrawer={dashboardActions.toggleFilterDrawer}
         currentFilters={currentFilters}
         setCurrentFilters={setCurrentFilters}
       />
@@ -111,8 +77,10 @@ function D3Container({ dashboardState, dashboardActions }) {
           <Grid container>
             <Grid item sx={{ width: '25%' }}>
               {/* <IndicatorByLineSelector /> */}
+              Good times.
             </Grid>
           </Grid>
+          More good times.
           {/* <D3IndicatorByLineChart /> */}
         </Paper>
       </TabPanel>
@@ -120,15 +88,18 @@ function D3Container({ dashboardState, dashboardActions }) {
         <Grid container justifyContent="space-evenly" direction="column">
           <Grid sx={{ mb: '-30px' }} item>
             <ChartBar
-              filterMenuOpen={dashboardState.filterMenuOpen}
-              toggleFilterMenu={dashboardActions.toggleFilterMenu}
+              filterDrawerOpen={dashboardState.filterDrawerOpen}
+              toggleFilterDrawer={dashboardActions.toggleFilterDrawer}
             />
           </Grid>
           <Grid item>
             <D3Chart displayData={displayData} />
           </Grid>
         </Grid>
-        <FilterSelect />
+        <MeasureResultsTable
+          measureList={measureList}
+          setCurrentFilters={setCurrentFilters}
+        />
       </TabPanel>
     </div>
   )
@@ -136,16 +107,16 @@ function D3Container({ dashboardState, dashboardActions }) {
 
 D3Container.propTypes = {
   dashboardState: PropTypes.shape({
-    filterMenuOpen: PropTypes.bool,
+    filterDrawerOpen: PropTypes.bool,
   }),
   dashboardActions: PropTypes.shape({
-    toggleFilterMenu: PropTypes.func,
+    toggleFilterDrawer: PropTypes.func,
   }),
 };
 
 D3Container.defaultProps = {
   dashboardState: {
-    filterMenuOpen: false,
+    filterDrawerOpen: false,
   },
   dashboardActions: {},
 }

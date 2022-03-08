@@ -1,4 +1,7 @@
 export const refineDisplayData = (data, filters, measureList) => {
+  console.log(data);
+  console.log(filters);
+  console.log(measureList);
   const initialData = data;
   let workingData = [];
   const filterArray = filters;
@@ -18,33 +21,25 @@ export const refineDisplayData = (data, filters, measureList) => {
   return workingData;
 };
 
-export function generateFilterPaneValues(datastore, filterItem) {
-  const relevantMeasureList = datastore.filter((dataEntry) => filterItem === dataEntry.measure);
-  const included = relevantMeasureList.length;
-  let eligible = 0
-  let numerator = 0
-  let denominator = 0
-  let exclusions = 0
-  relevantMeasureList.forEach((dataEntry) => {
-    eligible += (dataEntry.initialPopulation - dataEntry.exclusions)
-    numerator += dataEntry.numerator
-    denominator += dataEntry.denominator
-    exclusions += dataEntry.exclusions
-  })
-
+export function generateFilterPaneValues(filterItem) {
   return {
-    value: filterItem,
+    value: filterItem.measure,
     type: 'measure',
-    included,
-    eligible,
-    numerator,
-    denominator,
-    exclusions,
+    included: filterItem.initialPopulation - filterItem.exclusions,
+    eligible: filterItem.initialPopulation,
+    numerator: filterItem.numerator,
+    denominator: filterItem.denominator,
+    exclusions: filterItem.exclusions,
   }
 }
 
 export function generateMeasureList(datastore) {
-  const workingList = [];
-  datastore.forEach((item) => workingList.push(item.measure));
-  return Array.from(new Set(workingList));
+  const workingList = {};
+  datastore.results.forEach((item) => {
+    if (workingList[item.measure] === undefined
+      || item.date > workingList[item.measure].date) {
+      workingList[item.measure] = item;
+    }
+  });
+  return Object.values(workingList);
 }

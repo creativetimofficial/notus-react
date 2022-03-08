@@ -47,7 +47,8 @@ function FilterRow({ filter, onChangeFilter }) {
               defaultChecked
               size="medium"
               color="primary"
-              onChange={() => onChangeFilter(filter)}
+              value={filter.value}
+              onChange={(event) => onChangeFilter(event)}
             />
           </FormGroup>
         </Grid>
