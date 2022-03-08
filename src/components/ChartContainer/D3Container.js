@@ -12,7 +12,6 @@ import D3Chart from './D3Chart';
 import TabPanel from '../Common/TabPanel';
 import FilterDrawer from '../FilterMenu/FilterDrawer';
 import MeasureResultsTable from '../MeasureResults/MeasureResultsTable';
-import { generateMeasureList } from './ChartContainerUtil';
 
 export const firstRenderContext = createContext(true)
 
@@ -34,11 +33,21 @@ function D3Container({ dashboardState, dashboardActions }) {
     setByLineDisplayData(filteredDisplayData);
   }
 
-  const measureList = generateMeasureList(datastore);
-
   useEffect(() => {
     setDisplayData(datastore.results);
   }, [datastore]);
+
+  const handleMeasureChange = (event) => {
+    if (event.target.checked) {
+      const newDisplayData = displayData.slice()
+        .concat(datastore.results.filter(
+          (result) => result.measure === event.target.value,
+        ));
+      setDisplayData(newDisplayData);
+    } else {
+      setDisplayData(datastore.results.filter((result) => result.measure !== event.target.value));
+    }
+  };
 
   // const handleChange = (event, newValue) => {
   //   const newDisplayData = [...datastore];
@@ -55,6 +64,25 @@ function D3Container({ dashboardState, dashboardActions }) {
   //   }
   //   setTabValue(newValue);
   // };
+
+  const refineDisplayData = (data, filters, measureList) => {
+    const initialData = data;
+    let workingData = [];
+    if (filters.length === 0) {
+      workingData = initialData;
+    } else if (filters.length === measureList.length) {
+      workingData = [];
+    } else {
+      filters.forEach((filterItem) => { // Handles Filtering by measure
+        if (filterItem.type === 'measure') {
+          initialData.forEach((item) => {
+            if (item.measure !== filterItem.value) { workingData.push(item) }
+          });
+        } // Add logic in here for various filter types
+      })
+    }
+    return workingData;
+  };
 
   return (
     <div>
@@ -97,8 +125,8 @@ function D3Container({ dashboardState, dashboardActions }) {
           </Grid>
         </Grid>
         <MeasureResultsTable
-          measureList={measureList}
-          setCurrentFilters={setCurrentFilters}
+          currentResults={datastore.currentResults}
+          handleMeasureChange={handleMeasureChange}
         />
       </TabPanel>
     </div>

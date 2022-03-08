@@ -5,39 +5,39 @@ import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-function FilterRow({ filter, onChangeFilter }) {
+function MeasureResultsRow({ measureResult, handleMeasureChange }) {
   return (
     <Box>
       <Divider color="black" />
       <Grid container justifyContent="space-evenly" direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
         <Grid item xs={1}>
           <Typography variant="caption">
-            {filter.value}
+            {measureResult.value}
           </Typography>
         </Grid>
         <Grid item xs={2}>
           <Typography variant="caption">
-            {filter.included}
+            {measureResult.included}
           </Typography>
         </Grid>
         <Grid item xs={2}>
           <Typography variant="caption">
-            {filter.eligible}
+            {measureResult.eligible}
           </Typography>
         </Grid>
         <Grid item xs={2}>
           <Typography variant="caption">
-            {filter.numerator}
+            {measureResult.numerator}
           </Typography>
         </Grid>
         <Grid item xs={2}>
           <Typography variant="caption">
-            {filter.denominator}
+            {measureResult.denominator}
           </Typography>
         </Grid>
         <Grid item xs={2}>
           <Typography variant="caption">
-            {filter.exclusions}
+            {measureResult.exclusions}
           </Typography>
         </Grid>
         <Grid item xs={1}>
@@ -47,8 +47,8 @@ function FilterRow({ filter, onChangeFilter }) {
               defaultChecked
               size="medium"
               color="primary"
-              value={filter.value}
-              onChange={(event) => onChangeFilter(event)}
+              value={measureResult.value}
+              onChange={(event) => handleMeasureChange(event)}
             />
           </FormGroup>
         </Grid>
@@ -57,8 +57,8 @@ function FilterRow({ filter, onChangeFilter }) {
   )
 }
 
-FilterRow.propTypes = {
-  filter: PropTypes.shape({
+MeasureResultsRow.propTypes = {
+  measureResult: PropTypes.shape({
     value: PropTypes.string,
     type: PropTypes.string,
     included: PropTypes.number,
@@ -67,12 +67,12 @@ FilterRow.propTypes = {
     denominator: PropTypes.number,
     exclusions: PropTypes.number,
   }),
-  onChangeFilter: PropTypes.func,
+  handleMeasureChange: PropTypes.func,
 }
 
-FilterRow.defaultProps = {
-  filter: {},
-  onChangeFilter: () => undefined,
+MeasureResultsRow.defaultProps = {
+  measureResult: {},
+  handleMeasureChange: () => undefined,
 }
 
-export default FilterRow;
+export default MeasureResultsRow;

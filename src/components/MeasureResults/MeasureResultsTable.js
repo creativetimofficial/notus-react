@@ -2,17 +2,21 @@
 import { Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { generateFilterPaneValues } from '../ChartContainer/ChartContainerUtil';
 import MeasureResultsRow from './MeasureResultsRow';
 
-function FilterTable({
-  measureList, setCurrentFilters,
-}) {
-  const changeFilter = (event) => {
-    console.log('called', event.target.checked);
-    console.log('called', event.target.value);
+function generateMeasureRowValues(measureResult) {
+  return {
+    value: measureResult.measure,
+    type: 'measure',
+    included: measureResult.initialPopulation - measureResult.exclusions,
+    eligible: measureResult.initialPopulation,
+    numerator: measureResult.numerator,
+    denominator: measureResult.denominator,
+    exclusions: measureResult.exclusions,
   }
+}
 
+function MeasureResultsTable({ currentResults, handleMeasureChange }) {
   return (
     <Grid container direction="column" spacing={0.25}>
       <Grid container item justifyContent="space-evenly" direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
@@ -52,15 +56,15 @@ function FilterTable({
           </Typography>
         </Grid>
       </Grid>
-      {measureList.map((item) => (
+      {currentResults.map((item) => (
         <Grid
           item
           sx={{ width: '100%' }}
           key={`chart-container-grid-measure-${item.measure}`}
         >
           <MeasureResultsRow
-            filter={generateFilterPaneValues(item)}
-            onChangeFilter={changeFilter}
+            measureResult={generateMeasureRowValues(item)}
+            handleMeasureChange={handleMeasureChange}
           />
         </Grid>
       ))}
@@ -69,18 +73,18 @@ function FilterTable({
   )
 }
 
-FilterTable.propTypes = {
-  measureList: PropTypes.arrayOf(
+MeasureResultsTable.propTypes = {
+  currentResults: PropTypes.arrayOf(
     PropTypes.shape({
       measure: PropTypes.string,
     }),
   ),
-  setCurrentFilters: PropTypes.func,
+  handleMeasureChange: PropTypes.func,
 };
 
-FilterTable.defaultProps = {
-  measureList: [],
-  setCurrentFilters: () => undefined,
+MeasureResultsTable.defaultProps = {
+  currentResults: [],
+  handleMeasureChange: () => undefined,
 }
 
-export default FilterTable;
+export default MeasureResultsTable;

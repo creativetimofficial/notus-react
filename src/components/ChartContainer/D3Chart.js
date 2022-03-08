@@ -20,7 +20,7 @@ function D3Chart({ displayData }) {
   const margin = {
     top: 50, right: 30, bottom: 75, left: 30,
   };
-  const width = (window.innerWidth || document.body.clientWidth) - 100
+  const width = (window.innerWidth || document.body.clientWidth) - 100;
   const height = 500;
   const tickCount = displayData.length / measureList.length;
 
@@ -29,9 +29,7 @@ function D3Chart({ displayData }) {
 
   // SVG constrol and also styling
   const svg = d3.select(D3LineChart.current)
-    .attr('width', width)
-    .attr('height', height)
-    .style('background-color', 'white')
+    .attr('class', 'd3-chart__line-chart')
     .append('g')
     .attr('transform', `translate(${margin.left},${margin.top})`);
 
