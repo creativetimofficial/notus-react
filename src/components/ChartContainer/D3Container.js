@@ -10,7 +10,7 @@ import ChartBar from './ChartBar';
 import D3Chart from './D3Chart';
 // import D3IndicatorByLineChart from './D3IndicatorByLintChart';
 import TabPanel from '../Common/TabPanel';
-import FilterDrawer from '../FilterDrawer/FilterDrawer';
+import FilterDrawer from '../FilterMenu/FilterDrawer';
 import MeasureResultsTable from '../MeasureResults/MeasureResultsTable';
 import { generateMeasureList } from './ChartContainerUtil';
 

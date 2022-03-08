@@ -113,7 +113,7 @@ function D3Chart({ displayData }) {
   }
 
   return (
-    <div id="d3-line-chart">
+    <div className="d3-chart">
       <svg ref={D3LineChart} />
     </div>
   )
