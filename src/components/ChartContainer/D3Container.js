@@ -1,4 +1,6 @@
-import { Divider, Grid, Typography } from '@mui/material';
+import {
+  Grid, Paper, Tab, Tabs,
+} from '@mui/material';
 import React, {
   createContext, useContext, useState, useEffect,
 } from 'react';
@@ -6,8 +8,10 @@ import PropTypes from 'prop-types';
 import { DatastoreContext } from '../../context/DatastoreProvider';
 import ChartBar from './ChartBar';
 import D3Chart from './D3Chart';
-import D3Filter from './D3Filter';
+// import D3IndicatorByLineChart from './D3IndicatorByLintChart';
+import TabPanel from '../Common/TabPanel';
 import FilterDrawer from '../FilterDrawer/FilterDrawer';
+import FilterSelect from '../FilterSelection/FilterSelect'
 
 export const firstRenderContext = createContext(true)
 
@@ -15,6 +19,19 @@ function D3Container({ dashboardState, dashboardActions }) {
   const { datastore } = useContext(DatastoreContext);
   const [displayData, setDisplayData] = useState(datastore.results);
   const [currentFilters, setCurrentFilters] = useState([]);
+  const [tabValue, setTabValue] = useState(0);
+  const [byLineMeasure, setByLineMeasure] = useState('');
+  const [byLineDisplayData, setByLineDisplayData] = useState([]);
+  // const [byLineDisplayData, setByLineDisplayData] = useState('');
+
+  const handleTabChange = (event, index) => {
+    setTabValue(index); // Not sure if this is correct.
+    setByLineMeasure(event.target.value);
+    const filteredDisplayData = datastore.results.filter(
+      (item) => item.measure === event.target.value,
+    );
+    setByLineDisplayData(filteredDisplayData);
+  }
 
   const workingList = {};
   datastore.results.forEach((item) => {
@@ -75,86 +92,44 @@ function D3Container({ dashboardState, dashboardActions }) {
 
   return (
     <div>
-      <Grid container justifyContent="space-evenly" direction="column">
-        <FilterDrawer
-          filterMenuOpen={dashboardState.filterMenuOpen}
-          toggleFilterMenu={dashboardActions.toggleFilterMenu}
-          currentFilters={currentFilters}
-          setCurrentFilters={setCurrentFilters}
-        />
-        <Grid sx={{ mb: '-30px' }} item>
-          <ChartBar
-            filterMenuOpen={dashboardState.filterMenuOpen}
-            toggleFilterMenu={dashboardActions.toggleFilterMenu}
-          />
-        </Grid>
-        <Grid item>
-          <D3Chart displayData={displayData} />
-        </Grid>
-      </Grid>
-      <Grid container direction="column" spacing={0.25}>
-        <Grid container item justifyContent="space-evenly" direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
-          <Grid item xs={1}>
-            <Typography>
-              Measure
-            </Typography>
-          </Grid>
-          <Grid item xs={2}>
-            <Typography>
-              Included
-            </Typography>
-          </Grid>
-          <Grid item xs={2}>
-            <Typography>
-              Eligible Population
-            </Typography>
-          </Grid>
-          <Grid item xs={2}>
-            <Typography>
-              Numerator
-            </Typography>
-          </Grid>
-          <Grid item xs={2}>
-            <Typography>
-              Denominator
-            </Typography>
-          </Grid>
-          <Grid item xs={2}>
-            <Typography>
-              Exclusions
-            </Typography>
-          </Grid>
-          <Grid item xs={1}>
-            <Typography>
-              View
-            </Typography>
-          </Grid>
-        </Grid>
-        {measureList.map((item) => {
-          const filter = {
-            value: item.measure,
-            type: 'measure',
-            included: -1,
-            eligible: item.initialPopulation,
-            numerator: item.numerator,
-            denominator: item.denominator,
-            exclusions: item.exclusions,
-          }
-          return (
-            <Grid
-              item
-              sx={{ width: '100%' }}
-              key={`chart-container-grid-measure-${item.measure}`}
-            >
-              <D3Filter
-                filter={filter}
-                onChangeFilter={() => changeFilter(filter)}
-              />
+      <FilterDrawer
+        filterMenuOpen={dashboardState.filterMenuOpen}
+        toggleFilterMenu={dashboardActions.toggleFilterMenu}
+        currentFilters={currentFilters}
+        setCurrentFilters={setCurrentFilters}
+      />
+      <Tabs
+        value={tabValue}
+        onChange={(event, index) => handleTabChange(event, index)}
+        indicatorColor="primary"
+      >
+        <Tab label="All Measures" />
+        <Tab label="Measure by Line" />
+      </Tabs>
+      <TabPanel value={tabValue} index={1}>
+        <Paper>
+          <Grid container>
+            <Grid item sx={{ width: '25%' }}>
+              {/* <IndicatorByLineSelector /> */}
             </Grid>
-          )
-        })}
-        <Divider color="black" />
-      </Grid>
+          </Grid>
+          {/* <D3IndicatorByLineChart /> */}
+        </Paper>
+      </TabPanel>
+      <TabPanel value={tabValue} index={0}>
+        <Grid container justifyContent="space-evenly" direction="column">
+          <Grid sx={{ mb: '-30px' }} item>
+            <ChartBar
+              filterMenuOpen={dashboardState.filterMenuOpen}
+              toggleFilterMenu={dashboardActions.toggleFilterMenu}
+            />
+          </Grid>
+          <Grid item>
+            <D3Chart displayData={displayData} />
+          </Grid>
+        </Grid>
+        <FilterSelect />
+      </TabPanel>
     </div>
   )
 }

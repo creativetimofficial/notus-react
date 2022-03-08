@@ -5,7 +5,7 @@ import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-function D3Filter({ filter, onChangeFilter }) {
+function FilterRow({ filter, onChangeFilter }) {
   return (
     <Box>
       <Divider color="black" />
@@ -46,7 +46,7 @@ function D3Filter({ filter, onChangeFilter }) {
               disableRipple
               defaultChecked
               size="medium"
-              color="blue"
+              color="primary"
               onChange={() => onChangeFilter(filter)}
             />
           </FormGroup>
@@ -56,7 +56,7 @@ function D3Filter({ filter, onChangeFilter }) {
   )
 }
 
-D3Filter.propTypes = {
+FilterRow.propTypes = {
   filter: PropTypes.shape({
     value: PropTypes.string,
     type: PropTypes.string,
@@ -69,9 +69,9 @@ D3Filter.propTypes = {
   onChangeFilter: PropTypes.func,
 }
 
-D3Filter.defaultProps = {
+FilterRow.defaultProps = {
   filter: {},
   onChangeFilter: () => undefined,
 }
 
-export default D3Filter;
+export default FilterRow;
