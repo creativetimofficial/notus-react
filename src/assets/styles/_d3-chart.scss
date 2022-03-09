@@ -3,7 +3,6 @@ $block-class: 'd3-chart';
 @at-root {
     .#{$block-class} {
         width: 80vw;
-        height: 70vh;
 
         &__line-chart {
             height: 500px;

@@ -76,7 +76,10 @@ function D3Container({ dashboardState, dashboardActions }) {
       <TabPanel value={tabValue} index={1}>
         <Paper>
           <Grid container>
-            <Grid item sx={{ width: '25%' }}>
+            <Grid
+              item
+              sx={{ width: '25%' }}
+            >
               <D3IndicatorByLineSelector
                 currentResults={datastore.currentResults}
                 byLineMeasure={byLineMeasure}
@@ -91,7 +94,11 @@ function D3Container({ dashboardState, dashboardActions }) {
       </TabPanel>
       <TabPanel value={tabValue} index={0}>
         <Grid container justifyContent="space-evenly" direction="column">
-          <Grid sx={{ mb: '-30px' }} item>
+          <Grid
+            item
+            sx={{ mb: '-30px' }}
+            className="d3-container__chart"
+          >
             <ChartBar
               filterDrawerOpen={dashboardState.filterDrawerOpen}
               toggleFilterDrawer={dashboardActions.toggleFilterDrawer}
