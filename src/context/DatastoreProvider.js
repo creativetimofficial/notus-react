@@ -5,7 +5,7 @@ import React, {
   useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
-import { dataList, trendList } from '../test/data/DemoData';
+import { resultList, trendList } from '../test/data/DemoData';
 import { DatastoreReducer, initialState } from './DatastoreReducer';
 
 const axios = require('axios').default;
@@ -26,7 +26,7 @@ export default function DatastoreProvider({ children }) {
 
   useEffect(() => {
     if (devData === 'true') {
-      datastoreActions.setResults(dataList);
+      datastoreActions.setResults(resultList);
       datastoreActions.setTrends(trendList);
     } else {
       const searchPromise = axios.get(searchUrl);

@@ -1,4 +1,4 @@
-export const dataList = [
+export const resultList = [
   {
     _id: 'drre-2022-02-12',
     measure: 'drre',
