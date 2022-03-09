@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function TabPanel({
-  children, value, index, ...other
+  children, value, index,
 }) {
   return (
     <div
@@ -11,8 +11,6 @@ function TabPanel({
       hidden={value !== index}
       id={`tabpanel-${index}`}
       aria-labelledby={`tab-${index}`}
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...other}
     >
       {value === index && (
         <Box sx={{ p: 3 }}>
@@ -30,13 +28,11 @@ TabPanel.propTypes = {
   ]).isRequired,
   value: PropTypes.number,
   index: PropTypes.number,
-  other: PropTypes.shape({}),
 }
 
 TabPanel.defaultProps = {
   value: 0,
   index: 0,
-  other: {},
 }
 
 export default TabPanel;
