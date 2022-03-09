@@ -13,7 +13,7 @@ import D3Container from '../components/ChartContainer';
 import theme from '../assets/styles/AppTheme';
 import DashboardNavbar from '../components/Navbars/DashboardNavbar';
 import Banner from '../components/Banner/Banner';
-import RatingsTrends from '../components/utils/RatingsTrends';
+import RatingsTrends from '../components/Summary/RatingsTrends';
 
 const Item = styled(Paper)(() => ({
   ...theme.typography.body2,
