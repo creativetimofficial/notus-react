@@ -6,8 +6,6 @@ function D3Chart({ displayData }) {
   // Binder for react to apply changes to the svg
   const D3LineChart = useRef();
 
-  // engage data here
-
   // Date Parser
   const parseDate = d3.timeParse('%Y-%m-%d')
 

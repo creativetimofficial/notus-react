@@ -8,7 +8,8 @@ import PropTypes from 'prop-types';
 import { DatastoreContext } from '../../context/DatastoreProvider';
 import ChartBar from './ChartBar';
 import D3Chart from './D3Chart';
-// import D3IndicatorByLineChart from './D3IndicatorByLintChart';
+import D3IndicatorByLineSelector from './D3IndicatorByLineSelector';
+import D3IndicatorByLineChart from './D3IndicatorByLineChart';
 import TabPanel from '../Common/TabPanel';
 import FilterDrawer from '../FilterMenu/FilterDrawer';
 import MeasureResultsTable from '../MeasureResults/MeasureResultsTable';
@@ -22,20 +23,15 @@ function D3Container({ dashboardState, dashboardActions }) {
   const [tabValue, setTabValue] = useState(0);
   const [byLineMeasure, setByLineMeasure] = useState('');
   const [byLineDisplayData, setByLineDisplayData] = useState([]);
-  // const [byLineDisplayData, setByLineDisplayData] = useState('');
 
   const handleTabChange = (event, index) => {
-    setTabValue(index); // Not sure if this is correct.
-    setByLineMeasure(event.target.value);
+    setTabValue(index);
+    setByLineMeasure(datastore.results[0].measure);
     const filteredDisplayData = datastore.results.filter(
-      (item) => item.measure === event.target.value,
+      (item) => item.measure === datastore.results[0].measure,
     );
     setByLineDisplayData(filteredDisplayData);
   }
-
-  useEffect(() => {
-    setDisplayData(datastore.results);
-  }, [datastore]);
 
   const handleMeasureChange = (event) => {
     if (event.target.checked) {
@@ -48,6 +44,18 @@ function D3Container({ dashboardState, dashboardActions }) {
       setDisplayData(datastore.results.filter((result) => result.measure !== event.target.value));
     }
   };
+
+  const handleByLineChange = (event) => {
+    setByLineMeasure(event.target.value);
+    const filteredDisplayData = datastore.results.filter(
+      (item) => item.measure === event.target.value,
+    );
+    setByLineDisplayData(filteredDisplayData);
+  };
+
+  useEffect(() => {
+    setDisplayData(datastore.results);
+  }, [datastore]);
 
   // const handleChange = (event, newValue) => {
   //   const newDisplayData = [...datastore];
@@ -64,25 +72,6 @@ function D3Container({ dashboardState, dashboardActions }) {
   //   }
   //   setTabValue(newValue);
   // };
-
-  const refineDisplayData = (data, filters, measureList) => {
-    const initialData = data;
-    let workingData = [];
-    if (filters.length === 0) {
-      workingData = initialData;
-    } else if (filters.length === measureList.length) {
-      workingData = [];
-    } else {
-      filters.forEach((filterItem) => { // Handles Filtering by measure
-        if (filterItem.type === 'measure') {
-          initialData.forEach((item) => {
-            if (item.measure !== filterItem.value) { workingData.push(item) }
-          });
-        } // Add logic in here for various filter types
-      })
-    }
-    return workingData;
-  };
 
   return (
     <div>
@@ -104,12 +93,16 @@ function D3Container({ dashboardState, dashboardActions }) {
         <Paper>
           <Grid container>
             <Grid item sx={{ width: '25%' }}>
-              {/* <IndicatorByLineSelector /> */}
-              Good times.
+              <D3IndicatorByLineSelector
+                currentResults={datastore.currentResults}
+                byLineMeasure={byLineMeasure}
+                handleByLineChange={handleByLineChange}
+              />
             </Grid>
           </Grid>
-          More good times.
-          {/* <D3IndicatorByLineChart /> */}
+          <D3IndicatorByLineChart
+            byLineDisplayData={byLineDisplayData}
+          />
         </Paper>
       </TabPanel>
       <TabPanel value={tabValue} index={0}>

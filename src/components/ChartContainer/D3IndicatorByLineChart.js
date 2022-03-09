@@ -1,14 +1,10 @@
 import * as d3 from 'd3';
-import React, {
-  useContext, useRef,
-} from 'react';
-import { byLineDisplayDataContext } from '../D3Container/ChartContainer';
+import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
 
-function D3IndicatorByLineChart() {
-  const { byLineDisplayData, setByLinedisplayData } = useContext(byLineDisplayDataContext);
-
+function D3IndicatorByLineChart({ byLineDisplayData }) {
   // Binder for react to apply changes to the svg
-  const D3IndictaorLineChart = useRef();
+  const D3IndicatorLineChart = useRef();
 
   // Date Parser
   const parseDate = d3.timeParse('%Y-%m-%d')
@@ -22,10 +18,10 @@ function D3IndicatorByLineChart() {
   const tickCount = byLineDisplayData.length;
 
   // Clear previous SVG
-  d3.select(D3IndictaorLineChart.current).selectAll('*').remove();
+  d3.select(D3IndicatorLineChart.current).selectAll('*').remove();
 
   // SVG constrol and also styling
-  const svg = d3.select(D3IndictaorLineChart.current)
+  const svg = d3.select(D3IndicatorLineChart.current)
     .attr('width', width)
     .attr('height', height)
     .style('background-color', 'white')
@@ -109,9 +105,22 @@ function D3IndicatorByLineChart() {
 
   return (
     <div className="d3-char__line-chart">
-      <svg ref={D3IndictaorLineChart} />
+      <svg ref={D3IndicatorLineChart} />
     </div>
   )
+}
+
+D3IndicatorByLineChart.propTypes = {
+  byLineDisplayData: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.number,
+      date: PropTypes.string,
+    }),
+  ),
+}
+
+D3IndicatorByLineChart.defaultProps = {
+  byLineDisplayData: [],
 }
 
 export default D3IndicatorByLineChart;
