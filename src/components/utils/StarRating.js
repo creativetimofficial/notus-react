@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { Rating } from "@mui/material";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Rating } from '@mui/material';
 
 function StarRating({ rating }) {
   return (
-    <div className="flex justify-center">
+    <div className="star-rating">
       <Rating
         defaultValue={rating}
         name="size-large"
@@ -11,8 +12,21 @@ function StarRating({ rating }) {
         precision={0.5}
         readOnly
       />
-      <p className="ml-2 text-xl">({rating})</p>
+      <p className="star-rating__paragraph">
+        (
+        {rating}
+        )
+      </p>
     </div>
   );
 }
+
+StarRating.propTypes = {
+  rating: PropTypes.number,
+}
+
+StarRating.defaultProps = {
+  rating: undefined,
+}
+
 export default StarRating;

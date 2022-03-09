@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Banner = ({ updateDate, updateTime }) => {
+function Banner({ updateDate, updateTime }) {
   return (
     <div className="HEDIS_Dashboard_Container">
       <h1 className="text-left mx-4 text-5xl font-semibold mt-16 ">
@@ -15,6 +16,15 @@ const Banner = ({ updateDate, updateTime }) => {
       </p>
     </div>
   );
-};
+}
 
+Banner.propTypes = {
+  updateDate: PropTypes.string,
+  updateTime: PropTypes.string,
+}
+
+Banner.defaultProps = {
+  updateDate: '',
+  updateTime: '',
+}
 export default Banner;

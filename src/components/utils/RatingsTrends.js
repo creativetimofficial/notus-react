@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import HelpIcon from "@mui/icons-material/Help";
-import StarRating from "./StarRating";
-import "./RatingTrends.css";
+import React, { useState } from 'react';
+import HelpIcon from '@mui/icons-material/Help';
+import StarRating from './StarRating';
+import './RatingTrends.css';
 
-function RatingsTrends({ starRating, AIS, DDR, ProjectedBonus }) {
+function RatingsTrends({
+  starRating, AIS, DDR, ProjectedBonus,
+}) {
   const [displayRatingsTrends, setDisplayRatingsTrends] = useState(false);
   const [displayStarRatingHelp, setDisplayStarRatingHelp] = useState(false);
   const handleToggle = (e) => {
@@ -25,8 +27,8 @@ function RatingsTrends({ starRating, AIS, DDR, ProjectedBonus }) {
               // name="name"
               onClick={(e) => handleToggle(e)}
               data-onoff="toggle"
-            ></input>
-            <span></span>
+            />
+            <span />
           </label>
         </div>
         <p className="text-left mx-4 my-0 mb-2 text-xl ">
@@ -63,15 +65,21 @@ function RatingsTrends({ starRating, AIS, DDR, ProjectedBonus }) {
               <p className="text-center font-semibold text-2xl mt-0">
                 AIS, % Compliance
               </p>
-              {AIS.includes("-") ? (
+              {AIS.includes('-') ? (
                 <div className="flex justify-center">
                   <i className="fa fa-arrow-down text-3xl mx-4 my-4 text-red-500 my-auto" />
-                  <p className="text-4xl text-red-500 mt-1 mb-2">{AIS}%</p>
+                  <p className="text-4xl text-red-500 mt-1 mb-2">
+                    {AIS}
+                    %
+                  </p>
                 </div>
               ) : (
                 <div className="flex justify-center">
                   <i className="fa fa-arrow-up text-3xl mx-4 my-4 text-green-500 my-auto" />
-                  <p className="text-4xl text-green-500 mt-1 mb-2">{AIS}%</p>
+                  <p className="text-4xl text-green-500 mt-1 mb-2">
+                    {AIS}
+                    %
+                  </p>
                 </div>
               )}
 
@@ -84,15 +92,21 @@ function RatingsTrends({ starRating, AIS, DDR, ProjectedBonus }) {
               <p className="text-center font-semibold text-2xl mt-0">
                 DDR, % Compliance
               </p>
-              {DDR.includes("-") ? (
+              {DDR.includes('-') ? (
                 <div className="flex justify-center">
                   <i className="fa fa-arrow-down text-3xl mx-4 my-4 text-red-500 my-auto" />
-                  <p className="text-4xl text-red-500 mt-1 mb-2">{DDR}%</p>
+                  <p className="text-4xl text-red-500 mt-1 mb-2">
+                    {DDR}
+                    %
+                  </p>
                 </div>
               ) : (
                 <div className="flex justify-center">
                   <i className="fa fa-arrow-up text-3xl mx-4 my-4 text-green-500 my-auto" />
-                  <p className="text-4xl text-green-500 mt-1 mb-2">{DDR}%</p>
+                  <p className="text-4xl text-green-500 mt-1 mb-2">
+                    {DDR}
+                    %
+                  </p>
                 </div>
               )}
               <p className="text-center font-semibold text-lg">
@@ -106,7 +120,8 @@ function RatingsTrends({ starRating, AIS, DDR, ProjectedBonus }) {
               </p>
               <div>
                 <p className="text-3xl mt-2 font-semibold mb-2">
-                  ${ProjectedBonus}
+                  $
+                  {ProjectedBonus}
                 </p>
               </div>
             </div>

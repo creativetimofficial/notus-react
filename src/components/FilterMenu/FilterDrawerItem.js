@@ -33,7 +33,7 @@ function FilterDrawerItem({ filterItem }) {
             key={`filter-drawer-item-option-${option}`}
             componentsProps={{ typography: { color: 'black.dark', variant: 'caption' } }}
             control={
-              <Checkbox size="small" color="blue" />
+              <Checkbox size="small" color="primary" />
             }
             label={option}
           />
