@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import theme from '../../assets/styles/AppTheme';
 import FilterDrawerItem from './FilterDrawerItem';
-import filterDrawerItemArray from './FilterDrawerItemData';
+import filterDrawerItemData from './FilterDrawerItemData';
 
 function FilterDrawer({
   currentFilters,
@@ -102,7 +102,7 @@ function FilterDrawer({
                 </Box>
               </Grid>
             </Grid>
-            {filterDrawerItemArray.map((drawerItem) => (
+            {filterDrawerItemData.map((drawerItem) => (
               <FilterDrawerItem key={`filter-draw-item-${drawerItem.name}`} filterItem={drawerItem} />
             ))}
           </Grid>
