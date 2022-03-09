@@ -10,16 +10,11 @@ import React, { createContext } from 'react';
 export const filterMenuOpenContext = createContext(false);
 
 function ChartBar({ filterDrawerOpen, toggleFilterDrawer }) {
-  const buttonStyling = {
-  }
+  const buttonStyling = {};
 
   const onClickFilter = () => {
-    if (filterDrawerOpen) {
-      toggleFilterDrawer(false);
-    } else {
-      toggleFilterDrawer(true);
-    }
-  }
+    toggleFilterDrawer(!filterDrawerOpen);
+  };
 
   return (
     <Box>
