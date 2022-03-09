@@ -1,18 +1,13 @@
 import * as d3 from 'd3';
-import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 
-function D3Chart({ displayData }) {
+function D3IndicatorByLineChart({ byLineDisplayData }) {
   // Binder for react to apply changes to the svg
-  const D3LineChart = useRef();
+  const D3IndicatorLineChart = useRef();
 
   // Date Parser
   const parseDate = d3.timeParse('%Y-%m-%d')
-
-  // Data manipulation
-  const workingList = [];
-  displayData.forEach((item) => workingList.push(item.measure));
-  const measureList = Array.from(new Set(workingList));
 
   // Basic Styling consts to be used later
   const margin = {
@@ -20,22 +15,25 @@ function D3Chart({ displayData }) {
   };
   const width = (window.innerWidth || document.body.clientWidth) - 100;
   const height = 500;
-  const tickCount = displayData.length / measureList.length;
+  const tickCount = byLineDisplayData.length;
 
   useEffect(() => {
     // Clear previous SVG
-    d3.select(D3LineChart.current).selectAll('*').remove();
+    d3.select(D3IndicatorLineChart.current).selectAll('*').remove();
 
     // SVG constrol and also styling
-    const svg = d3.select(D3LineChart.current)
-      .attr('class', 'd3-chart__line-chart')
+    const svg = d3.select(D3IndicatorLineChart.current)
+      .attr('width', width)
+      .attr('height', height)
+      .style('background-color', 'white')
+      .style('color', 'black')
       .append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     // Generates labels and context for x axis
     const x = d3.scaleTime()
     // What data we're measuring
-      .domain(d3.extent(displayData, (d) => parseDate(d.date.split('T')[0])))
+      .domain(d3.extent(byLineDisplayData, (d) => parseDate(d.date.split('T')[0])))
     // The 'width' of the data
       .range([0, width + margin.left]);
 
@@ -45,7 +43,7 @@ function D3Chart({ displayData }) {
       .call(d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%d-%b-%Y')));
 
     // Generates Label and context for y axis
-    d3.max(displayData, (d) => d.value);
+    d3.max(byLineDisplayData, (d) => d.value);
 
     const y = d3.scaleLinear()
       .domain([0, 5])
@@ -86,48 +84,45 @@ function D3Chart({ displayData }) {
 
     // Generates the actual line
     const line = d3.line()
-      .curve(d3.curveCardinal)
+    // .curve(d3.curveCardinal)
       .x((d) => x(parseDate(d.date.split('T')[0])))
       .y((d) => y(d.value / 20));
 
     // Iterates through an array variation.
-    if (measureList.length > 0) {
-      measureList.forEach((measure) => {
-        svg.append('path')
-          .datum(displayData.filter((item) => item.measure === measure))
-          .attr('fill', 'none')
-          .attr('stroke', 'black')
-          .attr('opacity', '.33')
-          .attr('stroke-width', 2)
-          .attr('d', line)
-          .on('mouseover', (event) => {
-            d3.select(event.currentTarget).attr('opacity', '1');
-          })
-          .on('mouseout', (event) => {
-            d3.select(event.currentTarget).attr('opacity', '.33');
-          });
+
+    svg.append('path')
+      .datum(byLineDisplayData)
+      .attr('fill', 'none')
+      .attr('stroke', 'blue')
+      .attr('opacity', '.33')
+      .attr('stroke-width', 2)
+      .attr('d', line)
+      .on('mouseover', (event) => {
+        d3.select(event.currentTarget).attr('opacity', '1');
+      })
+      .on('mouseout', (event) => {
+        d3.select(event.currentTarget).attr('opacity', '.33');
       });
-    }
   });
 
   return (
-    <div className="d3-chart">
-      <svg ref={D3LineChart} />
+    <div className="d3-char__line-chart">
+      <svg ref={D3IndicatorLineChart} />
     </div>
   )
 }
 
-D3Chart.propTypes = {
-  displayData: PropTypes.arrayOf(
+D3IndicatorByLineChart.propTypes = {
+  byLineDisplayData: PropTypes.arrayOf(
     PropTypes.shape({
-      measure: PropTypes.string,
+      value: PropTypes.number,
       date: PropTypes.string,
     }),
   ),
 }
 
-D3Chart.defaultProps = {
-  displayData: [],
+D3IndicatorByLineChart.defaultProps = {
+  byLineDisplayData: [],
 }
 
-export default D3Chart;
+export default D3IndicatorByLineChart;

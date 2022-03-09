@@ -1,0 +1,14 @@
+$block-class: 'd3-chart';
+
+@at-root {
+    .#{$block-class} {
+        width: 80vw;
+
+        &__line-chart {
+            height: 500px;
+            width: 90vw;
+            background-color: #fff;
+            // transform: translate(30px, 50px);
+        }
+    }
+}

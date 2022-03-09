@@ -9,17 +9,12 @@ import React, { createContext } from 'react';
 
 export const filterMenuOpenContext = createContext(false);
 
-function ChartBar({ filterMenuOpen, toggleFilterMenu }) {
-  const buttonStyling = {
-  }
+function ChartBar({ filterDrawerOpen, toggleFilterDrawer }) {
+  const buttonStyling = {};
 
   const onClickFilter = () => {
-    if (filterMenuOpen) {
-      toggleFilterMenu(false);
-    } else {
-      toggleFilterMenu(true);
-    }
-  }
+    toggleFilterDrawer(!filterDrawerOpen);
+  };
 
   return (
     <Box>
@@ -48,7 +43,12 @@ function ChartBar({ filterMenuOpen, toggleFilterMenu }) {
           </Button>
         </Grid>
         <Grid item sx={buttonStyling}>
-          <Button key="d3-graph-filters" color="black" variant="text" onClick={onClickFilter} startIcon={<FilterAltIcon />}>
+          <Button
+            color="black"
+            variant="text"
+            onClick={onClickFilter}
+            startIcon={<FilterAltIcon />}
+          >
             <Typography variant="caption">
               Filter
             </Typography>
@@ -60,13 +60,13 @@ function ChartBar({ filterMenuOpen, toggleFilterMenu }) {
 }
 
 ChartBar.propTypes = {
-  filterMenuOpen: PropTypes.bool,
-  toggleFilterMenu: PropTypes.func,
+  filterDrawerOpen: PropTypes.bool,
+  toggleFilterDrawer: PropTypes.func,
 };
 
 ChartBar.defaultProps = {
-  filterMenuOpen: false,
-  toggleFilterMenu: () => undefined,
+  filterDrawerOpen: false,
+  toggleFilterDrawer: () => undefined,
 }
 
 export default ChartBar;
