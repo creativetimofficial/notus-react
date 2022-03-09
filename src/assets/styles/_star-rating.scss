@@ -4,9 +4,15 @@ $block-class: 'star-rating';
     .#{$block-class} {
         display: flex;
         justify-content: center;
+        font-size: small;
+
         &__paragraph {
             margin-left: 0.5rem;
             font-size: 1.25rem;
+        }
+
+        &__stars-filled {
+            color: red;
         }
     }
 }

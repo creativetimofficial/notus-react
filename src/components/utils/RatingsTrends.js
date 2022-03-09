@@ -56,7 +56,7 @@ function RatingsTrends({
                 </div>
               ) : (
                 <div className="mt-2 ">
-                  <StarRating className="" rating={starRating} />
+                  <StarRating rating={starRating} />
                 </div>
               )}
             </div>

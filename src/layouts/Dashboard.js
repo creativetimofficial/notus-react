@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { ThemeProvider } from '@emotion/react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -12,12 +12,8 @@ import Footer from '../components/Footers/Footer';
 import D3Container from '../components/ChartContainer';
 import theme from '../assets/styles/AppTheme';
 import DashboardNavbar from '../components/Navbars/DashboardNavbar';
-import Welcome from '../components/Cards/CardWelcome';
-import Stars from '../components/Cards/CardStars';
-import Trends from '../components/Cards/CardTrends';
 import Banner from '../components/Banner/Banner';
-import RatingsTrends from '../components/utils/RatingsTrends.js';
-import { DatastoreContext } from '../context/DatastoreProvider';
+import RatingsTrends from '../components/utils/RatingsTrends';
 
 const Item = styled(Paper)(() => ({
   ...theme.typography.body2,
@@ -28,11 +24,8 @@ const Item = styled(Paper)(() => ({
 }));
 
 export default function Dashboard() {
-  const { datastore } = useContext(DatastoreContext);
   const [filterDrawerOpen, toggleFilterDrawer] = useState(false);
   const [showRatings, setShowRatings] = useState(true);
-  const [updateDate, setUpdateDate] = useState('Mar 1 2022');
-  const [updateTime, setUpdateTime] = useState('9:05 AM');
 
   // If control needs to be shared across multiple components,
   // add them through useState above and append them to these.
@@ -61,7 +54,7 @@ export default function Dashboard() {
             <Grid container spacing={4}>
               <Grid item sm={12} sx={{ bgColor: grey }}>
                 <Item>
-                  <Banner updateDate={updateDate} updateTime={updateTime} />
+                  <Banner />
                   {showRatings ? (
                     <RatingsTrends
                       starRating={2.5}

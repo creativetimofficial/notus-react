@@ -10,6 +10,7 @@ function StarRating({ rating }) {
         name="size-large"
         size="large"
         precision={0.5}
+        fullClassName="star-rating__stars-filled"
         readOnly
       />
       <p className="star-rating__paragraph">
