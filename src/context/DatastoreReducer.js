@@ -1,7 +1,7 @@
 export const initialState = {
   results: [], // All results for the last several days, per measure.
   trends: [],
-  currentResults: [], // Results for the most recent day for each measure).
+  currentResults: [], // Results for the most recent day for each measure.
 };
 
 export const DatastoreReducer = (state, action) => {
