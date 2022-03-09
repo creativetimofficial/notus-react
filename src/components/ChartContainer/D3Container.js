@@ -57,22 +57,6 @@ function D3Container({ dashboardState, dashboardActions }) {
     setDisplayData(datastore.results);
   }, [datastore]);
 
-  // const handleChange = (event, newValue) => {
-  //   const newDisplayData = [...datastore];
-
-  //   if (newValue === 0) {
-  //     setDatastore(newDisplayData);
-  //     setByLineDisplayData('')
-  //   }
-  //   else if (newValue === 1) {
-  //     setByLineDisplayData('')
-  //   }
-  //   else {
-  //     setByLineDisplayData(newDisplayData[0])
-  //   }
-  //   setTabValue(newValue);
-  // };
-
   return (
     <div>
       <FilterDrawer
