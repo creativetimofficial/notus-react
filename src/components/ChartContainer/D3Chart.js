@@ -87,13 +87,13 @@ function D3Chart({ displayData }) {
 
     d3.selectAll('.axis-grid line').style('stroke', 'lightgray');
 
-    svg.append('text')
-      .attr('x', width / 2)
-      .attr('y', -30)
-      .attr('text-anchor', 'middle')
-      .attr('fint-size', '10px')
-      .attr('fill', 'black')
-      .text('demoData Graph (D3)');
+    // svg.append('text')
+    //   .attr('x', width / 2)
+    //   .attr('y', -30)
+    //   .attr('text-anchor', 'middle')
+    //   .attr('fint-size', '10px')
+    //   .attr('fill', 'black')
+    //   .text('demoData Graph (D3)');
 
     // Generates the actual line
     const line = d3.line()

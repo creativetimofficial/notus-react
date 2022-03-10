@@ -13,7 +13,6 @@ import D3Container from '../components/ChartContainer';
 import theme from '../assets/styles/AppTheme';
 import DashboardNavbar from '../components/Navbars/DashboardNavbar';
 import Banner from '../components/Banner/Banner';
-import RatingsTrends from '../components/Summary/RatingsTrends';
 
 const Item = styled(Paper)(() => ({
   ...theme.typography.body2,
@@ -25,7 +24,6 @@ const Item = styled(Paper)(() => ({
 
 export default function Dashboard() {
   const [filterDrawerOpen, toggleFilterDrawer] = useState(false);
-  const [showRatings, setShowRatings] = useState(true);
 
   // If control needs to be shared across multiple components,
   // add them through useState above and append them to these.
@@ -55,14 +53,6 @@ export default function Dashboard() {
               <Grid item sm={12} sx={{ bgColor: grey }}>
                 <Item>
                   <Banner />
-                  {showRatings ? (
-                    <RatingsTrends
-                      starRating={2.5}
-                      AIS="10"
-                      DDR="-5"
-                      ProjectedBonus="40"
-                    />
-                  ) : null}
                 </Item>
               </Grid>
               <Grid item xs={12}>
