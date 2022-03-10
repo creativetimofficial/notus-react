@@ -7,6 +7,7 @@ import MeasureResultsRow from './MeasureResultsRow';
 function generateMeasureRowValues(measureResult) {
   return {
     value: measureResult.measure,
+    label: measureResult.label,
     type: 'measure',
     included: measureResult.initialPopulation - measureResult.exclusions,
     eligible: measureResult.initialPopulation,
