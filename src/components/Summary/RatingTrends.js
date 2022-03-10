@@ -5,7 +5,7 @@ import Rating from '@mui/material/Rating';
 
 const starsTip = 'Star rating subject to change depending on measures and other resources. For more information, please contact NCQA.';
 
-function RatingsTrends() {
+function RatingTrends() {
   return (
     <div className="rating-trends">
       <h2 className="rating-trends__h2-header">
@@ -75,4 +75,4 @@ function RatingsTrends() {
   );
 }
 
-export default RatingsTrends;
+export default RatingTrends;
