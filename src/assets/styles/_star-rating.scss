@@ -2,8 +2,7 @@ $block-class: 'star-rating';
 
 @at-root {
     .#{$block-class} {
-        display: flex;
-        justify-content: center;
+        display: inline;
         font-size: small;
 
         &__paragraph {

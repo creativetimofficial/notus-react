@@ -8,11 +8,13 @@ import Paper from '@mui/material/Paper';
 // components
 
 import { grey } from '@mui/material/colors';
+// import { DatastoreContext } from '../context/DatastoreProvider';
 import Footer from '../components/Footers/Footer';
 import D3Container from '../components/ChartContainer';
 import theme from '../assets/styles/AppTheme';
 import DashboardNavbar from '../components/Navbars/DashboardNavbar';
-import Banner from '../components/Banner/Banner';
+import Banner from '../components/Summary/Banner';
+import RatingTrends from '../components/Summary/RatingTrends';
 
 const Item = styled(Paper)(() => ({
   ...theme.typography.body2,
@@ -23,6 +25,7 @@ const Item = styled(Paper)(() => ({
 }));
 
 export default function Dashboard() {
+  // const { datastore } = useContext(DatastoreContext); // Leave it. I'll need it next ticket.
   const [filterDrawerOpen, toggleFilterDrawer] = useState(false);
 
   // If control needs to be shared across multiple components,
@@ -53,6 +56,7 @@ export default function Dashboard() {
               <Grid item sm={12} sx={{ bgColor: grey }}>
                 <Item>
                   <Banner />
+                  <RatingTrends />
                 </Item>
               </Grid>
               <Grid item xs={12}>
