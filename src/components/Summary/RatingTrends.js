@@ -8,9 +8,9 @@ const starsTip = 'Star rating subject to change depending on measures and other 
 function RatingsTrends() {
   return (
     <div className="rating-trends">
-      <h1 className="rating-trends__h2-header">
+      <h2 className="rating-trends__h2-header">
         Ratings & Trends
-      </h1>
+      </h2>
       <p className="rating-trends__summary">
         Descriptive text about this section and impacts and events that
         contribute to star rating ...
