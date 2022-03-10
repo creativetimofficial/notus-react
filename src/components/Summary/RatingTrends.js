@@ -8,20 +8,16 @@ const starsTip = 'Star rating subject to change depending on measures and other 
 function RatingsTrends() {
   return (
     <div className="rating-trends">
-      <div className="flex flex-col ">
-        <div className="flex mt-2">
-          <h1 className="rating-trends__h2-header">
-            Ratings & Trends
-          </h1>
-        </div>
-        <p className="rating-trends__summary">
-          Descriptive text about this section and impacts and events that
-          contribute to star rating ...
-        </p>
-      </div>
-      <div className="rating-trends__panel-box">
-        <div className="flex">
-          <div className="flex flex-col text-center mt-0 width-25 StarRate">
+      <h1 className="rating-trends__h2-header">
+        Ratings & Trends
+      </h1>
+      <p className="rating-trends__summary">
+        Descriptive text about this section and impacts and events that
+        contribute to star rating ...
+      </p>
+      <div className="rating-trends__display-box">
+        <div className="rating-trends__panel-box">
+          <div className="rating-trends__panel">
             <div className="rating-trends__header-align">
               <h3 className="rating-trends__h3-header">
                 Star Rating
@@ -43,23 +39,30 @@ function RatingsTrends() {
             <h3 className="rating-trends__h3-header">
               Measure % Compliance
             </h3>
-            Coming soon.
+            <p className="rating-trends__coming-soon">
+              Coming soon.
+            </p>
           </div>
           <div className="rating-trends__border" />
           <div className="rating-trends__panel">
             <h3 className="rating-trends__h3-header">
               Measure % Compliance
             </h3>
-            Coming soon.
+            <p className="rating-trends__coming-soon">
+              Coming soon.
+            </p>
           </div>
           <div className="rating-trends__border" />
-          <div className="flex flex-col text-center mt-0 width-25 ">
+          <div className="rating-trends__panel">
             <h3 className="rating-trends__h3-header">
               Projected Yearly Bonus per Plan
             </h3>
+            <p className="rating-trends__coming-soon">
+              Coming soon.
+            </p>
           </div>
         </div>
-        <div className="flex justify-end mt-6 width-75">
+        <div className="rating-trends__button-panel">
           <button
             type="button"
             className="rating-trends__view-rating-details-button"

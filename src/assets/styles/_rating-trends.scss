@@ -12,7 +12,7 @@ $block-class: 'rating-trends';
             text-align: left;
             margin-left: 1rem;
             margin-right: 1rem;
-            margin-top: 0.5rem;
+            margin-top: 1rem;
             margin-bottom: 0.5rem;
             font-size: 2.25rem;
         }
@@ -25,9 +25,13 @@ $block-class: 'rating-trends';
             font-size: 1.25rem;
         }
 
-        &__panel-box {
+        &__display-box {
             display: flex;
             flex-direction: column;
+        }
+
+        &__panel-box {
+            display: flex;
             margin-top: 1.5rem;
         }
 
@@ -52,22 +56,27 @@ $block-class: 'rating-trends';
             margin-left: 0.5rem;
             margin-top: 0.25rem;
         }
-
-        &__star-rating {
-            .span {
-                color:red;
-                margin-top: 0.5rem;
-                margin: auto;
-            }
+        
+        span.rating-trends__star-rating {
+            margin: auto;
+            font-size: 2.5rem;
         }
 
         &__border {
             border: 1px solid grey;
+            background-color: grey;
             height: auto;
         }
 
+        &__button-panel {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1.25rem;
+            width: 85%;
+        }
+
         &__view-rating-details-button {
-            background-color: #1976d2;
+            background-color: #1976D2;
             color: #fff;
             font-weight: 600;
             border: 1px solid grey;
@@ -75,6 +84,9 @@ $block-class: 'rating-trends';
             border-radius: 0.25rem;
         }
 
-        
+        &__coming-soon {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
     }
 }
