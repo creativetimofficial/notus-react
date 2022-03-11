@@ -7,7 +7,7 @@ function D3Chart({ displayData }) {
   const D3LineChart = useRef();
 
   // Date Parser
-  const parseDate = d3.timeParse('%Y-%m-%d')
+  const parseDate = d3.timeParse('%Y-%m-%d');
 
   // Data manipulation
   const workingList = [];
@@ -16,7 +16,10 @@ function D3Chart({ displayData }) {
 
   // Basic Styling consts to be used later
   const margin = {
-    top: 50, right: 30, bottom: 75, left: 30,
+    top: 50,
+    right: 30,
+    bottom: 75,
+    left: 30,
   };
   const width = (window.innerWidth || document.body.clientWidth) - 100;
   const height = 500;
@@ -73,16 +76,24 @@ function D3Chart({ displayData }) {
       .attr('transform', `translate(0,${height})`)
       .call(makeXGridlines()
         .tickSize(-(height))
-        .tickFormat(''))
+        .tickFormat(''));
 
     // add the Y gridlines
     svg.append('g')
       .attr('class', 'axis-grid')
       .call(makeYGridlines()
         .tickSize(-width)
-        .tickFormat(''))
+        .tickFormat(''));
 
-    d3.selectAll('.axis-grid line').style('stroke', 'lightgray')
+    d3.selectAll('.axis-grid line').style('stroke', 'lightgray');
+
+    // svg.append('text')
+    //   .attr('x', width / 2)
+    //   .attr('y', -30)
+    //   .attr('text-anchor', 'middle')
+    //   .attr('fint-size', '10px')
+    //   .attr('fill', 'black')
+    //   .text('demoData Graph (D3)');
 
     // Generates the actual line
     const line = d3.line()
@@ -114,7 +125,7 @@ function D3Chart({ displayData }) {
     <div className="d3-chart">
       <svg ref={D3LineChart} />
     </div>
-  )
+  );
 }
 
 D3Chart.propTypes = {
@@ -124,10 +135,10 @@ D3Chart.propTypes = {
       date: PropTypes.string,
     }),
   ),
-}
+};
 
 D3Chart.defaultProps = {
   displayData: [],
-}
+};
 
 export default D3Chart;
