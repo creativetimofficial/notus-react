@@ -5,7 +5,7 @@ function Banner() {
   const { datastore } = useContext(DatastoreContext);
   return (
     <div className="HEDIS_Dashboard_Container">
-      <h1 className="text-left mx-4 text-5xl font-semibold mt-16 ">
+      <h1 className="text-left mx-4 text-5xl font-semibold">
         HEDIS Dashboard
       </h1>
       <p className="text-left mx-4 text-xl font-semibold mb-1">
