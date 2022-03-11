@@ -15,6 +15,16 @@ const updateTimestamp = () => {
   return `${timeStamper(now, monthOpt)} ${timeStamper(now, yearOpt)}, ${timeStamper(now, timeOpt)}`;
 }
 
+const createLabel = (measure) => {
+  if (measure === 'composite') {
+    return 'Composite';
+  }
+  if (measure.length > 3 && measure.charAt(3) === 'e') {
+    return `${measure.slice(0, 3).toUpperCase()}-E`;
+  }
+  return measure.toUpperCase();
+}
+
 export const DatastoreReducer = (state, action) => {
   switch (action.type) {
     case 'SET_RESULTS': {
@@ -25,10 +35,19 @@ export const DatastoreReducer = (state, action) => {
           workingList[item.measure] = item;
         }
       });
+      Object.keys(workingList).forEach((key) => {
+        workingList[key].label = createLabel(workingList[key].measure);
+      });
+      const currentResults = Object.values(workingList)
+        .sort((a, b) => {
+          if (a.measure === 'composite') return -1;
+          if (b.measure === 'composite') return 1;
+          return a.measure > b.measure ? 1 : -1;
+        });
       return {
         ...state,
         results: action.payload,
-        currentResults: Object.values(workingList),
+        currentResults,
         lastUpdated: updateTimestamp(),
       }
     }

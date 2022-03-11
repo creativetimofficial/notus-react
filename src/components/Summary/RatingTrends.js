@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import HelpIcon from '@mui/icons-material/Help';
 import ToolTip from '@mui/material/Tooltip';
 import Rating from '@mui/material/Rating';
 
 const starsTip = 'Star rating subject to change depending on measures and other resources. For more information, please contact NCQA.';
 
-function RatingTrends() {
+function RatingTrends({ activeMeasure }) {
   return (
     <div className="rating-trends">
       <h2 className="rating-trends__h2-header">
@@ -28,11 +29,14 @@ function RatingTrends() {
             </div>
             <Rating
               className="rating-trends__star-rating"
-              name="plan-rating"
-              value={3.5}
+              name="read-only"
+              value={activeMeasure.starRating || 0}
               precision={0.5}
               readOnly
             />
+            <p className="rating-trends__star-rating-label">
+              {activeMeasure.label && `(${activeMeasure.label})`}
+            </p>
           </div>
           <div className="rating-trends__border" />
           <div className="rating-trends__panel">
@@ -73,6 +77,20 @@ function RatingTrends() {
       </div>
     </div>
   );
+}
+
+RatingTrends.propTypes = {
+  activeMeasure: PropTypes.shape({
+    starRating: PropTypes.number,
+    label: PropTypes.string,
+  }),
+}
+
+RatingTrends.defaultProps = {
+  activeMeasure: {
+    starRating: 0,
+    label: '',
+  },
 }
 
 export default RatingTrends;

@@ -12,7 +12,7 @@ function MeasureResultsRow({ measureResult, handleMeasureChange }) {
       <Grid container justifyContent="space-evenly" direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
         <Grid item xs={1}>
           <Typography variant="caption">
-            {measureResult.value}
+            {measureResult.label}
           </Typography>
         </Grid>
         <Grid item xs={2}>
@@ -60,6 +60,7 @@ function MeasureResultsRow({ measureResult, handleMeasureChange }) {
 MeasureResultsRow.propTypes = {
   measureResult: PropTypes.shape({
     value: PropTypes.string,
+    label: PropTypes.string,
     type: PropTypes.string,
     included: PropTypes.number,
     eligible: PropTypes.number,
