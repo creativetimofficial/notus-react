@@ -55,7 +55,7 @@ function FilterDrawer({
                 <Typography color="black.dark" variant="body1">Percent Range:</Typography>
               </Grid>
               <Grid item>
-                <HelpIcon size="small" sx={{ p: '4px' }} color="gray" />
+                <HelpIcon className="filter-drawer__help" />
               </Grid>
             </Grid>
             <Grid item>

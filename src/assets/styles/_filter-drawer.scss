@@ -1,0 +1,11 @@
+$block-class: 'filter-drawer';
+
+@at-root {
+    .#{$block-class} {
+        &__help {
+            color: grey;
+            margin-bottom: 0.3rem;
+        }
+    }
+
+}

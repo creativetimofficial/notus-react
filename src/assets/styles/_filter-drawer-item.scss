@@ -1,13 +1,12 @@
+@use 'filter-drawer';
+
 $block-class: 'filter-drawer-item';
 
 @at-root {
-    .#{block-class} {
-
+    .#{$block-class} {
         &__help {
-            padding: 4px;
-            color: red;
-            margin-left: 0.5rem;
-            margin-top: 0.3rem;
+            @extend .filter-drawer__help; 
         }
     }
+
 }
