@@ -23,7 +23,7 @@ function FilterDrawerItem({ filterItem }) {
         </Grid>
         <Grid item>
           <Tooltip title={filterItemText}>
-            <HelpIcon size="small" sx={{ p: '4px' }} color="gray" />
+            <HelpIcon className="filter-drawer-item__help" />
           </Tooltip>
         </Grid>
       </Grid>

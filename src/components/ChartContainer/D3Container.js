@@ -21,6 +21,13 @@ function D3Container({ dashboardState, dashboardActions, store }) {
   const [tabValue, setTabValue] = useState(0);
   const [byLineMeasure, setByLineMeasure] = useState('');
   const [byLineDisplayData, setByLineDisplayData] = useState([]);
+  const [selectedMeasures, setSelectedMeasures] = useState([]);
+
+  useEffect(() => {
+    if (store.currentResults !== undefined) {
+      setSelectedMeasures(store.currentResults.map((result) => result.measure));
+    }
+  }, [setSelectedMeasures, store.currentResults]);
 
   const handleTabChange = (event, index) => {
     setTabValue(index);
@@ -34,15 +41,20 @@ function D3Container({ dashboardState, dashboardActions, store }) {
 
   const handleMeasureChange = (event) => {
     if (event.target.checked) {
-      const newDisplayData = displayData.slice()
-        .concat(store.results.filter(
-          (result) => result.measure === event.target.value,
-        ));
+      const newDisplayData = displayData.concat(store.results.filter(
+        (result) => result.measure === event.target.value,
+      ));
+      setSelectedMeasures(selectedMeasures.concat(event.target.value));
       setDisplayData(newDisplayData);
     } else {
+      setSelectedMeasures(selectedMeasures.filter((result) => result !== event.target.value));
       setDisplayData(store.results.filter((result) => result.measure !== event.target.value));
     }
   };
+
+  // const handleFilterChange = (filterOptions) => {
+  //   console.log('Cool');
+  // }
 
   const handleByLineChange = (event) => {
     setByLineMeasure(event.target.value);
