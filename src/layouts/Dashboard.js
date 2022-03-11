@@ -25,7 +25,7 @@ const Item = styled(Paper)(() => ({
 }));
 
 export default function Dashboard() {
-  const { datastore } = useContext(DatastoreContext);
+  // const { datastore } = useContext(DatastoreContext); // Leave it. I'll need it next ticket.
   const [filterDrawerOpen, toggleFilterDrawer] = useState(false);
   const [activeMeasure, setActiveMeasure] = useState({});
 
