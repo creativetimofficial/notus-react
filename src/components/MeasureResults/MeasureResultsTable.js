@@ -2,7 +2,7 @@
 import { Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { colorMappingProps } from './D3Props';
+import { colorMappingProps } from '../ChartContainer/D3Props';
 import MeasureResultsRow from './MeasureResultsRow';
 
 function generateMeasureRowValues(measureResult) {
