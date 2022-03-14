@@ -5,7 +5,7 @@ import React, {
   useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
-import { resultList, trendList } from '../test/data/DemoData';
+import { resultList, trendList, infoObject } from '../test/data/DemoData';
 import { DatastoreReducer, initialState } from './DatastoreReducer';
 
 const axios = require('axios').default;
@@ -28,6 +28,7 @@ export default function DatastoreProvider({ children }) {
 
   useEffect(() => {
     if (devData === 'true') {
+      datastoreActions.setInfo(infoObject);
       datastoreActions.setResults(resultList);
       datastoreActions.setTrends(trendList);
     } else {
