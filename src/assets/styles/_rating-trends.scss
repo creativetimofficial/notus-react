@@ -7,7 +7,7 @@ $block-class: 'rating-trends';
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
 
-        h2.#{$block-class}__h2-header {
+        h2, &__h2-header {
             font-weight: 600;
             text-align: left;
             margin: 1rem 0rem 0.5rem 1rem;
@@ -40,7 +40,7 @@ $block-class: 'rating-trends';
             justify-content: center;
         }
 
-        h3.#{$block-class}__h3-header {
+        h3, &__h3-header {
             text-align: center;
             font-weight: 600;
             font-size: 1.5rem;
@@ -55,9 +55,9 @@ $block-class: 'rating-trends';
         span.#{$block-class}__star-rating {
             margin-top:1.5rem;
             font-size: 2.5rem;
-        }
+        } // Because there are multiple spans beneath this, be specific.
 
-        &__star-rating-label {
+        p.#{$block-class}__star-rating-label {
             margin-top: 0.5rem;
             font-size: 1.2rem;
         }
@@ -75,7 +75,7 @@ $block-class: 'rating-trends';
             width: 85%;
         }
 
-        &__view-rating-details-button {
+        button, &__view-rating-details-button {
             background-color: #1976D2;
             color: #fff;
             font-weight: 600;

@@ -1,21 +1,23 @@
 import React, { useContext } from 'react';
+import { Box } from '@mui/system';
+import { Typography } from '@mui/material';
 import { DatastoreContext } from '../../context/DatastoreProvider';
 
 function Banner() {
   const { datastore } = useContext(DatastoreContext);
   return (
-    <div className="HEDIS_Dashboard_Container">
-      <h1 className="text-left mx-4 text-5xl font-semibold">
+    <Box className="banner">
+      <Typography variant="h1" className="banner__header">
         HEDIS Dashboard
-      </h1>
-      <p className="text-left mx-4 text-xl font-semibold mb-1">
+      </Typography>
+      <Typography className="banner__update-time">
         {`Last Updated: ${datastore.lastUpdated}`}
-      </p>
-      <p className="text-left mx-4 text-xl">
+      </Typography>
+      <Typography className="banner__description">
         Descriptive text about this section - gratuitous octopus niacin, sodium
         glutimate.
-      </p>
-    </div>
+      </Typography>
+    </Box>
   );
 }
 

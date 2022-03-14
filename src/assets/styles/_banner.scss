@@ -1,0 +1,25 @@
+$block-class: 'banner';
+
+@at-root {
+    .#{$block-class} {
+        text-align: left;
+
+        h1, &__header {
+            margin: 1rem;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        p, &__update-time {
+            margin: 0 1rem 0 1rem;
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        p.#{$block-class}__description {
+            margin: 0 1rem 0 1rem;
+            font-size: 1.25rem;
+        }
+    }
+}
