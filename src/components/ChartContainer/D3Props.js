@@ -19,3 +19,10 @@ export const dashboardActionsProps = PropTypes.shape({
   toggleFilterDrawer: PropTypes.func,
   setActiveMeasure: PropTypes.func,
 });
+
+export const colorMappingProps = PropTypes.arrayOf(
+  PropTypes.shape({
+    measure: PropTypes.string,
+    color: PropTypes.string,
+  }),
+);

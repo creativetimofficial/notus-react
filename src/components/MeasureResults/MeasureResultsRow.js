@@ -43,7 +43,7 @@ function MeasureResultsRow({ measureResult, handleMeasureChange, measureColor })
         <Grid item xs={1}>
           <FormGroup sx={{ ml: '8px' }}>
             <Checkbox
-              style={{ color: measureColor.color}}
+              style={{ color: measureColor.color }}
               disableRipple
               defaultChecked
               size="medium"
@@ -69,11 +69,15 @@ MeasureResultsRow.propTypes = {
     exclusions: PropTypes.number,
   }),
   handleMeasureChange: PropTypes.func,
+  measureColor: PropTypes.shape({
+    color: PropTypes.string,
+  }),
 }
 
 MeasureResultsRow.defaultProps = {
   measureResult: {},
   handleMeasureChange: () => undefined,
+  measureColor: {},
 }
 
 export default MeasureResultsRow;

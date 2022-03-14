@@ -37,9 +37,9 @@ function D3Chart({ displayData, colorMapping }) {
 
     // Generates labels and context for x axis
     const x = d3.scaleTime()
-    // What data we're measuring
+      // What data we're measuring
       .domain(d3.extent(displayData, (d) => parseDate(d.date.split('T')[0])))
-    // The 'width' of the data
+      // The 'width' of the data
       .range([0, width + margin.left]);
 
     // X Axis labels and context
@@ -107,7 +107,7 @@ function D3Chart({ displayData, colorMapping }) {
         svg.append('path')
           .datum(displayData.filter((item) => item.measure === measure))
           .attr('fill', 'none')
-          .attr('stroke', colorMapping.find((mapping)=> mapping.measure === measure).color)
+          .attr('stroke', colorMapping.find((mapping) => mapping.measure === measure).color)
           .attr('opacity', '.33')
           .attr('stroke-width', 2)
           .attr('d', line)
@@ -135,10 +135,17 @@ D3Chart.propTypes = {
       date: PropTypes.string,
     }),
   ),
+  colorMapping: PropTypes.arrayOf(
+    PropTypes.shape({
+      measure: PropTypes.string,
+      color: PropTypes.string,
+    }),
+  ),
 };
 
 D3Chart.defaultProps = {
   displayData: [],
+  colorMapping: [],
 };
 
 export default D3Chart;
