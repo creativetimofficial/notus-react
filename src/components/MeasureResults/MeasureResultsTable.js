@@ -1,13 +1,15 @@
 /* eslint-disable no-undef */
 import { Divider, Grid, Typography } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import MeasureResultsRow from './MeasureResultsRow';
+import { DatastoreContext } from '../../context/DatastoreProvider';
 
-function generateMeasureRowValues(measureResult) {
+function generateMeasureRowValues(measureResult, info) {
   return {
     value: measureResult.measure,
-    label: measureResult.label,
+    label: info[measureResult.measure] === undefined
+      ? measureResult.measure : info[measureResult.measure].displayLabel,
     type: 'measure',
     included: measureResult.initialPopulation - measureResult.exclusions,
     eligible: measureResult.initialPopulation,
@@ -18,6 +20,7 @@ function generateMeasureRowValues(measureResult) {
 }
 
 function MeasureResultsTable({ currentResults, handleMeasureChange }) {
+  const { datastore } = useContext(DatastoreContext);
   return (
     <Grid container direction="column" spacing={0.25}>
       <Grid container item justifyContent="space-evenly" direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
@@ -64,7 +67,7 @@ function MeasureResultsTable({ currentResults, handleMeasureChange }) {
           key={`chart-container-grid-measure-${item.measure}`}
         >
           <MeasureResultsRow
-            measureResult={generateMeasureRowValues(item)}
+            measureResult={generateMeasureRowValues(item, datastore.info)}
             handleMeasureChange={handleMeasureChange}
           />
         </Grid>

@@ -2,6 +2,7 @@ export const initialState = {
   results: [], // All results for the last several days, per measure.
   trends: [],
   currentResults: [], // Results for the most recent day for each measure.
+  info: {},
   lastUpdated: 'Updating now...',
 };
 
@@ -15,16 +16,6 @@ const updateTimestamp = () => {
   return `${timeStamper(now, monthOpt)} ${timeStamper(now, yearOpt)}, ${timeStamper(now, timeOpt)}`;
 }
 
-const createLabel = (measure) => {
-  if (measure === 'composite') {
-    return 'Composite';
-  }
-  if (measure.length > 3 && measure.charAt(3) === 'e') {
-    return `${measure.slice(0, 3).toUpperCase()}-E`;
-  }
-  return measure.toUpperCase();
-}
-
 export const DatastoreReducer = (state, action) => {
   switch (action.type) {
     case 'SET_RESULTS': {
@@ -34,9 +25,6 @@ export const DatastoreReducer = (state, action) => {
           || item.date > workingList[item.measure].date) {
           workingList[item.measure] = item;
         }
-      });
-      Object.keys(workingList).forEach((key) => {
-        workingList[key].label = createLabel(workingList[key].measure);
       });
       const currentResults = Object.values(workingList)
         .sort((a, b) => {
@@ -55,6 +43,12 @@ export const DatastoreReducer = (state, action) => {
       return {
         ...state,
         trends: action.payload,
+        lastUpdated: updateTimestamp(),
+      }
+    case 'SET_INFO':
+      return {
+        ...state,
+        info: action.payload,
         lastUpdated: updateTimestamp(),
       }
     default:

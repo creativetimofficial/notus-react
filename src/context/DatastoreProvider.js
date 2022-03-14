@@ -12,6 +12,7 @@ const axios = require('axios').default;
 
 const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/searchResults`);
 const trendUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/trends`);
+const infoUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/info`);
 const devData = `${process.env.REACT_APP_DEV_DATA}`;
 
 export const DatastoreContext = createContext(initialState);
@@ -22,6 +23,7 @@ export default function DatastoreProvider({ children }) {
   const datastoreActions = useMemo(() => ({
     setResults: (results) => dispatch({ type: 'SET_RESULTS', payload: results }),
     setTrends: (trends) => dispatch({ type: 'SET_TRENDS', payload: trends }),
+    setInfo: (info) => dispatch({ type: 'SET_INFO', payload: info }),
   }), [dispatch]);
 
   useEffect(() => {
@@ -29,14 +31,18 @@ export default function DatastoreProvider({ children }) {
       datastoreActions.setResults(resultList);
       datastoreActions.setTrends(trendList);
     } else {
-      const searchPromise = axios.get(searchUrl);
-      const trendPromise = axios.get(trendUrl);
-      searchPromise.then((values) => {
-        datastoreActions.setResults(values.data);
-      });
-      trendPromise.then((values) => {
-        datastoreActions.setTrends(values.data);
-      });
+      axios.get(infoUrl)
+        .then((res) => {
+          datastoreActions.setInfo(res.data);
+        });
+      axios.get(searchUrl)
+        .then((res) => {
+          datastoreActions.setResults(res.data);
+        });
+      axios.get(trendUrl)
+        .then((res) => {
+          datastoreActions.setTrends(res.data);
+        });
     }
   }, [datastoreActions]);
 
