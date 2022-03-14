@@ -2,7 +2,7 @@ import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
 
-function D3Chart({ displayData }) {
+function D3Chart({ displayData, colorMapping }) {
   // Binder for react to apply changes to the svg
   const D3LineChart = useRef();
 
@@ -107,7 +107,7 @@ function D3Chart({ displayData }) {
         svg.append('path')
           .datum(displayData.filter((item) => item.measure === measure))
           .attr('fill', 'none')
-          .attr('stroke', 'black')
+          .attr('stroke', colorMapping.find((mapping)=> mapping.measure === measure).color)
           .attr('opacity', '.33')
           .attr('stroke-width', 2)
           .attr('d', line)

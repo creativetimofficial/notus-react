@@ -22,6 +22,38 @@ function D3Container({ dashboardState, dashboardActions, store }) {
   const [byLineMeasure, setByLineMeasure] = useState('');
   const [byLineDisplayData, setByLineDisplayData] = useState([]);
 
+  const colorArray = [
+    "#003F5C",
+    "#2F4B7C",
+    "#665191",
+    "#A05195",
+    "#D45087",
+    "#F95D6A",
+    "#FF7C43",
+    "#FFA600",
+    "#9D02D7",
+    "#0000FF"
+  ]
+
+  const workingList = [];
+  store.results.forEach((item) => workingList.push(item.measure));
+  const measureList = Array.from(new Set(workingList));
+  const colorMap = measureList.map((item, index) => {
+    return ({
+      measure: item,
+      color: determineColor(index)
+    })
+  })
+
+  function determineColor(index) {
+    if (index <= 10) {
+      return colorArray[index]
+    }
+    else {
+      return colorArray[index % 10]
+    }
+  }
+
   const handleTabChange = (event, index) => {
     setTabValue(index);
     setByLineMeasure(store.currentResults[0].measure);
@@ -107,12 +139,16 @@ function D3Container({ dashboardState, dashboardActions, store }) {
             />
           </Grid>
           <Grid item>
-            <D3Chart displayData={displayData} />
+            <D3Chart
+              displayData={displayData}
+              colorMapping={colorMap}
+            />
           </Grid>
         </Grid>
         <MeasureResultsTable
           currentResults={store.currentResults}
           handleMeasureChange={handleMeasureChange}
+          colorMapping={colorMap}
         />
       </TabPanel>
     </div>

@@ -3,6 +3,7 @@ import { Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
 import PropTypes from 'prop-types';
 import MeasureResultsRow from './MeasureResultsRow';
+import { IndexKind } from 'typescript';
 
 function generateMeasureRowValues(measureResult) {
   return {
@@ -17,7 +18,7 @@ function generateMeasureRowValues(measureResult) {
   }
 }
 
-function MeasureResultsTable({ currentResults, handleMeasureChange }) {
+function MeasureResultsTable({ currentResults, handleMeasureChange, colorMapping }) {
   return (
     <Grid container direction="column" spacing={0.25}>
       <Grid container item justifyContent="space-evenly" direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
@@ -66,6 +67,7 @@ function MeasureResultsTable({ currentResults, handleMeasureChange }) {
           <MeasureResultsRow
             measureResult={generateMeasureRowValues(item)}
             handleMeasureChange={handleMeasureChange}
+            measureColor={colorMapping.find((mapping) => mapping.measure === item.measure)}
           />
         </Grid>
       ))}
