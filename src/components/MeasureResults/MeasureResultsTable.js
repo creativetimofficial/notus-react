@@ -3,7 +3,6 @@ import { Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
 import PropTypes from 'prop-types';
 import MeasureResultsRow from './MeasureResultsRow';
-import { IndexKind } from 'typescript';
 
 function generateMeasureRowValues(measureResult) {
   return {
