@@ -21,29 +21,25 @@ export default function DatastoreProvider({ children }) {
   const [datastore, dispatch] = useReducer(DatastoreReducer, initialState);
 
   const datastoreActions = useMemo(() => ({
-    setResults: (results) => dispatch({ type: 'SET_RESULTS', payload: results }),
+    setResults: (results, info) => dispatch({ type: 'SET_RESULTS', payload: { results, info } }),
     setTrends: (trends) => dispatch({ type: 'SET_TRENDS', payload: trends }),
-    setInfo: (info) => dispatch({ type: 'SET_INFO', payload: info }),
   }), [dispatch]);
 
   useEffect(() => {
     if (devData === 'true') {
-      datastoreActions.setInfo(infoObject);
-      datastoreActions.setResults(resultList);
+      datastoreActions.setResults(resultList, infoObject);
       datastoreActions.setTrends(trendList);
     } else {
-      axios.get(infoUrl)
-        .then((res) => {
-          datastoreActions.setInfo(res.data);
-        });
-      axios.get(searchUrl)
-        .then((res) => {
-          datastoreActions.setResults(res.data);
-        });
       axios.get(trendUrl)
         .then((res) => {
           datastoreActions.setTrends(res.data);
         });
+
+      const searchPromise = axios.get(searchUrl);
+      const infoPromise = axios.get(infoUrl);
+      Promise.all([searchPromise, infoPromise]).then((values) => {
+        datastoreActions.setResults(values[0].data, values[1].data);
+      });
     }
   }, [datastoreActions]);
 
