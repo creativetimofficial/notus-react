@@ -23,16 +23,16 @@ function D3Container({ dashboardState, dashboardActions, store }) {
   const [byLineDisplayData, setByLineDisplayData] = useState([]);
 
   const colorArray = [
-    "#003F5C",
-    "#2F4B7C",
-    "#665191",
-    "#A05195",
-    "#D45087",
-    "#F95D6A",
-    "#FF7C43",
-    "#FFA600",
-    "#9D02D7",
-    "#0000FF"
+    '#003F5C',
+    '#2F4B7C',
+    '#665191',
+    '#A05195',
+    '#D45087',
+    '#F95D6A',
+    '#FF7C43',
+    '#FFA600',
+    '#9D02D7',
+    '#0000FF'
   ]
 
   const workingList = [];
