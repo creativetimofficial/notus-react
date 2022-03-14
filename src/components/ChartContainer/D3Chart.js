@@ -1,6 +1,7 @@
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
+import { colorMappingProps } from './D3Props';
 
 function D3Chart({ displayData, colorMapping }) {
   // Binder for react to apply changes to the svg
@@ -135,12 +136,7 @@ D3Chart.propTypes = {
       date: PropTypes.string,
     }),
   ),
-  colorMapping: PropTypes.arrayOf(
-    PropTypes.shape({
-      measure: PropTypes.string,
-      color: PropTypes.string,
-    }),
-  ),
+  colorMapping: colorMappingProps,
 };
 
 D3Chart.defaultProps = {
