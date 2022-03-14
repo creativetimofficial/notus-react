@@ -5,19 +5,19 @@ $block-class: 'banner';
         text-align: left;
         margin: 0 1rem 0 1rem;
 
-        h1, &__header {
+        & &__header {
             margin: 1rem 0;
             font-size: 3rem;
             font-weight: 600;
         }
 
-        p.#{$block-class}__update-time {
+        & &__update-time {
             font-weight: 600;
             font-size: 1.25rem;
             margin-bottom: 0.25rem;
         }
 
-        p.#{$block-class}__description {
+        & &__description {
             font-size: 1.25rem;
         }
     }
