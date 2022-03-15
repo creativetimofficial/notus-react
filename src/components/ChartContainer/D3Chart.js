@@ -109,14 +109,14 @@ function D3Chart({ displayData, colorMapping }) {
           .datum(displayData.filter((item) => item.measure === measure))
           .attr('fill', 'none')
           .attr('stroke', colorMapping.find((mapping) => mapping.measure === measure).color)
-          .attr('opacity', '.33')
-          .attr('stroke-width', 2)
+          .attr('opacity', '.50')
+          .attr('stroke-width', 5)
           .attr('d', line)
           .on('mouseover', (event) => {
             d3.select(event.currentTarget).attr('opacity', '1');
           })
           .on('mouseout', (event) => {
-            d3.select(event.currentTarget).attr('opacity', '.33');
+            d3.select(event.currentTarget).attr('opacity', '.50');
           });
       });
     }
