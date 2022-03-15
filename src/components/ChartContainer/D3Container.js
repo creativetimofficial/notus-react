@@ -55,13 +55,12 @@ function D3Container({ dashboardState, dashboardActions, store }) {
 
   const handleMeasureChange = (event) => {
     if (event.target.checked) {
-      const newDisplayData = displayData.slice()
-        .concat(store.results.filter(
-          (result) => result.measure === event.target.value,
-        ));
+      const newDisplayData = displayData.concat(store.results.filter(
+        (result) => result.measure === event.target.value,
+      ));
       setDisplayData(newDisplayData);
     } else {
-      setDisplayData(store.results.filter((result) => result.measure !== event.target.value));
+      setDisplayData(displayData.filter((result) => result.measure !== event.target.value));
     }
   };
 
