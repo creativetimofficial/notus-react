@@ -16,8 +16,18 @@ const updateTimestamp = () => {
   return `${timeStamper(now, monthOpt)} ${timeStamper(now, yearOpt)}, ${timeStamper(now, timeOpt)}`;
 }
 
-const createLabel = (measure, info) => (info[measure] !== undefined
-  ? info[measure].displayLabel : measure.toUpperCase())
+const createLabel = (measure, info) => {
+  if (info[measure]) {
+    return info[measure].displayLabel;
+  }
+  if (measure === 'composite') {
+    return 'Composite';
+  }
+  if (measure.length > 3 && measure.charAt(3) === 'e') {
+    return `${measure.slice(0, 3).toUpperCase()}-E`;
+  }
+  return measure.toUpperCase();
+}
 
 export const DatastoreReducer = (state, action) => {
   switch (action.type) {
