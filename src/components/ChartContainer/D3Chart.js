@@ -1,8 +1,9 @@
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
+import { colorMappingProps } from './D3Props';
 
-function D3Chart({ displayData }) {
+function D3Chart({ displayData, colorMapping }) {
   // Binder for react to apply changes to the svg
   const D3LineChart = useRef();
 
@@ -37,9 +38,9 @@ function D3Chart({ displayData }) {
 
     // Generates labels and context for x axis
     const x = d3.scaleTime()
-    // What data we're measuring
+      // What data we're measuring
       .domain(d3.extent(displayData, (d) => parseDate(d.date.split('T')[0])))
-    // The 'width' of the data
+      // The 'width' of the data
       .range([0, width + margin.left]);
 
     // X Axis labels and context
@@ -107,15 +108,15 @@ function D3Chart({ displayData }) {
         svg.append('path')
           .datum(displayData.filter((item) => item.measure === measure))
           .attr('fill', 'none')
-          .attr('stroke', 'black')
-          .attr('opacity', '.33')
-          .attr('stroke-width', 2)
+          .attr('stroke', colorMapping.find((mapping) => mapping.measure === measure).color)
+          .attr('opacity', '.50')
+          .attr('stroke-width', 5)
           .attr('d', line)
           .on('mouseover', (event) => {
             d3.select(event.currentTarget).attr('opacity', '1');
           })
           .on('mouseout', (event) => {
-            d3.select(event.currentTarget).attr('opacity', '.33');
+            d3.select(event.currentTarget).attr('opacity', '.50');
           });
       });
     }
@@ -135,10 +136,12 @@ D3Chart.propTypes = {
       date: PropTypes.string,
     }),
   ),
+  colorMapping: colorMappingProps,
 };
 
 D3Chart.defaultProps = {
   displayData: [],
+  colorMapping: [],
 };
 
 export default D3Chart;
