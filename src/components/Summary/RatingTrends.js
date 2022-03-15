@@ -3,30 +3,34 @@ import PropTypes from 'prop-types';
 import HelpIcon from '@mui/icons-material/Help';
 import ToolTip from '@mui/material/Tooltip';
 import Rating from '@mui/material/Rating';
+import { Box } from '@mui/system';
+import {
+  Button, Grid, Typography,
+} from '@mui/material';
 
 const starsTip = 'Star rating subject to change depending on measures and other resources. For more information, please contact NCQA.';
 
 function RatingTrends({ activeMeasure }) {
   return (
-    <div className="rating-trends">
-      <h2 className="rating-trends__h2-header">
+    <Box className="rating-trends">
+      <Typography variant="h2" className="rating-trends__h2-header">
         Ratings & Trends
-      </h2>
-      <p className="rating-trends__summary">
+      </Typography>
+      <Typography className="rating-trends__summary">
         Descriptive text about this section and impacts and events that
         contribute to star rating ...
-      </p>
-      <div className="rating-trends__display-box">
-        <div className="rating-trends__panel-box">
-          <div className="rating-trends__panel">
-            <div className="rating-trends__header-align">
-              <h3 className="rating-trends__h3-header">
+      </Typography>
+      <Box className="rating-trends__display-box">
+        <Box className="rating-trends__panel-box">
+          <Grid className="rating-trends__panel">
+            <Grid className="rating-trends__header-align">
+              <Typography variant="h3" className="rating-trends__h3-header">
                 Star Rating
-              </h3>
+              </Typography>
               <ToolTip title={starsTip}>
                 <HelpIcon className="rating-trends__help" />
               </ToolTip>
-            </div>
+            </Grid>
             <Rating
               className="rating-trends__star-rating"
               name="read-only"
@@ -34,48 +38,47 @@ function RatingTrends({ activeMeasure }) {
               precision={0.5}
               readOnly
             />
-            <p className="rating-trends__star-rating-label">
+            <Typography className="rating-trends__star-rating-label">
               {activeMeasure.label && `(${activeMeasure.label})`}
-            </p>
-          </div>
-          <div className="rating-trends__border" />
-          <div className="rating-trends__panel">
-            <h3 className="rating-trends__h3-header">
+            </Typography>
+          </Grid>
+          <Box className="rating-trends__border" />
+          <Grid className="rating-trends__panel">
+            <Typography variant="h3" className="rating-trends__h3-header">
               Measure % Compliance
-            </h3>
-            <p className="rating-trends__coming-soon">
+            </Typography>
+            <Typography className="rating-trends__coming-soon">
               Coming soon.
-            </p>
-          </div>
-          <div className="rating-trends__border" />
-          <div className="rating-trends__panel">
-            <h3 className="rating-trends__h3-header">
+            </Typography>
+          </Grid>
+          <Box className="rating-trends__border" />
+          <Grid className="rating-trends__panel">
+            <Typography variant="h3" className="rating-trends__h3-header">
               Measure % Compliance
-            </h3>
-            <p className="rating-trends__coming-soon">
+            </Typography>
+            <Typography className="rating-trends__coming-soon">
               Coming soon.
-            </p>
-          </div>
-          <div className="rating-trends__border" />
-          <div className="rating-trends__panel">
-            <h3 className="rating-trends__h3-header">
+            </Typography>
+          </Grid>
+          <Box className="rating-trends__border" />
+          <Grid className="rating-trends__panel">
+            <Typography variant="h3" className="rating-trends__h3-header">
               Projected Yearly Bonus per Plan
-            </h3>
-            <p className="rating-trends__coming-soon">
+            </Typography>
+            <Typography className="rating-trends__coming-soon">
               Coming soon.
-            </p>
-          </div>
-        </div>
-        <div className="rating-trends__button-panel">
-          <button
-            type="button"
+            </Typography>
+          </Grid>
+        </Box>
+        <Box className="rating-trends__button-panel">
+          <Button
             className="rating-trends__view-rating-details-button"
           >
             View Rating Details
-          </button>
-        </div>
-      </div>
-    </div>
+          </Button>
+        </Box>
+      </Box>
+    </Box>
   );
 }
 

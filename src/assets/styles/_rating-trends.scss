@@ -7,21 +7,16 @@ $block-class: 'rating-trends';
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
 
-        &__h2-header {
+        & &__h2-header {
             font-weight: 600;
             text-align: left;
-            margin-left: 1rem;
-            margin-right: 1rem;
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
+            margin: 1rem 0rem 0.5rem 1rem;
             font-size: 2.25rem;
         }
 
-        &__summary {
+        & &__summary {
             text-align: left;
-            margin-left: 1rem;
-            margin-right: 1rem;
-            margin-bottom: 0.5rem;
+            margin: 1rem 0rem 0.5rem 1rem;
             font-size: 1.25rem;
         }
 
@@ -36,7 +31,7 @@ $block-class: 'rating-trends';
         }
 
         &__panel {
-            height: 150px;
+            height: 9rem;
             width: 25%;
         }
 
@@ -45,7 +40,7 @@ $block-class: 'rating-trends';
             justify-content: center;
         }
 
-        &__h3-header {
+        & &__h3-header {
             text-align: center;
             font-weight: 600;
             font-size: 1.5rem;
@@ -57,14 +52,14 @@ $block-class: 'rating-trends';
             margin-top: 0.3rem;
         }
         
-        span.rating-trends__star-rating {
+        & &__star-rating {
             margin-top:1.5rem;
             font-size: 2.5rem;
-        }
+        } // Because there are multiple spans beneath this, be specific.
 
-        &__star-rating-label {
+        & &__star-rating-label {
             margin-top: 0.5rem;
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
 
         &__border {
@@ -80,7 +75,7 @@ $block-class: 'rating-trends';
             width: 85%;
         }
 
-        &__view-rating-details-button {
+        & &__view-rating-details-button {
             background-color: #1976D2;
             color: #fff;
             font-weight: 600;
@@ -89,7 +84,7 @@ $block-class: 'rating-trends';
             border-radius: 0.25rem;
         }
 
-        &__coming-soon {
+        & &__coming-soon {
             margin-top: 1rem;
             font-size: 1.2rem;
         }
