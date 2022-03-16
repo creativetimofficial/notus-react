@@ -119,17 +119,12 @@ function D3Chart({ displayData, colorMapping }) {
       JSON.stringify(event);
       const tickWidth = (window.innerWidth + 64) / tickCount;
       const index = Math.round((event.offsetX - tickWidth / 2) / tickWidth);
-      console.log(index);
-      console.log('offsetX', event.offsetX)
-      console.log('tickCount', tickCount)
-      console.log('width', window.innerWidth)
-      console.log('tickWidth', tickWidth);
-      console.log(event);
-      const measureDisplay = `Measure:${event.srcElement.__data__[index].measure.toUpperCase()}\n`;
-      const valueDisplay = `Value:${event.srcElement.__data__[index].value}\n`;
-      const dateDisplay = `Date:${event.srcElement.__data__[index].date}`;
-      tooltip.text(measureDisplay + valueDisplay + dateDisplay);
+      const measureDisplay = `Measure: ${event.srcElement.__data__[index].measure.toUpperCase()}`;
+      const valueDisplay = `Value: ${Math.round(event.srcElement.__data__[index].value * 100) / 100}`;
+      const dateDisplay = `Date: ${event.srcElement.__data__[index].date.split('T')[0]}`;
+      tooltip.text(`${measureDisplay} \n ${valueDisplay} \n ${dateDisplay}`);
       return tooltip
+        .attr('data-html', 'true')
         .style('visibility', 'visible')
         .style('top', `${event.pageY - 10}px`)
         .style('left', `${event.pageX + 10}px`);

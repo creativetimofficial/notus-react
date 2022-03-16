@@ -40,7 +40,8 @@ $AXIS_LABEL_COLOR: #b0bec5;
       font-size: 1rem;
       font-weight: bold;
       border-radius: 10px;
-      visibility: visible;
+      visibility: hidden;
+      white-space: pre-line;
     }
     &__overlay {
       fill: none;
