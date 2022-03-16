@@ -36,15 +36,16 @@ function D3Container({ dashboardState, dashboardActions, store }) {
   const [byLineDisplayData, setByLineDisplayData] = useState([]);
   const [selectedMeasures, setSelectedMeasures] = useState([]);
 
-  useEffect(() => {
-    if (store.currentResults !== undefined) {
-      setSelectedMeasures(store.currentResults.map((result) => result.measure));
-    }
-  }, [setSelectedMeasures, store.currentResults]);
-
   const workingList = [];
   store.results.forEach((item) => workingList.push(item.measure));
   const measureList = Array.from(new Set(workingList));
+
+  useEffect(() => {
+    if (measureList !== undefined) {
+      setSelectedMeasures(measureList);
+    }
+  }, [setSelectedMeasures, measureList]);
+
   const colorMap = measureList.map((item, index) => ({
     measure: item,
     color: index <= 10 ? colorArray[index] : colorArray[index % 10],
