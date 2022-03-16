@@ -1,13 +1,18 @@
-import * as d3 from "d3";
-import PropTypes from "prop-types";
-import React, { useEffect, useRef } from "react";
+import { display } from '@mui/system';
+import * as d3 from 'd3';
+import PropTypes from 'prop-types';
+import React, { useEffect, useRef } from 'react';
+import { colorMappingProps } from './D3Props';
 
-function D3Chart({ displayData }) {
+function D3Chart({ displayData, colorMapping }) {
   // Binder for react to apply changes to the svg
   let D3LineChart = useRef();
 
   // Date Parser
-  let parseDate = d3.timeParse("%Y-%m-%d");
+  const parseDate = d3.timeParse('%Y-%m-%d');
+  const formatDate = d3.timeFormat('%Y-%m-%d');
+  const bisectDate = d3.bisector((d) => d.date).left;
+  const formatValue = d3.format(',.0f');
 
   // Data manipulation
   let workingList = [];
@@ -15,7 +20,7 @@ function D3Chart({ displayData }) {
   let measureList = Array.from(new Set(workingList));
 
   // Basic Styling consts to be used later
-  let margin = {
+  const margin = {
     top: 50,
     right: 30,
     bottom: 75,
@@ -30,37 +35,38 @@ function D3Chart({ displayData }) {
     d3.select(D3LineChart.current).selectAll("*").remove();
 
     // SVG constrol and also styling
-    let svg = d3
+    const svg = d3
       .select(D3LineChart.current)
-      .attr("class", "d3-chart__line-chart")
-      .append("g")
-      .attr("transform", `translate(${margin.left},${margin.top})`);
+      .attr('class', 'd3-chart__line-chart')
+      .append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
 
     // Generates labels and context for x axis
-    let x = d3
+    const x = d3
       .scaleTime()
       // What data we're measuring
-      .domain(d3.extent(displayData, (d) => parseDate(d.date.split("T")[0])))
+      .domain(d3.extent(displayData, (d) => parseDate(d.date.split('T')[0])))
       // The 'width' of the data
       .range([0, width + margin.left]);
 
     // X Axis labels and context
     svg
-      .append("g")
-      .attr("transform", `translate(0,${height - margin.bottom})`)
+      .append('g')
+      .attr('transform', `translate(0,${height - margin.bottom})`)
+      .attr('class', 'd3-chart__dates')
       .call(
-        d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat("%d-%b-%Y"))
+        d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%b %d'))
       );
 
     // Generates Label and context for y axis
     d3.max(displayData, (d) => d.value);
 
-    let y = d3
+    const y = d3
       .scaleLinear()
-      .domain([0, 5])
+      .domain([0, 100])
       .range([height - margin.bottom, 0]);
 
-    svg.append("g").call(d3.axisLeft(y));
+    svg.append('g').attr('class', 'd3-chart__dates').call(d3.axisLeft(y));
 
     // Grid
     // gridlines in x axis function
@@ -70,47 +76,86 @@ function D3Chart({ displayData }) {
 
     // gridlines in y axis function
     function makeYGridlines() {
-      return d3.axisLeft(y).ticks(10);
+      return d3.axisLeft(y).ticks(5);
     }
 
     // add the X gridlines
     svg
-      .append("g")
-      .attr("class", "axis-grid")
-      .attr("transform", `translate(0,${height})`)
-      .call(makeXGridlines().tickSize(-height).tickFormat(""));
+      .append('g')
+      .attr('class', 'd3-chart__x-axis')
+      .attr('transform', `translate(0,${height})`)
+      .call(makeXGridlines().tickSize(-height).tickFormat(''));
 
     // add the Y gridlines
     svg
-      .append("g")
-      .attr("class", "axis-grid")
-      .call(makeYGridlines().tickSize(-width).tickFormat(""));
+      .append('g')
+      .attr('class', 'd3-chart__y-axis')
+      .call(makeYGridlines().tickSize(-width).tickFormat(''));
 
-    d3.selectAll(".axis-grid line").style("stroke", "lightgray");
+    d3.selectAll('.axis-grid line').style('stroke', 'lightgray');
+
+    // svg.append('text')
+    //   .attr('x', width / 2)
+    //   .attr('y', -30)
+    //   .attr('text-anchor', 'middle')
+    //   .attr('fint-size', '10px')
+    //   .attr('fill', 'black')
+    //   .text('demoData Graph (D3)');
 
     // Generates the actual line
-    let line = d3
+    const line = d3
       .line()
       .curve(d3.curveCardinal)
-      .x((d) => x(parseDate(d.date.split("T")[0])))
-      .y((d) => y(d.value / 20));
+      .x((d) => x(parseDate(d.date.split('T')[0])))
+      .y((d) => y(d.value));
+    // Tool Tips
+    const tooltip = d3
+      .select('body')
+      .append('div')
+      .attr('class', 'd3-chart__tooltip');
 
     // Iterates through an array variation.
     if (measureList.length > 0) {
       measureList.forEach((measure) => {
         svg
-          .append("path")
+          .append('path')
           .datum(displayData.filter((item) => item.measure === measure))
-          .attr("fill", "none")
-          .attr("stroke", "black")
-          .attr("opacity", ".33")
-          .attr("stroke-width", 2)
-          .attr("d", line)
-          .on("mouseover", (event) => {
-            d3.select(event.currentTarget).attr("opacity", "1");
+          .attr('fill', 'none')
+          .attr(
+            'stroke',
+            colorMapping.find((mapping) => mapping.measure === measure).color
+          )
+          .attr('opacity', '.50')
+          .attr('stroke-width', 5)
+          .attr('d', line)
+          .on('mouseover', (event) => {
+            d3.select(event.currentTarget).attr('opacity', '1');
+            JSON.stringify(event);
+            const tickWidth = (window.innerWidth) / tickCount;
+            const index = Math.round(event.offsetX / tickWidth);
+            // const target = document.querySelector(".d3-chart__line-chart")
+            // console.log(target)
+            console.log("stuff",event.offsetX)
+            console.log("tickCount",tickCount)
+            console.log("width",window.innerWidth)
+            console.log("tickWidth",tickWidth);
+            console.log(event);
+            tooltip.text(`Measure:${event.srcElement.__data__[index].measure.toUpperCase()}, Value:${event.srcElement.__data__[index].value}, Date:${event.srcElement.__data__[index].date}`);
+            return tooltip
+              .style('visibility', 'visible')
+              .style('top', `${event.pageY - 10}px`)
+              .style('left', `${event.pageX + 10}px`);
           })
-          .on("mouseout", (event) => {
-            d3.select(event.currentTarget).attr("opacity", ".33");
+          // .on('mousemove', (event) =>
+          //   tooltip
+          //     .html(event)
+          //     .text(`${event.target.__data__[0].measure},${event.target.__data__[0].value}`)
+          //     // .style('top', `${event.pageY - 10}px`)
+          //     // .style('left', `${event.pageX + 10}px`)
+          // )
+          .on('mouseout', (event) => {
+            d3.select(event.currentTarget).attr('opacity', '.50');
+            return tooltip.style('visibility', 'hidden');
           });
       });
     }
@@ -130,10 +175,12 @@ D3Chart.propTypes = {
       date: PropTypes.string,
     })
   ),
+  colorMapping: colorMappingProps,
 };
 
 D3Chart.defaultProps = {
   displayData: [],
+  colorMapping: [],
 };
 
 export default D3Chart;

@@ -21,7 +21,7 @@ function D3IndicatorByLineSelector({ currentResults, byLineMeasure, handleByLine
             key={`by-line-menu-item-selector-${measure.measure}`}
             value={measure.measure}
           >
-            {measure.measure.toUpperCase()}
+            {measure.label}
           </MenuItem>
         ))}
       </Select>

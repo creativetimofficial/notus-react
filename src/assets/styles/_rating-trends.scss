@@ -1,0 +1,92 @@
+$block-class: 'rating-trends';
+
+@at-root {
+    .#{$block-class} {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        & &__h2-header {
+            font-weight: 600;
+            text-align: left;
+            margin: 1rem 0rem 0.5rem 1rem;
+            font-size: 2.25rem;
+        }
+
+        & &__summary {
+            text-align: left;
+            margin: 1rem 0rem 0.5rem 1rem;
+            font-size: 1.25rem;
+        }
+
+        &__display-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__panel-box {
+            display: flex;
+            margin-top: 1.5rem;
+        }
+
+        &__panel {
+            height: 9rem;
+            width: 25%;
+        }
+
+        &__header-align {
+            display: flex;
+            justify-content: center;
+        }
+
+        & &__h3-header {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        &__help {
+            color: grey;
+            margin-left: 0.5rem;
+            margin-top: 0.3rem;
+        }
+        
+        & &__star-rating {
+            margin-top:1.5rem;
+            font-size: 2.5rem;
+        } // Because there are multiple spans beneath this, be specific.
+
+        & &__star-rating-label {
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        &__border {
+            border: 1px solid grey;
+            background-color: grey;
+            height: auto;
+        }
+
+        &__button-panel {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1.25rem;
+            width: 85%;
+        }
+
+        & &__view-rating-details-button {
+            background-color: #1976D2;
+            color: #fff;
+            font-weight: 600;
+            border: 1px solid grey;
+            padding: 1rem;
+            border-radius: 0.25rem;
+        }
+
+        & &__coming-soon {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
+    }
+}

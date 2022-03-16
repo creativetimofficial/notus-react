@@ -2,10 +2,8 @@ import {
   Grid, Paper, Tab, Tabs,
 } from '@mui/material';
 import React, {
-  createContext, useContext, useState, useEffect,
+  createContext, useState, useEffect,
 } from 'react';
-import PropTypes from 'prop-types';
-import { DatastoreContext } from '../../context/DatastoreProvider';
 import ChartBar from './ChartBar';
 import D3Chart from './D3Chart';
 import D3IndicatorByLineSelector from './D3IndicatorByLineSelector';
@@ -13,49 +11,73 @@ import D3IndicatorByLineChart from './D3IndicatorByLineChart';
 import TabPanel from '../Common/TabPanel';
 import FilterDrawer from '../FilterMenu/FilterDrawer';
 import MeasureResultsTable from '../MeasureResults/MeasureResultsTable';
+import { storeProps, dashboardStateProps, dashboardActionsProps } from './D3Props';
 
 export const firstRenderContext = createContext(true)
 
-function D3Container({ dashboardState, dashboardActions }) {
-  const { datastore } = useContext(DatastoreContext);
-  const [displayData, setDisplayData] = useState(datastore.results);
+const colorArray = [
+  '#003F5C',
+  '#2F4B7C',
+  '#665191',
+  '#A05195',
+  '#D45087',
+  '#F95D6A',
+  '#FF7C43',
+  '#FFA600',
+  '#9D02D7',
+  '#0000FF',
+]
+
+function D3Container({ dashboardState, dashboardActions, store }) {
+  const [displayData, setDisplayData] = useState(store.results);
   const [currentFilters, setCurrentFilters] = useState([]);
   const [tabValue, setTabValue] = useState(0);
   const [byLineMeasure, setByLineMeasure] = useState('');
   const [byLineDisplayData, setByLineDisplayData] = useState([]);
 
+  const workingList = [];
+  store.results.forEach((item) => workingList.push(item.measure));
+  const measureList = Array.from(new Set(workingList));
+  const colorMap = measureList.map((item, index) => ({
+    measure: item,
+    color: index <= 10 ? colorArray[index] : colorArray[index % 10],
+  }))
+
   const handleTabChange = (event, index) => {
     setTabValue(index);
-    setByLineMeasure(datastore.results[0].measure);
-    const filteredDisplayData = datastore.results.filter(
-      (item) => item.measure === datastore.results[0].measure,
+    setByLineMeasure(store.currentResults[0].measure);
+    const filteredDisplayData = store.results.filter(
+      (item) => item.measure === store.currentResults[0].measure,
     );
     setByLineDisplayData(filteredDisplayData);
+    dashboardActions.setActiveMeasure(store.currentResults[0]);
   }
 
   const handleMeasureChange = (event) => {
     if (event.target.checked) {
-      const newDisplayData = displayData.slice()
-        .concat(datastore.results.filter(
-          (result) => result.measure === event.target.value,
-        ));
+      const newDisplayData = displayData.concat(store.results.filter(
+        (result) => result.measure === event.target.value,
+      ));
       setDisplayData(newDisplayData);
     } else {
-      setDisplayData(datastore.results.filter((result) => result.measure !== event.target.value));
+      setDisplayData(displayData.filter((result) => result.measure !== event.target.value));
     }
   };
 
   const handleByLineChange = (event) => {
     setByLineMeasure(event.target.value);
-    const filteredDisplayData = datastore.results.filter(
+    const filteredDisplayData = store.results.filter(
       (item) => item.measure === event.target.value,
     );
     setByLineDisplayData(filteredDisplayData);
+    dashboardActions.setActiveMeasure(store.currentResults.filter(
+      (item) => item.measure === event.target.value,
+    )[0]);
   };
 
   useEffect(() => {
-    setDisplayData(datastore.results);
-  }, [datastore]);
+    setDisplayData(store.results);
+  }, [store]);
 
   return (
     <div>
@@ -81,7 +103,7 @@ function D3Container({ dashboardState, dashboardActions }) {
               sx={{ width: '25%' }}
             >
               <D3IndicatorByLineSelector
-                currentResults={datastore.currentResults}
+                currentResults={store.currentResults}
                 byLineMeasure={byLineMeasure}
                 handleByLineChange={handleByLineChange}
               />
@@ -105,12 +127,16 @@ function D3Container({ dashboardState, dashboardActions }) {
             />
           </Grid>
           <Grid item>
-            <D3Chart displayData={displayData} />
+            <D3Chart
+              displayData={displayData}
+              colorMapping={colorMap}
+            />
           </Grid>
         </Grid>
         <MeasureResultsTable
-          currentResults={datastore.currentResults}
+          currentResults={store.currentResults}
           handleMeasureChange={handleMeasureChange}
+          colorMapping={colorMap}
         />
       </TabPanel>
     </div>
@@ -118,15 +144,13 @@ function D3Container({ dashboardState, dashboardActions }) {
 }
 
 D3Container.propTypes = {
-  dashboardState: PropTypes.shape({
-    filterDrawerOpen: PropTypes.bool,
-  }),
-  dashboardActions: PropTypes.shape({
-    toggleFilterDrawer: PropTypes.func,
-  }),
+  store: storeProps,
+  dashboardState: dashboardStateProps,
+  dashboardActions: dashboardActionsProps,
 };
 
 D3Container.defaultProps = {
+  store: [],
   dashboardState: {
     filterDrawerOpen: false,
   },
