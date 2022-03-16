@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import { display } from '@mui/system';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
@@ -10,9 +11,6 @@ function D3Chart({ displayData, colorMapping }) {
 
   // Date Parser
   const parseDate = d3.timeParse('%Y-%m-%d');
-  const formatDate = d3.timeFormat('%Y-%m-%d');
-  const bisectDate = d3.bisector((d) => d.date).left;
-  const formatValue = d3.format(',.0f');
 
   // Data manipulation
   const workingList = [];
@@ -117,14 +115,19 @@ function D3Chart({ displayData, colorMapping }) {
     const toolTipGenerator = (event) => {
       d3.select(event.currentTarget).attr('opacity', '1');
       JSON.stringify(event);
+      console.log(event)
       const tickWidth = (window.innerWidth + 64) / tickCount;
       const index = Math.round((event.offsetX - tickWidth / 2) / tickWidth);
       const measureDisplay = `Measure: ${event.srcElement.__data__[index].measure.toUpperCase()}`;
       const valueDisplay = `Value: ${Math.round(event.srcElement.__data__[index].value * 100) / 100}`;
       const dateDisplay = `Date: ${event.srcElement.__data__[index].date.split('T')[0]}`;
+
       tooltip.text(`${measureDisplay} \n ${valueDisplay} \n ${dateDisplay}`);
+      const {color} = colorMapping
+        .find((mapping) => mapping.measure === event.target.__data__[0].measure)
       return tooltip
         .attr('data-html', 'true')
+        .style('background-color', color)
         .style('visibility', 'visible')
         .style('top', `${event.pageY - 10}px`)
         .style('left', `${event.pageX + 10}px`);
