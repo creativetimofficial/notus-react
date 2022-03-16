@@ -4,7 +4,7 @@ $block-class: 'd3-container';
     .#{$block-class} {
 
         &__chart {
-            min-height: 500px;
+            margin-bottom: -30px;
         }
     }
 }

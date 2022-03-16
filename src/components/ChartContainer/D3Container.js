@@ -132,7 +132,6 @@ function D3Container({ dashboardState, dashboardActions, store }) {
         <Grid container justifyContent="space-evenly" direction="column">
           <Grid
             item
-            sx={{ mb: '-30px' }}
             className="d3-container__chart"
           >
             <ChartBar
