@@ -5,13 +5,14 @@ import React, {
   useMemo,
 } from 'react';
 import PropTypes from 'prop-types';
-import { resultList, trendList } from '../test/data/DemoData';
+import { resultList, trendList, infoObject } from '../test/data/DemoData';
 import { DatastoreReducer, initialState } from './DatastoreReducer';
 
 const axios = require('axios').default;
 
 const searchUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/searchResults`);
 const trendUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/trends`);
+const infoUrl = new URL(`${process.env.REACT_APP_HEDIS_MEASURE_API_URL}measures/info`);
 const devData = `${process.env.REACT_APP_DEV_DATA}`;
 
 export const DatastoreContext = createContext(initialState);
@@ -20,22 +21,24 @@ export default function DatastoreProvider({ children }) {
   const [datastore, dispatch] = useReducer(DatastoreReducer, initialState);
 
   const datastoreActions = useMemo(() => ({
-    setResults: (results) => dispatch({ type: 'SET_RESULTS', payload: results }),
+    setResults: (results, info) => dispatch({ type: 'SET_RESULTS', payload: { results, info } }),
     setTrends: (trends) => dispatch({ type: 'SET_TRENDS', payload: trends }),
   }), [dispatch]);
 
   useEffect(() => {
     if (devData === 'true') {
-      datastoreActions.setResults(resultList);
+      datastoreActions.setResults(resultList, infoObject);
       datastoreActions.setTrends(trendList);
     } else {
+      axios.get(trendUrl)
+        .then((res) => {
+          datastoreActions.setTrends(res.data);
+        });
+
       const searchPromise = axios.get(searchUrl);
-      const trendPromise = axios.get(trendUrl);
-      searchPromise.then((values) => {
-        datastoreActions.setResults(values.data);
-      });
-      trendPromise.then((values) => {
-        datastoreActions.setTrends(values.data);
+      const infoPromise = axios.get(infoUrl);
+      Promise.all([searchPromise, infoPromise]).then((values) => {
+        datastoreActions.setResults(values[0].data, values[1].data);
       });
     }
   }, [datastoreActions]);

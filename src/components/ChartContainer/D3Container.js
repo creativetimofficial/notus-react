@@ -15,6 +15,19 @@ import { storeProps, dashboardStateProps, dashboardActionsProps } from './D3Prop
 
 export const firstRenderContext = createContext(true)
 
+const colorArray = [
+  '#003F5C',
+  '#2F4B7C',
+  '#665191',
+  '#A05195',
+  '#D45087',
+  '#F95D6A',
+  '#FF7C43',
+  '#FFA600',
+  '#9D02D7',
+  '#0000FF',
+]
+
 function D3Container({ dashboardState, dashboardActions, store }) {
   const [displayData, setDisplayData] = useState(store.results);
   const [currentFilters, setCurrentFilters] = useState([]);
@@ -28,6 +41,14 @@ function D3Container({ dashboardState, dashboardActions, store }) {
       setSelectedMeasures(store.currentResults.map((result) => result.measure));
     }
   }, [setSelectedMeasures, store.currentResults]);
+
+  const workingList = [];
+  store.results.forEach((item) => workingList.push(item.measure));
+  const measureList = Array.from(new Set(workingList));
+  const colorMap = measureList.map((item, index) => ({
+    measure: item,
+    color: index <= 10 ? colorArray[index] : colorArray[index % 10],
+  }))
 
   const handleTabChange = (event, index) => {
     setTabValue(index);
@@ -48,7 +69,7 @@ function D3Container({ dashboardState, dashboardActions, store }) {
       setDisplayData(newDisplayData);
     } else {
       setSelectedMeasures(selectedMeasures.filter((result) => result !== event.target.value));
-      setDisplayData(store.results.filter((result) => result.measure !== event.target.value));
+      setDisplayData(displayData.filter((result) => result.measure !== event.target.value));
     }
   };
 
@@ -119,12 +140,16 @@ function D3Container({ dashboardState, dashboardActions, store }) {
             />
           </Grid>
           <Grid item>
-            <D3Chart displayData={displayData} />
+            <D3Chart
+              displayData={displayData}
+              colorMapping={colorMap}
+            />
           </Grid>
         </Grid>
         <MeasureResultsTable
           currentResults={store.currentResults}
           handleMeasureChange={handleMeasureChange}
+          colorMapping={colorMap}
         />
       </TabPanel>
     </div>

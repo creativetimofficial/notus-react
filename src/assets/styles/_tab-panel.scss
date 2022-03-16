@@ -1,0 +1,9 @@
+$block-class: 'tab-panel';
+
+@at-root {
+    .#{$block-class} {
+        &__box {
+            padding: 24px;
+        }
+    }
+}
