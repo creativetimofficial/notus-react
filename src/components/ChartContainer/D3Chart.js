@@ -123,7 +123,7 @@ function D3Chart({ displayData, colorMapping }) {
       const dateDisplay = `Date: ${event.srcElement.__data__[index].date.split('T')[0]}`;
 
       tooltip.text(`${measureDisplay} \n ${valueDisplay} \n ${dateDisplay}`);
-      const {color} = colorMapping
+      const { color } = colorMapping
         .find((mapping) => mapping.measure === event.target.__data__[0].measure)
       return tooltip
         .attr('data-html', 'true')
