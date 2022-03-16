@@ -16,6 +16,8 @@ function ChartBar({ filterDrawerOpen, toggleFilterDrawer }) {
     toggleFilterDrawer(!filterDrawerOpen);
   };
 
+  const displayMvp = (`${process.env.REACT_APP_MVP_SETTING}` === 'true') ? 'none' : 'block';
+
   return (
     <Box>
       <Grid container direction="row" justifyContent="flex-end" spacing={0.1}>
@@ -29,18 +31,22 @@ function ChartBar({ filterDrawerOpen, toggleFilterDrawer }) {
           </Button>
         </Grid>
         <Grid item sx={buttonStyling}>
-          <Button disabled key="d3-options" color="black" variant="text" startIcon={<TuneIcon />}>
-            <Typography variant="caption">
-              Options
-            </Typography>
-          </Button>
+          <Box sx={{ display: displayMvp }}>
+            <Button disabled key="d3-options" color="black" variant="text" startIcon={<TuneIcon />}>
+              <Typography variant="caption">
+                Options
+              </Typography>
+            </Button>
+          </Box>
         </Grid>
         <Grid item sx={buttonStyling}>
-          <Button disabled key="d3-export" color="black" variant="text" startIcon={<SimCardDownloadIcon />}>
-            <Typography variant="caption">
-              Export
-            </Typography>
-          </Button>
+          <Box sx={{ display: displayMvp }}>
+            <Button disabled key="d3-export" color="black" variant="text" startIcon={<SimCardDownloadIcon />}>
+              <Typography variant="caption">
+                Export
+              </Typography>
+            </Button>
+          </Box>
         </Grid>
         <Grid item sx={buttonStyling}>
           <Button

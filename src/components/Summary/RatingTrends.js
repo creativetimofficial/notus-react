@@ -10,6 +10,8 @@ import {
 
 const starsTip = 'Star rating subject to change depending on measures and other resources. For more information, please contact NCQA.';
 
+const displayMvp = (`${process.env.REACT_APP_MVP_SETTING}` === 'true') ? 'none' : 'flex';
+
 function RatingTrends({ activeMeasure }) {
   return (
     <Box className="rating-trends">
@@ -70,7 +72,7 @@ function RatingTrends({ activeMeasure }) {
             </Typography>
           </Grid>
         </Box>
-        <Box className="rating-trends__button-panel">
+        <Box className="rating-trends__button-panel" sx={{ display: displayMvp }}>
           <Button
             className="rating-trends__view-rating-details-button"
           >
