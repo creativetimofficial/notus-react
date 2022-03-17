@@ -24,7 +24,8 @@ function D3Chart({ displayData, colorMapping }) {
     bottom: 75,
     left: 30,
   };
-  const width = (window.innerWidth || document.body.clientWidth) - 100;
+  const windowWidth = window.innerWidth || document.body.clientWidth;
+  const width = windowWidth - windowWidth / 8;
   const height = 500;
   const tickCount = displayData.length / measureList.length;
 
@@ -33,6 +34,24 @@ function D3Chart({ displayData, colorMapping }) {
     const dividedDate = dateSplit.split('-');
 
     return `Date: ${dividedDate[1]}-${dividedDate[2]}-${dividedDate[0]}`;
+  }
+  function MeasureFormatter(measureToFormat) {
+    const lastLetterInString = measureToFormat.charAt(
+      measureToFormat.length - 1
+    );
+    const splitMeasure = measureToFormat.split('e')[0];
+    const compositeMeasure = `Measure: ${measureToFormat.toUpperCase()}`;
+    const regularMeasure = `Measure: ${measureToFormat.toUpperCase()}`;
+    const measureWithE = `Measure: ${splitMeasure.toUpperCase() + '-E'}`;
+    if (measureToFormat === 'composite') {
+      return compositeMeasure;
+    }
+    if (measureToFormat !== 'composite' && lastLetterInString == 'e') {
+      return measureWithE;
+    }
+    if (measureToFormat !== 'composite' && lastLetterInString !== 'e') {
+      return regularMeasure;
+    }
   }
   useEffect(() => {
     // Clear previous SVG
@@ -51,7 +70,7 @@ function D3Chart({ displayData, colorMapping }) {
       // What data we're measuring
       .domain(d3.extent(displayData, (d) => parseDate(d.date.split('T')[0])))
       // The 'width' of the data
-      .range([0, width + margin.left]);
+      .range([0, width]);
 
     // X Axis labels and context
     svg
@@ -121,13 +140,11 @@ function D3Chart({ displayData, colorMapping }) {
     const toolTipGenerator = (event) => {
       d3.select(event.currentTarget).attr('opacity', '1');
       JSON.stringify(event);
-      console.log(event);
-      const tickWidth = (window.innerWidth + 64) / tickCount;
-      const index = Math.round((event.offsetX - tickWidth / 2) / tickWidth);
-
-      const measureDisplay = `Measure: ${event.srcElement.__data__[
-        index
-      ].measure.toUpperCase()}`;
+      const tickWidth = width / tickCount + margin.left * 0.3;
+      const index = Math.floor((event.offsetX - margin.left) / tickWidth);
+      const measureDisplay = MeasureFormatter(
+        event.srcElement.__data__[index].measure
+      );
       const valueDisplay = `Value: ${
         Math.round(event.srcElement.__data__[index].value * 100) / 100
       }`;
