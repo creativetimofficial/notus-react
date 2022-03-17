@@ -28,6 +28,12 @@ function D3Chart({ displayData, colorMapping }) {
   const height = 500;
   const tickCount = displayData.length / measureList.length;
 
+  function TimeFormatter(dateToFormat) {
+    const dateSplit = dateToFormat.split('T')[0];
+    const dividedDate = dateSplit.split('-');
+
+    return `Date: ${dividedDate[1]}-${dividedDate[2]}-${dividedDate[0]}`;
+  }
   useEffect(() => {
     // Clear previous SVG
     d3.select(D3LineChart.current).selectAll('*').remove();
@@ -53,7 +59,7 @@ function D3Chart({ displayData, colorMapping }) {
       .attr('transform', `translate(0,${height - margin.bottom})`)
       .attr('class', 'd3-chart__dates')
       .call(
-        d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%b %d')),
+        d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%b %d'))
       );
 
     // Generates Label and context for y axis
@@ -115,23 +121,30 @@ function D3Chart({ displayData, colorMapping }) {
     const toolTipGenerator = (event) => {
       d3.select(event.currentTarget).attr('opacity', '1');
       JSON.stringify(event);
-      console.log(event)
+      console.log(event);
       const tickWidth = (window.innerWidth + 64) / tickCount;
       const index = Math.round((event.offsetX - tickWidth / 2) / tickWidth);
-      const measureDisplay = `Measure: ${event.srcElement.__data__[index].measure.toUpperCase()}`;
-      const valueDisplay = `Value: ${Math.round(event.srcElement.__data__[index].value * 100) / 100}`;
-      const dateDisplay = `Date: ${event.srcElement.__data__[index].date.split('T')[0]}`;
+
+      const measureDisplay = `Measure: ${event.srcElement.__data__[
+        index
+      ].measure.toUpperCase()}`;
+      const valueDisplay = `Value: ${
+        Math.round(event.srcElement.__data__[index].value * 100) / 100
+      }`;
+
+      const dateDisplay = TimeFormatter(event.srcElement.__data__[index].date);
 
       tooltip.text(`${measureDisplay} \n ${valueDisplay} \n ${dateDisplay}`);
-      const { color } = colorMapping
-        .find((mapping) => mapping.measure === event.target.__data__[0].measure)
+      const { color } = colorMapping.find(
+        (mapping) => mapping.measure === event.target.__data__[0].measure
+      );
       return tooltip
         .attr('data-html', 'true')
         .style('background-color', color)
         .style('visibility', 'visible')
         .style('top', `${event.pageY - 10}px`)
         .style('left', `${event.pageX + 10}px`);
-    }
+    };
 
     // Iterates through an array variation.
     if (measureList.length > 0) {
@@ -142,12 +155,15 @@ function D3Chart({ displayData, colorMapping }) {
           .attr('fill', 'none')
           .attr(
             'stroke',
-            colorMapping.find((mapping) => mapping.measure === measure).color,
+            colorMapping.find((mapping) => mapping.measure === measure).color
           )
           .attr('opacity', '.50')
           .attr('stroke-width', 5)
           .attr('d', line)
-          .on('mouseover', (event) => toolTipGenerator(event))
+          .on('mouseover', (event) => {
+            d3.select(event.currentTarget).attr('opacity', '1');
+            toolTipGenerator(event);
+          })
           .on('mousemove', (event) => toolTipGenerator(event))
           .on('mouseout', (event) => {
             d3.select(event.currentTarget).attr('opacity', '.50');
@@ -169,7 +185,7 @@ D3Chart.propTypes = {
     PropTypes.shape({
       measure: PropTypes.string,
       date: PropTypes.string,
-    }),
+    })
   ),
   colorMapping: colorMappingProps,
 };
