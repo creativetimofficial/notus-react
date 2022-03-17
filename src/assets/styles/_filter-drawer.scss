@@ -1,13 +1,30 @@
+@import 'colors';
+
 $block-class: 'filter-drawer';
 
 @at-root {
     .#{$block-class} {
         padding: 0 2.5rem;
 
+        &__title-panel {
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        & &__title {
+            margin: .5rem 0;
+            color: $default-gray;
+        }
+
         &__help {
-            color: grey;
+            color: $default-gray;
             margin-bottom: 0.3rem;
             margin-left: 0.5rem;
+        }
+
+        & &__close-icon {
+            margin: .75rem .4rem .2rem .2rem;
+            color: $default-gray;
         }
     }
 

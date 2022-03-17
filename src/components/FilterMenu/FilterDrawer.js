@@ -1,4 +1,3 @@
-import { ThemeProvider } from '@emotion/react';
 import CloseIcon from '@mui/icons-material/Close';
 import HelpIcon from '@mui/icons-material/Help';
 import {
@@ -6,7 +5,6 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import theme from '../../assets/styles/AppTheme';
 import FilterDrawerItem from './FilterDrawerItem';
 import filterDrawerItemData from './FilterDrawerItemData';
 
@@ -31,77 +29,72 @@ function FilterDrawer({
 
   const sliderValuetext = (value) => `${value}%`;
 
-  // Gotta figure something in here to deal with the filter application
-  const list = () => ( // anchor was here
-    <Box
-      className="filter-drawer"
-      role="presentation"
-      onKeyDown={toggleDrawer(false)}
-    >
-      <Grid container direction="row" justifyContent="space-between">
-        <Grid item>
-          <Typography sx={{ my: '20px' }} color="black.dark" variant="h6">Filters</Typography>
-        </Grid>
-        <Grid item>
-          <CloseIcon size="large" sx={{ m: '10px', mr: '20px' }} color="black" onClick={toggleDrawer(false)} />
-        </Grid>
-      </Grid>
-      <Grid container direction="column">
-        <Grid container item direction="column" sx={{ mt: '10px' }}>
-          <FilterDrawerItem filterItem={filterDrawerItemData.domainsOfCare} />
-          <Grid container item sx={{ mt: '10px' }} spacing={1} direction="row">
-            <Grid item>
-              <Typography color="black.dark" variant="body1">Percent Range:</Typography>
-            </Grid>
-            <Grid item>
-              <HelpIcon className="filter-drawer__help" />
-            </Grid>
-          </Grid>
-          <Grid item>
-            <Box sx={{ minwidth: '150px', ml: '10px' }}>
-              <Slider
-                getAriaLabel={() => 'Temperature range'}
-                value={percentSliderValue}
-                onChange={handleSliderChange}
-                valueLabelDisplay="auto"
-                getAriaValueText={sliderValuetext}
-                sx={{ color: 'blue.dark', width: '80%' }}
-              />
-            </Box>
-          </Grid>
-        </Grid>
-        <FilterDrawerItem filterItem={filterDrawerItemData.starRating} />
-        <Grid sx={{ mt: '30px' }} container justifyContent="space-evenly" alignItems="center" direction="row">
-          <Grid item>
-            <Button
-              className="filter-drawer__button"
-              onClick={toggleDrawer(false)}
-              variant="outlined"
-            >
-              Cancel
-            </Button>
-          </Grid>
-          <Grid item>
-            <Button
-              className="filter-drawer__apply-button"
-              variant="contained"
-              onChange={() => setCurrentFilters}
-            >
-              Apply Filters
-            </Button>
-          </Grid>
-        </Grid>
-      </Grid>
-    </Box>
-  );
-
   return (
     <Drawer
       anchor="right"
       open={filterDrawerOpen}
       onClose={toggleDrawer(false)}
     >
-      {list()}
+      <Box
+        className="filter-drawer"
+        role="presentation"
+        onKeyDown={toggleDrawer(false)}
+      >
+        <Grid container className="filter-drawer__title-panel">
+          <Grid item>
+            <Typography className="filter-drawer__title" variant="h6">Filters</Typography>
+          </Grid>
+          <Grid item className="filter-drawer__close-icon-panel">
+            <CloseIcon className="filter-drawer__close-icon" color="black" onClick={toggleDrawer(false)} />
+          </Grid>
+        </Grid>
+        <Grid container className="filter-drawer__items-panel" direction="column">
+          <Grid container item className="filter-drawer__options-panel" direction="column" sx={{ mt: '10px' }}>
+            <FilterDrawerItem filterItem={filterDrawerItemData.domainsOfCare} />
+            <Grid container item className="filter-drawer__slider-panel" sx={{ mt: '10px' }} spacing={1} direction="row">
+              <Grid item className="filter-drawer__slider-title">
+                <Typography color="black.dark" variant="body1">Percent Range:</Typography>
+              </Grid>
+              <Grid item className="filter-drawer__help-panel">
+                <HelpIcon className="filter-drawer__help" />
+              </Grid>
+            </Grid>
+            <Grid item className="filter-drawer__slider-panel">
+              <Box sx={{ minwidth: '150px', ml: '10px' }}>
+                <Slider
+                  getAriaLabel={() => 'Temperature range'}
+                  value={percentSliderValue}
+                  onChange={handleSliderChange}
+                  valueLabelDisplay="auto"
+                  getAriaValueText={sliderValuetext}
+                  sx={{ color: 'blue.dark', width: '80%' }}
+                />
+              </Box>
+            </Grid>
+          </Grid>
+          <FilterDrawerItem filterItem={filterDrawerItemData.starRating} />
+          <Grid className="filter-drawer__button-control-panel" sx={{ mt: '30px' }} container justifyContent="space-evenly" alignItems="center" direction="row">
+            <Grid item className="filter-drawer__button-panel">
+              <Button
+                className="filter-drawer__cancel-button"
+                onClick={toggleDrawer(false)}
+                variant="outlined"
+              >
+                Cancel
+              </Button>
+            </Grid>
+            <Grid item className="filter-drawer__button-panel">
+              <Button
+                className="filter-drawer__apply-button"
+                variant="contained"
+                onChange={() => setCurrentFilters}
+              >
+                Apply Filters
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Box>
     </Drawer>
   );
 }

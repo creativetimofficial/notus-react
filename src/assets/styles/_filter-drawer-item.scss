@@ -1,4 +1,5 @@
 @use 'filter-drawer';
+@import 'colors';
 
 $block-class: 'filter-drawer-item';
 
@@ -18,7 +19,7 @@ $block-class: 'filter-drawer-item';
         }
 
         & &__label {
-            color: #808080;
+            color: $default-gray;
         }
 
         &__help {
@@ -35,7 +36,7 @@ $block-class: 'filter-drawer-item';
         }
 
         & &__option-label {
-            color: #808080;
+            color: $default-gray;
             font-size: 0.75rem;
             line-height: 1.66;
             letter-spacing: 0.03333em;

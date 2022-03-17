@@ -12,16 +12,16 @@ function FilterDrawerItem({ filterItem }) {
   // const { filterFunction } = filterItem.filterFunction;
 
   return (
-    <Grid className="filter-drawer-item">
-      <Grid className="filter-drawer-item__section">
-        <Grid className="filter-drawer-item__row">
+    <Grid container item className="filter-drawer-item">
+      <Grid container item className="filter-drawer-item__section">
+        <Grid item className="filter-drawer-item__row">
           <Typography className="filter-drawer-item__label" variant="body1">
             {filterItemName}
             :
             {' '}
           </Typography>
         </Grid>
-        <Grid className="filter-drawer-item__row">
+        <Grid item className="filter-drawer-item__row">
           <Tooltip title={filterItemText}>
             <HelpIcon className="filter-drawer-item__help" />
           </Tooltip>
