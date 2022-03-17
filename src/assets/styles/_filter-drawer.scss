@@ -26,6 +26,31 @@ $block-class: 'filter-drawer';
             margin: .75rem .4rem .2rem .2rem;
             color: $default-gray;
         }
+        
+        & &__options-panel {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0.2rem;
+        }
+
+        & &__slider-panel {
+            margin-top: 0.6rem;
+            width: calc(100% + 1rem);
+        }
+
+        &__slider-label {
+            color: $default-gray;
+        }
+
+        & &__slider-body {
+            min-width: 9.5rem;
+            margin-left: 0.6rem;
+        }
+
+        & &__slider {
+            color: $dark-blue;
+            width: 80%;
+        }
     }
 
 }
