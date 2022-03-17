@@ -2,9 +2,12 @@ $block-class: 'filter-drawer';
 
 @at-root {
     .#{$block-class} {
+        padding: 0 2.5rem;
+
         &__help {
             color: grey;
             margin-bottom: 0.3rem;
+            margin-left: 0.5rem;
         }
     }
 

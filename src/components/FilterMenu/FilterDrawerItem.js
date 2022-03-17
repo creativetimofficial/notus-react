@@ -12,28 +12,28 @@ function FilterDrawerItem({ filterItem }) {
   // const { filterFunction } = filterItem.filterFunction;
 
   return (
-    <Grid container item direction="column" sx={{ mt: '10px' }}>
-      <Grid container item spacing={1} direction="row">
-        <Grid item>
-          <Typography color="black.dark" variant="body1">
+    <Grid className="filter-drawer-item">
+      <Grid className="filter-drawer-item__section">
+        <Grid className="filter-drawer-item__row">
+          <Typography className="filter-drawer-item__label" variant="body1">
             {filterItemName}
             :
             {' '}
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid className="filter-drawer-item__row">
           <Tooltip title={filterItemText}>
             <HelpIcon className="filter-drawer-item__help" />
           </Tooltip>
         </Grid>
       </Grid>
-      <FormGroup sx={{ ml: '10px' }}>
+      <FormGroup className="filter-drawer-item__options">
         {filterDrawerOptions.map((option) => (
           <FormControlLabel
             key={`filter-drawer-item-option-${option}`}
-            componentsProps={{ typography: { color: 'black.dark', variant: 'caption' } }}
+            componentsProps={{ typography: { className: 'filter-drawer-item__option-label' } }}
             control={
-              <Checkbox size="small" color="primary" />
+              <Checkbox className="filter-drawer-item__option-checkbox" />
             }
             label={option}
           />

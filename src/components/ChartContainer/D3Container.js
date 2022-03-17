@@ -41,10 +41,10 @@ function D3Container({ dashboardState, dashboardActions, store }) {
   const measureList = Array.from(new Set(workingList));
 
   useEffect(() => {
-    if (measureList !== undefined) {
-      setSelectedMeasures(measureList);
+    if (store.currentResults !== undefined) {
+      setSelectedMeasures(store.currentResults.map((result) => result.measure));
     }
-  }, [setSelectedMeasures, measureList]);
+  }, [setSelectedMeasures, store.currentResults]);
 
   const colorMap = measureList.map((item, index) => ({
     measure: item,
