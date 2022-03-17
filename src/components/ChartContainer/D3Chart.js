@@ -140,17 +140,16 @@ function D3Chart({ displayData, colorMapping }) {
     const toolTipGenerator = (event) => {
       d3.select(event.currentTarget).attr('opacity', '1');
       JSON.stringify(event);
-      const tickWidth = width / tickCount + margin.left * 0.3;
+      const avg30 = margin.left * 0.3;
+      const tickWidth = Math.floor(width / tickCount + avg30);
       const index = Math.floor((event.offsetX - margin.left) / tickWidth);
       const measureDisplay = MeasureFormatter(
         event.srcElement.__data__[index].measure
       );
       const valueDisplay = `Value: ${
-        Math.round(event.srcElement.__data__[index].value * 100) / 100
+        Math.floor(event.srcElement.__data__[index].value * 100) / 100
       }`;
-
       const dateDisplay = TimeFormatter(event.srcElement.__data__[index].date);
-
       tooltip.text(`${measureDisplay} \n ${valueDisplay} \n ${dateDisplay}`);
       const { color } = colorMapping.find(
         (mapping) => mapping.measure === event.target.__data__[0].measure

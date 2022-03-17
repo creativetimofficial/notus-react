@@ -18,10 +18,10 @@ $AXIS_LABEL_COLOR: #b0bec5;
       color: green;
     }
     &__x-axis {
+      display: none;
     }
     &__y-axis {
       color: $YAXIS_LINE_COLOR;
-      display: none;
     }
     &__dates {
       color: $AXIS_LABEL_COLOR;
