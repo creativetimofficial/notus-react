@@ -4,6 +4,7 @@ $block-class: 'banner';
     .#{$block-class} {
         text-align: left;
         margin: 0 1rem 0 1rem;
+        color: #455A64;
 
         & &__header {
             margin: 1rem 0;
