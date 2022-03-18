@@ -21,7 +21,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
     top: 50,
     right: 30,
     bottom: 75,
-    left: 30,
+    left: 40,
   };
   const box = document.querySelector('.MuiGrid-item');
   const widthBase = (window.innerWidth || document.body.clientWidth);

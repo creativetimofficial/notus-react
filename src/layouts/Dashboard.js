@@ -76,9 +76,6 @@ export default function Dashboard() {
                   />
                 </Item>
               </Grid>
-              <Grid item xs={12}>
-                <Item>Reports</Item>
-              </Grid>
             </Grid>
           </Box>
         </Paper>
