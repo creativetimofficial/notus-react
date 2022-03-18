@@ -1,6 +1,6 @@
 const domainsOfCare = {
   name: 'Domains of Care',
-  text: 'Sample Text Re: domains of care',
+  tip: 'We only support Effectiveness of Care and Electronic Clinical Data System measures at the moment.',
   options: [
     'Electronic Clinical Data System',
     'Effectiveness of Care',
@@ -14,28 +14,28 @@ const domainsOfCare = {
 
 const starRating = {
   name: 'Star Rating',
-  text: 'Sample Text Re: Star Ratings',
+  tip: 'Each star rating also includes the half star. So 2 Stars would also cover 2.5 stars.',
   options: ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars'],
   values: ['1', '2', '3', '4', '5'],
 }
 
 const ncqaBonus = {
   name: 'NCQA Accreditation Bonus',
-  text: 'Sample Text Re: NCQA',
+  tip: 'Coming soon.',
   options: ['Accredited/Provisional', 'Interim', 'In-Process', 'Scheduled', 'None'],
   values: ['accredited', 'interim', 'inprocess', 'scheduled', 'none'],
 }
 
 const measureTypes = {
   name: 'Measure Types',
-  text: 'Sample Text Re: Measures',
+  tip: 'Coming soon.',
   options: ['Process', 'Outcome', 'Patient Experience (CPA,CPC)'],
   values: ['process', 'outcome', 'experience'],
 }
 
 const subMeasures = {
   name: 'Sub-Measures',
-  text: 'Sample Text Re: submeasures',
+  tip: 'Coming soon.',
   options: ['Show ONLY scores with sub or child measures'],
 }
 

@@ -17,7 +17,7 @@ function FilterDrawerItem({ filterItem, filterAction }) {
           </Typography>
         </Grid>
         <Grid item className="filter-drawer-item__row">
-          <Tooltip title={filterItem.text}>
+          <Tooltip title={filterItem.tip}>
             <HelpIcon className="filter-drawer-item__help" />
           </Tooltip>
         </Grid>
@@ -45,7 +45,7 @@ function FilterDrawerItem({ filterItem, filterAction }) {
 FilterDrawerItem.propTypes = {
   filterItem: PropTypes.shape({
     name: PropTypes.string,
-    text: PropTypes.string,
+    tip: PropTypes.string,
     values: PropTypes.arrayOf(
       PropTypes.oneOfType([
         PropTypes.string,
@@ -60,7 +60,7 @@ FilterDrawerItem.propTypes = {
 FilterDrawerItem.defaultProps = {
   filterItem: {
     name: '',
-    text: '',
+    tip: '',
     options: [],
     values: [],
   },

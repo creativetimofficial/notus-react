@@ -49,8 +49,11 @@ $block-class: 'filter-drawer';
         }
 
         & &__slider {
-            color: $dark-blue;
+            color: $blue-light;
             width: 80%;
+            .MuiSlider-markLabelActive {
+                color: $gray-light;
+            }
         }
 
         & &__button-control-panel {
