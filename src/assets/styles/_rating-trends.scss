@@ -6,18 +6,13 @@ $block-class: 'rating-trends';
         flex-direction: column;
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
+        color: #546E7A;
 
         & &__h2-header {
             font-weight: 600;
             text-align: left;
             margin: 1rem 0rem 0.5rem 1rem;
             font-size: 2.25rem;
-        }
-
-        & &__summary {
-            text-align: left;
-            margin: 1rem 0rem 0.5rem 1rem;
-            font-size: 1.25rem;
         }
 
         &__display-box {
@@ -31,8 +26,24 @@ $block-class: 'rating-trends';
         }
 
         &__panel {
-            height: 9rem;
-            width: 25%;
+            height: 11rem;
+            border: 1px solid #B0BEC5;
+            border-radius: .75rem;
+            text-align: center;
+            margin: 1rem;
+            padding: 1rem;
+
+            &__width-25 {
+                width: 25%;
+            }
+    
+            &__width-50 {
+                width: 50%;
+            }
+    
+            &__hide {
+                display: none;
+            }
         }
 
         &__header-align {
@@ -43,13 +54,18 @@ $block-class: 'rating-trends';
         & &__h3-header {
             text-align: center;
             font-weight: 600;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            height: 46px;
         }
 
         &__help {
-            color: grey;
-            margin-left: 0.5rem;
-            margin-top: 0.3rem;
+            color: #CFDFDC;
+            margin-left: 0.4rem;
+            margin-top: 0.1rem;
+
+            &:hover {
+                color: #1976D2;
+            }
         }
         
         & &__star-rating {
@@ -58,8 +74,7 @@ $block-class: 'rating-trends';
         } // Because there are multiple spans beneath this, be specific.
 
         & &__star-rating-label {
-            margin-top: 0.5rem;
-            font-size: 1.2rem;
+            margin-top: 0.4rem;
         }
 
         &__border {
@@ -84,9 +99,22 @@ $block-class: 'rating-trends';
             border-radius: 0.25rem;
         }
 
-        & &__coming-soon {
+        & &__percent-change {
             margin-top: 1rem;
-            font-size: 1.2rem;
+            font-size: 2.5rem;
+            font-weight: 500;
+
+            &__positive {
+                color: #2E7D32;
+            }
+
+            &__negative {
+                color: #C62828;
+            }
+
+            &__hide {
+                display: none;
+            }
         }
     }
 }

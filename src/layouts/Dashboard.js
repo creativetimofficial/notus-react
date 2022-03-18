@@ -25,7 +25,7 @@ const Item = styled(Paper)(() => ({
 }));
 
 export default function Dashboard() {
-  const { datastore } = useContext(DatastoreContext); // Leave it. I'll need it next ticket.
+  const { datastore } = useContext(DatastoreContext);
   const [filterDrawerOpen, toggleFilterDrawer] = useState(false);
   const [activeMeasure, setActiveMeasure] = useState({});
 
@@ -54,20 +54,18 @@ export default function Dashboard() {
           className="dashboard__paper"
           sx={{
             padding: 4,
-            height: '90vh',
-            background: theme.palette.background.main,
             mb: '20px',
           }}
         >
           <Box sx={{ flexGrow: 2 }}>
             <Grid container spacing={4}>
               <Grid item sm={12} sx={{ bgColor: grey }}>
-                <Item>
-                  <Banner />
-                  <RatingTrends
-                    activeMeasure={activeMeasure}
-                  />
-                </Item>
+                <Banner />
+                <RatingTrends
+                  activeMeasure={activeMeasure}
+                  trends={datastore.trends}
+                  info={datastore.info}
+                />
               </Grid>
               <Grid item xs={12}>
                 <Item>
