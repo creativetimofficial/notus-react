@@ -10,8 +10,6 @@ import {
 
 const starsTip = 'Star rating subject to change depending on measures and other resources. For more information, please contact NCQA.';
 
-const displayMvp = (`${process.env.REACT_APP_MVP_SETTING}` === 'true') ? 'none' : 'flex';
-
 function RatingTrends({ activeMeasure, trends, info }) {
   const mainTrend = { measure: '', percentChange: '' };
   const biggestGain = { measure: '', percentChange: '' };
@@ -135,12 +133,17 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
           </Typography>
         </Grid>
       </Box>
-      <Box className="rating-trends__button-panel" sx={{ display: displayMvp }}>
+      <Box className="rating-trends__button-panel">
+        {
+          process.env.REACT_APP_MVP_SETTING === 'false'
+        && (
         <Button
           className="rating-trends__view-rating-details-button"
         >
           View Rating Details
         </Button>
+        )
+        }
       </Box>
     </Box>
   </Box>
