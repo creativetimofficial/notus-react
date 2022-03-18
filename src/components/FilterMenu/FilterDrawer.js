@@ -69,7 +69,7 @@ function FilterDrawer({
             />
           </Grid>
           <FilterDrawerItem filterItem={filterDrawerItemData.starRating} />
-          <Grid className="filter-drawer__button-control-panel" sx={{ mt: '30px' }} container justifyContent="space-evenly" alignItems="center" direction="row">
+          <Grid container className="filter-drawer__button-control-panel">
             <Grid item className="filter-drawer__button-panel">
               <Button
                 className="filter-drawer__cancel-button"

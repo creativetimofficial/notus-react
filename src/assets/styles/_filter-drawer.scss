@@ -51,6 +51,13 @@ $block-class: 'filter-drawer';
             color: $dark-blue;
             width: 80%;
         }
+
+        & &__button-control-panel {
+            display: flex;
+            align-items: center;
+            margin-top: 1.9rem;
+            justify-content: space-evenly;
+        }
     }
 
 }
