@@ -18,9 +18,13 @@ $block-class: 'filter-drawer';
         }
 
         &__help {
-            color: $default-gray;
+            color: $gray-light;
             margin-bottom: 0.3rem;
             margin-left: 0.5rem;
+
+            &:hover {
+                color: $blue-light;
+            }
         }
 
         & &__close-icon {
