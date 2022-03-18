@@ -134,11 +134,16 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
         </Grid>
       </Box>
       <Box className="rating-trends__button-panel">
+        {
+          process.env.REACT_APP_MVP_SETTING === 'false'
+        && (
         <Button
           className="rating-trends__view-rating-details-button"
         >
           View Rating Details
         </Button>
+        )
+        }
       </Box>
     </Box>
   </Box>
