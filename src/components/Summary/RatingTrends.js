@@ -56,14 +56,14 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
     <Box className="rating-trends__display-box">
       <Box className="rating-trends__panel-box">
         <Grid className={`rating-trends__panel 
-          ${renderOptions.displayAll ? 'rating-trends__width-25' : 'rating-trends__width-50'}`}
+          ${renderOptions.displayAll ? 'rating-trends__panel__width-25' : 'rating-trends__panel__width-50'}`}
         >
           <Grid className="rating-trends__header-align">
             <Typography variant="h3" className="rating-trends__h3-header">
               Star Rating
             </Typography>
             <ToolTip title={starsTip}>
-              <HelpIcon className="rating-trends__help" />
+              <HelpIcon className="rating-trends__help" fontSize="small" />
             </ToolTip>
           </Grid>
           <Rating
@@ -77,9 +77,8 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
             {activeMeasure.label && `(${activeMeasure.label})`}
           </Typography>
         </Grid>
-        {/* <Box className="rating-trends__border" /> */}
         <Grid className={`rating-trends__panel 
-          ${renderOptions.displayAll ? 'rating-trends__width-25' : 'rating-trends__width-50'}`}
+          ${renderOptions.displayAll ? 'rating-trends__panel__width-25' : 'rating-trends__panel__width-50'}`}
         >
           <Typography variant="h3" className="rating-trends__h3-header">
             { mainTrend.measure }
@@ -90,11 +89,14 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
             ? 'rating-trends__percent-change__positive' : 'rating-trends__percent-change__negative'}`}
           >
             { mainTrend.percentChange }
+            %
+          </Typography>
+          <Typography>
+            (over the past week)
           </Typography>
         </Grid>
-        {/* <Box className={renderOptions.displayAll ? 'rating-trends__border' : ''} /> */}
-        <Grid className={`rating-trends__panel rating-trends__width-25 
-          ${renderOptions.displayAll ? '' : 'rating-trends__panel-hide'}`}
+        <Grid className={`rating-trends__panel rating-trends__panel__width-25 
+          ${renderOptions.displayAll ? '' : 'rating-trends__panel__hide'}`}
         >
           <Typography variant="h3" className="rating-trends__h3-header">
             { renderOptions.biggestGain.measure }
@@ -105,12 +107,15 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
             ? 'rating-trends__percent-change__positive' : 'rating-trends__percent-change__negative'}`}
           >
             { renderOptions.biggestGain.percentChange }
+            %
           </Typography>
 
+          <Typography>
+            (over the past week)
+          </Typography>
         </Grid>
-        {/* <Box className={renderOptions.displayAll ? 'rating-trends__border' : ''} /> */}
-        <Grid className={`rating-trends__panel rating-trends__width-25 
-          ${renderOptions.displayAll ? '' : 'rating-trends__panel-hide'}`}
+        <Grid className={`rating-trends__panel rating-trends__panel__width-25 
+          ${renderOptions.displayAll ? '' : 'rating-trends__panel__hide'}`}
         >
           <Typography variant="h3" className="rating-trends__h3-header">
             { renderOptions.biggestLoss.measure }
@@ -121,6 +126,10 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
             ? 'rating-trends__percent-change__positive' : 'rating-trends__percent-change__negative'}`}
           >
             { renderOptions.biggestLoss.percentChange }
+            %
+          </Typography>
+          <Typography>
+            (over the past week)
           </Typography>
         </Grid>
       </Box>

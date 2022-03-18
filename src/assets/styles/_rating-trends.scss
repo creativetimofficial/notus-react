@@ -26,21 +26,24 @@ $block-class: 'rating-trends';
         }
 
         &__panel {
-            height: 9rem;
+            height: 11rem;
             border: 1px solid #B0BEC5;
+            border-radius: .75rem;
             text-align: center;
-        }
+            margin: 1rem;
+            padding: 1rem;
 
-        &__width-25 {
-            width: 25%;
-        }
-
-        &__width-50 {
-            width: 50%;
-        }
-
-        &__panel-hide {
-            display: none;
+            &__width-25 {
+                width: 25%;
+            }
+    
+            &__width-50 {
+                width: 50%;
+            }
+    
+            &__hide {
+                display: none;
+            }
         }
 
         &__header-align {
@@ -52,12 +55,17 @@ $block-class: 'rating-trends';
             text-align: center;
             font-weight: 600;
             font-size: 1.25rem;
+            height: 46px;
         }
 
         &__help {
-            color: grey;
-            margin-left: 0.5rem;
-            margin-top: 0.3rem;
+            color: #CFDFDC;
+            margin-left: 0.4rem;
+            margin-top: 0.1rem;
+
+            &:hover {
+                color: #1976D2;
+            }
         }
         
         & &__star-rating {
@@ -66,8 +74,7 @@ $block-class: 'rating-trends';
         } // Because there are multiple spans beneath this, be specific.
 
         & &__star-rating-label {
-            margin-top: 0.5rem;
-            font-size: 1.2rem;
+            margin-top: 0.4rem;
         }
 
         &__border {
@@ -95,13 +102,18 @@ $block-class: 'rating-trends';
         & &__percent-change {
             margin-top: 1rem;
             font-size: 2.5rem;
+            font-weight: 500;
 
             &__positive {
                 color: #2E7D32;
             }
-            
+
             &__negative {
                 color: #C62828;
+            }
+
+            &__hide {
+                display: none;
             }
         }
     }
