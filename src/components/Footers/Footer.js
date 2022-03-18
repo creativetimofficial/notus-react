@@ -27,7 +27,7 @@ export default function Footer() {
             <ul className="footer__right-items">
               <li>
                 <a
-                  href="https://www.amida.com/what/index.html"
+                  href="https://www.amida.com"
                   className="footer__text footer__text__right"
                 >
                   About Us
