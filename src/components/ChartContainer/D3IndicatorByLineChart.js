@@ -16,7 +16,9 @@ function D3IndicatorByLineChart({ byLineDisplayData }) {
     bottom: 75,
     left: 30,
   };
-  const width = (window.innerWidth || document.body.clientWidth) - 100;
+  const box = document.querySelector('.MuiGrid-item');
+  const widthBase = (window.innerWidth || document.body.clientWidth);
+  const width = box === null ? (widthBase * 0.8) : box.offsetWidth - 200;
   const height = 500;
   const tickCount = byLineDisplayData.length;
 
@@ -35,14 +37,11 @@ function D3IndicatorByLineChart({ byLineDisplayData }) {
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     // Generates labels and context for x axis
-    const x = d3
-      .scaleTime()
-      // What data we're measuring
-      .domain(
-        d3.extent(byLineDisplayData, (d) => parseDate(d.date.split('T')[0])),
-      )
-      // The 'width' of the data
-      .range([0, width + margin.left]);
+    const x = d3.scaleTime()
+    // What data we're measuring
+      .domain(d3.extent(byLineDisplayData, (d) => parseDate(d.date.split('T')[0])))
+    // The 'width' of the data
+      .range([0, width]);
 
     // X Axis labels and context
     svg
