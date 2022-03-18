@@ -23,8 +23,9 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
     bottom: 75,
     left: 30,
   };
-  const windowWidth = window.innerWidth || document.body.clientWidth;
-  const width = windowWidth - windowWidth / 8;
+  const box = document.querySelector('.MuiGrid-item');
+  const widthBase = (window.innerWidth || document.body.clientWidth);
+  const width = box === null ? (widthBase * 0.8) : box.offsetWidth - 200;
   const height = 500;
   const tickCount = displayData.length / measureList.length;
 
@@ -47,9 +48,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     // Generates labels and context for x axis
-    const x = d3
-      .scaleTime()
-      // What data we're measuring
+    const x = d3.scaleTime() // What data we're measuring
       .domain(d3.extent(displayData, (d) => parseDate(d.date.split('T')[0])))
       // The 'width' of the data
       .range([0, width]);
