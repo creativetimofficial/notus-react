@@ -23,7 +23,7 @@ function D3Chart({ displayData, colorMapping }) {
     left: 30,
   };
   const widthBase = (window.innerWidth || document.body.clientWidth);
-  const width = widthBase - widthBase / 8;
+  const width = widthBase - widthBase / 6;
   const height = 500;
   const tickCount = displayData.length / measureList.length;
 
