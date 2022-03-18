@@ -1,14 +1,51 @@
 $block-class: 'd3-chart';
 
-@at-root {
-    .#{$block-class} {
-        width: 80vw;
+$YAXIS_LINE_COLOR: #cfd8dc;
+$AXIS_LABEL_COLOR: #b0bec5;
 
-        &__line-chart {
-            height: 500px;
-            width: 90vw;
-            background-color: #fff;
-            // transform: translate(30px, 50px);
-        }
+@at-root {
+  .#{$block-class} {
+    width: 80vw;
+
+    &__line-chart {
+      height: 500px;
+      width: 90vw;
+      background-color: #fff;
+      // transform: translate(30px, 50px);
     }
+
+    &__line {
+      color: green;
+    }
+    &__x-axis {
+      display: none;
+    }
+    &__y-axis {
+      color: $YAXIS_LINE_COLOR;
+    }
+    &__dates {
+      color: $AXIS_LABEL_COLOR;
+
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+    &__tooltip {
+      position: absolute;
+      z-index: 10;
+      visibility: hidden;
+      background: grey;
+      border: 1px solid black;
+      color: white;
+      padding: 5px 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 10px;
+      visibility: hidden;
+      white-space: pre-line;
+    }
+    &__overlay {
+      fill: none;
+      pointer-events: all;
+    }
+  }
 }
