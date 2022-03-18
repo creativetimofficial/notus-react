@@ -24,7 +24,8 @@ function FilterDrawer({
   const [domainOfCareChoices, setDomainOfCareChoices] = useState([]);
 
   const toggleDrawer = (open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')
+    ) {
       return;
     }
     toggleFilterDrawer(open);
