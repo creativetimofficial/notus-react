@@ -39,11 +39,10 @@ function D3Chart({ displayData, colorMapping }) {
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     // Generates labels and context for x axis
-    const x = d3.scaleTime()
-      // What data we're measuring
+    const x = d3.scaleTime() // What data we're measuring
       .domain(d3.extent(displayData, (d) => parseDate(d.date.split('T')[0])))
       // The 'width' of the data
-      .range([0, width + margin.left]);
+      .range([0, width]);
 
     // X Axis labels and context
     svg.append('g')

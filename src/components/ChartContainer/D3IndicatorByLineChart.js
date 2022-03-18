@@ -37,7 +37,7 @@ function D3IndicatorByLineChart({ byLineDisplayData }) {
     // What data we're measuring
       .domain(d3.extent(byLineDisplayData, (d) => parseDate(d.date.split('T')[0])))
     // The 'width' of the data
-      .range([0, width + margin.left]);
+      .range([0, width]);
 
     // X Axis labels and context
     svg.append('g')
