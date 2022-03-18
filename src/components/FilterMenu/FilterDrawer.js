@@ -42,7 +42,7 @@ function FilterDrawer({
     if (event.target.checked) {
       setDomainOfCareChoices(domainOfCareChoices.concat(event.target.value));
     } else {
-      setDomainOfCareChoices(domainOfCareChoices.filter((star) => star !== event.target.value));
+      setDomainOfCareChoices(domainOfCareChoices.filter((doc) => doc !== event.target.value));
     }
   }
 
@@ -52,10 +52,12 @@ function FilterDrawer({
 
   const handleApplyFilter = () => {
     setCurrentFilters({
-      domainOfCare: domainOfCareChoices,
+      ...currentFilters,
+      domainsOfCare: domainOfCareChoices,
       stars: starChoices,
       percentRange: percentSliderValue,
     });
+    toggleFilterDrawer(false);
   }
 
   const sliderValuetext = (value) => `${value}%`;
@@ -83,6 +85,7 @@ function FilterDrawer({
           <FilterDrawerItem
             filterItem={filterDrawerItemData.domainsOfCare}
             filterAction={handleDomainOfCareChange}
+            currentFilter={currentFilters.domainsOfCare}
           />
           <Grid container item className="filter-drawer__slider-panel">
             <Grid item className="filter-drawer__slider-title">
@@ -97,6 +100,7 @@ function FilterDrawer({
           <Grid item className="filter-drawer__slider-body">
             <Slider
               getAriaLabel={() => 'Measurement percentage range'}
+              defaultValue={currentFilters.percentRange}
               value={percentSliderValue}
               onChange={handleSliderChange}
               valueLabelDisplay="auto"
@@ -109,6 +113,7 @@ function FilterDrawer({
           <FilterDrawerItem
             filterItem={filterDrawerItemData.starRating}
             filterAction={handleStarChange}
+            currentFilter={currentFilters.stars}
           />
           <Grid container className="filter-drawer__button-control-panel">
             <Grid item className="filter-drawer__button-panel">
@@ -124,7 +129,7 @@ function FilterDrawer({
               <Button
                 className="filter-drawer__apply-button"
                 variant="contained"
-                onChange={handleApplyFilter}
+                onClick={handleApplyFilter}
               >
                 Apply Filters
               </Button>
@@ -138,18 +143,18 @@ function FilterDrawer({
 
 FilterDrawer.propTypes = {
   filterDrawerOpen: PropTypes.bool,
-  currentFilters: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string,
-    }),
-  ),
+  currentFilters: PropTypes.shape({
+    domainsOfCare: PropTypes.arrayOf(PropTypes.string),
+    stars: PropTypes.arrayOf(PropTypes.string),
+    percentRange: PropTypes.arrayOf(PropTypes.number),
+  }),
   toggleFilterDrawer: PropTypes.func,
   setCurrentFilters: PropTypes.func,
 };
 
 FilterDrawer.defaultProps = {
   filterDrawerOpen: false,
-  currentFilters: [],
+  currentFilters: {},
   toggleFilterDrawer: undefined,
   setCurrentFilters: undefined,
 }

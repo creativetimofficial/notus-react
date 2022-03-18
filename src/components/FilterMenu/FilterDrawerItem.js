@@ -5,7 +5,7 @@ import {
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function FilterDrawerItem({ filterItem, filterAction }) {
+function FilterDrawerItem({ filterItem, currentFilter, filterAction }) {
   return (
     <Grid container item className="filter-drawer-item">
       <Grid container item className="filter-drawer-item__section">
@@ -30,6 +30,7 @@ function FilterDrawerItem({ filterItem, filterAction }) {
             control={(
               <Checkbox
                 value={filterItem.values[index]}
+                defaultChecked={currentFilter.includes(filterItem.values[index]) || false}
                 className="filter-drawer-item__option-checkbox"
                 onChange={filterAction}
               />
@@ -54,6 +55,12 @@ FilterDrawerItem.propTypes = {
     ),
     options: PropTypes.arrayOf(PropTypes.string),
   }),
+  currentFilter: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+  ),
   filterAction: PropTypes.func,
 }
 
@@ -64,6 +71,7 @@ FilterDrawerItem.defaultProps = {
     options: [],
     values: [],
   },
+  currentFilter: [],
   filterAction: undefined,
 }
 

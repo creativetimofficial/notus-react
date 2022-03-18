@@ -28,9 +28,16 @@ const colorArray = [
   '#0000FF',
 ]
 
+// If nothing set, select all.
+const defaultFilterState = {
+  domainsOfCare: [],
+  stars: [],
+  percentRange: [0, 100],
+}
+
 function D3Container({ dashboardState, dashboardActions, store }) {
   const [displayData, setDisplayData] = useState(store.results);
-  const [currentFilters, setCurrentFilters] = useState([]);
+  const [currentFilters, setCurrentFilters] = useState(defaultFilterState);
   const [tabValue, setTabValue] = useState(0);
   const [byLineMeasure, setByLineMeasure] = useState('');
   const [byLineDisplayData, setByLineDisplayData] = useState([]);
