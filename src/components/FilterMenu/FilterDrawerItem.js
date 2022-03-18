@@ -5,36 +5,35 @@ import {
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function FilterDrawerItem({ filterItem }) {
-  const filterItemName = filterItem.name;
-  const filterItemText = filterItem.text;
-  const filterDrawerOptions = filterItem.options;
-  // const { filterFunction } = filterItem.filterFunction;
-
+function FilterDrawerItem({ filterItem, filterAction }) {
   return (
     <Grid container item className="filter-drawer-item">
       <Grid container item className="filter-drawer-item__section">
         <Grid item className="filter-drawer-item__row">
           <Typography className="filter-drawer-item__label" variant="body1">
-            {filterItemName}
+            {filterItem.name}
             :
             {' '}
           </Typography>
         </Grid>
         <Grid item className="filter-drawer-item__row">
-          <Tooltip title={filterItemText}>
+          <Tooltip title={filterItem.text}>
             <HelpIcon className="filter-drawer-item__help" />
           </Tooltip>
         </Grid>
       </Grid>
       <FormGroup className="filter-drawer-item__options">
-        {filterDrawerOptions.map((option) => (
+        {filterItem.options.map((option, index) => (
           <FormControlLabel
             key={`filter-drawer-item-option-${option}`}
             componentsProps={{ typography: { className: 'filter-drawer-item__option-label' } }}
-            control={
-              <Checkbox className="filter-drawer-item__option-checkbox" />
-            }
+            control={(
+              <Checkbox
+                value={filterItem.values[index]}
+                className="filter-drawer-item__option-checkbox"
+                onChange={filterAction}
+              />
+            )}
             label={option}
           />
         ))}
@@ -47,9 +46,15 @@ FilterDrawerItem.propTypes = {
   filterItem: PropTypes.shape({
     name: PropTypes.string,
     text: PropTypes.string,
+    values: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+      ]),
+    ),
     options: PropTypes.arrayOf(PropTypes.string),
-    // filterFunction: PropTypes.func,
   }),
+  filterAction: PropTypes.func,
 }
 
 FilterDrawerItem.defaultProps = {
@@ -57,8 +62,9 @@ FilterDrawerItem.defaultProps = {
     name: '',
     text: '',
     options: [],
-    // filterFunction: {},
+    values: [],
   },
+  filterAction: undefined,
 }
 
 export default FilterDrawerItem;

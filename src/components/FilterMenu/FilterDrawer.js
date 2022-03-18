@@ -3,7 +3,7 @@ import HelpIcon from '@mui/icons-material/Help';
 import {
   Box, Button, Drawer, Grid, Slider, Typography,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import FilterDrawerItem from './FilterDrawerItem';
 import filterDrawerItemData from './FilterDrawerItemData';
@@ -14,7 +14,9 @@ function FilterDrawer({
   filterDrawerOpen,
   toggleFilterDrawer,
 }) {
-  const [percentSliderValue, setPercentSliderValue] = useState([25, 75])
+  const [percentSliderValue, setPercentSliderValue] = useState([0, 100]);
+  const [starChoices, setStarChoices] = useState([]);
+  const [domainOfCareChoices, setDomainOfCareChoices] = useState([]);
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -23,9 +25,33 @@ function FilterDrawer({
     toggleFilterDrawer(open);
   };
 
+  const handleStarChange = (event) => {
+    if (event.target.checked) {
+      setStarChoices(starChoices.concat(event.target.value));
+    } else {
+      setStarChoices(starChoices.filter((star) => star !== event.target.value));
+    }
+  }
+
+  const handleDomainOfCareChange = (event) => {
+    if (event.target.checked) {
+      setDomainOfCareChoices(domainOfCareChoices.concat(event.target.value));
+    } else {
+      setDomainOfCareChoices(domainOfCareChoices.filter((star) => star !== event.target.value));
+    }
+  }
+
   const handleSliderChange = (event, newValue) => {
     setPercentSliderValue(newValue);
   };
+
+  const handleApplyFilter = () => {
+    setCurrentFilters({
+      domainOfCare: domainOfCareChoices,
+      stars: starChoices,
+      percentRange: percentSliderValue,
+    });
+  }
 
   const sliderValuetext = (value) => `${value}%`;
 
@@ -49,7 +75,10 @@ function FilterDrawer({
           </Grid>
         </Grid>
         <Grid container item className="filter-drawer__options-panel">
-          <FilterDrawerItem filterItem={filterDrawerItemData.domainsOfCare} />
+          <FilterDrawerItem
+            filterItem={filterDrawerItemData.domainsOfCare}
+            filterAction={handleDomainOfCareChange}
+          />
           <Grid container item className="filter-drawer__slider-panel">
             <Grid item className="filter-drawer__slider-title">
               <Typography className="filter-drawer__slider-label" variant="body1">Percent Range:</Typography>
@@ -60,15 +89,19 @@ function FilterDrawer({
           </Grid>
           <Grid item className="filter-drawer__slider-body">
             <Slider
-              getAriaLabel={() => 'Temperature range'}
+              getAriaLabel={() => 'Measurement percentage range'}
               value={percentSliderValue}
               onChange={handleSliderChange}
               valueLabelDisplay="auto"
               getAriaValueText={sliderValuetext}
               className="filter-drawer__slider"
+              disableSwap
             />
           </Grid>
-          <FilterDrawerItem filterItem={filterDrawerItemData.starRating} />
+          <FilterDrawerItem
+            filterItem={filterDrawerItemData.starRating}
+            filterAction={handleStarChange}
+          />
           <Grid container className="filter-drawer__button-control-panel">
             <Grid item className="filter-drawer__button-panel">
               <Button
@@ -83,7 +116,7 @@ function FilterDrawer({
               <Button
                 className="filter-drawer__apply-button"
                 variant="contained"
-                onChange={() => setCurrentFilters}
+                onChange={handleApplyFilter}
               >
                 Apply Filters
               </Button>
@@ -109,8 +142,8 @@ FilterDrawer.propTypes = {
 FilterDrawer.defaultProps = {
   filterDrawerOpen: false,
   currentFilters: [],
-  toggleFilterDrawer: () => undefined,
-  setCurrentFilters: () => undefined,
+  toggleFilterDrawer: undefined,
+  setCurrentFilters: undefined,
 }
 
 export default FilterDrawer;
