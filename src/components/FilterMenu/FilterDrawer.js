@@ -14,6 +14,8 @@ function FilterDrawer({
   filterDrawerOpen,
   toggleFilterDrawer,
 }) {
+  // TODO: James, set these states based on the currentFilters.
+  // TODO: Then pass the values down to the items so they know to be checked.
   const [percentSliderValue, setPercentSliderValue] = useState([0, 100]);
   const [starChoices, setStarChoices] = useState([]);
   const [domainOfCareChoices, setDomainOfCareChoices] = useState([]);

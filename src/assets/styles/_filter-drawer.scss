@@ -4,7 +4,8 @@ $block-class: 'filter-drawer';
 
 @at-root {
     .#{$block-class} {
-        padding: 0 2.5rem;
+        padding: 0 2rem;
+        min-width: 21rem;
 
         &__title-panel {
             justify-content: space-between;
