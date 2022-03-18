@@ -81,6 +81,9 @@ function FilterDrawer({
             <CloseIcon className="filter-drawer__close-icon" onClick={toggleDrawer(false)} />
           </Grid>
         </Grid>
+        <Grid container className="filter-drawer__refine-panel">
+          Refine by:
+        </Grid>
         <Grid container item className="filter-drawer__options-panel">
           <FilterDrawerItem
             filterItem={filterDrawerItemData.domainsOfCare}

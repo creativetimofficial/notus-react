@@ -2,10 +2,11 @@ import HelpIcon from '@mui/icons-material/Help';
 import {
   Checkbox, FormControlLabel, FormGroup, Grid, Tooltip, Typography,
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 function FilterDrawerItem({ filterItem, currentFilter, filterAction }) {
+  const [defaultCheck] = useState(currentFilter);
   return (
     <Grid container item className="filter-drawer-item">
       <Grid container item className="filter-drawer-item__section">
@@ -30,7 +31,7 @@ function FilterDrawerItem({ filterItem, currentFilter, filterAction }) {
             control={(
               <Checkbox
                 value={filterItem.values[index]}
-                defaultChecked={currentFilter.includes(filterItem.values[index]) || false}
+                defaultChecked={defaultCheck.includes(filterItem.values[index])}
                 className="filter-drawer-item__option-checkbox"
                 onChange={filterAction}
               />
