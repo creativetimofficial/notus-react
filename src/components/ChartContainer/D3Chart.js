@@ -1,11 +1,10 @@
 /* eslint-disable no-underscore-dangle */
-import { display } from '@mui/system';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
 import { colorMappingProps } from './D3Props';
 
-function D3Chart({ displayData, colorMapping }) {
+function D3Chart({ displayData, colorMapping, measureInfo }) {
   // Binder for react to apply changes to the svg
   const D3LineChart = useRef();
 
@@ -35,24 +34,7 @@ function D3Chart({ displayData, colorMapping }) {
 
     return `Date: ${dividedDate[1]}-${dividedDate[2]}-${dividedDate[0]}`;
   }
-  function MeasureFormatter(measureToFormat) {
-    const lastLetterInString = measureToFormat.charAt(
-      measureToFormat.length - 1
-    );
-    const splitMeasure = measureToFormat.split('e')[0];
-    const compositeMeasure = `Measure: ${measureToFormat.toUpperCase()}`;
-    const regularMeasure = `Measure: ${measureToFormat.toUpperCase()}`;
-    const measureWithE = `Measure: ${splitMeasure.toUpperCase() + '-E'}`;
-    if (measureToFormat === 'composite') {
-      return compositeMeasure;
-    }
-    if (measureToFormat !== 'composite' && lastLetterInString == 'e') {
-      return measureWithE;
-    }
-    if (measureToFormat !== 'composite' && lastLetterInString !== 'e') {
-      return regularMeasure;
-    }
-  }
+
   useEffect(() => {
     // Clear previous SVG
     d3.select(D3LineChart.current).selectAll('*').remove();
@@ -78,7 +60,7 @@ function D3Chart({ displayData, colorMapping }) {
       .attr('transform', `translate(0,${height - margin.bottom})`)
       .attr('class', 'd3-chart__dates')
       .call(
-        d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%b %d'))
+        d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%b %d')),
       );
 
     // Generates Label and context for y axis
@@ -143,16 +125,16 @@ function D3Chart({ displayData, colorMapping }) {
       const avg30 = margin.left * 0.3;
       const tickWidth = Math.floor(width / tickCount + avg30);
       const index = Math.floor((event.offsetX - margin.left) / tickWidth);
-      const measureDisplay = MeasureFormatter(
+      const measureDisplay = measureInfo[
         event.srcElement.__data__[index].measure
-      );
+      ].displayLabel;
       const valueDisplay = `Value: ${
         Math.floor(event.srcElement.__data__[index].value * 100) / 100
       }`;
       const dateDisplay = TimeFormatter(event.srcElement.__data__[index].date);
       tooltip.text(`${measureDisplay} \n ${valueDisplay} \n ${dateDisplay}`);
       const { color } = colorMapping.find(
-        (mapping) => mapping.measure === event.target.__data__[0].measure
+        (mapping) => mapping.measure === event.target.__data__[0].measure,
       );
       return tooltip
         .attr('data-html', 'true')
@@ -171,7 +153,7 @@ function D3Chart({ displayData, colorMapping }) {
           .attr('fill', 'none')
           .attr(
             'stroke',
-            colorMapping.find((mapping) => mapping.measure === measure).color
+            colorMapping.find((mapping) => mapping.measure === measure).color,
           )
           .attr('opacity', '.50')
           .attr('stroke-width', 5)
@@ -201,13 +183,17 @@ D3Chart.propTypes = {
     PropTypes.shape({
       measure: PropTypes.string,
       date: PropTypes.string,
-    })
+    }),
   ),
+  measureInfo: PropTypes.shape({
+    displayLabel: PropTypes.string,
+  }),
   colorMapping: colorMappingProps,
 };
 
 D3Chart.defaultProps = {
   displayData: [],
+  measureInfo: {},
   colorMapping: [],
 };
 
