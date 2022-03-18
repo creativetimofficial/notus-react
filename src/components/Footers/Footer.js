@@ -30,7 +30,7 @@ export default function Footer() {
                   href="https://www.amida.com"
                   className="footer__text footer__text__right"
                 >
-                  About Us
+                  Amida
                 </a>
               </li>
               <li>
