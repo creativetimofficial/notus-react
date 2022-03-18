@@ -130,6 +130,7 @@ function D3Container({ dashboardState, dashboardActions, store }) {
             <D3Chart
               displayData={displayData}
               colorMapping={colorMap}
+              measureInfo={store.info}
             />
           </Grid>
         </Grid>

@@ -2840,7 +2840,13 @@ export const resultList = [
 export const trendList = [
   {
     measure: 'aab',
-    changePercent: 9,
+    percentChange: 9,
+    subScoreTrends: [
+      {
+        measure: 'aab-1',
+        percentChange: 9,
+      },
+    ],
     futurePrediction: {
       '2022-02-20': 85.58591329086472,
       '2022-02-21': 86.04889652344241,
@@ -2849,12 +2855,44 @@ export const trendList = [
   },
   {
     measure: 'aise',
-    changePercent: -16,
+    percentChange: -16,
+    subScoreTrends: [
+      {
+        measure: 'aise-1',
+        percentChange: -20,
+      },
+      {
+        measure: 'aise-2',
+        percentChange: -10,
+      },
+      {
+        measure: 'aise-3',
+        percentChange: 6,
+      },
+      {
+        measure: 'aise-4',
+        percentChange: -50,
+      },
+    ],
     futurePrediction: {},
   },
   {
     measure: 'drre',
-    changePercent: 34,
+    percentChange: 34,
+    subScoreTrends: [
+      {
+        measure: 'drre-1',
+        percentChange: 63,
+      },
+      {
+        measure: 'drre-2',
+        percentChange: 27,
+      },
+      {
+        measure: 'drre-3',
+        percentChange: 19,
+      },
+    ],
     futurePrediction: {
       '2022-02-20': 68.23699713014412,
       '2022-02-21': 68.17193548082246,
@@ -2863,7 +2901,29 @@ export const trendList = [
   },
   {
     measure: 'imae',
-    changePercent: -52,
+    percentChange: -52,
+    subScoreTrends: [
+      {
+        measure: 'imae-1',
+        percentChange: -54,
+      },
+      {
+        measure: 'imae-2',
+        percentChange: -36,
+      },
+      {
+        measure: 'imae-3',
+        percentChange: -46,
+      },
+      {
+        measure: 'imae-4',
+        percentChange: -60,
+      },
+      {
+        measure: 'imae-5',
+        percentChange: -72,
+      },
+    ],
     futurePrediction: {
       '2022-02-20': 50.402090735134756,
       '2022-02-21': 51.03935987194361,
@@ -2872,7 +2932,8 @@ export const trendList = [
   },
   {
     measure: 'composite',
-    changePercent: -9,
+    percentChange: -9,
+    subScoreTrends: [],
     futurePrediction: {},
   },
 ];
