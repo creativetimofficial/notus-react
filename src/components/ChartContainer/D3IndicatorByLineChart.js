@@ -13,8 +13,9 @@ function D3IndicatorByLineChart({ byLineDisplayData }) {
   const margin = {
     top: 50, right: 30, bottom: 75, left: 30,
   };
+  const box = document.querySelector('.MuiGrid-item');
   const widthBase = (window.innerWidth || document.body.clientWidth);
-  const width = widthBase - widthBase / 6;
+  const width = box === null ? (widthBase * 0.8) : box.offsetWidth - 200;
   const height = 500;
   const tickCount = byLineDisplayData.length;
 
