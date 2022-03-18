@@ -33,6 +33,7 @@ const defaultFilterState = {
   domainsOfCare: [],
   stars: [],
   percentRange: [0, 100],
+  sum: 0,
 }
 
 function D3Container({ dashboardState, dashboardActions, store }) {
@@ -81,9 +82,15 @@ function D3Container({ dashboardState, dashboardActions, store }) {
     }
   };
 
-  // const handleFilterChange = (filterOptions) => {
-  //   console.log('Cool');
-  // }
+  // TODO: Have handleMeasureChange and handleFilterChange
+  // connect to the same recompiling function. Start from
+  // store.result, remove unused measures, then remove
+  // the filtered data. Do this from scratch each time
+  // because you'll otherwise readd data you don't want.
+
+  const handleFilterChange = (filterOptions) => {
+    setCurrentFilters(filterOptions);
+  }
 
   const handleByLineChange = (event) => {
     setByLineMeasure(event.target.value);
@@ -106,7 +113,7 @@ function D3Container({ dashboardState, dashboardActions, store }) {
         filterDrawerOpen={dashboardState.filterDrawerOpen}
         toggleFilterDrawer={dashboardActions.toggleFilterDrawer}
         currentFilters={currentFilters}
-        setCurrentFilters={setCurrentFilters}
+        handleFilterChange={handleFilterChange}
       />
       <Tabs
         value={tabValue}

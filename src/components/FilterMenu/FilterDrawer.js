@@ -13,7 +13,7 @@ const sliderTip = 'Selects the range of compliance.';
 
 function FilterDrawer({
   currentFilters,
-  setCurrentFilters,
+  handleFilterChange,
   filterDrawerOpen,
   toggleFilterDrawer,
 }) {
@@ -48,16 +48,18 @@ function FilterDrawer({
   }
 
   const handleSliderChange = (event, newValue) => {
+    // https://mui.com/components/slider/#minimum-distance
     setPercentSliderValue(newValue);
   };
 
   const handleApplyFilter = () => {
-    setCurrentFilters({
-      ...currentFilters,
+    const filterOptions = {
       domainsOfCare: domainOfCareChoices,
       stars: starChoices,
       percentRange: percentSliderValue,
-    });
+    };
+    filterOptions.sum = filterDrawerItemData.sumCalculator(filterOptions);
+    handleFilterChange(filterOptions);
     toggleFilterDrawer(false);
   }
 
@@ -107,7 +109,7 @@ function FilterDrawer({
               defaultValue={currentFilters.percentRange}
               value={percentSliderValue}
               onChange={handleSliderChange}
-              valueLabelDisplay="auto"
+              valueLabelDisplay="on"
               getAriaValueText={sliderValuetext}
               className="filter-drawer__slider"
               marks={filterDrawerItemData.percentMarks}
@@ -153,14 +155,14 @@ FilterDrawer.propTypes = {
     percentRange: PropTypes.arrayOf(PropTypes.number),
   }),
   toggleFilterDrawer: PropTypes.func,
-  setCurrentFilters: PropTypes.func,
+  handleFilterChange: PropTypes.func,
 };
 
 FilterDrawer.defaultProps = {
   filterDrawerOpen: false,
   currentFilters: {},
   toggleFilterDrawer: undefined,
-  setCurrentFilters: undefined,
+  handleFilterChange: undefined,
 }
 
 export default FilterDrawer;

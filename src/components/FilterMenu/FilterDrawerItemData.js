@@ -14,7 +14,7 @@ const domainsOfCare = {
 
 const starRating = {
   name: 'Star Rating',
-  tip: 'Each star rating also includes the half star. So 2 Stars would also cover 2.5 stars.',
+  tip: 'Each star rating also includes the next half star. So 2 Stars would also cover 2.5 stars.',
   options: ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars'],
   values: ['1', '2', '3', '4', '5'],
 }
@@ -39,7 +39,6 @@ const subMeasures = {
   options: ['Show ONLY scores with sub or child measures'],
 }
 
-// A display option for the slider. Not used at the moment.
 const percentMarks = [
   {
     value: 0,
@@ -63,6 +62,24 @@ const percentMarks = [
   },
 ]
 
+const sumCalculator = (filter) => {
+  let sum = 0;
+  if (filter.domainsOfCare.length < domainsOfCare.options.length) {
+    sum += filter.domainsOfCare.length;
+  }
+  if (filter.stars.length < starRating.options.length) {
+    sum += filter.stars.length;
+  }
+  if (filter.percentRange[0] > 0) {
+    sum += 1;
+  }
+  if (filter.percentRange[1] < 100) {
+    sum += 1;
+  }
+
+  return sum;
+}
+
 const filterDrawerItemData = {
   domainsOfCare,
   starRating,
@@ -70,6 +87,7 @@ const filterDrawerItemData = {
   measureTypes,
   subMeasures,
   percentMarks,
+  sumCalculator,
 };
 
 export default filterDrawerItemData;

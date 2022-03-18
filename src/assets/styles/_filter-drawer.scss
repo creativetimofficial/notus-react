@@ -53,6 +53,7 @@ $block-class: 'filter-drawer';
         }
 
         & &__slider {
+            margin-top: 2rem;
             color: $blue-light;
             width: 80%;
             .MuiSlider-markLabelActive {
