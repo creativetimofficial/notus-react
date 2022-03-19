@@ -37,7 +37,7 @@ const defaultFilterState = {
 }
 
 function D3Container({ dashboardState, dashboardActions, store }) {
-  const [displayData, setDisplayData] = useState(store.results);
+  const [displayData, setDisplayData] = useState(store.results.map((result) => ({ ...result })));
   const [currentFilters, setCurrentFilters] = useState(defaultFilterState);
   const [tabValue, setTabValue] = useState(0);
   const [byLineMeasure, setByLineMeasure] = useState('');
@@ -47,6 +47,11 @@ function D3Container({ dashboardState, dashboardActions, store }) {
   const workingList = [];
   store.results.forEach((item) => workingList.push(item.measure));
   const measureList = Array.from(new Set(workingList));
+
+  useEffect(() => {
+    console.log('update');
+    setDisplayData(store.results.map((result) => ({ ...result })))
+  }, [store]);
 
   useEffect(() => {
     if (store.currentResults !== undefined) {
@@ -115,10 +120,6 @@ function D3Container({ dashboardState, dashboardActions, store }) {
       (item) => item.measure === event.target.value,
     )[0]);
   };
-
-  useEffect(() => {
-    setDisplayData(store.results);
-  }, [store]);
 
   return (
     <div>
