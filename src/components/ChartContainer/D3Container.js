@@ -52,7 +52,7 @@ function D3Container({ dashboardState, dashboardActions, store }) {
     if (store.currentResults !== undefined) {
       setSelectedMeasures(store.currentResults.map((result) => result.measure));
     }
-  }, [setSelectedMeasures, store.currentResults]);
+  }, [setSelectedMeasures, setCurrentFilters, store.currentResults]);
 
   const colorMap = measureList.map((item, index) => ({
     measure: item,
@@ -69,17 +69,28 @@ function D3Container({ dashboardState, dashboardActions, store }) {
     dashboardActions.setActiveMeasure(store.currentResults[0]);
   }
 
+  const handleDisplayDataUpdate = (measures, filter) => {
+    const newDisplayData = store.results.filter(
+      (result) => measures.includes(result.measure),
+    );
+    setDisplayData(newDisplayData);
+  }
+
   const handleMeasureChange = (event) => {
+    let newSelectedMeasures;
     if (event.target.checked) {
-      const newDisplayData = displayData.concat(store.results.filter(
-        (result) => result.measure === event.target.value,
-      ));
-      setSelectedMeasures(selectedMeasures.concat(event.target.value));
-      setDisplayData(newDisplayData);
+      // const newDisplayData = displayData.concat(store.results.filter(
+      //   (result) => result.measure === event.target.value,
+      // ));
+      newSelectedMeasures = selectedMeasures.concat(event.target.value);
+      setSelectedMeasures(newSelectedMeasures);
+      // setDisplayData(newDisplayData);
     } else {
-      setSelectedMeasures(selectedMeasures.filter((result) => result !== event.target.value));
-      setDisplayData(displayData.filter((result) => result.measure !== event.target.value));
+      newSelectedMeasures = selectedMeasures.filter((result) => result !== event.target.value);
+      setSelectedMeasures(newSelectedMeasures);
+      // setDisplayData(displayData.filter((result) => result.measure !== event.target.value));
     }
+    handleDisplayDataUpdate(newSelectedMeasures, currentFilters);
   };
 
   // TODO: Have handleMeasureChange and handleFilterChange
@@ -87,9 +98,11 @@ function D3Container({ dashboardState, dashboardActions, store }) {
   // store.result, remove unused measures, then remove
   // the filtered data. Do this from scratch each time
   // because you'll otherwise readd data you don't want.
+  // PS, setState is asynchronous and no
 
   const handleFilterChange = (filterOptions) => {
     setCurrentFilters(filterOptions);
+    handleDisplayDataUpdate(selectedMeasures, filterOptions);
   }
 
   const handleByLineChange = (event) => {

@@ -19,9 +19,9 @@ function FilterDrawer({
 }) {
   // TODO: James, set these states based on the currentFilters.
   // TODO: Then pass the values down to the items so they know to be checked.
-  const [percentSliderValue, setPercentSliderValue] = useState([0, 100]);
-  const [starChoices, setStarChoices] = useState([]);
-  const [domainOfCareChoices, setDomainOfCareChoices] = useState([]);
+  const [percentSliderValue, setPercentSliderValue] = useState(currentFilters.percentRange);
+  const [starChoices, setStarChoices] = useState(currentFilters.stars);
+  const [domainOfCareChoices, setDomainOfCareChoices] = useState(currentFilters.domainsOfCare);
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')
@@ -47,8 +47,8 @@ function FilterDrawer({
     }
   }
 
+  // https://mui.com/components/slider/#minimum-distance
   const handleSliderChange = (event, newValue) => {
-    // https://mui.com/components/slider/#minimum-distance
     setPercentSliderValue(newValue);
   };
 
