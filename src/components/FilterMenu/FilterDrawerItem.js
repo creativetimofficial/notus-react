@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 function FilterDrawerItem({ filterItem, currentFilter, filterAction }) {
-  const [defaultCheck] = useState(currentFilter);
+  const [defaultCheck] = useState(Array.from(currentFilter));
   return (
     <Grid container item className="filter-drawer-item">
       <Grid container item className="filter-drawer-item__section">

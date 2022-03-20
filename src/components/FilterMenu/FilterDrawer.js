@@ -17,11 +17,13 @@ function FilterDrawer({
   filterDrawerOpen,
   toggleFilterDrawer,
 }) {
-  // TODO: James, set these states based on the currentFilters.
-  // TODO: Then pass the values down to the items so they know to be checked.
-  const [percentSliderValue, setPercentSliderValue] = useState(currentFilters.percentRange);
-  const [starChoices, setStarChoices] = useState(currentFilters.stars);
-  const [domainOfCareChoices, setDomainOfCareChoices] = useState(currentFilters.domainsOfCare);
+  const [percentSliderValue, setPercentSliderValue] = useState(
+    Array.from(currentFilters.percentRange),
+  );
+  const [starChoices, setStarChoices] = useState(Array.from(currentFilters.stars));
+  const [domainOfCareChoices, setDomainOfCareChoices] = useState(
+    Array.from(currentFilters.domainsOfCare),
+  );
 
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')
@@ -33,9 +35,9 @@ function FilterDrawer({
 
   const handleStarChange = (event) => {
     if (event.target.checked) {
-      setStarChoices(starChoices.concat(event.target.value));
+      setStarChoices(starChoices.concat(parseInt(event.target.value, 10)));
     } else {
-      setStarChoices(starChoices.filter((star) => star !== event.target.value));
+      setStarChoices(starChoices.filter((star) => (star !== parseInt(event.target.value, 10))));
     }
   }
 
@@ -91,7 +93,7 @@ function FilterDrawer({
           <FilterDrawerItem
             filterItem={filterDrawerItemData.domainsOfCare}
             filterAction={handleDomainOfCareChange}
-            currentFilter={currentFilters.domainsOfCare}
+            currentFilter={domainOfCareChoices}
           />
           <Grid container item className="filter-drawer__slider-panel">
             <Grid item className="filter-drawer__slider-title">
@@ -106,7 +108,7 @@ function FilterDrawer({
           <Grid item className="filter-drawer__slider-body">
             <Slider
               getAriaLabel={() => 'Measurement percentage range'}
-              defaultValue={currentFilters.percentRange}
+              defaultValue={percentSliderValue}
               value={percentSliderValue}
               onChange={handleSliderChange}
               valueLabelDisplay="on"
@@ -119,7 +121,7 @@ function FilterDrawer({
           <FilterDrawerItem
             filterItem={filterDrawerItemData.starRating}
             filterAction={handleStarChange}
-            currentFilter={currentFilters.stars}
+            currentFilter={starChoices}
           />
           <Grid container className="filter-drawer__button-control-panel">
             <Grid item className="filter-drawer__button-panel">
@@ -151,7 +153,7 @@ FilterDrawer.propTypes = {
   filterDrawerOpen: PropTypes.bool,
   currentFilters: PropTypes.shape({
     domainsOfCare: PropTypes.arrayOf(PropTypes.string),
-    stars: PropTypes.arrayOf(PropTypes.string),
+    stars: PropTypes.arrayOf(PropTypes.number),
     percentRange: PropTypes.arrayOf(PropTypes.number),
   }),
   toggleFilterDrawer: PropTypes.func,

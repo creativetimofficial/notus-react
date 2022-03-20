@@ -48,8 +48,12 @@ function D3Container({ dashboardState, dashboardActions, store }) {
   store.results.forEach((item) => workingList.push(item.measure));
   const measureList = Array.from(new Set(workingList));
 
+  const colorMap = measureList.map((item, index) => ({
+    measure: item,
+    color: index <= 10 ? colorArray[index] : colorArray[index % 10],
+  }))
+
   useEffect(() => {
-    console.log('update');
     setDisplayData(store.results.map((result) => ({ ...result })))
   }, [store]);
 
@@ -59,10 +63,33 @@ function D3Container({ dashboardState, dashboardActions, store }) {
     }
   }, [setSelectedMeasures, setCurrentFilters, store.currentResults]);
 
-  const colorMap = measureList.map((item, index) => ({
-    measure: item,
-    color: index <= 10 ? colorArray[index] : colorArray[index % 10],
-  }))
+  const handleDisplayDataUpdate = (measures, filters) => {
+    let newDisplayData = store.results.map((result) => ({ ...result }));
+    newDisplayData = newDisplayData.filter((result) => measures.includes(result.measure));
+    if (filters.domainsOfCare.length > 0) {
+      newDisplayData = newDisplayData.filter(
+        (result) => filters.domainsOfCare.includes(store.info[result.measure].domainOfCare),
+      );
+    }
+    if (filters.stars.length > 0) {
+      newDisplayData = newDisplayData.filter(
+        (result) => filters.stars.includes(Math.floor( // Floor for the .5 stars.
+          store.currentResults.find((current) => current.measure === result.measure).starRating,
+        )),
+      )
+    }
+    if (filters.percentRange[0] > 0 || filters.percentRange[1] < 100) {
+      newDisplayData = newDisplayData.filter(
+        (result) => {
+          const { value } = store.currentResults.find(
+            (current) => current.measure === result.measure,
+          );
+          return value >= filters.percentRange[0] && value <= filters.percentRange[1]
+        },
+      );
+    }
+    setDisplayData(newDisplayData);
+  }
 
   const handleTabChange = (event, index) => {
     setTabValue(index);
@@ -74,36 +101,17 @@ function D3Container({ dashboardState, dashboardActions, store }) {
     dashboardActions.setActiveMeasure(store.currentResults[0]);
   }
 
-  const handleDisplayDataUpdate = (measures, filter) => {
-    const newDisplayData = store.results.filter(
-      (result) => measures.includes(result.measure),
-    );
-    setDisplayData(newDisplayData);
-  }
-
   const handleMeasureChange = (event) => {
     let newSelectedMeasures;
     if (event.target.checked) {
-      // const newDisplayData = displayData.concat(store.results.filter(
-      //   (result) => result.measure === event.target.value,
-      // ));
       newSelectedMeasures = selectedMeasures.concat(event.target.value);
       setSelectedMeasures(newSelectedMeasures);
-      // setDisplayData(newDisplayData);
     } else {
       newSelectedMeasures = selectedMeasures.filter((result) => result !== event.target.value);
       setSelectedMeasures(newSelectedMeasures);
-      // setDisplayData(displayData.filter((result) => result.measure !== event.target.value));
     }
     handleDisplayDataUpdate(newSelectedMeasures, currentFilters);
   };
-
-  // TODO: Have handleMeasureChange and handleFilterChange
-  // connect to the same recompiling function. Start from
-  // store.result, remove unused measures, then remove
-  // the filtered data. Do this from scratch each time
-  // because you'll otherwise readd data you don't want.
-  // PS, setState is asynchronous and no
 
   const handleFilterChange = (filterOptions) => {
     setCurrentFilters(filterOptions);

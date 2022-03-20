@@ -16,7 +16,7 @@ const starRating = {
   name: 'Star Rating',
   tip: 'Each star rating also includes the next half star. So 2 Stars would also cover 2.5 stars.',
   options: ['1 Star', '2 Stars', '3 Stars', '4 Stars', '5 Stars'],
-  values: ['1', '2', '3', '4', '5'],
+  values: [1, 2, 3, 4, 5],
 }
 
 const ncqaBonus = {
