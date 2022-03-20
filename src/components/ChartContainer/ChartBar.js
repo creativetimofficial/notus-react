@@ -20,7 +20,7 @@ function ChartBar({ filterDrawerOpen, toggleFilterDrawer, filterSum }) {
 
   return (
     <Box>
-      <Grid container direction="row" justifyContent="flex-end" spacing={0.1}>
+      <Grid container className="chart-bar" direction="row" justifyContent="flex-end" spacing={0.1}>
         <Grid item sx={buttonStyling}>
           <Button disabled key="d3-YTD" color="black" variant="text" startIcon={<DateRangeIcon />}>
             <Typography variant="caption">
@@ -57,10 +57,13 @@ function ChartBar({ filterDrawerOpen, toggleFilterDrawer, filterSum }) {
         <Grid item sx={buttonStyling}>
           <Badge badgeContent={filterSum} className="chart-bar__badge">
             <Button
+              className="chart-bar__filter-button"
               color="black"
               variant="text"
               onClick={onClickFilter}
-              startIcon={(<FilterAltIcon />)}
+              startIcon={(
+                <FilterAltIcon />
+              )}
             >
               <Typography variant="caption">
                 Filter
