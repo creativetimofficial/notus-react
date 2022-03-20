@@ -1,0 +1,16 @@
+@import 'colors';
+
+$block-class: 'chart-bar';
+
+@at-root {
+  .#{$block-class} {
+
+    &__badge > span {
+      color: #fff;
+      background-color: $default-red;
+      transform: scale(1) translate(90%, 20%);
+      box-shadow: 0 0 0 2px $default-gray;
+    }
+
+  }
+}

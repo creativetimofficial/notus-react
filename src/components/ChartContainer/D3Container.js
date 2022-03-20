@@ -173,6 +173,7 @@ function D3Container({ dashboardState, dashboardActions, store }) {
             <ChartBar
               filterDrawerOpen={dashboardState.filterDrawerOpen}
               toggleFilterDrawer={dashboardActions.toggleFilterDrawer}
+              filterSum={currentFilters.sum}
             />
           </Grid>
           <Grid item>
