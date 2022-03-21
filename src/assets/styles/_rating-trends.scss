@@ -1,4 +1,5 @@
 $block-class: 'rating-trends';
+@import 'colors';
 
 @at-root {
     .#{$block-class} {
@@ -59,12 +60,12 @@ $block-class: 'rating-trends';
         }
 
         &__help {
-            color: #CFDFDC;
+            color: $gray-light;
             margin-left: 0.4rem;
             margin-top: 0.1rem;
 
             &:hover {
-                color: #1976D2;
+                color: $blue-light;
             }
         }
         
@@ -78,8 +79,8 @@ $block-class: 'rating-trends';
         }
 
         &__border {
-            border: 1px solid grey;
-            background-color: grey;
+            border: 1px solid $default-gray;
+            background-color: $default-gray;
             height: auto;
         }
 
@@ -91,10 +92,10 @@ $block-class: 'rating-trends';
         }
 
         & &__view-rating-details-button {
-            background-color: #1976D2;
+            background-color: $blue-light;
             color: #fff;
             font-weight: 600;
-            border: 1px solid grey;
+            border: 1px solid $default-gray;
             padding: 1rem;
             border-radius: 0.25rem;
         }
@@ -103,13 +104,14 @@ $block-class: 'rating-trends';
             margin-top: 1rem;
             font-size: 2.5rem;
             font-weight: 500;
+            color: $default-black;
 
             &__positive {
-                color: #2E7D32;
+                color: $default-green;
             }
 
             &__negative {
-                color: #C62828;
+                color: $default-red;
             }
 
             &__hide {

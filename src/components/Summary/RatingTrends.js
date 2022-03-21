@@ -7,6 +7,7 @@ import { Box } from '@mui/system';
 import {
   Button, Grid, Typography,
 } from '@mui/material';
+import TrendDisplay from './TrendDisplay';
 
 const starsTip = 'Star rating subject to change depending on measures and other resources. For more information, please contact NCQA.';
 
@@ -77,61 +78,18 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
             {activeMeasure.label && `(${activeMeasure.label})`}
           </Typography>
         </Grid>
-        <Grid className={`rating-trends__panel 
-          ${renderOptions.displayAll ? 'rating-trends__panel__width-25' : 'rating-trends__panel__width-50'}`}
-        >
-          <Typography variant="h3" className="rating-trends__h3-header">
-            { mainTrend.measure }
-            {' '}
-            % Compliance
-          </Typography>
-          <Typography className={`rating-trends__percent-change ${mainTrend.percentChange >= 0
-            ? 'rating-trends__percent-change__positive' : 'rating-trends__percent-change__negative'}`}
-          >
-            { mainTrend.percentChange }
-            %
-          </Typography>
-          <Typography>
-            (over the past week)
-          </Typography>
-        </Grid>
-        <Grid className={`rating-trends__panel rating-trends__panel__width-25 
-          ${renderOptions.displayAll ? '' : 'rating-trends__panel__hide'}`}
-        >
-          <Typography variant="h3" className="rating-trends__h3-header">
-            { renderOptions.biggestGain.measure }
-            {' '}
-            % Compliance
-          </Typography>
-          <Typography className={`rating-trends__percent-change ${renderOptions.biggestGain.percentChange >= 0
-            ? 'rating-trends__percent-change__positive' : 'rating-trends__percent-change__negative'}`}
-          >
-            { renderOptions.biggestGain.percentChange }
-            %
-          </Typography>
-
-          <Typography>
-            (over the past week)
-          </Typography>
-        </Grid>
-        <Grid className={`rating-trends__panel rating-trends__panel__width-25 
-          ${renderOptions.displayAll ? '' : 'rating-trends__panel__hide'}`}
-        >
-          <Typography variant="h3" className="rating-trends__h3-header">
-            { renderOptions.biggestLoss.measure }
-            {' '}
-            % Compliance
-          </Typography>
-          <Typography className={`rating-trends__percent-change ${renderOptions.biggestLoss.percentChange >= 0
-            ? 'rating-trends__percent-change__positive' : 'rating-trends__percent-change__negative'}`}
-          >
-            { renderOptions.biggestLoss.percentChange }
-            %
-          </Typography>
-          <Typography>
-            (over the past week)
-          </Typography>
-        </Grid>
+        <TrendDisplay
+          trend={mainTrend}
+          percentWidth={renderOptions.displayAll ? 25 : 50}
+        />
+        <TrendDisplay
+          trend={renderOptions.biggestGain}
+          percentWidth={renderOptions.displayAll ? 25 : 0}
+        />
+        <TrendDisplay
+          trend={renderOptions.biggestLoss}
+          percentWidth={renderOptions.displayAll ? 25 : 0}
+        />
       </Box>
       <Box className="rating-trends__button-panel">
         {
