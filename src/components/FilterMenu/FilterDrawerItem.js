@@ -2,39 +2,40 @@ import HelpIcon from '@mui/icons-material/Help';
 import {
   Checkbox, FormControlLabel, FormGroup, Grid, Tooltip, Typography,
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function FilterDrawerItem({ filterItem }) {
-  const filterItemName = filterItem.name;
-  const filterItemText = filterItem.text;
-  const filterDrawerOptions = filterItem.options;
-  // const { filterFunction } = filterItem.filterFunction;
-
+function FilterDrawerItem({ filterItem, currentFilter, filterAction }) {
+  const [defaultCheck] = useState(Array.from(currentFilter));
   return (
-    <Grid container item direction="column" sx={{ mt: '10px' }}>
-      <Grid container item spacing={1} direction="row">
-        <Grid item>
-          <Typography color="black.dark" variant="body1">
-            {filterItemName}
+    <Grid container item className="filter-drawer-item">
+      <Grid container item className="filter-drawer-item__section">
+        <Grid item className="filter-drawer-item__row">
+          <Typography className="filter-drawer-item__label" variant="body1">
+            {filterItem.name}
             :
             {' '}
           </Typography>
         </Grid>
-        <Grid item>
-          <Tooltip title={filterItemText}>
-            <HelpIcon size="small" sx={{ p: '4px' }} color="gray" />
+        <Grid item className="filter-drawer-item__row">
+          <Tooltip title={filterItem.tip}>
+            <HelpIcon className="filter-drawer-item__help-icon" />
           </Tooltip>
         </Grid>
       </Grid>
-      <FormGroup sx={{ ml: '10px' }}>
-        {filterDrawerOptions.map((option) => (
+      <FormGroup className="filter-drawer-item__options">
+        {filterItem.options.map((option, index) => (
           <FormControlLabel
             key={`filter-drawer-item-option-${option}`}
-            componentsProps={{ typography: { color: 'black.dark', variant: 'caption' } }}
-            control={
-              <Checkbox size="small" color="primary" />
-            }
+            componentsProps={{ typography: { className: 'filter-drawer-item__option-label' } }}
+            control={(
+              <Checkbox
+                value={filterItem.values[index]}
+                defaultChecked={defaultCheck.includes(filterItem.values[index])}
+                className="filter-drawer-item__option-checkbox"
+                onChange={filterAction}
+              />
+            )}
             label={option}
           />
         ))}
@@ -46,19 +47,33 @@ function FilterDrawerItem({ filterItem }) {
 FilterDrawerItem.propTypes = {
   filterItem: PropTypes.shape({
     name: PropTypes.string,
-    text: PropTypes.string,
+    tip: PropTypes.string,
+    values: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+      ]),
+    ),
     options: PropTypes.arrayOf(PropTypes.string),
-    // filterFunction: PropTypes.func,
   }),
+  currentFilter: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+  ),
+  filterAction: PropTypes.func,
 }
 
 FilterDrawerItem.defaultProps = {
   filterItem: {
     name: '',
-    text: '',
+    tip: '',
     options: [],
-    // filterFunction: {},
+    values: [],
   },
+  currentFilter: [],
+  filterAction: undefined,
 }
 
 export default FilterDrawerItem;

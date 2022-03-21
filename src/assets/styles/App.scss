@@ -1,8 +1,13 @@
 @use 'banner';
-@use 'global';
+@use 'chart-bar';
 @use 'd3-chart';
 @use 'd3-container';
+@use 'filter-drawer';
+@use 'filter-drawer-item';
+@use 'footer';
+@use 'global';
 @use 'not-found';
 @use 'tab-panel';
 @use 'rating-trends';
-@use 'footer';
+
+@use 'colors';

@@ -1,0 +1,50 @@
+@use 'filter-drawer';
+@import 'colors';
+
+$block-class: 'filter-drawer-item';
+
+@at-root {
+    .#{$block-class} {
+        div & { // Because this is the root of the styling, I need div to beat Mui.
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px; 
+        }
+
+        &__section {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0;
+        }
+
+        & &__label {
+            color: $default-gray;
+        }
+
+        &__help-icon {
+            @extend .filter-drawer__help-icon; 
+            margin-left: .5rem;
+        }
+
+        & &__options {
+            display: inline-flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            margin-left: 1rem;
+            margin-right: -0.75rem;
+        }
+
+        & &__option-label {
+            color: $default-gray;
+            font-size: 0.75rem;
+            line-height: 1.66;
+            letter-spacing: 0.03333em;
+        }
+
+        &__option-checkbox svg {
+            font-size: 1.25rem;
+        }
+    }
+
+}

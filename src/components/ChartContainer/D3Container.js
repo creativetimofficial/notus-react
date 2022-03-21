@@ -28,20 +28,68 @@ const colorArray = [
   '#0000FF',
 ]
 
+// If nothing set, select all.
+const defaultFilterState = {
+  domainsOfCare: [],
+  stars: [],
+  percentRange: [0, 100],
+  sum: 0,
+}
+
 function D3Container({ dashboardState, dashboardActions, store }) {
-  const [displayData, setDisplayData] = useState(store.results);
-  const [currentFilters, setCurrentFilters] = useState([]);
+  const [displayData, setDisplayData] = useState(store.results.map((result) => ({ ...result })));
+  const [currentFilters, setCurrentFilters] = useState(defaultFilterState);
   const [tabValue, setTabValue] = useState(0);
   const [byLineMeasure, setByLineMeasure] = useState('');
   const [byLineDisplayData, setByLineDisplayData] = useState([]);
+  const [selectedMeasures, setSelectedMeasures] = useState([]);
 
   const workingList = [];
   store.results.forEach((item) => workingList.push(item.measure));
   const measureList = Array.from(new Set(workingList));
+
   const colorMap = measureList.map((item, index) => ({
     measure: item,
     color: index <= 10 ? colorArray[index] : colorArray[index % 10],
   }))
+
+  useEffect(() => {
+    setDisplayData(store.results.map((result) => ({ ...result })))
+  }, [store]);
+
+  useEffect(() => {
+    if (store.currentResults !== undefined) {
+      setSelectedMeasures(store.currentResults.map((result) => result.measure));
+    }
+  }, [setSelectedMeasures, setCurrentFilters, store.currentResults]);
+
+  const handleDisplayDataUpdate = (measures, filters) => {
+    let newDisplayData = store.results.map((result) => ({ ...result }));
+    newDisplayData = newDisplayData.filter((result) => measures.includes(result.measure));
+    if (filters.domainsOfCare.length > 0) {
+      newDisplayData = newDisplayData.filter(
+        (result) => filters.domainsOfCare.includes(store.info[result.measure].domainOfCare),
+      );
+    }
+    if (filters.stars.length > 0) {
+      newDisplayData = newDisplayData.filter(
+        (result) => filters.stars.includes(Math.floor( // Floor for the .5 stars.
+          store.currentResults.find((current) => current.measure === result.measure).starRating,
+        )),
+      )
+    }
+    if (filters.percentRange[0] > 0 || filters.percentRange[1] < 100) {
+      newDisplayData = newDisplayData.filter(
+        (result) => {
+          const { value } = store.currentResults.find(
+            (current) => current.measure === result.measure,
+          );
+          return value >= filters.percentRange[0] && value <= filters.percentRange[1]
+        },
+      );
+    }
+    setDisplayData(newDisplayData);
+  }
 
   const handleTabChange = (event, index) => {
     setTabValue(index);
@@ -54,15 +102,21 @@ function D3Container({ dashboardState, dashboardActions, store }) {
   }
 
   const handleMeasureChange = (event) => {
+    let newSelectedMeasures;
     if (event.target.checked) {
-      const newDisplayData = displayData.concat(store.results.filter(
-        (result) => result.measure === event.target.value,
-      ));
-      setDisplayData(newDisplayData);
+      newSelectedMeasures = selectedMeasures.concat(event.target.value);
+      setSelectedMeasures(newSelectedMeasures);
     } else {
-      setDisplayData(displayData.filter((result) => result.measure !== event.target.value));
+      newSelectedMeasures = selectedMeasures.filter((result) => result !== event.target.value);
+      setSelectedMeasures(newSelectedMeasures);
     }
+    handleDisplayDataUpdate(newSelectedMeasures, currentFilters);
   };
+
+  const handleFilterChange = (filterOptions) => {
+    setCurrentFilters(filterOptions);
+    handleDisplayDataUpdate(selectedMeasures, filterOptions);
+  }
 
   const handleByLineChange = (event) => {
     setByLineMeasure(event.target.value);
@@ -75,17 +129,13 @@ function D3Container({ dashboardState, dashboardActions, store }) {
     )[0]);
   };
 
-  useEffect(() => {
-    setDisplayData(store.results);
-  }, [store]);
-
   return (
     <div>
       <FilterDrawer
         filterDrawerOpen={dashboardState.filterDrawerOpen}
         toggleFilterDrawer={dashboardActions.toggleFilterDrawer}
         currentFilters={currentFilters}
-        setCurrentFilters={setCurrentFilters}
+        handleFilterChange={handleFilterChange}
       />
       <Tabs
         value={tabValue}
@@ -118,12 +168,12 @@ function D3Container({ dashboardState, dashboardActions, store }) {
         <Grid container justifyContent="space-evenly" direction="column">
           <Grid
             item
-            sx={{ mb: '-30px' }}
             className="d3-container__chart"
           >
             <ChartBar
               filterDrawerOpen={dashboardState.filterDrawerOpen}
               toggleFilterDrawer={dashboardActions.toggleFilterDrawer}
+              filterSum={currentFilters.sum}
             />
           </Grid>
           <Grid item>

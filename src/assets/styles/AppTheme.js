@@ -61,6 +61,15 @@ const theme = createTheme({
       xl: '.75em',
     },
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: '5px',
+        },
+      },
+    },
+  },
 });
 
 export default theme;

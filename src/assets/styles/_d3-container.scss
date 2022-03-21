@@ -1,10 +1,10 @@
 $block-class: 'd3-container';
 
 @at-root {
-    .#{block-class} {
+    .#{$block-class} {
 
         &__chart {
-            min-height: 500px;
+            margin-bottom: -30px;
         }
     }
 }
