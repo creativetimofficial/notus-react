@@ -11,7 +11,6 @@ $AXIS_LABEL_COLOR: #b0bec5;
       height: 500px;
       width: 90vw;
       background-color: #fff;
-      // transform: translate(30px, 50px);
     }
 
     &__line {
@@ -23,9 +22,13 @@ $AXIS_LABEL_COLOR: #b0bec5;
     &__y-axis {
       color: $YAXIS_LINE_COLOR;
     }
-    &__dates {
+    &__ratingY {
       color: $AXIS_LABEL_COLOR;
-
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+    &__datesX {
+      color: $AXIS_LABEL_COLOR;
       font-size: 1.125rem;
       font-weight: bold;
     }

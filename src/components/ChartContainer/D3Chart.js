@@ -1,4 +1,5 @@
 /* eslint-disable no-underscore-dangle */
+import { TickChange } from 'components/Utilites/TickChange';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef } from 'react';
@@ -45,7 +46,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .select(D3LineChart.current)
       .attr('class', 'd3-chart__line-chart')
       .append('g')
-      .attr('transform', `translate(${margin.left},${margin.top})`);
+      .attr('transform', `translate(${margin.left + 15},${margin.top})`);
 
     // Generates labels and context for x axis
     const x = d3.scaleTime() // What data we're measuring
@@ -57,7 +58,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
     svg
       .append('g')
       .attr('transform', `translate(0,${height - margin.bottom})`)
-      .attr('class', 'd3-chart__dates')
+      .attr('class', 'd3-chart__datesX')
       .call(
         d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%b %d')),
       );
@@ -70,7 +71,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .domain([0, 100])
       .range([height - margin.bottom, 0]);
 
-    svg.append('g').attr('class', 'd3-chart__dates').call(d3.axisLeft(y));
+    svg.append('g').attr('class', 'd3-chart__ratingY').call(d3.axisLeft(y));
 
     // Grid
     // gridlines in x axis function
@@ -98,13 +99,26 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
 
     d3.selectAll('.axis-grid line').style('stroke', 'lightgray');
 
-    // svg.append('text')
-    //   .attr('x', width / 2)
-    //   .attr('y', -30)
-    //   .attr('text-anchor', 'middle')
-    //   .attr('fint-size', '10px')
-    //   .attr('fill', 'black')
-    //   .text('demoData Graph (D3)');
+    // X axis label:
+
+    svg.append('text')
+      .attr('x', width / 2)
+      .attr('class', 'd3-chart__label')
+      .attr('y', -30)
+      .attr('text-anchor', 'middle')
+      .attr('fint-size', '10px')
+      .attr('fill', 'black')
+      .text('demoData Graph (D3)');
+
+    // Y axis label:
+    svg
+      .append('text')
+      .attr('text-anchor', 'middle')
+      .attr('class', 'd3-chart__label')
+      .attr('transform', 'rotate(-90)')
+      .attr('y', -margin.left - 20)
+      .attr('x', -margin.top - 160)
+      .text('Percent of Measure');
 
     // Generates the actual line
     const line = d3
@@ -142,6 +156,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
         .style('top', `${event.pageY - 10}px`)
         .style('left', `${event.pageX + 10}px`);
     };
+    TickChange()
 
     // Iterates through an array variation.
     if (measureList.length > 0) {
@@ -169,7 +184,6 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       });
     }
   });
-
   return (
     <div className="d3-chart">
       <svg ref={D3LineChart} />
