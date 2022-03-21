@@ -19,7 +19,7 @@ function FilterDrawerItem({ filterItem, currentFilter, filterAction }) {
         </Grid>
         <Grid item className="filter-drawer-item__row">
           <Tooltip title={filterItem.tip}>
-            <HelpIcon className="filter-drawer-item__help" />
+            <HelpIcon className="filter-drawer-item__help-icon" />
           </Tooltip>
         </Grid>
       </Grid>

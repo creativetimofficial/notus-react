@@ -1,5 +1,6 @@
 import CloseIcon from '@mui/icons-material/Close';
 import HelpIcon from '@mui/icons-material/Help';
+import CancelIcon from '@mui/icons-material/Cancel'
 import ToolTip from '@mui/material/Tooltip';
 import {
   Box, Button, Drawer, Grid, Slider, Typography,
@@ -32,6 +33,19 @@ function FilterDrawer({
     }
     toggleFilterDrawer(open);
   };
+
+  const handleResetFilter = () => {
+    handleFilterChange({
+      domainsOfCare: [],
+      stars: [],
+      percentRange: [0, 100],
+      sum: 0,
+    });
+    setStarChoices([]);
+    setDomainOfCareChoices([]);
+    setPercentSliderValue([0, 100]);
+    toggleFilterDrawer(false);
+  }
 
   const handleStarChange = (event) => {
     if (event.target.checked) {
@@ -78,7 +92,7 @@ function FilterDrawer({
         role="presentation"
         onKeyDown={toggleDrawer(false)}
       >
-        <Grid container className="filter-drawer__title-panel">
+        <Grid container className="filter-drawer__title-section">
           <Grid item>
             <Typography className="filter-drawer__title" variant="h6">Filters</Typography>
           </Grid>
@@ -86,22 +100,34 @@ function FilterDrawer({
             <CloseIcon className="filter-drawer__close-icon" onClick={toggleDrawer(false)} />
           </Grid>
         </Grid>
-        <Grid container className="filter-drawer__refine-panel">
-          Refine by:
+        <Grid container className="filter-drawer__refine-section">
+          <Grid item className="filter-drawer__refine-label-panel">
+            <Typography className="filter-drawer__refine-label" variant="body1">Refine by:</Typography>
+          </Grid>
+          <Grid item className="filter-drawer__refine-section">
+            <Button
+              className="filter-drawer__reset-button"
+              variant="outlined"
+              onClick={handleResetFilter}
+            >
+              Reset Filters
+              <CancelIcon className="filter-drawer__cancel-icon" />
+            </Button>
+          </Grid>
         </Grid>
-        <Grid container item className="filter-drawer__options-panel">
+        <Grid container item className="filter-drawer__options-section">
           <FilterDrawerItem
             filterItem={filterDrawerItemData.domainsOfCare}
             filterAction={handleDomainOfCareChange}
             currentFilter={domainOfCareChoices}
           />
-          <Grid container item className="filter-drawer__slider-panel">
+          <Grid container item className="filter-drawer__slider-section">
             <Grid item className="filter-drawer__slider-title">
               <Typography className="filter-drawer__slider-label" variant="body1">Percent Range:</Typography>
             </Grid>
             <Grid item className="filter-drawer__help-panel">
               <ToolTip title={sliderTip}>
-                <HelpIcon className="filter-drawer__help" />
+                <HelpIcon className="filter-drawer__help-icon" />
               </ToolTip>
             </Grid>
           </Grid>
@@ -123,7 +149,7 @@ function FilterDrawer({
             filterAction={handleStarChange}
             currentFilter={starChoices}
           />
-          <Grid container className="filter-drawer__button-control-panel">
+          <Grid container className="filter-drawer__button-control-section">
             <Grid item className="filter-drawer__button-panel">
               <Button
                 className="filter-drawer__cancel-button"

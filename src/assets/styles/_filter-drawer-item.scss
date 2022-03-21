@@ -22,8 +22,8 @@ $block-class: 'filter-drawer-item';
             color: $default-gray;
         }
 
-        &__help {
-            @extend .filter-drawer__help; 
+        &__help-icon {
+            @extend .filter-drawer__help-icon; 
             margin-left: .5rem;
         }
 
