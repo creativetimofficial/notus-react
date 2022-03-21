@@ -1,0 +1,20 @@
+@import 'colors';
+
+$block-class: 'chart-bar';
+
+@at-root {
+  .#{$block-class} {
+
+    & &__filter-button {
+      width: 7rem;
+      justify-content: left;
+    }
+
+    &__badge > span {
+      color: #fff;
+      background-color: $default-red;
+      transform: scale(1) translate(-50%, 30%);
+      box-shadow: 0 0 0 2px $default-gray;
+    }
+  }
+}

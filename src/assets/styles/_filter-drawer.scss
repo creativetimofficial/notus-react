@@ -1,0 +1,93 @@
+@import 'colors';
+
+$block-class: 'filter-drawer';
+
+@at-root {
+    .#{$block-class} {
+        padding: 0 2rem;
+        min-width: 21rem;
+
+        & &__title-section {
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        & &__title {
+            margin: .5rem 0;
+            color: $default-gray;
+        }
+
+        & &__refine-section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        & &__refine-label {
+            color: $default-gray;
+            margin-top:auto;
+        }
+
+        & &__reset-button {
+            margin-left: 1rem;
+        }
+
+        & &__cancel-icon {
+            margin-left: 0.5rem;
+            margin-bottom: 0.1rem;
+            height: 1.1rem;
+        }
+
+        &__help-icon {
+            color: $gray-light;
+            margin-bottom: 0.3rem;
+            margin-left: 0.5rem;
+
+            &:hover {
+                color: $blue-light;
+            }
+        }
+
+        & &__close-icon {
+            margin: .75rem .4rem .2rem .2rem;
+            color: $default-gray;
+        }
+        
+        & &__options-section {
+            display: flex;
+            flex-direction: column;
+            margin-top: 0.2rem;
+        }
+
+        & &__slider-panel {
+            margin-top: 0.6rem;
+            width: calc(100% + 1rem);
+        }
+
+        &__slider-label {
+            color: $default-gray;
+        }
+
+        & &__slider-body {
+            min-width: 9.5rem;
+            margin-left: 0.6rem;
+        }
+
+        & &__slider {
+            margin-top: 2rem;
+            color: $blue-light;
+            width: 80%;
+            .MuiSlider-markLabelActive {
+                color: $gray-light;
+            }
+        }
+
+        & &__button-control-section {
+            display: flex;
+            align-items: center;
+            margin-top: 1.9rem;
+            justify-content: space-evenly;
+        }
+    }
+
+}

@@ -1,189 +1,85 @@
-import { ThemeProvider } from '@emotion/react';
 import CloseIcon from '@mui/icons-material/Close';
 import HelpIcon from '@mui/icons-material/Help';
+import CancelIcon from '@mui/icons-material/Cancel'
+import ToolTip from '@mui/material/Tooltip';
 import {
-  Box,
-  Button,
-  Divider,
-  Drawer,
-  Grid,
-  Slider,
-  Typography,
+  Box, Button, Drawer, Grid, Slider, Typography,
 } from '@mui/material';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import theme from '../../assets/styles/AppTheme';
 import FilterDrawerItem from './FilterDrawerItem';
 import filterDrawerItemData from './FilterDrawerItemData';
 
+const sliderTip = 'Selects the range of compliance.';
+
 function FilterDrawer({
   currentFilters,
-  setCurrentFilters,
+  handleFilterChange,
   filterDrawerOpen,
   toggleFilterDrawer,
 }) {
-  const [percentSliderValue, setPercentSliderValue] = useState([25, 75]);
+  const [percentSliderValue, setPercentSliderValue] = useState(
+    Array.from(currentFilters.percentRange),
+  );
+  const [starChoices, setStarChoices] = useState(Array.from(currentFilters.stars));
+  const [domainOfCareChoices, setDomainOfCareChoices] = useState(
+    Array.from(currentFilters.domainsOfCare),
+  );
 
   const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === 'keydown' &&
-      (event.key === 'Tab' || event.key === 'Shift')
+    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')
     ) {
       return;
     }
     toggleFilterDrawer(open);
   };
 
+  const handleResetFilter = () => {
+    handleFilterChange({
+      domainsOfCare: [],
+      stars: [],
+      percentRange: [0, 100],
+      sum: 0,
+    });
+    setStarChoices([]);
+    setDomainOfCareChoices([]);
+    setPercentSliderValue([0, 100]);
+    toggleFilterDrawer(false);
+  }
+
+  const handleStarChange = (event) => {
+    if (event.target.checked) {
+      setStarChoices(starChoices.concat(parseInt(event.target.value, 10)));
+    } else {
+      setStarChoices(starChoices.filter((star) => (star !== parseInt(event.target.value, 10))));
+    }
+  }
+
+  const handleDomainOfCareChange = (event) => {
+    if (event.target.checked) {
+      setDomainOfCareChoices(domainOfCareChoices.concat(event.target.value));
+    } else {
+      setDomainOfCareChoices(domainOfCareChoices.filter((doc) => doc !== event.target.value));
+    }
+  }
+
+  // https://mui.com/components/slider/#minimum-distance
   const handleSliderChange = (event, newValue) => {
     setPercentSliderValue(newValue);
   };
 
+  const handleApplyFilter = () => {
+    const filterOptions = {
+      domainsOfCare: domainOfCareChoices,
+      stars: starChoices,
+      percentRange: percentSliderValue,
+    };
+    filterOptions.sum = filterDrawerItemData.sumCalculator(filterOptions);
+    handleFilterChange(filterOptions);
+    toggleFilterDrawer(false);
+  }
+
   const sliderValuetext = (value) => `${value}%`;
-
-  // Gotta figure something in here to deal with the filter application
-  const list = () => (
-    // anchor was here
-    <ThemeProvider theme={theme}>
-      <Box
-        sx={{ px: '50px' }}
-        role="presentation"
-        onKeyDown={toggleDrawer(false)}
-      >
-        <Grid container direction="row" justifyContent="space-between">
-          <Grid item>
-            <Typography sx={{ my: '20px' }} color="black.dark" variant="h6">
-              Filters
-            </Typography>
-          </Grid>
-          <Grid item>
-            <CloseIcon
-              size="large"
-              sx={{ m: '10px', mr: '20px' }}
-              color="black"
-              onClick={toggleDrawer(false)}
-            />
-          </Grid>
-        </Grid>
-
-        <Grid container direction="column">
-          <Grid container item direction="column">
-            <Grid item>
-              <Typography color="black.dark" variant="body1">
-                Active Filters:
-              </Typography>
-            </Grid>
-            <Grid
-              container
-              item
-              justifyContent="flex-start"
-              alignItems="center"
-              sx={{ minHeight: '70px' }}
-            >
-              {currentFilters.length === 0 ? (
-                <Typography color="black.dark" variant="caption">
-                  No filters selected
-                </Typography>
-              ) : (
-                currentFilters.map((filter) => (
-                  <Button
-                    key={`filter-drawer-button-${filter.value}`}
-                    sx={{ borderRadius: '10px', m: '5px' }}
-                    color="blue"
-                    variant="contained"
-                  >
-                    <Grid
-                      container
-                      direction="column"
-                      spacing={0}
-                      justifyContent="center"
-                      align="center"
-                    >
-                      <Grid item>
-                        <Typography
-                          variant="caption"
-                          sx={{ fontSize: '0.5rem' }}
-                        >
-                          {filter.type}:
-                        </Typography>
-                      </Grid>
-                      <Grid item>
-                        <Typography
-                          variant="button"
-                          sx={{ fontSize: '0.75rem' }}
-                        >
-                          {filter.value}
-                        </Typography>
-                      </Grid>
-                    </Grid>
-                  </Button>
-                ))
-              )}
-            </Grid>
-            <Grid item sx={{ width: '80%' }}>
-              <Divider color="black" sx={{ width: '100%' }} />
-            </Grid>
-            <Grid container item direction="column" sx={{ mt: '10px' }}>
-              <Grid container item spacing={1} direction="row">
-                <Grid item>
-                  <Typography color="black.dark" variant="body1">
-                    Percent Range:
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <HelpIcon size="small" sx={{ p: '4px' }} color="gray" />
-                </Grid>
-              </Grid>
-              <Grid item>
-                <Box sx={{ minwidth: '150px', ml: '10px' }}>
-                  <Slider
-                    getAriaLabel={() => 'Temperature range'}
-                    value={percentSliderValue}
-                    onChange={handleSliderChange}
-                    valueLabelDisplay="auto"
-                    getAriaValueText={sliderValuetext}
-                    sx={{ color: 'blue.dark', width: '80%' }}
-                  />
-                </Box>
-              </Grid>
-            </Grid>
-            {filterDrawerItemData.map((drawerItem) => (
-              <FilterDrawerItem
-                key={`filter-draw-item-${drawerItem.name}`}
-                filterItem={drawerItem}
-              />
-            ))}
-          </Grid>
-          <Grid
-            sx={{ my: '50px' }}
-            container
-            justifyContent="space-evenly"
-            alignItems="center"
-            direction="row"
-          >
-            <Grid item>
-              <Button
-                sx={{ borderRadius: '5px' }}
-                onClick={toggleDrawer(false)}
-                color="blue"
-                variant="outlined"
-              >
-                Cancel
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                sx={{ borderRadius: '5px' }}
-                color="blue"
-                variant="contained"
-              >
-                Apply Filters
-              </Button>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Box>
-    </ThemeProvider>
-  );
 
   return (
     <Drawer
@@ -191,27 +87,110 @@ function FilterDrawer({
       open={filterDrawerOpen}
       onClose={toggleDrawer(false)}
     >
-      {list()}
+      <Box
+        className="filter-drawer"
+        role="presentation"
+        onKeyDown={toggleDrawer(false)}
+      >
+        <Grid container className="filter-drawer__title-section">
+          <Grid item>
+            <Typography className="filter-drawer__title" variant="h6">Filters</Typography>
+          </Grid>
+          <Grid item className="filter-drawer__close-icon-panel">
+            <CloseIcon className="filter-drawer__close-icon" onClick={toggleDrawer(false)} />
+          </Grid>
+        </Grid>
+        <Grid container className="filter-drawer__refine-section">
+          <Grid item className="filter-drawer__refine-label-panel">
+            <Typography className="filter-drawer__refine-label" variant="body1">Refine by:</Typography>
+          </Grid>
+          <Grid item className="filter-drawer__refine-section">
+            <Button
+              className="filter-drawer__reset-button"
+              variant="outlined"
+              onClick={handleResetFilter}
+            >
+              Reset Filters
+              <CancelIcon className="filter-drawer__cancel-icon" />
+            </Button>
+          </Grid>
+        </Grid>
+        <Grid container item className="filter-drawer__options-section">
+          <FilterDrawerItem
+            filterItem={filterDrawerItemData.domainsOfCare}
+            filterAction={handleDomainOfCareChange}
+            currentFilter={domainOfCareChoices}
+          />
+          <Grid container item className="filter-drawer__slider-section">
+            <Grid item className="filter-drawer__slider-title">
+              <Typography className="filter-drawer__slider-label" variant="body1">Percent Range:</Typography>
+            </Grid>
+            <Grid item className="filter-drawer__help-panel">
+              <ToolTip title={sliderTip}>
+                <HelpIcon className="filter-drawer__help-icon" />
+              </ToolTip>
+            </Grid>
+          </Grid>
+          <Grid item className="filter-drawer__slider-body">
+            <Slider
+              getAriaLabel={() => 'Measurement percentage range'}
+              defaultValue={percentSliderValue}
+              value={percentSliderValue}
+              onChange={handleSliderChange}
+              valueLabelDisplay="on"
+              getAriaValueText={sliderValuetext}
+              className="filter-drawer__slider"
+              marks={filterDrawerItemData.percentMarks}
+              disableSwap
+            />
+          </Grid>
+          <FilterDrawerItem
+            filterItem={filterDrawerItemData.starRating}
+            filterAction={handleStarChange}
+            currentFilter={starChoices}
+          />
+          <Grid container className="filter-drawer__button-control-section">
+            <Grid item className="filter-drawer__button-panel">
+              <Button
+                className="filter-drawer__cancel-button"
+                onClick={toggleDrawer(false)}
+                variant="outlined"
+              >
+                Cancel
+              </Button>
+            </Grid>
+            <Grid item className="filter-drawer__button-panel">
+              <Button
+                className="filter-drawer__apply-button"
+                variant="contained"
+                onClick={handleApplyFilter}
+              >
+                Apply Filters
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Box>
     </Drawer>
   );
 }
 
 FilterDrawer.propTypes = {
   filterDrawerOpen: PropTypes.bool,
-  currentFilters: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string,
-    })
-  ),
+  currentFilters: PropTypes.shape({
+    domainsOfCare: PropTypes.arrayOf(PropTypes.string),
+    stars: PropTypes.arrayOf(PropTypes.number),
+    percentRange: PropTypes.arrayOf(PropTypes.number),
+  }),
   toggleFilterDrawer: PropTypes.func,
-  setCurrentFilters: PropTypes.func,
+  handleFilterChange: PropTypes.func,
 };
 
 FilterDrawer.defaultProps = {
   filterDrawerOpen: false,
-  currentFilters: [],
-  toggleFilterDrawer: () => undefined,
-  setCurrentFilters: () => undefined,
-};
+  currentFilters: {},
+  toggleFilterDrawer: undefined,
+  handleFilterChange: undefined,
+}
 
 export default FilterDrawer;
