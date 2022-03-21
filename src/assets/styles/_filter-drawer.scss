@@ -20,7 +20,7 @@ $block-class: 'filter-drawer';
         & &__refine-section {
             display: flex;
             flex-direction: row;
-            margin-top: auto;
+            align-items: center;
         }
 
         & &__refine-label {
