@@ -132,8 +132,6 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .attr('class', 'd3-chart__tooltip');
 
     const toolTipGenerator = (event) => {
-      d3.select(event.currentTarget).attr('opacity', '1');
-      JSON.stringify(event);
       const avg30 = margin.left * 0.3;
       const tickWidth = Math.floor(width / tickCount + avg30);
       const index = Math.floor((event.offsetX - margin.left) / tickWidth);
@@ -182,6 +180,15 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
           });
       });
     }
+    // Create line at end of chart to make it a complete box
+    svg.append('line')
+      .attr('x1', width)
+      .attr('y1', 0)
+      .attr('x2', width)
+      .attr('y2', height - margin.bottom)
+      .style('stroke-width', 1)
+      .style('stroke', '#CFD8DC')
+      .style('fill', 'none');
   });
   return (
     <div className="d3-chart">
