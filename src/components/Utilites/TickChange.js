@@ -1,12 +1,19 @@
+/* eslint-disable no-underscore-dangle */
 const TickChange = () => {
   const ticksFound = document.querySelectorAll('.tick > text');
-  const YlineFound = document.querySelectorAll('.d3-chart__ratingY')[0].childNodes;
-  console.log('YlineFound', YlineFound);
-//   for (let i = 0; i < YlineFound.length; i++) {}
+  const tickLinesFound = document.querySelectorAll('.tick > line');
+  const tickLinesFoundX = document.querySelectorAll('.d3-chart__datesX > .tick > line');
+  const DomainsFound = document.querySelectorAll('.domain');
 
+  for (let i = 0; i < tickLinesFoundX.length; i++) {
+    tickLinesFoundX[i].style.display = 'none'
+  }
+  //   Making the X-AXIS DISAPPEAR
+  DomainsFound[0].style.display = 'none'
+  // Changes Numbers to Percent
   for (let i = 0; i < ticksFound.length; i++) {
     const tickInnerHtml = ticksFound[i].innerHTML;
-
+    // Removes numbers of Y-axis on 10,30,50,70 and 90.
     if (tickInnerHtml === '10') {
       ticksFound[i].style.display = 'none';
     } else if (tickInnerHtml === '30') {
@@ -18,7 +25,8 @@ const TickChange = () => {
     } else if (tickInnerHtml === '90') {
       ticksFound[i].style.display = 'none';
     }
-    ticksFound[0].innerHTML = `${ticksFound[0].innerHTML}`;
+
+    // Changes numbers of Y-axis on 20,40,60,80 and 100 to %.
 
     if (tickInnerHtml === '20') {
       ticksFound[i].innerHTML = '20%';
@@ -34,6 +42,36 @@ const TickChange = () => {
       ticksFound[i].innerHTML = '0%';
     }
   }
+  // Removes Ticks on 10,30,50,70 and 90.
+  for (let i = 0; i < tickLinesFound.length; i++) {
+    if (tickLinesFound[i].__data__ === 0) {
+    //   tickLinesFound[i].style.color = 'white'
+      tickLinesFound[i].classList.add('d3-chart__stroke-Dasharray')
+    } else if (tickLinesFound[i].__data__ === 20) {
+      tickLinesFound[i].classList.add('d3-chart__stroke-Dasharray')
+    } else if (tickLinesFound[i].__data__ === 40) {
+      tickLinesFound[i].classList.add('d3-chart__stroke-Dasharray')
+    } else if (tickLinesFound[i].__data__ === 60) {
+      tickLinesFound[i].classList.add('d3-chart__stroke-Dasharray')
+    } else if (tickLinesFound[i].__data__ === 80) {
+      tickLinesFound[i].classList.add('d3-chart__stroke-Dasharray')
+    } else if (tickLinesFound[i].__data__ === 100) {
+      tickLinesFound[i].classList.add('d3-chart__stroke-Dasharray')
+    }
+    // Removes Specific Ticks
+    if (tickLinesFound[i].__data__ === 10) {
+      tickLinesFound[i].remove()
+    } else if (tickLinesFound[i].__data__ === 30) {
+      tickLinesFound[i].remove()
+    } else if (tickLinesFound[i].__data__ === 50) {
+      tickLinesFound[i].remove()
+    } else if (tickLinesFound[i].__data__ === 70) {
+      tickLinesFound[i].remove()
+    } else if (tickLinesFound[i].__data__ === 90) {
+      tickLinesFound[i].remove()
+    }
+  }
+//   console.log("tickLinesFound",tickLinesFound)
 }
 
 module.exports = { TickChange };
