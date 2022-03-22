@@ -5,21 +5,17 @@ $block-class: 'trend-display';
 
 @at-root {
     .#{$block-class} {
+        @extend .rating-trends__panel; 
+        &--width-25 {
+            @extend .rating-trends__panel--width-25; 
+        }
 
-        &__panel {
-            @extend .rating-trends__panel; 
+        &--width-50 {
+            @extend .rating-trends__panel--width-50; 
+        }
 
-            &--width-25 {
-                @extend .rating-trends__panel--width-25; 
-            }
-    
-            &--width-50 {
-                @extend .rating-trends__panel--width-50; 
-            }
-    
-            &--hide {
-                display: none;
-            }
+        &--hide {
+            display: none;
         }
         
         &__h3-header {

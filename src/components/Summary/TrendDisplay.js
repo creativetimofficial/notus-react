@@ -5,27 +5,27 @@ import {
 } from '@mui/material';
 
 function TrendDisplay({ trend, percentWidth }) {
-  let panelClass = 'trend-display__panel--hide';
+  let panelClass = 'trend-display--hide';
   if (percentWidth === 25) {
-    panelClass = 'trend-display__panel--width-25';
+    panelClass = 'trend-display--width-25';
   } else if (percentWidth === 50) {
-    panelClass = 'trend-display__panel--width-50';
+    panelClass = 'trend-display--width-50';
   }
 
   let trendClass = '';
   let trendValue = 'N/A';
   if (trend.percentChange) {
     if (trend.percentChange >= 0) {
-      trendClass = 'trend-display__percent-change__positive';
-      trendValue = `+ ${trend.percentChange} %`
+      trendClass = 'trend-display__percent-change--positive';
+      trendValue = `+${trend.percentChange} %`
     } else {
-      trendClass = 'trend-display__percent-change__negative';
-      trendValue = `- ${Math.abs(trend.percentChange)} %`
+      trendClass = 'trend-display__percent-change--negative';
+      trendValue = `-${Math.abs(trend.percentChange)} %`
     }
   }
 
   return (
-    <Grid className={`trend-display__panel ${panelClass}`}>
+    <Grid className={`trend-display ${panelClass}`}>
       <Typography variant="h3" className="trend-display__h3-header">
         {`${trend.measure} % Compliance`}
       </Typography>

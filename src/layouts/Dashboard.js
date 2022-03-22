@@ -28,7 +28,6 @@ export default function Dashboard() {
   const { datastore } = useContext(DatastoreContext);
   const [filterDrawerOpen, toggleFilterDrawer] = useState(false);
   const [activeMeasure, setActiveMeasure] = useState({});
-  console.log(datastore);
 
   useEffect(() => {
     if (datastore.currentResults !== undefined) {

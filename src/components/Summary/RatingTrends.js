@@ -115,7 +115,7 @@ RatingTrends.propTypes = {
   }),
   trends: PropTypes.arrayOf(
     PropTypes.shape({
-      measure: PropTypes.number,
+      measure: PropTypes.string,
     }),
   ),
 }
