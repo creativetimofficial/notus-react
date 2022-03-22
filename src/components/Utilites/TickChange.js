@@ -5,13 +5,13 @@ const TickChange = () => {
   const tickLinesFoundX = document.querySelectorAll('.d3-chart__datesX > .tick > line');
   const DomainsFound = document.querySelectorAll('.domain');
 
-  for (let i = 0; i < tickLinesFoundX.length; i++) {
+  for (let i = 0; i < tickLinesFoundX.length; i += 1) {
     tickLinesFoundX[i].style.display = 'none'
   }
   //   Making the X-AXIS DISAPPEAR
   DomainsFound[0].style.display = 'none'
   // Changes Numbers to Percent
-  for (let i = 0; i < ticksFound.length; i++) {
+  for (let i = 0; i < ticksFound.length; i += 1) {
     const tickInnerHtml = ticksFound[i].innerHTML;
     // Removes numbers of Y-axis on 10,30,50,70 and 90.
     if (tickInnerHtml === '10') {
@@ -43,7 +43,7 @@ const TickChange = () => {
     }
   }
   // Removes Ticks on 10,30,50,70 and 90.
-  for (let i = 0; i < tickLinesFound.length; i++) {
+  for (let i = 0; i < tickLinesFound.length; i += 1) {
     if (tickLinesFound[i].__data__ === 0) {
     //   tickLinesFound[i].style.color = 'white'
       tickLinesFound[i].classList.add('d3-chart__stroke-Dasharray')

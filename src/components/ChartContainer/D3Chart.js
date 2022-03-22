@@ -27,7 +27,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
   };
   const box = document.querySelector('.MuiGrid-item');
   const widthBase = (window.innerWidth || document.body.clientWidth);
-  const width = box === null ? (widthBase * 0.8) : box.offsetWidth - 200;
+  const width = box === null ? (widthBase * 0.8) : box.offsetWidth - 220;
   const height = 500;
   const tickCount = displayData.length / measureList.length;
 
@@ -47,7 +47,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .select(D3LineChart.current)
       .attr('class', 'd3-chart__line-chart')
       .append('g')
-      .attr('transform', `translate(${margin.left + 30},${margin.top})`);
+      .attr('transform', `translate(${margin.left + 50},${margin.top})`);
 
     // Generates labels and context for x axis
     const x = d3.scaleTime() // What data we're measuring
@@ -113,7 +113,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .append('text')
       .attr('class', 'd3-chart__label')
       .attr('transform', 'rotate(-90)')
-      .attr('y', -margin.left - 20)
+      .attr('y', -margin.left - 25)
       .attr('x', -margin.top - 160)
       .text(`${viewByPercentage ? 'Percent' : 'Rating'}`);
 
