@@ -15,7 +15,7 @@ function TrendDisplay({ trend, percentWidth }) {
   const header = `${trend.measure} % Compliance`;
   let trendClass = '';
   let trendValue = 'N/A';
-  if (trend.percentChange !== 'NA') {
+  if (trend.percentChange) {
     if (trend.percentChange >= 0) {
       trendClass = 'rating-trends__percent-change__positive';
       trendValue = `+ ${trend.percentChange} %`
@@ -51,7 +51,6 @@ TrendDisplay.propTypes = {
 TrendDisplay.defaultProps = {
   trend: {
     measure: '',
-    percentChange: 0,
   },
   percentWidth: 0,
 }
