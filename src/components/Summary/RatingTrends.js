@@ -12,15 +12,15 @@ import TrendDisplay from './TrendDisplay';
 const starsTip = 'Star rating subject to change depending on measures and other resources. For more information, please contact NCQA.';
 
 function RatingTrends({ activeMeasure, trends, info }) {
-  const mainTrend = { measure: '', percentChange: '' };
-  const biggestGain = { measure: '', percentChange: '' };
-  const biggestLoss = { measure: '', percentChange: '' };
+  const mainTrend = { measure: '', percentChange: undefined };
+  const biggestGain = { measure: '', percentChange: undefined };
+  const biggestLoss = { measure: '', percentChange: undefined };
   let sortedTrends = [];
   const measureTrend = trends
     .find((trend) => trend.measure === activeMeasure.measure);
 
   mainTrend.measure = info[activeMeasure.measure] !== undefined ? info[activeMeasure.measure].displayLabel : '';
-  mainTrend.percentChange = measureTrend === undefined ? '' : measureTrend.percentChange;
+  mainTrend.percentChange = measureTrend === undefined ? undefined : measureTrend.percentChange;
   if (activeMeasure.measure === 'composite') {
     sortedTrends = trends
       .filter((trend) => trend.measure !== 'composite')
@@ -57,14 +57,14 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
     <Box className="rating-trends__display-box">
       <Box className="rating-trends__panel-box">
         <Grid className={`rating-trends__panel 
-          ${renderOptions.displayAll ? 'rating-trends__panel__width-25' : 'rating-trends__panel__width-50'}`}
+          rating-trends__panel${renderOptions.displayAll ? '--width-25' : '--width-50'}`}
         >
           <Grid className="rating-trends__header-align">
             <Typography variant="h3" className="rating-trends__h3-header">
               Star Rating
             </Typography>
             <ToolTip title={starsTip}>
-              <HelpIcon className="rating-trends__help" fontSize="small" />
+              <HelpIcon className="rating-trends__help-icon" fontSize="small" />
             </ToolTip>
           </Grid>
           <Rating
@@ -115,7 +115,7 @@ RatingTrends.propTypes = {
   }),
   trends: PropTypes.arrayOf(
     PropTypes.shape({
-      measure: PropTypes.string,
+      measure: PropTypes.number,
     }),
   ),
 }

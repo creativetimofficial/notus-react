@@ -5,32 +5,31 @@ import {
 } from '@mui/material';
 
 function TrendDisplay({ trend, percentWidth }) {
-  let panelClass = 'rating-trends__panel__hide';
+  let panelClass = 'trend-display__panel--hide';
   if (percentWidth === 25) {
-    panelClass = 'rating-trends__panel__width-25';
+    panelClass = 'trend-display__panel--width-25';
   } else if (percentWidth === 50) {
-    panelClass = 'rating-trends__panel__width-50';
+    panelClass = 'trend-display__panel--width-50';
   }
 
-  const header = `${trend.measure} % Compliance`;
   let trendClass = '';
   let trendValue = 'N/A';
   if (trend.percentChange) {
     if (trend.percentChange >= 0) {
-      trendClass = 'rating-trends__percent-change__positive';
+      trendClass = 'trend-display__percent-change__positive';
       trendValue = `+ ${trend.percentChange} %`
     } else {
-      trendClass = 'rating-trends__percent-change__negative';
+      trendClass = 'trend-display__percent-change__negative';
       trendValue = `- ${Math.abs(trend.percentChange)} %`
     }
   }
 
   return (
-    <Grid className={`rating-trends__panel ${panelClass}`}>
-      <Typography variant="h3" className="rating-trends__h3-header">
-        {header}
+    <Grid className={`trend-display__panel ${panelClass}`}>
+      <Typography variant="h3" className="trend-display__h3-header">
+        {`${trend.measure} % Compliance`}
       </Typography>
-      <Typography className={`rating-trends__percent-change ${trendClass}`}>
+      <Typography className={`trend-display__percent-change ${trendClass}`}>
         { trendValue }
       </Typography>
       <Typography>

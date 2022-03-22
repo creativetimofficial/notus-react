@@ -34,16 +34,12 @@ $block-class: 'rating-trends';
             margin: 1rem;
             padding: 1rem;
 
-            &__width-25 {
+            &--width-25 {
                 width: 25%;
             }
     
-            &__width-50 {
+            &--width-50 {
                 width: 50%;
-            }
-    
-            &__hide {
-                display: none;
             }
         }
 
@@ -59,7 +55,7 @@ $block-class: 'rating-trends';
             height: 46px;
         }
 
-        &__help {
+        &__help-icon {
             color: $gray-light;
             margin-left: 0.4rem;
             margin-top: 0.1rem;
@@ -98,25 +94,6 @@ $block-class: 'rating-trends';
             border: 1px solid $default-gray;
             padding: 1rem;
             border-radius: 0.25rem;
-        }
-
-        & &__percent-change {
-            margin-top: 1rem;
-            font-size: 2.5rem;
-            font-weight: 500;
-            color: $default-black;
-
-            &__positive {
-                color: $default-green;
-            }
-
-            &__negative {
-                color: $default-red;
-            }
-
-            &__hide {
-                display: none;
-            }
         }
     }
 }
