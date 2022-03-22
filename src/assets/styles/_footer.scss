@@ -9,6 +9,7 @@ $block-class: 'footer';
       padding-bottom: 1rem;
       background-color: #263238;
       color: #FFFFFF;
+      z-index: 100;
 
       &__center-box {
         margin-left: auto;
