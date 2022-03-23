@@ -18,23 +18,21 @@ $AXIS_LABEL_COLOR: #b0bec5;
     }
     &__x-axis {
       display: none;
-
     }
     &__y-axis {
-      color: white;
+      color: $YAXIS_LINE_COLOR;
     }
     &__y-axisColorDeselect {
-      color:white
+      color: white;
     }
-    &__stroke-Dasharray {
+    &__stroke-stroke-width-opacity {
       color: $YAXIS_LINE_COLOR;
-      // stroke-dasharray:15 5; 
+      // stroke-dasharray:15 5;
       stroke-width: 2;
-      stroke-opacity: .5;
-
+      stroke-opacity: 0.5;
     }
-    &__label{
-      fill:$AXIS_LABEL_COLOR;
+    &__label {
+      fill: $AXIS_LABEL_COLOR;
       font-size: 1.3rem;
       font-weight: bold;
       text-anchor: middle;
@@ -67,6 +65,5 @@ $AXIS_LABEL_COLOR: #b0bec5;
       fill: none;
       pointer-events: all;
     }
-  
   }
 }

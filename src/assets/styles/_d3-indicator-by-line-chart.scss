@@ -1,0 +1,72 @@
+$block-class: 'd3-indicator-by-line-chart';
+// d3-indicator-by-line-chart
+$YAXIS_LINE_COLOR: #cfd8dc;
+$AXIS_LABEL_COLOR: #b0bec5;
+
+@at-root {
+  .#{$block-class} {
+    // width: 90vw;
+
+    &__line-chart {
+      height: 650px;
+      width: 92vw;
+      background-color: #fff;
+    }
+
+    &__line {
+      // color: green;
+    }
+    &__x-axis {
+      display: none;
+
+    }
+    &__y-axis {
+      color: $YAXIS_LINE_COLOR;
+    }
+    &__y-axisColorDeselect {
+      // color:white
+    }
+    &__stroke-stroke-width-opacity {
+      // color: $YAXIS_LINE_COLOR;
+      // stroke-dasharray:15 5; 
+      // stroke-width: 2;
+      // stroke-opacity: .5;
+
+    }
+    &__label{
+      fill:$AXIS_LABEL_COLOR;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-anchor: middle;
+    }
+    &__ratingY {
+      color: $AXIS_LABEL_COLOR;
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+    &__datesX {
+      color: $AXIS_LABEL_COLOR;
+      font-size: 1.125rem;
+      font-weight: bold;
+    }
+    &__tooltip {
+      // position: absolute;
+      // z-index: 10;
+      // visibility: hidden;
+      // background: grey;
+      // border: 1px solid black;
+      // color: white;
+      // padding: 5px 10px;
+      // font-size: 1rem;
+      // font-weight: bold;
+      // border-radius: 10px;
+      // visibility: hidden;
+      // white-space: pre-line;
+    }
+    &__overlay {
+      // fill: none;
+      // pointer-events: all;
+    }
+  
+  }
+}
