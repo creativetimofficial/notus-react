@@ -131,7 +131,7 @@ function D3IndicatorByLineChart({
     const tooltip = d3
       .select('body')
       .append('div')
-      .attr('class', 'd3-chart__tooltip');
+      .attr('class', 'd3-indicator-by-line-chart__tooltip');
 
     const toolTipGenerator = (event) => {
       const avg30 = margin.left * 0.3;

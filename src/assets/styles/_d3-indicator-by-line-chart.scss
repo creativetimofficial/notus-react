@@ -50,18 +50,18 @@ $AXIS_LABEL_COLOR: #b0bec5;
       font-weight: bold;
     }
     &__tooltip {
-      // position: absolute;
-      // z-index: 10;
-      // visibility: hidden;
-      // background: grey;
-      // border: 1px solid black;
-      // color: white;
-      // padding: 5px 10px;
-      // font-size: 1rem;
-      // font-weight: bold;
-      // border-radius: 10px;
-      // visibility: hidden;
-      // white-space: pre-line;
+      position: absolute;
+      z-index: 10;
+      visibility: hidden;
+      background: grey;
+      border: 1px solid black;
+      color: white;
+      padding: 5px 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 10px;
+      visibility: hidden;
+      white-space: pre-line;
     }
     &__overlay {
       // fill: none;
