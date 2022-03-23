@@ -130,7 +130,6 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .select('body')
       .append('div')
       .attr('class', 'd3-chart__tooltip');
-
     const toolTipGenerator = (event) => {
       const avg30 = margin.left * 0.3;
       const tickWidth = Math.floor(width / tickCount + avg30);

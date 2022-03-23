@@ -27,7 +27,12 @@ function D3IndicatorByLineChart({
   const width = box === null ? widthBase * 0.8 : box.offsetWidth - 250;
   const height = 500;
   const tickCount = byLineDisplayData.length;
+  function TimeFormatter(dateToFormat) {
+    const dateSplit = dateToFormat.split('T')[0];
+    const dividedDate = dateSplit.split('-');
 
+    return `Date: ${dividedDate[1]}-${dividedDate[2]}-${dividedDate[0]}`;
+  }
   useEffect(() => {
     // Clear previous SVG
     d3.select(D3IndicatorLineChart.current).selectAll('*').remove();
@@ -129,33 +134,29 @@ function D3IndicatorByLineChart({
       .attr('class', 'd3-chart__tooltip');
 
     const toolTipGenerator = (event) => {
-      // const avg30 = margin.left * 0.3;
-      // const tickWidth = Math.floor(width / tickCount + avg30);
-      // const index = Math.floor((event.offsetX - margin.left) / tickWidth);
-      console.log('byLineDisplayData', byLineDisplayData);
+      const avg30 = margin.left * 0.3;
+      const tickWidth = Math.floor(width / tickCount + avg30);
+      const index = Math.floor((event.offsetX - margin.left) / tickWidth);
       const MeasureValue =
         measureInfo[event.srcElement.__data__[index].measure].displayLabel;
-      // const measureDisplay =
-      //   MeasureValue === 'Composite'
-      //     ? `${MeasureValue} Score`
-      //     : `Measure: ${MeasureValue}`;
-      // const valueDisplay = `Value: ${
-      //   Math.floor(event.srcElement.__data__[index].value * 100) / 100
-      // }%`;
-      // const dateDisplay = TimeFormatter(event.srcElement.__data__[index].date);
+      const measureDisplay =
+        MeasureValue === 'Composite'
+          ? `${MeasureValue} Score`
+          : `Measure: ${MeasureValue}`;
+      const valueDisplay = `Value: ${
+        Math.floor(event.srcElement.__data__[index].value * 100) / 100
+      }%`;
+      const dateDisplay = TimeFormatter(event.srcElement.__data__[index].date);
       tooltip.text(`${measureDisplay} \n ${valueDisplay} \n ${dateDisplay}`);
-      // tooltip.text('Hello World');
-      // const { color } = colorMapping.find(
-      //   (mapping) => mapping.measure === event.target.__data__[0].measure
-      // );
-      return (
-        tooltip
-          .attr('data-html', 'true')
-          // .style('background-color', color)
-          .style('visibility', 'visible')
-          .style('top', `${event.pageY - 10}px`)
-          .style('left', `${event.pageX + 10}px`)
+      const { color } = colorMapping.find(
+        (mapping) => mapping.measure === event.target.__data__[0].measure
       );
+      return tooltip
+        .attr('data-html', 'true')
+        .style('background-color', color)
+        .style('visibility', 'visible')
+        .style('top', `${event.pageY - 10}px`)
+        .style('left', `${event.pageX + 10}px`);
     };
 
     // Iterates through an array variation.
@@ -164,6 +165,13 @@ function D3IndicatorByLineChart({
       .datum(byLineDisplayData)
       .attr('fill', 'none')
       .attr('stroke', 'blue')
+      .attr(
+        'stroke',
+        colorMapping.find(
+          (mappingMeasure, i) =>
+            mappingMeasure.measure === byLineDisplayData[i].measure
+        ).color
+      )
       .attr('opacity', '.33')
       .attr('stroke-width', 2)
       .attr('d', line)
