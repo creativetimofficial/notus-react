@@ -1,7 +1,8 @@
+/* eslint-disable no-underscore-dangle */
 import * as d3 from 'd3';
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { TickChange } from 'components/Utilites/TickChange';
+import { TickChange } from '../Utilites/TickChange';
 import { colorMappingProps } from './D3Props';
 
 function D3IndicatorByLineChart({
@@ -51,7 +52,7 @@ function D3IndicatorByLineChart({
       .scaleTime()
       // What data we're measuring
       .domain(
-        d3.extent(byLineDisplayData, (d) => parseDate(d.date.split('T')[0]))
+        d3.extent(byLineDisplayData, (d) => parseDate(d.date.split('T')[0])),
       )
       // The 'width' of the data
       .range([0, width]);
@@ -62,7 +63,7 @@ function D3IndicatorByLineChart({
       .attr('transform', `translate(0,${height - margin.bottom / 1.4})`)
       .attr('class', 'd3-indicator-by-line-chart__datesX')
       .call(
-        d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%b %d'))
+        d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%b %d')),
       );
 
     // Generates Label and context for y axis
@@ -137,19 +138,17 @@ function D3IndicatorByLineChart({
       const avg30 = margin.left * 0.3;
       const tickWidth = Math.floor(width / tickCount + avg30);
       const index = Math.floor((event.offsetX - margin.left) / tickWidth);
-      const MeasureValue =
-        measureInfo[event.srcElement.__data__[index].measure].displayLabel;
-      const measureDisplay =
-        MeasureValue === 'Composite'
-          ? `${MeasureValue} Score`
-          : `Measure: ${MeasureValue}`;
+      const MeasureValue = measureInfo[event.srcElement.__data__[index].measure].displayLabel;
+      const measureDisplay = MeasureValue === 'Composite'
+        ? `${MeasureValue} Score`
+        : `Measure: ${MeasureValue}`;
       const valueDisplay = `Value: ${
         Math.floor(event.srcElement.__data__[index].value * 100) / 100
       }%`;
       const dateDisplay = TimeFormatter(event.srcElement.__data__[index].date);
       tooltip.text(`${measureDisplay} \n ${valueDisplay} \n ${dateDisplay}`);
       const { color } = colorMapping.find(
-        (mapping) => mapping.measure === event.target.__data__[0].measure
+        (mapping) => mapping.measure === event.target.__data__[0].measure,
       );
       return tooltip
         .attr('data-html', 'true')
@@ -168,9 +167,8 @@ function D3IndicatorByLineChart({
       .attr(
         'stroke',
         colorMapping.find(
-          (mappingMeasure, i) =>
-            mappingMeasure.measure === byLineDisplayData[i].measure
-        ).color
+          (mappingMeasure, i) => mappingMeasure.measure === byLineDisplayData[i].measure,
+        ).color,
       )
       .attr('opacity', '.33')
       .attr('stroke-width', 2)
@@ -208,7 +206,7 @@ D3IndicatorByLineChart.propTypes = {
     PropTypes.shape({
       value: PropTypes.number,
       date: PropTypes.string,
-    })
+    }),
   ),
   measureInfo: PropTypes.shape({
     displayLabel: PropTypes.string,
