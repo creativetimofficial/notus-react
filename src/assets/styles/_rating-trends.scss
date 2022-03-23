@@ -1,4 +1,5 @@
 $block-class: 'rating-trends';
+@import 'colors';
 
 @at-root {
     .#{$block-class} {
@@ -33,16 +34,12 @@ $block-class: 'rating-trends';
             margin: 1rem;
             padding: 1rem;
 
-            &__width-25 {
+            &--width-25 {
                 width: 25%;
             }
     
-            &__width-50 {
+            &--width-50 {
                 width: 50%;
-            }
-    
-            &__hide {
-                display: none;
             }
         }
 
@@ -58,13 +55,13 @@ $block-class: 'rating-trends';
             height: 46px;
         }
 
-        &__help {
-            color: #CFDFDC;
+        &__help-icon {
+            color: $gray-light;
             margin-left: 0.4rem;
             margin-top: 0.1rem;
 
             &:hover {
-                color: #1976D2;
+                color: $blue-light;
             }
         }
         
@@ -77,12 +74,6 @@ $block-class: 'rating-trends';
             margin-top: 0.4rem;
         }
 
-        &__border {
-            border: 1px solid grey;
-            background-color: grey;
-            height: auto;
-        }
-
         &__button-panel {
             display: flex;
             justify-content: flex-end;
@@ -91,30 +82,12 @@ $block-class: 'rating-trends';
         }
 
         & &__view-rating-details-button {
-            background-color: #1976D2;
+            background-color: $blue-light;
             color: #fff;
             font-weight: 600;
-            border: 1px solid grey;
+            border: 1px solid $default-gray;
             padding: 1rem;
             border-radius: 0.25rem;
-        }
-
-        & &__percent-change {
-            margin-top: 1rem;
-            font-size: 2.5rem;
-            font-weight: 500;
-
-            &__positive {
-                color: #2E7D32;
-            }
-
-            &__negative {
-                color: #C62828;
-            }
-
-            &__hide {
-                display: none;
-            }
         }
     }
 }
