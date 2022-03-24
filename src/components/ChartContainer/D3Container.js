@@ -4,6 +4,7 @@ import {
 import React, {
   createContext, useState, useEffect,
 } from 'react';
+import moment from 'moment';
 import ChartBar from './ChartBar';
 import D3Chart from './D3Chart';
 import D3IndicatorByLineSelector from './D3IndicatorByLineSelector';
@@ -43,6 +44,7 @@ function D3Container({ dashboardState, dashboardActions, store }) {
   const [byLineMeasure, setByLineMeasure] = useState('');
   const [byLineDisplayData, setByLineDisplayData] = useState([]);
   const [selectedMeasures, setSelectedMeasures] = useState([]);
+  const [dateValue, setDateValue] = useState([null, null]);
 
   const workingList = [];
   store.results.forEach((item) => workingList.push(item.measure));
@@ -63,7 +65,7 @@ function D3Container({ dashboardState, dashboardActions, store }) {
     }
   }, [setSelectedMeasures, setCurrentFilters, store.currentResults]);
 
-  const handleDisplayDataUpdate = (measures, filters) => {
+  const handleDisplayDataUpdate = (measures, filters, dates) => {
     let newDisplayData = store.results.map((result) => ({ ...result }));
     newDisplayData = newDisplayData.filter((result) => measures.includes(result.measure));
     if (filters.domainsOfCare.length > 0) {
@@ -88,6 +90,25 @@ function D3Container({ dashboardState, dashboardActions, store }) {
         },
       );
     }
+    if (dates) {
+      if (dates.startDate || dates.endDate) {
+        newDisplayData = newDisplayData.filter(
+          (result) => {
+            if (dates.startDate && dates.endDate) {
+              return (moment(result.date).unix() < moment(dates.endDate).unix()
+                && moment(result.date).unix() > moment(dates.startDate).unix())
+            }
+            if (dates.startDate && dates.endDate === null) {
+              return moment(result.date).unix() > moment(dates.startDate).unix()
+            }
+            if (dates.endDate && dates.startDate === null) {
+              return moment(result.date).unix() < moment(dates.endDate).unix()
+            }
+            return false;
+          },
+        )
+      }
+    }
     setDisplayData(newDisplayData);
   }
 
@@ -110,12 +131,12 @@ function D3Container({ dashboardState, dashboardActions, store }) {
       newSelectedMeasures = selectedMeasures.filter((result) => result !== event.target.value);
       setSelectedMeasures(newSelectedMeasures);
     }
-    handleDisplayDataUpdate(newSelectedMeasures, currentFilters);
+    handleDisplayDataUpdate(newSelectedMeasures, currentFilters, buildDates(dateValue));
   };
 
   const handleFilterChange = (filterOptions) => {
     setCurrentFilters(filterOptions);
-    handleDisplayDataUpdate(selectedMeasures, filterOptions);
+    handleDisplayDataUpdate(selectedMeasures, filterOptions, buildDates(dateValue));
   }
 
   const handleByLineChange = (event) => {
@@ -128,6 +149,15 @@ function D3Container({ dashboardState, dashboardActions, store }) {
       (item) => item.measure === event.target.value,
     )[0]);
   };
+
+  const buildDates = (dateState) => ({
+    startDate: dateState[0],
+    endDate: dateState[1],
+  })
+
+  const handleDateChange = (dates) => {
+    handleDisplayDataUpdate(selectedMeasures, currentFilters, dates);
+  }
 
   return (
     <div>
@@ -173,6 +203,9 @@ function D3Container({ dashboardState, dashboardActions, store }) {
             <ChartBar
               filterDrawerOpen={dashboardState.filterDrawerOpen}
               toggleFilterDrawer={dashboardActions.toggleFilterDrawer}
+              dateValue={dateValue}
+              changeDateValue={setDateValue}
+              handleDateChange={handleDateChange}
               filterSum={currentFilters.sum}
             />
           </Grid>
