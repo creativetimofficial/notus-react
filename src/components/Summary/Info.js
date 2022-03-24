@@ -53,4 +53,14 @@ function Info({ infoBoxId, infoText }) {
   )
 }
 
+Info.propTypes = {
+  infoBoxId: PropTypes.string,
+  infoText: PropTypes.string,
+}
+
+Info.defaultProps = {
+  infoBoxId: 'info',
+  infoText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+}
+
 export default Info;
