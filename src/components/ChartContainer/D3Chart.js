@@ -107,7 +107,6 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .attr('y', height + 20)
       .attr('class', 'd3-chart__label')
       .text('Year to Date');
-
     // Y axis label:
     svg
       .append('text')

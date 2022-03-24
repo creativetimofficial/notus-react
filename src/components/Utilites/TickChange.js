@@ -39,7 +39,6 @@ const TickChange = () => {
     } else if (tickLinesFound[i].__data__ === 100) {
       tickLinesFound[i].classList.add('d3-chart__stroke-width-opacity');
     }
-
     // Removes Specific Ticks
     if (tickLinesFound[i].__data__ % 20 > 0) {
       tickLinesFound[i].remove();

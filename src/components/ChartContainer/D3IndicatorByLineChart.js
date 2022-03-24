@@ -95,7 +95,6 @@ function D3IndicatorByLineChart({
       .attr('class', 'd3-indicator-by-line-chart__x-axis')
       .attr('transform', `translate(0,${height})`)
       .call(makeXGridlines().tickSize(-height).tickFormat(''));
-
     // add the Y gridlines
     svg
       .append('g')
