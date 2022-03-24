@@ -2,6 +2,8 @@
 import { Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
 import PropTypes from 'prop-types';
+import HelpIcon from '@mui/icons-material/Help';
+import ToolTip from '@mui/material/Tooltip';
 import { colorMappingProps } from '../ChartContainer/D3Props';
 import MeasureResultsRow from './MeasureResultsRow';
 
@@ -19,6 +21,13 @@ function generateMeasureRowValues(measureResult) {
 }
 
 function MeasureResultsTable({ currentResults, handleMeasureChange, colorMapping }) {
+  const measureTip = 'measureTip: will edit later';
+  const remainingInclusionsTip = 'remainingInclusionsTip: will edit later';
+  const eligiblePopulationTip = 'eligiblePopulationTip: will edit later';
+  const numeratorTip = 'numeratorTip: will edit later';
+  const denominatorTip = 'denominatorTip: will edit later';
+  const availableExclusionsTip = 'availableExclusionsTip: will edit later';
+
   return (
     <Grid container direction="column" spacing={0.25}>
       <Grid container item justifyContent="space-evenly" direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
@@ -26,31 +35,49 @@ function MeasureResultsTable({ currentResults, handleMeasureChange, colorMapping
           <Typography>
             Measure
           </Typography>
+          <ToolTip title={measureTip}>
+            <HelpIcon className="" fontSize="small" />
+          </ToolTip>
         </Grid>
         <Grid item xs={2}>
           <Typography>
-            Included
+            Remaining Inclusions
           </Typography>
+          <ToolTip title={remainingInclusionsTip}>
+            <HelpIcon className="" fontSize="small" />
+          </ToolTip>
         </Grid>
         <Grid item xs={2}>
           <Typography>
             Eligible Population
           </Typography>
+          <ToolTip title={eligiblePopulationTip}>
+            <HelpIcon className="" fontSize="small" />
+          </ToolTip>
         </Grid>
         <Grid item xs={2}>
           <Typography>
             Numerator
           </Typography>
+          <ToolTip title={numeratorTip}>
+            <HelpIcon className="" fontSize="small" />
+          </ToolTip>
         </Grid>
         <Grid item xs={2}>
           <Typography>
             Denominator
           </Typography>
+          <ToolTip title={denominatorTip}>
+            <HelpIcon className="" fontSize="small" />
+          </ToolTip>
         </Grid>
         <Grid item xs={2}>
           <Typography>
-            Exclusions
+            Available Exclusions
           </Typography>
+          <ToolTip title={availableExclusionsTip}>
+            <HelpIcon className="" fontSize="small" />
+          </ToolTip>
         </Grid>
         <Grid item xs={1}>
           <Typography>
