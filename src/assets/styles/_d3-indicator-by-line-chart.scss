@@ -1,72 +1,40 @@
+@use 'd3-chart';
+
 $block-class: 'd3-indicator-by-line-chart';
 // d3-indicator-by-line-chart
-$YAXIS_LINE_COLOR: #cfd8dc;
-$AXIS_LABEL_COLOR: #b0bec5;
+
+@import 'colors';
 
 @at-root {
   .#{$block-class} {
     // width: 90vw;
 
     &__line-chart {
-      height: 650px;
-      width: 92vw;
-      background-color: #fff;
-    }
-
-    &__line {
-      // color: green;
+      @extend .d3-chart__line-chart;
     }
     &__x-axis {
-      display: none;
-
+      @extend .d3-chart__x-axis;
     }
     &__y-axis {
-      color: $YAXIS_LINE_COLOR;
+      @extend .d3-chart__y-axis;
     }
     &__y-axisColorDeselect {
-      // color:white
+      @extend .d3-chart__y-axisColorDeselect;
     }
     &__stroke-stroke-width-opacity {
-      // color: $YAXIS_LINE_COLOR;
-      // stroke-dasharray:15 5; 
-      // stroke-width: 2;
-      // stroke-opacity: .5;
-
+      @extend .d3-chart__stroke-stroke-width-opacity;
     }
     &__label{
-      fill:$AXIS_LABEL_COLOR;
-      font-size: 1.3rem;
-      font-weight: bold;
-      text-anchor: middle;
+      @extend .d3-chart__label;
     }
     &__ratingY {
-      color: $AXIS_LABEL_COLOR;
-      font-size: 1.125rem;
-      font-weight: bold;
+      @extend .d3-chart__ratingY;
     }
     &__datesX {
-      color: $AXIS_LABEL_COLOR;
-      font-size: 1.125rem;
-      font-weight: bold;
+      @extend .d3-chart__datesX;
     }
     &__tooltip {
-      position: absolute;
-      z-index: 10;
-      visibility: hidden;
-      background: grey;
-      border: 1px solid black;
-      color: white;
-      padding: 5px 10px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 10px;
-      visibility: hidden;
-      white-space: pre-line;
+      @extend .d3-chart__tooltip;
     }
-    &__overlay {
-      // fill: none;
-      // pointer-events: all;
-    }
-  
   }
 }

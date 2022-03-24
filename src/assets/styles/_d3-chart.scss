@@ -1,7 +1,7 @@
 $block-class: 'd3-chart';
 
-$YAXIS_LINE_COLOR: #cfd8dc;
-$AXIS_LABEL_COLOR: #b0bec5;
+
+@import 'colors';
 
 @at-root {
   .#{$block-class} {
@@ -11,10 +11,6 @@ $AXIS_LABEL_COLOR: #b0bec5;
       height: 650px;
       width: 93vw;
       background-color: #fff;
-    }
-
-    &__line {
-      color: green;
     }
     &__x-axis {
       display: none;
@@ -26,8 +22,6 @@ $AXIS_LABEL_COLOR: #b0bec5;
       color: white;
     }
     &__stroke-stroke-width-opacity {
-      // color: $YAXIS_LINE_COLOR;
-      // stroke-dasharray:15 5;
       stroke-width: 2;
       stroke-opacity: 0.5;
     }
@@ -51,8 +45,8 @@ $AXIS_LABEL_COLOR: #b0bec5;
       position: absolute;
       z-index: 10;
       visibility: hidden;
-      background: grey;
-      border: 1px solid black;
+      background: $default-gray;
+      border: 1px solid $default-black;
       color: white;
       padding: 5px 10px;
       font-size: 1rem;
