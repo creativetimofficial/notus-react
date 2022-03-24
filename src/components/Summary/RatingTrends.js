@@ -7,19 +7,20 @@ import { Box } from '@mui/system';
 import {
   Button, Grid, Typography,
 } from '@mui/material';
+import TrendDisplay from './TrendDisplay';
 
 const starsTip = 'Star rating subject to change depending on measures and other resources. For more information, please contact NCQA.';
 
 function RatingTrends({ activeMeasure, trends, info }) {
-  const mainTrend = { measure: '', percentChange: '' };
-  const biggestGain = { measure: '', percentChange: '' };
-  const biggestLoss = { measure: '', percentChange: '' };
+  const mainTrend = { measure: '', percentChange: undefined };
+  const biggestGain = { measure: '', percentChange: undefined };
+  const biggestLoss = { measure: '', percentChange: undefined };
   let sortedTrends = [];
   const measureTrend = trends
     .find((trend) => trend.measure === activeMeasure.measure);
 
   mainTrend.measure = info[activeMeasure.measure] !== undefined ? info[activeMeasure.measure].displayLabel : '';
-  mainTrend.percentChange = measureTrend === undefined ? '' : measureTrend.percentChange;
+  mainTrend.percentChange = measureTrend === undefined ? undefined : measureTrend.percentChange;
   if (activeMeasure.measure === 'composite') {
     sortedTrends = trends
       .filter((trend) => trend.measure !== 'composite')
@@ -56,14 +57,14 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
     <Box className="rating-trends__display-box">
       <Box className="rating-trends__panel-box">
         <Grid className={`rating-trends__panel 
-          ${renderOptions.displayAll ? 'rating-trends__panel__width-25' : 'rating-trends__panel__width-50'}`}
+          rating-trends__panel${renderOptions.displayAll ? '--width-25' : '--width-50'}`}
         >
           <Grid className="rating-trends__header-align">
             <Typography variant="h3" className="rating-trends__h3-header">
               Star Rating
             </Typography>
             <ToolTip title={starsTip}>
-              <HelpIcon className="rating-trends__help" fontSize="small" />
+              <HelpIcon className="rating-trends__help-icon" fontSize="small" />
             </ToolTip>
           </Grid>
           <Rating
@@ -77,61 +78,18 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
             {activeMeasure.label && `(${activeMeasure.label})`}
           </Typography>
         </Grid>
-        <Grid className={`rating-trends__panel 
-          ${renderOptions.displayAll ? 'rating-trends__panel__width-25' : 'rating-trends__panel__width-50'}`}
-        >
-          <Typography variant="h3" className="rating-trends__h3-header">
-            { mainTrend.measure }
-            {' '}
-            % Compliance
-          </Typography>
-          <Typography className={`rating-trends__percent-change ${mainTrend.percentChange >= 0
-            ? 'rating-trends__percent-change__positive' : 'rating-trends__percent-change__negative'}`}
-          >
-            { mainTrend.percentChange }
-            %
-          </Typography>
-          <Typography>
-            (over the past week)
-          </Typography>
-        </Grid>
-        <Grid className={`rating-trends__panel rating-trends__panel__width-25 
-          ${renderOptions.displayAll ? '' : 'rating-trends__panel__hide'}`}
-        >
-          <Typography variant="h3" className="rating-trends__h3-header">
-            { renderOptions.biggestGain.measure }
-            {' '}
-            % Compliance
-          </Typography>
-          <Typography className={`rating-trends__percent-change ${renderOptions.biggestGain.percentChange >= 0
-            ? 'rating-trends__percent-change__positive' : 'rating-trends__percent-change__negative'}`}
-          >
-            { renderOptions.biggestGain.percentChange }
-            %
-          </Typography>
-
-          <Typography>
-            (over the past week)
-          </Typography>
-        </Grid>
-        <Grid className={`rating-trends__panel rating-trends__panel__width-25 
-          ${renderOptions.displayAll ? '' : 'rating-trends__panel__hide'}`}
-        >
-          <Typography variant="h3" className="rating-trends__h3-header">
-            { renderOptions.biggestLoss.measure }
-            {' '}
-            % Compliance
-          </Typography>
-          <Typography className={`rating-trends__percent-change ${renderOptions.biggestLoss.percentChange >= 0
-            ? 'rating-trends__percent-change__positive' : 'rating-trends__percent-change__negative'}`}
-          >
-            { renderOptions.biggestLoss.percentChange }
-            %
-          </Typography>
-          <Typography>
-            (over the past week)
-          </Typography>
-        </Grid>
+        <TrendDisplay
+          trend={mainTrend}
+          percentWidth={renderOptions.displayAll ? 25 : 50}
+        />
+        <TrendDisplay
+          trend={renderOptions.biggestGain}
+          percentWidth={renderOptions.displayAll ? 25 : 0}
+        />
+        <TrendDisplay
+          trend={renderOptions.biggestLoss}
+          percentWidth={renderOptions.displayAll ? 25 : 0}
+        />
       </Box>
       <Box className="rating-trends__button-panel">
         {

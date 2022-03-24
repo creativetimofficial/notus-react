@@ -1,0 +1,44 @@
+@use 'rating-trends';
+
+$block-class: 'trend-display';
+@import 'colors';
+
+@at-root {
+    .#{$block-class} {
+        @extend .rating-trends__panel; 
+        &--width-25 {
+            @extend .rating-trends__panel--width-25; 
+        }
+
+        &--width-50 {
+            @extend .rating-trends__panel--width-50; 
+        }
+
+        &--hide {
+            display: none;
+        }
+        
+        &__h3-header {
+            @extend .rating-trends__h3-header; 
+        }
+
+        & &__percent-change {
+            margin-top: 1rem;
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: $default-black;
+
+            &--positive {
+                color: $default-green;
+            }
+
+            &--negative {
+                color: $default-red;
+            }
+
+            &--hide {
+                display: none;
+            }
+        }
+    }
+}
