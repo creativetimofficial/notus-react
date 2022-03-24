@@ -1,0 +1,17 @@
+$block-class: 'dashboard';
+@import 'colors';
+
+@at-root {
+    .#{$block-class} {
+
+      &__paper {
+        padding: 32px;
+        margin-bottom: 20px;
+      }
+
+      &__summary {
+        padding-left: 32px;
+        padding-top: 32px;
+      }
+    }
+}

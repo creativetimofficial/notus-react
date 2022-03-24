@@ -1,0 +1,58 @@
+$block-class: 'info';
+@import 'colors';
+
+@at-root {
+    .#{$block-class} {
+      margin-left: 1rem;
+
+      &__icon-only {
+        display: block;
+
+        &--hide {
+          display: none;
+        }
+      }
+
+      &__info-button {
+        width: 1rem;
+        height: 1rem;
+        margin-top: 1.8rem !important; 
+        margin-left: 1rem !important;
+      }
+
+      &__info-icon {
+        color: $blue-light;
+      }
+
+      &__info-box {
+        background-color: $blue-light-2;
+        display: flex;
+        border-radius: .75rem;
+        padding: .9rem;
+        max-width: 600px;
+
+        &--hide {
+            display: none;
+        }
+
+        &__icon {
+          color: $blue-light;
+          margin-right: 0.8rem;
+          margin-top: 0.8rem;
+        }
+
+        &__button {
+          background-color: transparent;
+          height: 1rem;
+          color: $blue-grey-darken-4 !important;
+          font-weight: 600 !important;
+          margin-top: auto !important;
+          margin-bottom: auto !important;
+
+          &:hover {
+            background-color: transparent !important;
+          }
+        }
+      }
+    }
+}

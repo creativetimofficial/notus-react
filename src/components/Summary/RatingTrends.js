@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HelpIcon from '@mui/icons-material/Help';
 import ToolTip from '@mui/material/Tooltip';
-import Rating from '@mui/material/Rating';
 import { Box } from '@mui/system';
 import {
-  Button, Grid, Typography,
+  Button, Grid, Typography, Rating,
 } from '@mui/material';
 import TrendDisplay from './TrendDisplay';
+import Info from './Info';
 
 const starsTip = 'Star rating subject to change depending on measures and other resources. For more information, please contact NCQA.';
 
@@ -51,9 +51,15 @@ function RatingTrends({ activeMeasure, trends, info }) {
 
 const renderUI = (activeMeasure, mainTrend, renderOptions) => (
   <Box className="rating-trends">
-    <Typography variant="h2" className="rating-trends__h2-header">
-      Ratings & Trends
-    </Typography>
+    <Box className="rating-trends__main-header-align">
+      <Typography variant="h2" className="rating-trends__h2-header">
+        Ratings & Trends
+      </Typography>
+      <Info
+        infoBoxId="ratingTrendsHeader"
+        infoText={starsTip}
+      />
+    </Box>
     <Box className="rating-trends__display-box">
       <Box className="rating-trends__panel-box">
         <Grid className={`rating-trends__panel 
