@@ -14,7 +14,7 @@ function TrendDisplay({ trend, percentWidth }) {
 
   let trendClass = '';
   let trendValue = 'N/A';
-  if (trend.percentChange) {
+  if (trend.percentChange !== undefined) {
     if (trend.percentChange >= 0) {
       trendClass = 'trend-display__percent-change--positive';
       trendValue = `+${trend.percentChange} %`

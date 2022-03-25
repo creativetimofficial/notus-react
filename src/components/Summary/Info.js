@@ -7,13 +7,14 @@ import {
 
 function Info({ infoBoxId, infoText }) {
   const iconBoxId = `${infoBoxId}-icon`;
+  const disableRipple = true;
   return (
     <Box className="info">
       <Box id={iconBoxId} className="info__icon-only">
         <IconButton
           className="info__info-button"
-          disableFocusRipple="true"
-          disableRipple="true"
+          disableFocusRipple={disableRipple}
+          disableRipple={disableRipple}
           onClick={() => {
             const hiddenDiv = document.getElementById(infoBoxId);
             hiddenDiv.classList.remove('info__info-box--hide');
@@ -34,8 +35,8 @@ function Info({ infoBoxId, infoText }) {
         </Typography>
         <Button
           className="info__info-box__button"
-          disableFocusRipple="true"
-          disableRipple="true"
+          disableFocusRipple={disableRipple}
+          disableRipple={disableRipple}
           onClick={() => {
             const hiddenDiv = document.getElementById(iconBoxId);
             hiddenDiv.classList.remove('info__icon-only--hide');

@@ -52,7 +52,7 @@ export default function Dashboard() {
         <Paper className="dashboard__paper">
           <Box sx={{ flexGrow: 2 }}>
             <Grid container spacing={4}>
-              <Grid className="dashboard__summary" sm={12}>
+              <Grid item className="dashboard__summary" sm={12}>
                 <Banner />
                 <RatingTrends
                   activeMeasure={activeMeasure}
