@@ -9,6 +9,7 @@ import {
 import TrendDisplay from './TrendDisplay';
 import Info from './Info';
 
+const ratingTrendsTip = 'Rating and Trends displays the current projected star rating as well as highlighting large changes in tracked measures.'
 const starsTip = 'Star rating subject to change depending on measures and other resources. For more information, please contact NCQA.';
 
 function RatingTrends({ activeMeasure, trends, info }) {
@@ -57,7 +58,7 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
       </Typography>
       <Info
         infoBoxId="ratingTrendsHeader"
-        infoText={starsTip}
+        infoText={ratingTrendsTip}
       />
     </Box>
     <Box className="rating-trends__display-box">
