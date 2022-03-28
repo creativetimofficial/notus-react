@@ -38,7 +38,8 @@ $block-class: 'd3-chart';
     }
     &__datesX {
       color: $AXIS_LABEL_COLOR;
-      font-size: 1.125rem;
+
+      font-size: 1rem;
       font-weight: bold;
     }
     &__tooltip {

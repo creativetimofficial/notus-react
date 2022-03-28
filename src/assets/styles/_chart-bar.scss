@@ -11,10 +11,26 @@ $block-class: 'chart-bar';
     }
 
     &__badge > span {
-      color: #fff;
+      color: black;
       background-color: $default-red;
       transform: scale(1) translate(-50%, 30%);
       box-shadow: 0 0 0 2px $default-gray;
     }
   }
+}
+
+.css-1rp7wri-MuiButtonBase-root-MuiPickersDay-root-MuiDateRangePickerDay-day {
+  color: black !important;
+}
+
+.css-20qdlw-MuiButtonBase-root-MuiPickersDay-root-MuiDateRangePickerDay-day {
+  color: blue !important;
+}
+
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  color: black !important;
+}
+
+.css-10wpov9-MuiTypography-root {
+  color: black !important;
 }

@@ -171,7 +171,7 @@ function D3IndicatorByLineChart({
         ).color,
       )
       .attr('opacity', '.33')
-      .attr('stroke-width', 4)
+      .attr('stroke-width', 5)
       .attr('d', line)
       .on('mouseover', (event) => {
         d3.select(event.currentTarget).attr('opacity', '1');
