@@ -20,14 +20,14 @@ function generateMeasureRowValues(measureResult) {
   }
 }
 
-function MeasureResultsTable({ currentResults, handleMeasureChange, colorMapping }) {
-  const measureTip = 'measureTip: will edit later';
-  const remainingInclusionsTip = 'remainingInclusionsTip: will edit later';
-  const eligiblePopulationTip = 'eligiblePopulationTip: will edit later';
-  const numeratorTip = 'numeratorTip: will edit later';
-  const denominatorTip = 'denominatorTip: will edit later';
-  const availableExclusionsTip = 'availableExclusionsTip: will edit later';
+const measureTip = 'The actual measure. At the moment, these are always HEDIS measures.';
+const remainingInclusionsTip = 'The population remaining after exclusions are removed.';
+const eligiblePopulationTip = 'The population of patients who are eligible for this measure.';
+const numeratorTip = 'The number of patients who have satisfied the criteria for this measure.';
+const denominatorTip = 'The population of patients who are eligible for this measure. Currently the same as Eligible Population.';
+const availableExclusionsTip = 'The population that can be excluded based on criteria.';
 
+function MeasureResultsTable({ currentResults, handleMeasureChange, colorMapping }) {
   return (
     <Grid container direction="column" spacing={0.25}>
       <Grid container item justifyContent="space-evenly" direction="row" alignItems="center" spacing={2} sx={{ width: '100%', p: '3px', m: '2px' }}>
