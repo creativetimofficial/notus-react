@@ -6,16 +6,16 @@ import {
 } from '@mui/material';
 
 function Info({ infoText }) {
-  const [showDisplayInfo, setShowDisplayInfo] = React.useState(false);
+  const [displayInfo, setDisplayInfo] = React.useState(false);
 
-  if (!showDisplayInfo) {
+  if (!displayInfo) {
     return (
       <Box className="info info__icon-only">
         <IconButton
           className="info__info-button"
           disableFocusRipple
           disableRipple
-          onClick={() => setShowDisplayInfo(true)}
+          onClick={() => setDisplayInfo(true)}
         >
           <InfoIcon className="info__info-icon" fontSize="small" />
         </IconButton>
@@ -33,7 +33,7 @@ function Info({ infoText }) {
           className="info__info-box__button"
           disableFocusRipple
           disableRipple
-          onClick={() => setShowDisplayInfo(false)}
+          onClick={() => setDisplayInfo(false)}
         >
           CLOSE
         </Button>
