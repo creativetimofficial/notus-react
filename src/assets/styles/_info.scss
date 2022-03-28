@@ -18,6 +18,10 @@ $block-class: 'info';
         height: 1rem;
         margin-top: 1.8rem; 
         margin-left: 1rem;
+        
+        &:focus {
+          outline: none;
+        }
       }
 
       &__info-icon {
@@ -42,16 +46,19 @@ $block-class: 'info';
           margin-top: 0.8rem;
         }
 
-        &__button {
+        & &__button {
           background-color: transparent;
           height: 1rem;
-          color: $blue-grey-darken-4 !important;
-          font-weight: 600 !important;
-          margin-top: auto !important;
-          margin-bottom: auto !important;
+          color: $blue-grey-darken-4;
+          font-weight: 600;
+          margin: auto 0;
 
           &:hover {
-            background-color: transparent !important;
+            background-color: transparent;
+          }
+
+          &:focus {
+            outline: none;
           }
         }
       }

@@ -56,10 +56,7 @@ const renderUI = (activeMeasure, mainTrend, renderOptions) => (
       <Typography variant="h2" className="rating-trends__h2-header">
         Ratings & Trends
       </Typography>
-      <Info
-        infoBoxId="ratingTrendsHeader"
-        infoText={ratingTrendsTip}
-      />
+      <Info infoText={ratingTrendsTip} />
     </Box>
     <Box className="rating-trends__display-box">
       <Box className="rating-trends__panel-box">

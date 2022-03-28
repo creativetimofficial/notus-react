@@ -28,8 +28,7 @@ $block-class: 'banner';
         & &__update-time {
             font-weight: 500;
             font-size: 1rem;
-            margin-bottom: 0.25rem;
-            margin-left: 0.25rem;
+            margin: 0 0 0.25rem 0.25rem;
             color: $blue-grey-lighten-1;
         }
     }

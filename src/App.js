@@ -56,9 +56,12 @@ export default function AuthExample() {
 
 const action = (setShowWelcome) => (
   <IconButton
+    className="dashboard__snackbar-close"
     size="small"
     aria-label="close"
     color="inherit"
+    disableFocusRipple
+    disableRipple
     onClick={() => setShowWelcome(false)}
   >
     <CloseIcon fontSize="small" />
@@ -72,7 +75,7 @@ const returnValue = (loggedIn, showWelcome, setShowWelcome) => (
       autoHideDuration={6000}
       anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       onClose={() => setShowWelcome(false)}
-      message="Welcome to Saraswati, where knoweledge is power"
+      message="Welcome to Saraswati, where knowledge is power."
       action={action(setShowWelcome)}
       sx={{
         '& .MuiSnackbarContent-root': { backgroundColor: '#DFF4FC', color: '#263238' },
