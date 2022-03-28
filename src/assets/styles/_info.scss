@@ -30,6 +30,7 @@ $block-class: 'info';
         border-radius: .75rem;
         padding: .9rem;
         max-width: 600px;
+        position: absolute;
 
         &--hide {
             display: none;
