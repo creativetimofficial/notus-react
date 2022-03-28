@@ -1,4 +1,5 @@
 $block-class: 'footer';
+@import 'colors';
 
 @at-root {
     .#{$block-class} {
@@ -7,7 +8,7 @@ $block-class: 'footer';
       bottom: 0px;
       display: block;
       padding-bottom: 1rem;
-      background-color: #263238;
+      background-color: $blue-grey-darken-4;
       color: #FFFFFF;
       z-index: 100;
 

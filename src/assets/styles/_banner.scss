@@ -1,25 +1,35 @@
 $block-class: 'banner';
+@import 'colors';
 
 @at-root {
     .#{$block-class} {
         text-align: left;
-        margin: 0 1rem 0 1rem;
-        color: #455A64;
+        margin: 0 1rem 1rem 0;
 
         & &__header {
-            margin: 1rem 0;
+            margin-bottom: 0.5rem;
             font-size: 3rem;
             font-weight: 600;
+            color: $blue-grey-darken-2;
+        }
+
+        & &__update-box {
+            display: flex;
+            margin-left: 0.2rem;
+        }
+
+        & &__update-label {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+            color: $blue-grey;
         }
 
         & &__update-time {
-            font-weight: 600;
-            font-size: 1.25rem;
-            margin-bottom: 0.25rem;
-        }
-
-        & &__description {
-            font-size: 1.25rem;
+            font-weight: 500;
+            font-size: 1rem;
+            margin: 0 0 0.25rem 0.25rem;
+            color: $blue-grey-lighten-1;
         }
     }
 }

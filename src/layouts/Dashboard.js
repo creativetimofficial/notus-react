@@ -7,7 +7,6 @@ import Paper from '@mui/material/Paper';
 
 // components
 
-import { grey } from '@mui/material/colors';
 import { DatastoreContext } from '../context/DatastoreProvider';
 import Footer from '../components/Footers/Footer';
 import D3Container from '../components/ChartContainer';
@@ -50,16 +49,10 @@ export default function Dashboard() {
     <Box>
       <ThemeProvider theme={theme}>
         <DashboardNavbar />
-        <Paper
-          className="dashboard__paper"
-          sx={{
-            padding: 4,
-            mb: '20px',
-          }}
-        >
+        <Paper className="dashboard__paper">
           <Box sx={{ flexGrow: 2 }}>
             <Grid container spacing={4}>
-              <Grid item sm={12} sx={{ bgColor: grey }}>
+              <Grid item className="dashboard__summary" sm={12}>
                 <Banner />
                 <RatingTrends
                   activeMeasure={activeMeasure}
@@ -79,7 +72,7 @@ export default function Dashboard() {
             </Grid>
           </Box>
         </Paper>
-        <Footer sx={{ mt: '20px' }} />
+        <Footer />
       </ThemeProvider>
     </Box>
   );

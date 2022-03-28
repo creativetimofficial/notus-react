@@ -1,0 +1,22 @@
+$block-class: 'dashboard';
+@import 'colors';
+
+@at-root {
+    .#{$block-class} {
+
+      &__paper {
+        padding: 2rem;
+        margin-bottom: 1.25rem;
+      }
+
+      &__summary {
+        padding: 2rem 0 0 2rem;
+      }
+
+      &__snackbar-close {
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+}

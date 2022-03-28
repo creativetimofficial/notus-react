@@ -10,13 +10,15 @@ function Banner() {
       <Typography variant="h1" className="banner__header">
         HEDIS Dashboard
       </Typography>
-      <Typography className="banner__update-time">
-        {`Last Updated: ${datastore.lastUpdated}`}
-      </Typography>
-      <Typography className="banner__description">
-        Descriptive text about this section - gratuitous octopus niacin, sodium
-        glutimate.
-      </Typography>
+      <Box className="banner__update-box">
+        <Typography className="banner__update-label">
+          Last Updated:
+        </Typography>
+        <Typography className="banner__update-time">
+          {' '}
+          {datastore.lastUpdated}
+        </Typography>
+      </Box>
     </Box>
   );
 }

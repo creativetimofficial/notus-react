@@ -3,7 +3,8 @@ import DateRangeIcon from '@mui/icons-material/DateRange';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import SimCardDownloadIcon from '@mui/icons-material/SimCardDownload';
 import TuneIcon from '@mui/icons-material/Tune';
-import { DesktopDateRangePicker, LocalizationProvider } from '@mui/lab';
+import DesktopDateRangePicker from '@mui/lab/DesktopDateRangePicker';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import AdapterMoment from '@mui/lab/AdapterMoment';
 import {
   Badge, Button, Grid, Menu, TextField, Typography,

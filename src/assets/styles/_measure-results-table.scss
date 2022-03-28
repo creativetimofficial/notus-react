@@ -1,0 +1,39 @@
+@import 'colors';
+@import 'rating-trends';
+
+$block-class: 'measure-results-table';
+
+@at-root {
+    .#{$block-class} {
+        & &__header-section {
+            justify-content: space-evenly;
+            align-items: center;
+            display: flex;
+            width: 100%;
+            padding: 0.2rem;
+            margin: 1rem 0;
+        }
+
+        & &__title-align {
+            display: flex;
+            justify-content: center;
+            padding: 16px 0 0 16px;
+            flex-basis: 16.66%
+        }
+
+        & &__title-align-small {
+            @extend .measure-results-table__title-align;
+            flex-basis: 8.33%
+        }
+
+        & &__help-icon {
+            @extend .rating-trends__help-icon;
+            margin-top: 0.13rem;
+            font-size: 1.25rem;
+        }
+
+        & &__row {
+            width: 100%;
+        }
+    }
+}
