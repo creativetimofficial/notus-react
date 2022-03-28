@@ -1,11 +1,13 @@
 @use 'banner';
 @use 'chart-bar';
+@use 'dashboard';
 @use 'd3-chart';
 @use 'd3-container';
 @use 'filter-drawer';
 @use 'filter-drawer-item';
 @use 'footer';
 @use 'global';
+@use 'info';
 @use 'measure-results-table';
 @use 'not-found';
 @use 'tab-panel';

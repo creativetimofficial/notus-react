@@ -11,7 +11,7 @@ $block-class: 'chart-bar';
     }
 
     &__badge > span {
-      color: black;
+      color: #FFFFFF;
       background-color: $default-red;
       transform: scale(1) translate(-50%, 30%);
       box-shadow: 0 0 0 2px $default-gray;
