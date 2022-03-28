@@ -117,7 +117,9 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .text(`${viewByPercentage ? 'Percent' : 'Rating'}`);
 
     // Change Ticks to Percent
-    if (viewByPercentage) { TickChange() }
+    const ChartType = 'D3Chart';
+
+    if (viewByPercentage) { TickChange(ChartType) }
     // Generates the actual line
     const line = d3
       .line()

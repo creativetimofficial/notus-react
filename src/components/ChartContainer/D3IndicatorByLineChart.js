@@ -103,7 +103,8 @@ function D3IndicatorByLineChart({
 
     d3.selectAll('.axis-grid line').style('stroke', 'lightgray');
     // Change Ticks to Percent
-    TickChange();
+    const ChartType = 'D3IndicatorByLineChart';
+    TickChange(ChartType);
     // Generates the actual line
     const line = d3
       .line()
@@ -170,7 +171,7 @@ function D3IndicatorByLineChart({
         ).color,
       )
       .attr('opacity', '.33')
-      .attr('stroke-width', 2)
+      .attr('stroke-width', 4)
       .attr('d', line)
       .on('mouseover', (event) => {
         d3.select(event.currentTarget).attr('opacity', '1');
