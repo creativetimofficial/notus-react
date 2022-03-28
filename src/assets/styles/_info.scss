@@ -4,14 +4,7 @@ $block-class: 'info';
 @at-root {
     .#{$block-class} {
       margin-left: 1rem;
-
-      &__icon-only {
-        display: block;
-
-        &--hide {
-          display: none;
-        }
-      }
+      display: flex;
 
       & &__info-button {
         width: 1rem;
@@ -26,6 +19,8 @@ $block-class: 'info';
 
       &__info-icon {
         color: $blue-light;
+        font-size: 1.25rem;
+        z-index: 1;
       }
 
       &__info-box {
@@ -35,31 +30,26 @@ $block-class: 'info';
         padding: .9rem;
         max-width: 600px;
         position: absolute;
+      }
 
-        &--hide {
-            display: none;
-        }
+      & &__text {
+        margin-left: 2rem;
+      }
 
-        &__icon {
-          color: $blue-light;
-          margin-right: 0.8rem;
-          margin-top: 0.8rem;
-        }
+      & &__button {
+        background-color: transparent;
+        height: 1rem;
+        color: $blue-grey-darken-4;
+        font-weight: 600;
+        margin: auto 0;
+        cursor: pointer;
 
-        & &__button {
+        &:hover {
           background-color: transparent;
-          height: 1rem;
-          color: $blue-grey-darken-4;
-          font-weight: 600;
-          margin: auto 0;
+        }
 
-          &:hover {
-            background-color: transparent;
-          }
-
-          &:focus {
-            outline: none;
-          }
+        &:focus {
+          outline: none;
         }
       }
     }

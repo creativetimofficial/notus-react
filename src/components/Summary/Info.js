@@ -8,29 +8,23 @@ import {
 function Info({ infoText }) {
   const [displayInfo, setDisplayInfo] = React.useState(false);
 
-  if (!displayInfo) {
-    return (
-      <Box className="info info__icon-only">
-        <IconButton
-          className="info__info-button"
-          disableFocusRipple
-          disableRipple
-          onClick={() => setDisplayInfo(true)}
-        >
-          <InfoIcon className="info__info-icon" fontSize="small" />
-        </IconButton>
-      </Box>
-    );
-  }
   return (
     <Box className="info">
+      <IconButton
+        className="info__info-button"
+        disableFocusRipple
+        disableRipple
+        onClick={() => setDisplayInfo(!displayInfo)}
+      >
+        <InfoIcon className="info__info-icon" fontSize="small" />
+      </IconButton>
+      { displayInfo && (
       <Box className="info__info-box">
-        <InfoIcon className="info__info-box__icon" fontSize="small" />
-        <Typography>
+        <Typography className="info__text">
           {infoText}
         </Typography>
         <Button
-          className="info__info-box__button"
+          className="info__button"
           disableFocusRipple
           disableRipple
           onClick={() => setDisplayInfo(false)}
@@ -38,6 +32,7 @@ function Info({ infoText }) {
           CLOSE
         </Button>
       </Box>
+      )}
     </Box>
   );
 }
