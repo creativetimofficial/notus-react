@@ -6,32 +6,34 @@ $block-class: 'd3-indicator-by-line-chart';
 
 @at-root {
   .#{$block-class} {
-    // width: 90vw;
-
     &__line-chart {
       @extend .d3-chart__line-chart;
     }
+
     &__x-axis {
       @extend .d3-chart__x-axis;
     }
+
     &__y-axis {
       @extend .d3-chart__y-axis;
     }
-    &__y-axisColorDeselect {
-      @extend .d3-chart__y-axisColorDeselect;
-    }
+
     &__stroke-stroke-width-opacity {
       @extend .d3-chart__stroke-stroke-width-opacity;
     }
+
     &__label{
       @extend .d3-chart__label;
     }
-    &__ratingY {
-      @extend .d3-chart__ratingY;
+
+    &__rating-y {
+      @extend .d3-chart__rating-y;
     }
-    &__datesX {
-      @extend .d3-chart__datesX;
+
+    &__dates-x {
+      @extend .d3-chart__dates-x;
     }
+
     &__tooltip {
       @extend .d3-chart__tooltip;
     }

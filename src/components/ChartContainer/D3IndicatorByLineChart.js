@@ -61,7 +61,7 @@ function D3IndicatorByLineChart({
     svg
       .append('g')
       .attr('transform', `translate(0,${height - margin.bottom / 1.4})`)
-      .attr('class', 'd3-indicator-by-line-chart__datesX')
+      .attr('class', 'd3-indicator-by-line-chart__dates-x')
       .call(
         d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%b %d')),
       );
@@ -75,7 +75,7 @@ function D3IndicatorByLineChart({
 
     svg
       .append('g')
-      .attr('class', 'd3-indicator-by-line-chart__ratingY')
+      .attr('class', 'd3-indicator-by-line-chart__rating-y')
       .call(d3.axisLeft(y));
 
     // Grid
@@ -195,7 +195,7 @@ function D3IndicatorByLineChart({
   });
 
   return (
-    <div className="d3-char__line-chart">
+    <div className="d3-indicator-by-line-chart">
       <svg ref={D3IndicatorLineChart} />
     </div>
   );

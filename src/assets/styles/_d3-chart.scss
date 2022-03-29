@@ -1,6 +1,5 @@
 $block-class: 'd3-chart';
 
-
 @import 'colors';
 
 @at-root {
@@ -19,10 +18,6 @@ $block-class: 'd3-chart';
 
     &__y-axis {
       color: $y-axis-line-color;
-    }
-
-    &__y-axisColorDeselect {
-      color: white;
     }
 
     &__stroke-stroke-width-opacity {
