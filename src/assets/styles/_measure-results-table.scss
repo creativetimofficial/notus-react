@@ -18,7 +18,13 @@ $block-class: 'measure-results-table';
             display: flex;
             justify-content: center;
             padding: 16px 0 0 16px;
-            flex-basis: 16.66%
+            flex-basis: 16.66%;
+            min-width: 7%;
+            align-items: center;
+        }
+
+        & &__title {
+            word-wrap: break-word;
         }
 
         & &__title-align-small {
