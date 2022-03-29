@@ -16,7 +16,7 @@ $block-class: 'd3-chart';
       display: none;
     }
     &__y-axis {
-      color: $YAXIS_LINE_COLOR;
+      color: $y-axis-line-color;
     }
     &__y-axisColorDeselect {
       color: white;
@@ -26,18 +26,18 @@ $block-class: 'd3-chart';
       stroke-opacity: 0.5;
     }
     &__label {
-      fill: $AXIS_LABEL_COLOR;
+      fill: $axis-label-color;
       font-size: 1.3rem;
       font-weight: bold;
       text-anchor: middle;
     }
     &__ratingY {
-      color: $AXIS_LABEL_COLOR;
+      color: $axis-label-color;
       font-size: 1.125rem;
       font-weight: bold;
     }
     &__datesX {
-      color: $AXIS_LABEL_COLOR;
+      color: $axis-label-color;
 
       font-size: 1rem;
       font-weight: bold;

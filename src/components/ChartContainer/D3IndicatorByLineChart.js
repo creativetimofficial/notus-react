@@ -206,6 +206,7 @@ D3IndicatorByLineChart.propTypes = {
     PropTypes.shape({
       value: PropTypes.number,
       date: PropTypes.string,
+      measure: PropTypes.string,
     }),
   ),
   measureInfo: PropTypes.shape({

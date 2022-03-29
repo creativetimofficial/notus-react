@@ -75,7 +75,9 @@ function D3Container({ dashboardState, dashboardActions, store }) {
     let newDisplayData = store.results.map((result) => ({ ...result }));
     newDisplayData = newDisplayData.filter((result) => measures.includes(result.measure));
     if (filters.domainsOfCare.length > 0) {
-      newDisplayData = newDisplayData.filter((result) => filters.domainsOfCare.includes(store.info[result.measure].domainOfCare));
+      newDisplayData = newDisplayData.filter(
+        (result) => filters.domainsOfCare.includes(store.info[result.measure].domainOfCare),
+      );
     }
     if (filters.stars.length > 0) {
       newDisplayData = newDisplayData.filter((result) => filters.stars.includes(

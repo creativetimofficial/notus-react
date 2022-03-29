@@ -1,12 +1,12 @@
 /* eslint-disable no-underscore-dangle */
-import { TickChange } from 'components/Utilites/TickChange';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
+import { TickChange } from '../Utilites/TickChange';
 import { colorMappingProps } from './D3Props';
 
 function D3Chart({ displayData, colorMapping, measureInfo }) {
-  const [viewByPercentage, setViewByPercentage] = useState(true)
+  const [viewByPercentage] = useState(true)
   // Binder for react to apply changes to the svg
   const D3LineChart = useRef();
 
