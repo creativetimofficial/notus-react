@@ -1,12 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { TickChange } from '../Utilites/TickChange';
 import { colorMappingProps } from './D3Props';
 
 function D3Chart({ displayData, colorMapping, measureInfo }) {
-  const [viewByPercentage] = useState(true)
   // Binder for react to apply changes to the svg
   const D3LineChart = useRef();
 
@@ -114,12 +113,12 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .attr('transform', 'rotate(-90)')
       .attr('y', -margin.left - 25)
       .attr('x', -margin.top - 160)
-      .text(`${viewByPercentage ? 'Percent' : 'Rating'}`);
+      .text('Percent');
 
     // Change Ticks to Percent
     const ChartType = 'D3Chart';
 
-    if (viewByPercentage) { TickChange(ChartType) }
+    TickChange(ChartType)
     // Generates the actual line
     const line = d3
       .line()
