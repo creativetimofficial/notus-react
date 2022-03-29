@@ -59,7 +59,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
     svg
       .append('g')
       .attr('transform', `translate(0,${height - margin.bottom / 1.4})`)
-      .attr('class', 'd3-chart__datesX')
+      .attr('class', 'd3-chart__dates-x')
       .call(
         d3.axisBottom(x).ticks(tickCount).tickFormat(d3.timeFormat('%b %d')),
       );
@@ -72,7 +72,7 @@ function D3Chart({ displayData, colorMapping, measureInfo }) {
       .domain([0, 100])
       .range([height - margin.bottom, 0]);
 
-    svg.append('g').attr('class', 'd3-chart__ratingY').call(d3.axisLeft(y));
+    svg.append('g').attr('class', 'd3-chart__rating-y').call(d3.axisLeft(y));
 
     // Grid
     // gridlines in x axis function
