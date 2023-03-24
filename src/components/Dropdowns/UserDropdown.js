@@ -50,7 +50,7 @@ const UserDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Action
+          عمل
         </a>
         <a
           href="#pablo"
@@ -59,7 +59,7 @@ const UserDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Another action
+          یک عمل دیگر
         </a>
         <a
           href="#pablo"
@@ -68,7 +68,7 @@ const UserDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Something else here
+          چیز دیگری در اینحا
         </a>
         <div className="h-0 my-2 border border-solid border-blueGray-100" />
         <a
@@ -78,7 +78,7 @@ const UserDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Seprated link
+          لینک جدا
         </a>
       </div>
     </>

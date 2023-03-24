@@ -27,7 +27,7 @@ const PagesDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        Demo Pages
+        صفحات دمو
       </a>
       <div
         ref={popoverDropdownRef}
@@ -41,7 +41,7 @@ const PagesDropdown = () => {
             "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
           }
         >
-          Admin Layout
+          طرح‌بندی ادمین
         </span>
         <Link
           to="/admin/dashboard"
@@ -49,7 +49,7 @@ const PagesDropdown = () => {
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
         >
-          Dashboard
+          داشبورد
         </Link>
         <Link
           to="/admin/settings"
@@ -57,7 +57,7 @@ const PagesDropdown = () => {
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
         >
-          Settings
+          تنظیمات
         </Link>
         <Link
           to="/admin/tables"
@@ -65,7 +65,7 @@ const PagesDropdown = () => {
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
         >
-          Tables
+          جداول
         </Link>
         <Link
           to="/admin/maps"
@@ -73,7 +73,7 @@ const PagesDropdown = () => {
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
         >
-          Maps
+          نقشه‌ها
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
         <span
@@ -81,7 +81,7 @@ const PagesDropdown = () => {
             "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
           }
         >
-          Auth Layout
+          Auth طرح‌بندی
         </span>
         <Link
           to="/auth/login"
@@ -89,7 +89,7 @@ const PagesDropdown = () => {
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
         >
-          Login
+          ورود
         </Link>
         <Link
           to="/auth/register"
@@ -97,7 +97,7 @@ const PagesDropdown = () => {
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
         >
-          Register
+          ثبت‌نام
         </Link>
         <div className="h-0 mx-4 my-2 border border-solid border-blueGray-100" />
         <span
@@ -105,7 +105,7 @@ const PagesDropdown = () => {
             "text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"
           }
         >
-          No Layout
+          بدون طرح‌بندی
         </span>
         <Link
           to="/landing"
@@ -113,7 +113,7 @@ const PagesDropdown = () => {
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
         >
-          Landing
+          لندینگ
         </Link>
         <Link
           to="/profile"
@@ -121,7 +121,7 @@ const PagesDropdown = () => {
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
         >
-          Profile
+          پروفایل
         </Link>
       </div>
     </>

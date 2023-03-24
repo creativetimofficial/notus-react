@@ -42,7 +42,7 @@ const NotificationDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Action
+          عمل
         </a>
         <a
           href="#pablo"
@@ -51,7 +51,7 @@ const NotificationDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Another action
+          یک عمل دیگر
         </a>
         <a
           href="#pablo"
@@ -60,7 +60,7 @@ const NotificationDropdown = () => {
           }
           onClick={(e) => e.preventDefault()}
         >
-          Something else here
+          چیز دیگری در اینجا
         </a>
       </div>
     </>

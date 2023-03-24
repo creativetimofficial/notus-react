@@ -14,11 +14,12 @@ export default function Index() {
           <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
             <div className="pt-32 sm:pt-0">
               <h2 className="font-semibold text-4xl text-blueGray-600">
-                Notus React - A beautiful extension for Tailwind CSS.
+                Notus React - لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                صنعت
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                Notus React is Free and Open Source. It does not change any of
-                the CSS from{" "}
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                استفاده از طراحان گرافیک است، چاپگرها و{" "}
                 <a
                   href="https://tailwindcss.com/?ref=creativetim"
                   className="text-blueGray-600"
@@ -26,8 +27,8 @@ export default function Index() {
                 >
                   Tailwind CSS
                 </a>
-                . It features multiple HTML elements and it comes with dynamic
-                components for ReactJS, Vue and Angular.
+                . لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                با استفاده از طراحان گرافیک است، چاپگرها و
               </p>
               <div className="mt-12">
                 <a
@@ -35,14 +36,14 @@ export default function Index() {
                   target="_blank"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                 >
-                  Get started
+                  شروع کنید{" "}
                 </a>
                 <a
                   href="https://github.com/creativetimofficial/notus-react?ref=nr-index"
                   className="github-star ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                   target="_blank"
                 >
-                  Github Star
+                  ستاره گیت‌هاب
                 </a>
               </div>
             </div>
@@ -98,13 +99,12 @@ export default function Index() {
                     ></polygon>
                   </svg>
                   <h4 className="text-xl font-bold text-white">
-                    Great for your awesome project
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت{" "}
                   </h4>
                   <p className="text-md font-light mt-2 text-white">
-                    Putting together a page has never been easier than matching
-                    together pre-made components. From landing pages
-                    presentation to login areas, you can easily customise and
-                    built your pages.
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                    با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
+                    و مجله در ستون و سطرآنچنان که
                   </p>
                 </blockquote>
               </div>
@@ -119,11 +119,10 @@ export default function Index() {
                         <i className="fas fa-sitemap"></i>
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
-                        CSS Components
+                        کامپوننت‌های CSS
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                        Notus React comes with a huge number of Fully Coded CSS
-                        components.
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                       </p>
                     </div>
                   </div>
@@ -133,11 +132,10 @@ export default function Index() {
                         <i className="fas fa-drafting-compass"></i>
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
-                        JavaScript Components
+                        کامپوننت‌های JavaScript
                       </h6>
                       <p className="mb-4 text-blueGray-500">
-                        We also feature many dynamic components for React,
-                        NextJS, Vue and Angular.
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                       </p>
                     </div>
                   </div>
@@ -148,10 +146,10 @@ export default function Index() {
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-newspaper"></i>
                       </div>
-                      <h6 className="text-xl mb-1 font-semibold">Pages</h6>
+                      <h6 className="text-xl mb-1 font-semibold">صفحات</h6>
                       <p className="mb-4 text-blueGray-500">
-                        This extension also comes with 3 sample pages. They are
-                        fully coded so you can start working instantly.
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و
                       </p>
                     </div>
                   </div>
@@ -160,12 +158,9 @@ export default function Index() {
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-file-alt"></i>
                       </div>
-                      <h6 className="text-xl mb-1 font-semibold">
-                        Documentation
-                      </h6>
+                      <h6 className="text-xl mb-1 font-semibold">مستند سازی</h6>
                       <p className="mb-4 text-blueGray-500">
-                        Built by developers for developers. You will love how
-                        easy is to to work with Notus React.
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
                       </p>
                     </div>
                   </div>
@@ -182,37 +177,37 @@ export default function Index() {
                 <i className="fas fa-sitemap text-xl"></i>
               </div>
               <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                CSS Components
+                کامپوننت‌های CSS
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                Every element that you need in a product comes built in as a
-                component. All components fit perfectly with each other and can
-                have different colours.
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان که
               </p>
               <div className="block pb-6">
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Buttons
+                  دکمه‌ها
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Inputs
+                  ورودی‌ها
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Labels
+                  برچسب‌ها
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Menus
+                  منو
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
                   Navbars
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Pagination
+                  پجینیشن
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Progressbars
+                  نوار پیشرفت
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Typography
+                  تایپو گرافی
                 </span>
               </div>
               <a
@@ -220,7 +215,7 @@ export default function Index() {
                 target="_blank"
                 className="font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150"
               >
-                View All{" "}
+                تماشای همه{" "}
                 <i className="fa fa-angle-double-right ml-1 leading-relaxed"></i>
               </a>
             </div>
@@ -366,41 +361,38 @@ export default function Index() {
                 <i className="fas fa-drafting-compass text-xl"></i>
               </div>
               <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                Javascript Components
+                کامپوننت‌های Javascript
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                In order to create a great User Experience some components
-                require JavaScript. In this way you can manipulate the elements
-                on the page and give more options to your users.
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که 
               </p>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                We created a set of Components that are dynamic and come to help
-                you.
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت 
               </p>
               <div className="block pb-6">
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Alerts
+                  هشدارها
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Dropdowns
+                  دراپ داون
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Menus
+                  منو
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Modals
+                  مدال‌ها
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Navbars
+                  نوار بالایی
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Popovers
+                  ضرب و المثل‌ها
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Tabs
+                  تب‌ها
                 </span>
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
-                  Tooltips
+                  تول‌تیپ‌ها
                 </span>
               </div>
               <a
@@ -408,7 +400,7 @@ export default function Index() {
                 target="_blank"
                 className="font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150"
               >
-                View all{" "}
+                تماشای همه{" "}
                 <i className="fa fa-angle-double-right ml-1 leading-relaxed"></i>
               </a>
             </div>
@@ -423,13 +415,10 @@ export default function Index() {
                   <i className="fas fa-file-alt text-xl"></i>
                 </div>
                 <h3 className="text-3xl font-semibold">
-                  Complex Documentation
+                  اسناد پیچیده
                 </h3>
                 <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                  This extension comes a lot of fully coded examples that help
-                  you get started faster. You can adjust the colors and also the
-                  programming language. You can change the text and images and
-                  you're good to go.
+             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و 
                 </p>
                 <ul className="list-none mt-6">
                   <li className="py-2">
@@ -441,8 +430,7 @@ export default function Index() {
                       </div>
                       <div>
                         <h4 className="text-blueGray-500">
-                          Built by Developers for Developers
-                        </h4>
+لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت                         </h4>
                       </div>
                     </div>
                   </li>
@@ -455,8 +443,7 @@ export default function Index() {
                       </div>
                       <div>
                         <h4 className="text-blueGray-500">
-                          Carefully crafted code for Components
-                        </h4>
+لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت                         </h4>
                       </div>
                     </div>
                   </li>
@@ -469,7 +456,7 @@ export default function Index() {
                       </div>
                       <div>
                         <h4 className="text-blueGray-500">
-                          Dynamic Javascript Components
+                          پویا Javascript کامپوننت‌های
                         </h4>
                       </div>
                     </div>
@@ -494,11 +481,9 @@ export default function Index() {
 
         <div className="justify-center text-center flex flex-wrap mt-24">
           <div className="w-full md:w-6/12 px-12 md:px-4">
-            <h2 className="font-semibold text-4xl">Beautiful Example Pages</h2>
+            <h2 className="font-semibold text-4xl">صفحات مثال زیبا</h2>
             <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-500">
-              Notus React is a completly new product built using our past
-              experience in web templates. Take the examples we made for you and
-              start playing with them.
+ لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و 
             </p>
           </div>
         </div>
@@ -511,7 +496,7 @@ export default function Index() {
               <div className="flex flex-wrap">
                 <div className="w-full lg:w-4/12 px-4">
                   <h5 className="text-xl font-semibold pb-4 text-center">
-                    Login Page
+                    صفحه‌ی ورود
                   </h5>
                   <Link to="/auth/login">
                     <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
@@ -526,7 +511,7 @@ export default function Index() {
 
                 <div className="w-full lg:w-4/12 px-4">
                   <h5 className="text-xl font-semibold pb-4 text-center">
-                    Profile Page
+                    صفحه‌ی کاربر
                   </h5>
                   <Link to="/profile">
                     <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
@@ -541,7 +526,7 @@ export default function Index() {
 
                 <div className="w-full lg:w-4/12 px-4">
                   <h5 className="text-xl font-semibold pb-4 text-center">
-                    Landing Page
+                    صفحه‌ی ورود
                   </h5>
                   <Link to="/landing">
                     <div className="hover:-mt-4 relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg ease-linear transition-all duration-150">
@@ -567,10 +552,10 @@ export default function Index() {
                 <i className="fas fa-code-branch text-xl"></i>
               </div>
               <h3 className="text-3xl mb-2 font-semibold leading-normal text-white">
-                Open Source
+                منبع باز
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-400">
-                Since{" "}
+                از{" "}
                 <a
                   href="https://tailwindcss.com/?ref=creativetim"
                   className="text-blueGray-300"
@@ -578,20 +563,17 @@ export default function Index() {
                 >
                   Tailwind CSS
                 </a>{" "}
-                is an open source project we wanted to continue this movement
-                too. You can give this version a try to feel the design and also
-                test the quality of the code!
+           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که 
               </p>
               <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-400">
-                Get it free on Github and please help us spread the news with a
-                Star!
+             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و 
               </p>
               <a
                 href="https://github.com/creativetimofficial/notus-react?ref=nr-index"
                 target="_blank"
                 className="github-star mt-4 inline-block text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
               >
-                Github Star
+                ستاره‌ گیت‌هاب
               </a>
             </div>
 
@@ -632,12 +614,10 @@ export default function Index() {
                 </span>
               </p>
               <h3 className="font-semibold text-3xl">
-                Do you love this Starter Kit?
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت 
               </h3>
               <p className="text-blueGray-500 text-lg leading-relaxed mt-4 mb-4">
-                Cause if you do, it can be yours now. Hit the buttons below to
-                navigate to get the Free version for your next project. Build a
-                new web app or give an old project a new look!
+         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که 
               </p>
               <div className="sm:block flex flex-col mt-10">
                 <a
@@ -645,7 +625,7 @@ export default function Index() {
                   target="_blank"
                   className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-2 bg-lightBlue-500 active:bg-lightBlue-600 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150"
                 >
-                  Get started
+                  شروع کنید
                 </a>
                 <a
                   href="https://github.com/creativetimofficial/notus-react?ref=nr-index"
@@ -653,7 +633,7 @@ export default function Index() {
                   className="github-star sm:ml-1 text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-700 active:bg-blueGray-600 uppercase text-sm shadow hover:shadow-lg"
                 >
                   <i className="fab fa-github text-lg mr-1"></i>
-                  <span>Help With a Star</span>
+                  <span>به ما ستاره دهید</span>
                 </a>
               </div>
               <div className="text-center mt-16"></div>
