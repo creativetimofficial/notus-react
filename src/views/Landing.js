@@ -29,12 +29,10 @@ export default function Landing() {
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
-                    Your story starts with us.
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت 
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
-                    This is a simple example of a Landing Page you can build
-                    using Notus React. It features multiple CSS components based
-                    on the Tailwind CSS design system.
+لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که 
                   </p>
                 </div>
               </div>
@@ -72,8 +70,7 @@ export default function Landing() {
                     </div>
                     <h6 className="text-xl font-semibold">Awarded Agency</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Divide details about your product or agency work into
-                      parts. A paragraph describing a feature will be enough.
+      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و 
                     </p>
                   </div>
                 </div>
@@ -85,10 +82,9 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
                       <i className="fas fa-retweet"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Free Revisions</h6>
+                    <h6 className="text-xl font-semibold">بازدید رایگان</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Keep you user engaged by providing meaningful information.
-                      Remember that by this time, the user is curious.
+           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و 
                     </p>
                   </div>
                 </div>
@@ -100,10 +96,9 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
                       <i className="fas fa-fingerprint"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Verified Company</h6>
+                    <h6 className="text-xl font-semibold">تائید شرکت</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Write a few lines about each one. A paragraph describing a
-                      feature will be enough. Keep you user engaged!
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و 
                     </p>
                   </div>
                 </div>
@@ -116,21 +111,15 @@ export default function Landing() {
                   <i className="fas fa-user-friends text-xl"></i>
                 </div>
                 <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                  Working with us is a pleasure
-                </h3>
+لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  Don't let your uses guess by attaching tooltips and popoves to
-                  any element. Just make sure you enable them first via
-                  JavaScript.
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و 
                 </p>
                 <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
-                  The kit comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and you're
-                  good to go. Just make sure you enable them first via
-                  JavaScript.
+             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که 
                 </p>
                 <Link to="/" className="font-bold text-blueGray-700 mt-8">
-                  Check Notus React!
+                  چک کنید Notus ریکت!
                 </Link>
               </div>
 
@@ -154,12 +143,10 @@ export default function Landing() {
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Top Notch Services
+                     بهترین سرویس‌ها
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      The Arctic Ocean freezes every winter and much of the
-                      sea-ice then thaws every summer, and that process will
-                      continue whatever happens.
+               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که 
                     </p>
                   </blockquote>
                 </div>
@@ -203,11 +190,9 @@ export default function Landing() {
                   <div className="text-lightBlue-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-lightBlue-300">
                     <i className="fas fa-rocket text-xl"></i>
                   </div>
-                  <h3 className="text-3xl font-semibold">A growing company</h3>
+                  <h3 className="text-3xl font-semibold">شرکت روبه رشد</h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                    The extension comes with three pre-built pages to help you
-                    get started faster. You can change the text and images and
-                    you're good to go.
+                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که 
                   </p>
                   <ul className="list-none mt-6">
                     <li className="py-2">
@@ -219,7 +204,7 @@ export default function Landing() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Carefully crafted components
+                           کامپوننت‌های عالی
                           </h4>
                         </div>
                       </div>
@@ -233,7 +218,7 @@ export default function Landing() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Amazing page examples
+                           صفحه‌ی مثال‌های زیبا
                           </h4>
                         </div>
                       </div>
@@ -247,7 +232,7 @@ export default function Landing() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Dynamic components
+                            کامپوننت‌های پویا
                           </h4>
                         </div>
                       </div>
@@ -263,11 +248,9 @@ export default function Landing() {
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center text-center mb-24">
               <div className="w-full lg:w-6/12 px-4">
-                <h2 className="text-4xl font-semibold">Here are our heroes</h2>
+                <h2 className="text-4xl font-semibold">قهرمانان ما اینجا هستند</h2>
                 <p className="text-lg leading-relaxed m-4 text-blueGray-500">
-                  According to the National Oceanic and Atmospheric
-                  Administration, Ted, Scambos, NSIDClead scentist, puts the
-                  potentially record maximum.
+               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که 
                 </p>
               </div>
             </div>
@@ -280,10 +263,9 @@ export default function Landing() {
                     className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Ryan Tompson</h5>
+                    <h5 className="text-xl font-bold">رایان تامپسون</h5>
                     <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      Web Developer
-                    </p>
+وب دولوپر                    </p>
                     <div className="mt-6">
                       <button
                         className="bg-lightBlue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
@@ -315,9 +297,9 @@ export default function Landing() {
                     className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Romina Hadid</h5>
+                    <h5 className="text-xl font-bold">رومینا حدید</h5>
                     <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      Marketing Specialist
+                      متخصص مارکتینگ
                     </p>
                     <div className="mt-6">
                       <button
@@ -344,9 +326,9 @@ export default function Landing() {
                     className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Alexa Smith</h5>
+                    <h5 className="text-xl font-bold">الکسا اسمیت</h5>
                     <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      UI/UX Designer
+                      UI/UX طراح
                     </p>
                     <div className="mt-6">
                       <button
@@ -379,9 +361,9 @@ export default function Landing() {
                     className="shadow-lg rounded-full mx-auto max-w-120-px"
                   />
                   <div className="pt-6 text-center">
-                    <h5 className="text-xl font-bold">Jenna Kardi</h5>
+                    <h5 className="text-xl font-bold">جنا کندی</h5>
                     <p className="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
-                      Founder and CEO
+                      پایه‌گذار و CEO
                     </p>
                     <div className="mt-6">
                       <button
@@ -441,12 +423,9 @@ export default function Landing() {
             <div className="flex flex-wrap text-center justify-center">
               <div className="w-full lg:w-6/12 px-4">
                 <h2 className="text-4xl font-semibold text-white">
-                  Build something
-                </h2>
+چیزی بسازید                </h2>
                 <p className="text-lg leading-relaxed mt-4 mb-4 text-blueGray-400">
-                  Put the potentially record low maximum sea ice extent tihs
-                  year down to low ice. According to the National Oceanic and
-                  Atmospheric Administration, Ted, Scambos.
+              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و 
                 </p>
               </div>
             </div>
@@ -456,11 +435,9 @@ export default function Landing() {
                   <i className="fas fa-medal text-xl"></i>
                 </div>
                 <h6 className="text-xl mt-5 font-semibold text-white">
-                  Excelent Services
-                </h6>
+عالی‌ترین سرویس‌ها                </h6>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و 
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -468,11 +445,10 @@ export default function Landing() {
                   <i className="fas fa-poll text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Grow your market
+                  مارکت خود را بزرگ کنید
                 </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و 
                 </p>
               </div>
               <div className="w-full lg:w-3/12 px-4 text-center">
@@ -480,11 +456,9 @@ export default function Landing() {
                   <i className="fas fa-lightbulb text-xl"></i>
                 </div>
                 <h5 className="text-xl mt-5 font-semibold text-white">
-                  Launch time
-                </h5>
+وقت نهار                </h5>
                 <p className="mt-2 mb-4 text-blueGray-400">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
+          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و 
                 </p>
               </div>
             </div>
@@ -497,18 +471,17 @@ export default function Landing() {
                 <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200">
                   <div className="flex-auto p-5 lg:p-10">
                     <h4 className="text-2xl font-semibold">
-                      Want to work with us?
+                     دوست دارید با ما کار کنید؟
                     </h4>
                     <p className="leading-relaxed mt-1 mb-4 text-blueGray-500">
-                      Complete this form and we will get back to you in 24
-                      hours.
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت 
                     </p>
                     <div className="relative w-full mb-3 mt-8">
                       <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlFor="full-name"
                       >
-                        Full Name
+                        نام کامل
                       </label>
                       <input
                         type="text"
@@ -522,7 +495,7 @@ export default function Landing() {
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlFor="email"
                       >
-                        Email
+                        ایمیل
                       </label>
                       <input
                         type="email"
@@ -536,7 +509,7 @@ export default function Landing() {
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                         htmlFor="message"
                       >
-                        Message
+                        پیام
                       </label>
                       <textarea
                         rows="4"
@@ -550,7 +523,7 @@ export default function Landing() {
                         className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                         type="button"
                       >
-                        Send Message
+                        ارسال پیام
                       </button>
                     </div>
                   </div>

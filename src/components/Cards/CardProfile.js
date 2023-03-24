@@ -23,56 +23,52 @@ export default function CardProfile() {
                   <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                     22
                   </span>
-                  <span className="text-sm text-blueGray-400">Friends</span>
+                  <span className="text-sm text-blueGray-400">دوستان</span>
                 </div>
                 <div className="mr-4 p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                     10
                   </span>
-                  <span className="text-sm text-blueGray-400">Photos</span>
+                  <span className="text-sm text-blueGray-400">تصاویر</span>
                 </div>
                 <div className="lg:mr-4 p-3 text-center">
                   <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                     89
                   </span>
-                  <span className="text-sm text-blueGray-400">Comments</span>
+                  <span className="text-sm text-blueGray-400">نظرات</span>
                 </div>
               </div>
             </div>
           </div>
           <div className="text-center mt-12">
             <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-              Jenna Stones
+              جنا استون
             </h3>
             <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
               <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
-              Los Angeles, California
+              لس آنجلس، کالیفرنیا
             </div>
             <div className="mb-2 text-blueGray-600 mt-10">
               <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-              Solution Manager - Creative Tim Officer
+              مدیر - تیم کرسی
             </div>
             <div className="mb-2 text-blueGray-600">
               <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-              University of Computer Science
+              دانشگاه علوم داده
             </div>
           </div>
           <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
             <div className="flex flex-wrap justify-center">
               <div className="w-full lg:w-9/12 px-4">
                 <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                  An artist of considerable range, Jenna the name taken by
-                  Melbourne-raised, Brooklyn-based Nick Murphy writes, performs
-                  and records all of his own music, giving it a warm, intimate
-                  feel with a solid groove structure. An artist of considerable
-                  range.
+              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و 
                 </p>
                 <a
                   href="#pablo"
                   className="font-normal text-lightBlue-500"
                   onClick={(e) => e.preventDefault()}
                 >
-                  Show more
+                  تماشای بیشتر
                 </a>
               </div>
             </div>

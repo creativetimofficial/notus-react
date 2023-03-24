@@ -17,7 +17,7 @@ export default function Navbar(props) {
               className="text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
               to="/"
             >
-              Notus React
+              Notus ریکت
             </Link>
             <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
@@ -41,7 +41,7 @@ export default function Navbar(props) {
                   href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus?ref=nr-auth-navbar"
                 >
                   <i className="lg:text-blueGray-200 text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2" />{" "}
-                  Docs
+                  داکیومنت
                 </a>
               </li>
             </ul>
@@ -56,7 +56,7 @@ export default function Navbar(props) {
                   target="_blank"
                 >
                   <i className="lg:text-blueGray-200 text-blueGray-400 fab fa-facebook text-lg leading-lg " />
-                  <span className="lg:hidden inline-block ml-2">Share</span>
+                  <span className="lg:hidden inline-block ml-2">نشر دهید</span>
                 </a>
               </li>
 
@@ -87,7 +87,7 @@ export default function Navbar(props) {
                   className="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
                   type="button"
                 >
-                  <i className="fas fa-arrow-alt-circle-down"></i> Download
+                  <i className="fas fa-arrow-alt-circle-down"></i> دانلود
                 </button>
               </li>
             </ul>
