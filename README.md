@@ -49,6 +49,10 @@ Here are all the page from the project:
   - [Landing](https://demos.creative-tim.com/notus-react/landing?ref=nr-github-readme)
   - [Profile](https://demos.creative-tim.com/notus-react/profile?ref=nr-github-readme)
 
+### Hosting Firebase
+
+url https://data-fox.web.app/
+
 
 ### Fully Coded Components
 
