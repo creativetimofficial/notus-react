@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: FirebaseExtended/action-hosting-deploy@v1.2.0
+    - uses: FirebaseExtended/action-hosting-deploy@v0
       with:
         firebase_token: ${{ secrets.FIREBASE_TOKEN }}
         project_id: data-fox
