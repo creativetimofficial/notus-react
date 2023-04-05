@@ -1,3 +1,21 @@
+name: Deploy to Firebase Hosting
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: FirebaseExtended/action-hosting-deploy@v1
+      with:
+        firebase_token: ${{ secrets.FIREBASE_TOKEN }}
+        project_id: data-fox
+        site: https://data-fox.web.app
+
+
 name: Autocloser
 on: [issues]
 jobs:
