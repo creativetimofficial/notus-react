@@ -11,7 +11,7 @@ jobs:
     - uses: actions/checkout@v2
     - uses: FirebaseExtended/action-hosting-deploy@v0
       with:
-        firebase_token: ${{ secrets.FIREBASE_TOKEN }}
+        firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
         project_id: data-fox
         site: https://data-fox.web.app
 
