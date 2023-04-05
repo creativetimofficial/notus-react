@@ -32,9 +32,9 @@ export default function Landing() {
                     Your story starts with us.
                   </h1>
                   <p className="mt-4 text-lg text-blueGray-200">
-                    This is a simple example of a Landing Page you can build
-                    using Notus React. It features multiple CSS components based
-                    on the Tailwind CSS design system.
+                    Welcome to Datafox! We are a professional data services
+                    provider offering data warehouse, data lake, and BI solutions
+                    to help businesses optimize our data management and analysis.
                   </p>
                 </div>
               </div>
@@ -72,8 +72,9 @@ export default function Landing() {
                     </div>
                     <h6 className="text-xl font-semibold">Awarded Agency</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Divide details about your product or agency work into
-                      parts. A paragraph describing a feature will be enough.
+                    We are proud of our exceptional track record of delivering 
+                    outstanding results for our clients, which has earned us recognition
+                     and accolades from prestigious industry organizations.
                     </p>
                   </div>
                 </div>
@@ -85,10 +86,12 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400">
                       <i className="fas fa-retweet"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Free Revisions</h6>
+                    <h6 className="text-xl font-semibold">Vision</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Keep you user engaged by providing meaningful information.
-                      Remember that by this time, the user is curious.
+                        Our vision is to be a trusted partner to our clients, 
+                        striving to build lasting relationships based on trust, 
+                        respect, and collaboration, while providing them with 
+                        the highest level of service and expertise to help them grow and thrive.
                     </p>
                   </div>
                 </div>
@@ -100,10 +103,12 @@ export default function Landing() {
                     <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400">
                       <i className="fas fa-fingerprint"></i>
                     </div>
-                    <h6 className="text-xl font-semibold">Verified Company</h6>
+                    <h6 className="text-xl font-semibold">Security</h6>
                     <p className="mt-2 mb-4 text-blueGray-500">
-                      Write a few lines about each one. A paragraph describing a
-                      feature will be enough. Keep you user engaged!
+                    Data security is a top priority for our agency, and we have implemented 
+                    rigorous measures to protect the confidentiality, integrity, and availability 
+                    of our clients' data. With our strong commitment to data security, our clients 
+                    can trust that their sensitive information is in safe hands.
                     </p>
                   </div>
                 </div>
@@ -119,18 +124,17 @@ export default function Landing() {
                   Working with us is a pleasure
                 </h3>
                 <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                  Don't let your uses guess by attaching tooltips and popoves to
-                  any element. Just make sure you enable them first via
-                  JavaScript.
+                  At Datafox, we recognize that each of our clients is unique 
+                  and has distinct needs and objectives. Therefore, we take the 
+                  time to carefully listen to them to gain a thorough understanding 
+                  of their requirements. This enables us to provide bespoke solutions 
+                  that are tailored to their specific goals, ensuring maximum satisfaction.
                 </p>
                 <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-600">
-                  The kit comes with three pre-built pages to help you get
-                  started faster. You can change the text and images and you're
-                  good to go. Just make sure you enable them first via
-                  JavaScript.
+                  Our commitment to exceptional customer service is a cornerstone of our company. 
                 </p>
                 <Link to="/" className="font-bold text-blueGray-700 mt-8">
-                  Check Notus React!
+                  Contact us now!
                 </Link>
               </div>
 
@@ -154,12 +158,12 @@ export default function Landing() {
                       ></polygon>
                     </svg>
                     <h4 className="text-xl font-bold text-white">
-                      Top Notch Services
+                      Top Datafox Services
                     </h4>
                     <p className="text-md font-light mt-2 text-white">
-                      The Arctic Ocean freezes every winter and much of the
-                      sea-ice then thaws every summer, and that process will
-                      continue whatever happens.
+                      Datafox provides cutting-edge data solutions including 
+                      data warehousing, data lake, and business intelligence 
+                      services to help businesses make informed decisions.
                     </p>
                   </blockquote>
                 </div>
@@ -205,9 +209,8 @@ export default function Landing() {
                   </div>
                   <h3 className="text-3xl font-semibold">A growing company</h3>
                   <p className="mt-4 text-lg leading-relaxed text-blueGray-500">
-                    The extension comes with three pre-built pages to help you
-                    get started faster. You can change the text and images and
-                    you're good to go.
+                  Datafox is rapidly growing and expanding its reach, delivering 
+                  cutting-edge data solutions to businesses across various industries.
                   </p>
                   <ul className="list-none mt-6">
                     <li className="py-2">
@@ -219,7 +222,7 @@ export default function Landing() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Carefully crafted components
+                            Security platform
                           </h4>
                         </div>
                       </div>
@@ -228,12 +231,12 @@ export default function Landing() {
                       <div className="flex items-center">
                         <div>
                           <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-lightBlue-600 bg-lightBlue-200 mr-3">
-                            <i className="fab fa-html5"></i>
+                            <i className="fa fa-trophy"></i>
                           </span>
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Amazing page examples
+                            Multi-services
                           </h4>
                         </div>
                       </div>
@@ -247,7 +250,7 @@ export default function Landing() {
                         </div>
                         <div>
                           <h4 className="text-blueGray-500">
-                            Dynamic components
+                            Dynamic process
                           </h4>
                         </div>
                       </div>
@@ -258,7 +261,7 @@ export default function Landing() {
             </div>
           </div>
         </section>
-
+{/* 
         <section className="pt-20 pb-48">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center text-center mb-24">
@@ -414,7 +417,7 @@ export default function Landing() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="pb-20 relative block bg-blueGray-800">
           <div

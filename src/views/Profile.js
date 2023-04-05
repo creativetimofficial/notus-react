@@ -50,7 +50,7 @@ export default function Profile() {
                     <div className="relative">
                       <img
                         alt="..."
-                        src={require("assets/img/team-2-800x800.jpg").default}
+                        src={require("assets/img/team-5-800x800.jpg").default}
                         className="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
                       />
                     </div>
@@ -96,30 +96,40 @@ export default function Profile() {
                 </div>
                 <div className="text-center mt-12">
                   <h3 className="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                    Jenna Stones
+                    Tran Nguyen Manh
                   </h3>
                   <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
                     <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
-                    Los Angeles, California
+                    Ho Chi Minh, Vietnam
                   </div>
                   <div className="mb-2 text-blueGray-600 mt-10">
                     <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-                    Solution Manager - Creative Tim Officer
+                    Founder - Datafox Officer
                   </div>
                   <div className="mb-2 text-blueGray-600">
                     <i className="fas fa-university mr-2 text-lg text-blueGray-400"></i>
-                    University of Computer Science
+                    University of Technology and Education
                   </div>
                 </div>
                 <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
                   <div className="flex flex-wrap justify-center">
                     <div className="w-full lg:w-9/12 px-4">
                       <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                        An artist of considerable range, Jenna the name taken by
-                        Melbourne-raised, Brooklyn-based Nick Murphy writes,
-                        performs and records all of his own music, giving it a
-                        warm, intimate feel with a solid groove structure. An
-                        artist of considerable range.
+                      As a dedicated and accomplished Data Engineer, 
+                      having graduated with honors from the Data Engineering 
+                      program at the prestigious Ho Chi Minh City University 
+                      of Technology and Education. With a passion for data-driven 
+                      solutions, he has gained extensive experience in managing and 
+                      optimizing complex data systems, as well as designing and 
+                      implementing data architectures and pipelines.
+
+                      His expertise in the field has enabled him to deliver high-quality, 
+                      data-driven solutions for a diverse range of organizations. 
+                      His deep understanding of data management and analysis, coupled 
+                      with his ability to work collaboratively with clients and stakeholders, 
+                      has earned him a reputation as a trusted and reliable partner in the 
+                      industry. With Tran Nguyen Manh on your team, you can be confident 
+                      that your data will be in expert hands.
                       </p>
                       <a
                         href="#pablo"
