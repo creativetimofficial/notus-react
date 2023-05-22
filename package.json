@@ -1,24 +1,24 @@
 {
   "name": "notus-react",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Notus React - A free Tailwind CSS and React UI Kit and Admin by Creative Tim.",
   "repository": "https://github.com/creativetimofficial/notus-react",
   "license": "MIT",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "5.15.3",
-    "@popperjs/core": "2.9.1",
-    "@tailwindcss/forms": "0.2.1",
-    "autoprefixer": "10.2.5",
+    "@fortawesome/fontawesome-free": "6.4.0",
+    "@popperjs/core": "2.11.7",
+    "@tailwindcss/forms": "0.5.3",
+    "autoprefixer": "10.4.14",
     "chart.js": "2.9.4",
     "gulp": "4.0.2",
-    "gulp-append-prepend": "1.0.8",
-    "postcss": "8.2.8",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-router": "5.2.0",
-    "react-router-dom": "5.2.0",
-    "react-scripts": "4.0.3",
-    "tailwindcss": "2.0.4"
+    "gulp-append-prepend": "1.0.9",
+    "postcss": "8.4.23",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-router": "6.11.1",
+    "react-router-dom": "6.11.1",
+    "react-scripts": "5.0.1",
+    "tailwindcss": "2.2.19"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,6 +44,11 @@
     ]
   },
   "optionalDependencies": {
-    "typescript": "4.2.3"
+    "typescript": "5.0.4"
+  },
+  "overrides": {
+    "svgo": "3.0.2",
+    "chokidar": "3.5.3",
+    "fsevents": "2.3.2"
   }
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // components
 
@@ -16,19 +16,23 @@ export default function Auth() {
     <>
       <Navbar transparent />
       <main>
-        <section className="relative w-full h-full py-40 min-h-screen">
+        <section className="relative w-full h-full min-h-screen py-40">
           <div
-            className="absolute top-0 w-full h-full bg-blueGray-800 bg-no-repeat bg-full"
+            className="absolute top-0 w-full h-full bg-no-repeat bg-blueGray-800 bg-full"
             style={{
               backgroundImage:
-                "url(" + require("assets/img/register_bg_2.png").default + ")",
+                "url(" + require("assets/img/register_bg_2.png") + ")",
             }}
           ></div>
-          <Switch>
-            <Route path="/auth/login" exact component={Login} />
-            <Route path="/auth/register" exact component={Register} />
-            <Redirect from="/auth" to="/auth/login" />
-          </Switch>
+
+          <Routes>
+            <Route path="/login" exact element={<Login />} />
+            <Route path="/register" exact element={<Register />} />
+            <Route
+              path="/auth"
+              element={<Navigate to="/auth/login" replace />}
+            />
+          </Routes>
           <FooterSmall absolute />
         </section>
       </main>
